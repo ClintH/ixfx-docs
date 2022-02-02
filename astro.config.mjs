@@ -28,7 +28,12 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
   ],
   vite: {
     build: {
-      target: `esnext`
+      target: `esnext`,
+      // rollupOptions: {
+      //   external: [
+      //     'lit'
+      //   ]
+      // }
     },
     // resolve: {
     //   alias: {
@@ -40,12 +45,12 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
     //   }
     // },
     plugins: [
-      tsconfigPaths({root: `../`}),
-      alias({
-        entries: [
-          {find: `~/`, replacement: resolve(dirname(fileURLToPath(import.meta.url)), `../src/`)}
-        ]
-      }),
+      //tsconfigPaths({root: `../`}),
+      // alias({
+      //   entries: [
+      //     {find: `~/`, replacement: resolve(dirname(fileURLToPath(import.meta.url)), `../src/`)}
+      //   ]
+      // }),
       nodeResolve({
         extensions: [`.js`, `.ts`]
       })

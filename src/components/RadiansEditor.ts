@@ -5,12 +5,6 @@ import {Circles, Lines, Math as MathUtil} from 'ixfx/lib/geometry';
 import {themeChangeObservable} from 'ixfx/lib/dom';
 import {Svg, Palette} from 'ixfx/lib/visual';
 
-// import * as Svg from 'ixfx/src/visual/Svg';
-// import {Palette} from 'ixfx/src/visual/Palette';
-// import * as Lines from 'ixfx/src/geometry/Line';
-// import * as MathUtil from 'ixfx/src/geometry/Math';
-// import {themeChangeObservable} from 'ixfx/src/dom/index';
-
 export const tagName = `radians-editor`;
 
 export class RadiansEditor extends LitElement {

@@ -17,7 +17,7 @@ In some scenarios it can be useful to aggregate data over time, rather than look
 
 In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. The `Frequency` is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
 
-<FreqWeighted client:only />
+<FreqWeighted client:only="lit" />
 
 ## Usage
 
@@ -101,4 +101,4 @@ for (let i=0; i<msg.length; i++) {
 }
 ```
 
-<freq-letters client:only />
+<freq-letters client:only="lit" />

@@ -7,7 +7,7 @@ import {createAfter, createIn} from 'ixfx/lib/dom';
 import json5 from 'json5';
 
 // @ts-ignore
-window.degreeToRadian = degreeToRadian;
+window.degreeToRadian = MathUtil.degreeToRadian;
 
 document.querySelectorAll(`.arc`).forEach((el: HTMLInputElement) => {
   const id = el.id;

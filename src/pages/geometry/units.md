@@ -3,10 +3,9 @@ title: Units
 setup: |
   import {Markdown} from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
-  import RadiansEditor from '../../components/RadiansEditor';
+  import {RadiansEditor} from '../../components/RadiansEditor';
 ---
 
-<!-- <script type="module" src = {Astro.resolve('./arc.ts')} ></script> -->
 <style>
 radians-editor {
   --label-color: var(--theme-text-light);
@@ -21,4 +20,4 @@ An arc describes a segment of a circle.It is defined by its radius as well as th
 
 ## Radians
 
-<!-- <radians-editor width="500" height="300" client:only="lit" /> -->
+<radians-editor width="500" height="300"  />
