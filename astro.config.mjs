@@ -14,6 +14,7 @@ import alias from '@rollup/plugin-alias';
 
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
+  dist: './docs/',
   buildOptions: {
     site: `https://clinth.github.io/ixfx/`
   },
