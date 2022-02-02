@@ -160,6 +160,10 @@
 					<h2 class="nav-group-title astro-2ZZOV7A2">Modulation</h2>
 					<ul class="astro-2ZZOV7A2">
 						<li class="nav-link astro-2ZZOV7A2">
+								<a href="/ixfx-docs/modulation/introduction" aria-current="false" class="astro-2ZZOV7A2">
+									Intro
+								</a>
+							</li><li class="nav-link astro-2ZZOV7A2">
 								<a href="/ixfx-docs/modulation/envelope" aria-current="page" class="astro-2ZZOV7A2">
 									Envelope
 								</a>
@@ -237,9 +241,9 @@
 <li>All stages have an associated <em>level</em> or <em>amplitude</em>. Attack’s level is also known as the <em>initial level</em>, and decay’s level is also known as the <em>peak level</em>.</li>
 <li>All stages except <em>sustain</em> have a <em>duration</em>, how long they run for in milliseconds.</li>
 </ul><p>When a trigger happens (eg a synth key is pressed), the <em>attack</em> stage runs for its specified duration, after which the <em>decay</em> stage runs. The <em>sustain</em> stage runs for as long as the trigger is held. At any point when the key is released, the <em>release</em> stage runs.</p><p>As a stage progresses, it is essentially interpolating from its start to end point. Internally, each stage is modelled as running from 0 to 1, but this is scaled according to the levels you define.</p><p>Envelopes can also loop through the attack, decay and release stages whilst being triggered. In this case, the sustain stage is skipped.</p><p>In ixfx, interpolation for each stage happens using a simple curve, allowing for more expressive progressions with the <em>bend</em> parameter.</p><envelope-editor id="envEditor">undefined</envelope-editor><h2 id="why">Why?</h2><h2 id="playground">Playground</h2><p>The playground uses the settings from the envelope editor above. You can <em>trigger</em> the envelope, which will then run through its stages. Use <em>Trigger &amp; Hold</em> if you want to have the envelope hold at the sustain stage. <em>Release</em> allows a held envelope to continue on to the release stage.</p>
-<script type="module" src="../../assets/EnvelopeEditor.173e8051.js"></script>
+<script type="module" src="../../assets/EnvelopeEditor.77022e53.js"></script>
 <!-- <script type="module" src={Astro.resolve('../../../../../../../../src/modulation/Envelope.ts')}></script> -->
-<script type="module" src="../../assets/envelope.a51be487.js"></script>
+<script type="module" src="../../assets/envelope.378c8538.js"></script>
 
 
 <div class="toolbar astro-X6YZHRVK">

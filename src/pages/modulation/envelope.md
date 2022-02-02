@@ -3,7 +3,7 @@ title: Envelope
 setup: |
   import { Markdown } from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
-  import EnvelopePlay from './Envelope.astro';
+  import EnvelopePlay from './EnvelopePlay.astro';
 ---
 
 The notion of an _envelope_ is borrowed from [sound synthesis](https://en.wikipedia.org/wiki/Envelope_(music)). They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.
