@@ -16,7 +16,7 @@ import alias from '@rollup/plugin-alias';
 export default /** @type {import('astro').AstroUserConfig} */ ({
   dist: './docs/',
   buildOptions: {
-    site: `https://clinth.github.io/ixfx/`
+    site: `https://clinth.github.io/ixfx-docs/`
   },
   renderers: [
     // Enable the Preact renderer to support Preact JSX components.

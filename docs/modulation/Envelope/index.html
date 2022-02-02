@@ -44,12 +44,12 @@
 		
 
 <!-- Page Metadata -->
-<link rel="canonical" href="https://clinth.github.io/ixfx/modulation/envelope/">
+<link rel="canonical" href="https://clinth.github.io/ixfx-docs/modulation/envelope/">
 
 <!-- OpenGraph Tags -->
 <meta property="og:title" content="Envelope - ixfx docs">
 <meta property="og:type" content="article">
-<meta property="og:url" content="https://clinth.github.io/ixfx/modulation/envelope/">
+<meta property="og:url" content="https://clinth.github.io/ixfx-docs/modulation/envelope/">
 <meta property="og:locale" content="en_US">
 <meta property="og:image" content="https://github.com/clinth/ixfx/blob/main/assets/social/banner.jpg?raw=true">
 <meta property="og:image:alt" content="ixfx">
@@ -81,7 +81,7 @@
 
 
 
-<script type="module" src="../../assets/envelope.0fc5469b.js"></script>
+<script type="module" src="../../assets/envelope.9002474e.js"></script>
 
 
 </head>
@@ -149,7 +149,7 @@
 					<h2 class="nav-group-title astro-2ZZOV7A2">Docs</h2>
 					<ul class="astro-2ZZOV7A2">
 						<li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/./" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/./" aria-current="false" class="astro-2ZZOV7A2">
 									Introduction
 								</a>
 							</li>
@@ -160,7 +160,7 @@
 					<h2 class="nav-group-title astro-2ZZOV7A2">Modulation</h2>
 					<ul class="astro-2ZZOV7A2">
 						<li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/modulation/envelope" aria-current="page" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/modulation/envelope" aria-current="page" class="astro-2ZZOV7A2">
 									Envelope
 								</a>
 							</li>
@@ -171,11 +171,11 @@
 					<h2 class="nav-group-title astro-2ZZOV7A2">Data</h2>
 					<ul class="astro-2ZZOV7A2">
 						<li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/data/stateMachine" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/data/stateMachine" aria-current="false" class="astro-2ZZOV7A2">
 									State Machine
 								</a>
 							</li><li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/data/frequency" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/data/frequency" aria-current="false" class="astro-2ZZOV7A2">
 									Frequency
 								</a>
 							</li>
@@ -186,23 +186,23 @@
 					<h2 class="nav-group-title astro-2ZZOV7A2">Geometry</h2>
 					<ul class="astro-2ZZOV7A2">
 						<li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/geometry/units" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/geometry/units" aria-current="false" class="astro-2ZZOV7A2">
 									Units
 								</a>
 							</li><li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/geometry/point" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/geometry/point" aria-current="false" class="astro-2ZZOV7A2">
 									Point
 								</a>
 							</li><li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/geometry/arc" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/geometry/arc" aria-current="false" class="astro-2ZZOV7A2">
 									Arc
 								</a>
 							</li><li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/geometry/circle" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/geometry/circle" aria-current="false" class="astro-2ZZOV7A2">
 									Circle
 								</a>
 							</li><li class="nav-link astro-2ZZOV7A2">
-								<a href="/ixfx/geometry/grid" aria-current="false" class="astro-2ZZOV7A2">
+								<a href="/ixfx-docs/geometry/grid" aria-current="false" class="astro-2ZZOV7A2">
 									Grid
 								</a>
 							</li>
@@ -237,9 +237,9 @@
 <li>All stages have an associated <em>level</em> or <em>amplitude</em>. Attack’s level is also known as the <em>initial level</em>, and decay’s level is also known as the <em>peak level</em>.</li>
 <li>All stages except <em>sustain</em> have a <em>duration</em>, how long they run for in milliseconds.</li>
 </ul><p>When a trigger happens (eg a synth key is pressed), the <em>attack</em> stage runs for its specified duration, after which the <em>decay</em> stage runs. The <em>sustain</em> stage runs for as long as the trigger is held. At any point when the key is released, the <em>release</em> stage runs.</p><p>As a stage progresses, it is essentially interpolating from its start to end point. Internally, each stage is modelled as running from 0 to 1, but this is scaled according to the levels you define.</p><p>Envelopes can also loop through the attack, decay and release stages whilst being triggered. In this case, the sustain stage is skipped.</p><p>In ixfx, interpolation for each stage happens using a simple curve, allowing for more expressive progressions with the <em>bend</em> parameter.</p><envelope-editor id="envEditor">undefined</envelope-editor><h2 id="why">Why?</h2><h2 id="playground">Playground</h2><p>The playground uses the settings from the envelope editor above. You can <em>trigger</em> the envelope, which will then run through its stages. Use <em>Trigger &amp; Hold</em> if you want to have the envelope hold at the sustain stage. <em>Release</em> allows a held envelope to continue on to the release stage.</p>
-<script type="module" src="../../assets/EnvelopeEditor.c487b70a.js"></script>
+<script type="module" src="../../assets/EnvelopeEditor.04a40fee.js"></script>
 <!-- <script type="module" src={Astro.resolve('../../../../../../../../src/modulation/Envelope.ts')}></script> -->
-<script type="module" src="../../assets/envelope.bdabc99f.js"></script>
+<script type="module" src="../../assets/envelope.a52b8cea.js"></script>
 
 
 <div class="toolbar astro-X6YZHRVK">
