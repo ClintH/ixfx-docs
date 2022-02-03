@@ -3,8 +3,9 @@ title: Frequency
 setup: |
   import { Markdown } from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
-  import FreqLetters from './FreqLetters.ts';
+  import FreqLettersElement from './FreqLettersElement.ts';
   import FreqWeighted from './FreqWeighted.astro';
+  import CounterElement from './CounterElement.ts';
 ---
 
 The `Frequency` class keeps track of the number of times a certain value is 'seen'.
@@ -23,6 +24,8 @@ In the demo below, a weighted distribution of random numbers is produced. In thi
 
 The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
 
+### Adding and clearing
+
 ```js
 // Create an instance
 const freq = mutableFrequency();
@@ -40,19 +43,43 @@ Clear all data
 freq.clear();
 ```
 
+### Working with frequency
+
 Get the count of a specific group. Returns `undefined` if group is not found.
 
 ```js
 const apples = freq.frequencyOf(`apples`); // 2
 ```
 
-Get the groups and counts of each:
+It can be useful to work with the relative frequency rather than the absolute amount. For example, `apples` appears 40% of the time:
 
 ```js
-const data = freq.toArray();
+const apples = freq.relativeFrequencyOf(`apples`); // 0.4
+```
+
+To find the smallest, largest, average frequencies as well as the total frequency (ie. how many things have been added):
+
+```js
+const mma = freq.minMaxAvg(); // Returns {min, max, avg, total}
+console.log(`Average frequency is ${mma.avg}`);
+```
+
+### Iterating
+
+You can get the data as an array and iterate:
+
+```js
+const data = freq.entries(); // freq.toArray() gives same result
 for ([group, count] of data) {
-  console.log(`${group} has a count of ${count}`); // apples has a count of 2 (...)
+  console.log(`${group} has a count of ${count}`); // apples has a count of 2...
 }
+```
+
+To get the entries sorted:
+
+```js
+// Sorting options are: value, valueReverse, key or keyReverse
+const sorted = freq.entriesSorted(`key`); // Sort alphabetically by key
 ```
 
 ### Custom objects
@@ -91,14 +118,32 @@ freq.frequencyOf(cars[1]); // 1
 
 ## Examples
 
-Count occurrence of letters in a string
+### Letter frequency
+
+The below example calculates frequency distribution of letters in a string. It demonstrates how to add items to the `Frequency`, sort by frequency and calculate a proportional amount.
 
 ```js
-const msg = `Hello there! - Obiwan Kenobi`;
-const freq = mutableFreq();
-for (let i=0; i<msg.length; i++) {
-  freq.add(msg[i]);
+const freq = mutableFrequency();
+
+// Loop through all characters
+for (let i = 0; i < this.text.length; i++) {
+  const letter = this.text.toLocaleUpperCase().charAt(i);
+  if (letter === ` `) continue; // Skip spaces;
+  freq.add(letter); // Add letter
 }
+
+// Sort with most frequent at position 0 of the array
+const sorted = freq.entriesSorted(`valueReverse`);
+// Grab just the top three
+const top = sorted.slice(0, Math.min(sorted.length, 3));
+
+// Calculate the min, max and avg over all frequencies
+const mma = freq.minMaxAvg();
+
+// Calculate percentage for a given letter
+const percent = (kv) => Math.round(kv[1] / mma.total * 100);
+
+console.log(`Letter ${top[0]} appears ${percent(top[0])}% of the time.`);
 ```
 
-<freq-letters />
+<freq-letters client:load />

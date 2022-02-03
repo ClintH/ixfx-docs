@@ -56,8 +56,6 @@ For a given starting cell, it's possible to _visit_ all cells once and only once
 
 Provided visitor functions are: `visitorDepth, visitorBreadth, visitorRandom, visitorContiguous, visitorRow,` and `visitorColumn`.
 
-### Usage
-
 The visitor can be used in a `for .. of` loop
 
 ```js
@@ -116,6 +114,9 @@ for (let cell of Grids.cells(shape)) {
 
 ## Offsets
 
+
+<GridOffsetsPlay />
+
 You can calculate the coordinates of each compass cardinal direction using `offsetCardinals`. It has the following signature:
 
 ```js
@@ -144,26 +145,6 @@ const offsets = Grids.offsetCardinals(shape, origin, distance, `wrap`);
 
 const cellAbove = offsets.n // eg. get cell `distance` to the north of `origin`
 ```
-
-
-For reference, the `Neighbours` type it returns is:
-
-```typescript
-export type Neighbours = {
-  n: Cell|undefined,
-  e: Cell|undefined,
-  s: Cell|undefined,
-  w: Cell|undefined,
-  ne: Cell|undefined,
-  nw: Cell|undefined,
-  se: Cell|undefined,
-  sw: Cell|undefined
-}
-```
-
-Try different bounds logic and distances:
-
-<GridOffsetsPlay client:only="lit" />
 
 ## Mapping to data
 
@@ -209,7 +190,7 @@ const val = store.get(key({x:5, y:5}));
 // {colour: '...', funk: 0.235}
 ```
 
-<GridDataPlay client:only="lit" />
+<GridDataPlay client:load />
 
 ## Mapping to pixels
 

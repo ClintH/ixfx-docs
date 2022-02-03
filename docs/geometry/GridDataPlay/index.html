@@ -1,11 +1,49 @@
-<!DOCTYPE html><html class="astro-HZNHKAMO"><head><link rel="stylesheet" href="../../assets/demos.85b18ac3.css"><link rel="stylesheet" href="../../assets/GridDataPlay.34878f24.css">
-<script type="module" src="../../assets/GridEditor.ff99e92f.js"></script>
-<script type="module" src="../../assets/grid.5884dd5f.js"></script>
+<!DOCTYPE html><html class="astro-7CSEFHUK"><head><link rel="stylesheet" href="../../assets/demos.85b18ac3.css"><link rel="stylesheet" href="../../assets/GridDataPlay.33ff3b98.css">
+<script type="module" src="../../assets/GridEditor.a04cc960.js"></script>
+<!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 
-</head><body><section id="dataGridSection" class="astro-HZNHKAMO">
-  <grid-editor rows="15" cols="15" pixelsize="20" id="dataGrid" class="astro-HZNHKAMO">undefined</grid-editor>
-  <button id="btnDataRandom" class="astro-HZNHKAMO">Randomise</button>
-  <div id="dataGridRead" class="astro-HZNHKAMO">&nbsp;</div>
+<script type="module">
+import {resolveEl,Forms} from 'ixfx/lib/dom';
+import {randomElement} from 'ixfx/lib/collections';
+import {Grids} from 'ixfx/lib/geometry';
+import {DictionaryOfColourCombinations} from 'ixfx/lib/visual';
+const dataGrid = resolveEl(`#dataGrid`);
+const dataGridRead = resolveEl(`#dataGridRead`);
+const dataGridStore = new Map();
+const palette = DictionaryOfColourCombinations.randomPalette();
+
+Forms.button(`#btnDataRandom`, () => randomGrid());
+dataGrid.cellRenderer = (cell, rect, ctx) => {
+  const d = dataGridStore.get(Grids.cellKeyString(cell));
+  if (d === undefined) return;
+  const [r, g, b] = d.colour;
+  ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${d.funk})`;
+  ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
+  return true;
+};
+dataGrid.addEventListener(`cellPointerMove`, (ev) => {
+  const cell = ev.detail;
+  if (cell === undefined) return;
+  const d = dataGridStore.get(Grids.cellKeyString(cell));
+
+  dataGridRead.innerText = `Cell ${cell.x}, ${cell.y} has data ${JSON.stringify(d)}`;
+});
+
+const randomGrid = () => {
+  const shape = dataGrid.getGrid();
+
+  const randomColour = () => randomElement(palette).rgb;
+  for (let cell of Grids.cells(shape)) {
+    dataGridStore.set(Grids.cellKeyString(cell), {colour: randomColour(), funk: Math.random()});
+  }
+  dataGrid.draw();
+}
+randomGrid();
+</script>
+</head><body><section id="dataGridSection" class="astro-7CSEFHUK">
+  <grid-editor rows="15" cols="15" pixelsize="20" id="dataGrid" class="astro-7CSEFHUK">undefined</grid-editor>
+  <button id="btnDataRandom" class="astro-7CSEFHUK">Randomise</button>
+  <div id="dataGridRead" class="astro-7CSEFHUK">&nbsp;</div>
 </section>
 </body></html>

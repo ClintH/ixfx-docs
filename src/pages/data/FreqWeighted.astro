@@ -1,5 +1,3 @@
-<!-- <link rel="stylesheet" href={Astro.resolve('../../styles/demos.css')} /> -->
-<script type="module" src={Astro.resolve('../../components/HistogramVis.ts')}></script> 
 <script type="module" src={Astro.resolve('./freqWeighted.ts')}></script>
 <style>
   .sxs {
@@ -13,6 +11,13 @@
 
   #dataStream {
     overflow-y: scroll;
+  }
+  .toolbar {
+    display: flex;
+  }
+  .toolbar button {
+    margin-right: 0.3em;
+    margin-left: 0.3em;
   }
 </style>
 <div class="toolbar">

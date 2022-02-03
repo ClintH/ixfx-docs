@@ -14,10 +14,7 @@ radians-editor {
 }
 </style>
 
-An arc describes a segment of a circle.It is defined by its radius as well as the start and end radian.
-
-[test to docs](../../mddocs/modules/geometry/Points.md)
 
 ## Radians
 
-<radians-editor width="500" height="300"  />
+<radians-editor client:visible width="500" height="300"  />

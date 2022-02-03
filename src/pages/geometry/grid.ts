@@ -2,8 +2,6 @@
 import {mutableStringSet} from 'ixfx/lib/collections';
 import {Grids} from 'ixfx/lib/geometry';
 import {Forms, resolveEl} from 'ixfx/lib/dom';
-import {randomElement} from 'ixfx/lib/collections';
-import {Palette, DictionaryOfColourCombinations} from 'ixfx/lib/visual';
 
 import {GridEditor} from '../../components/GridEditor';
 
@@ -72,76 +70,11 @@ let lineEndCell = undefined;
 
 // -------------------
 // Offsets
-const offsetsGrid = resolveEl(`#offsetsGrid`) as GridEditor;
-offsetsGrid.selectedCell = {x: 0, y: 0};
 
-const offsets = () => {
-  const grid = offsetsGrid.getGrid();
-  const distance = offsetsDistance.value;
-  const selected = offsetsGrid.selectedCell;
-
-  const offsets = Grids.offsetCardinals(grid, selected, distance, offsetsWrapSel.value as Grids.BoundsLogic);
-  offsetsGrid.cellRenderer = (cell, rect, ctx) => {
-    const kv = Object.entries(offsets).find(t => Grids.cellEquals(t[1], cell));
-    if (kv === undefined) return false;
-
-    if (kv[0] === `s`) console.log(kv[0] + ' ' + JSON.stringify(kv[1]));
-    ctx.fillStyle = Palette.getCssVariable(`theme-bg-hover`, `yellow`);
-    //ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-    ctx.fillStyle = `white`;
-    ctx.textBaseline = `top`;
-
-    const yOffset = kv[0].startsWith(`n`) ? 20 : 5;
-    ctx.fillText(kv[0], rect.x + 5, rect.y + yOffset);
-
-    return true;
-  }
-}
-offsetsGrid.addEventListener(`cellPointerMove`, (ev: CustomEvent) => {
-  const cell = ev.detail as Grids.Cell;
-  if (cell === undefined) return;
-  offsetsGrid.selectedCell = cell;
-  offsets();
-});
-const offsetsDistance = Forms.numeric(`#rangeOffsetsDistance`, offsets);
-const offsetsWrapSel = Forms.select(`#selOffsetsWrap`, offsets);
-
-offsets();
 
 // ------------------
 // Data mapping
-const dataGrid = resolveEl(`#dataGrid`) as GridEditor;
-const dataGridRead = resolveEl(`#dataGridRead`);
-const dataGridStore = new Map();
-const palette = DictionaryOfColourCombinations.randomPalette();
 
-Forms.button(`#btnDataRandom`, () => randomGrid());
-dataGrid.cellRenderer = (cell, rect, ctx) => {
-  const d = dataGridStore.get(Grids.cellKeyString(cell));
-  if (d === undefined) return;
-  const [r, g, b] = d.colour;
-  ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${d.funk})`;
-  ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-  return true;
-};
-dataGrid.addEventListener(`cellPointerMove`, (ev: CustomEvent) => {
-  const cell = ev.detail as Grids.Cell;
-  if (cell === undefined) return;
-  const d = dataGridStore.get(Grids.cellKeyString(cell));
-
-  dataGridRead.innerText = `Cell ${cell.x}, ${cell.y} has data ${JSON.stringify(d)}`;
-});
-
-const randomGrid = () => {
-  const shape = dataGrid.getGrid();
-
-  const randomColour = () => randomElement(palette).rgb;
-  for (let cell of Grids.cells(shape)) {
-    dataGridStore.set(Grids.cellKeyString(cell), {colour: randomColour(), funk: Math.random()});
-  }
-  dataGrid.draw();
-}
-randomGrid();
 
 // ------------------
 // Visitor

@@ -108,4 +108,8 @@ export class ArcEditor extends LitElement {
   }
 }
 
-customElements.define(tagName, ArcEditor);
+try {
+  customElements.define(tagName, ArcEditor);
+} catch (ex) {
+  console.log(ex);
+}

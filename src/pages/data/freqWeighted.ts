@@ -4,8 +4,6 @@ import {log} from 'ixfx/lib/dom';
 import {HistogramVis, FrequencyHistogramPlot} from 'ixfx/lib/components';
 import {Random} from 'ixfx';
 
-//customElements.define(`histogram-vis2`, HistogramVis);
-
 const logger = log(`#dataStream`, {capacity: 8, timestamp: false});
 const freq = mutableFrequency<string>();
 const plot = new FrequencyHistogramPlot(document.getElementById('dataPlot') as HistogramVis);
@@ -14,7 +12,6 @@ const plot = new FrequencyHistogramPlot(document.getElementById('dataPlot') as H
 
 plot.setAutoSort(`valueReverse`);
 let itemsLeft = 200;
-
 
 let producerId = 0;
 freq.addEventListener(`change`, () => {
