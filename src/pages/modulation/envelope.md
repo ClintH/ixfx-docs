@@ -32,4 +32,8 @@ The playground uses the settings from the envelope editor above. You can _trigge
 
 <EnvelopePlay />
 
-## Usage 
+## Example usage 
+
+### Decay over time
+
+### Modulating some other value

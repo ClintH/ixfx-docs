@@ -9,8 +9,7 @@
 }
 
 .toolbar button {
-  margin-right: 0.3em;
-  margin-left: 0.3em;
+  margin: 0.3em;
 }
 
 .toolbar>section {
@@ -18,8 +17,16 @@
   border-right: 2px solid var(--theme-bg-hover);
   padding: 0.3em;
   align-items: center;
-  margin:0;
+  margin:0.3em;
   flex-wrap: wrap;
+}
+
+input[type="checkbox"] {
+  margin: 0.5em;
+}
+
+select {
+  margin: 0.5em;
 }
 
 ul.nobullets li {

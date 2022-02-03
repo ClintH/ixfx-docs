@@ -86,8 +86,6 @@ Forms.checkbox(`#chkLooping`, (newVal) => {
   updateEnvelope();
 });
 
-
-
 let isDrawing = false;
 
 const startDrawing = () => {

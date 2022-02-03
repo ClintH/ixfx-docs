@@ -56,6 +56,7 @@ export class EnvelopeEditor extends LitElement {
     margin: 0.5em;
     flex-wrap: wrap;
   }
+  
   .toolbar > * {
     margin-left: 0.3em;
     margin-right: 0.3em;
