@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/demos.85b18ac3.css"><link rel="stylesheet" href="../../assets/index.2553d483.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.f26aa56f.css"><link rel="stylesheet" href="../../assets/grid.6fc4bd00.css">
+<link rel="stylesheet" href="../../assets/demos.63b6dfe5.css"><link rel="stylesheet" href="../../assets/index.2553d483.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.f26aa56f.css"><link rel="stylesheet" href="../../assets/grid.6fc4bd00.css">
 
 
 
@@ -83,7 +83,7 @@
 
 
 
-<script type="module" src="../../assets/grid.9414c1ef.js"></script>
+<script type="module" src="../../assets/grid.04bc02bf.js"></script>
 
 
 </head>
@@ -174,6 +174,17 @@
 				</div>
 			</li><li class="astro-2ZZOV7A2">
 				<div class="nav-group astro-2ZZOV7A2">
+					<h2 class="nav-group-title astro-2ZZOV7A2">Collections</h2>
+					<ul class="astro-2ZZOV7A2">
+						<li class="nav-link astro-2ZZOV7A2">
+								<a href="/ixfx-docs/collections/map" aria-current="false" class="astro-2ZZOV7A2">
+									Map
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-2ZZOV7A2">
+				<div class="nav-group astro-2ZZOV7A2">
 					<h2 class="nav-group-title astro-2ZZOV7A2">Data</h2>
 					<ul class="astro-2ZZOV7A2">
 						<li class="nav-link astro-2ZZOV7A2">
@@ -255,8 +266,8 @@
   y<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span></code></pre><p>In action, this looks like:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it’s possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p>
-<script type="module" src="../../assets/GridEditor.a04cc960.js"></script>
-<script type="module" src="../../assets/grid.05ae3436.js"></script>
+<script type="module" src="../../assets/GridEditor.638259eb.js"></script>
+<script type="module" src="../../assets/grid.5518b951.js"></script>
 
 <div class="toolbar astro-IOYBR6BL">
   <section class="astro-IOYBR6BL">
@@ -306,7 +317,7 @@
 <span class="token punctuation">}</span></code></pre><p>In the interactive demo above, this technique is used to colour cells differently depending on whether they’ve been visited.</p><h2 id="iterating-cells">Iterating cells</h2><p>The <code data-astro-raw="">cells</code> iterator is a simple alternative to the <em>visitor</em> technique if you don’t care about how the grid is traversed. It has a lower overhead than the visitor because it does not need to keep track of every cell it has visited.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cell <span class="token keyword">of</span> Grids<span class="token punctuation">.</span><span class="token function">cells</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with cell</span>
 <span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2>
-<script type="module" src="../../assets/GridEditor.a04cc960.js"></script>
+<script type="module" src="../../assets/GridEditor.638259eb.js"></script>
 <!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 <script type="module">
@@ -410,7 +421,7 @@ data<span class="token punctuation">.</span><span class="token function">set</sp
 <span class="token comment">// Fetch data associated with a given cell:</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token function">key</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre>
-<script type="module" src="../../assets/GridEditor.a04cc960.js"></script>
+<script type="module" src="../../assets/GridEditor.638259eb.js"></script>
 <!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 

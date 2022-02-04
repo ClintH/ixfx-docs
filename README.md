@@ -2,6 +2,8 @@
 
 This is the documentation for [ixfx](https://github.com/ClintH/ixfx). It uses [Astro](https://astro.build/) and [Lit](https://lit.dev/) components.
 
+[View online](https://clinth.github.io/ixfx-docs/).
+
 ## Developing
 
 Run a live-reloading server for developing:
