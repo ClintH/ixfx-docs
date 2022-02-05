@@ -12,19 +12,27 @@
   }
 
   .sxs>section>section {
-    padding: var(--padding2);
+    padding: var(--padding-text);
+    display: flex;
+    flex-direction: column;
   }
 
-  section.withDivider {
-    border-right: 0.2rem solid var(--muted-border-color);
+  section.dividerRight {
+    border-right: 0.2rem solid var(--bg-dim);
+  }
+
+  section.dividerTop {
+    border-top: 0.2rem solid var(--bg-dim);
   }
 
   hr {
-    border-top: 2px solid var(--muted-border-color);
+    border: 0;
+    border-top: 0.2rem solid var(--bg-dim);
   }
 
   #jsonDescr {
-    padding: var(--padding3);
+    padding: var(--padding-text);
+  
   }
 
   h2 {
@@ -42,12 +50,16 @@
     margin: 10px;
     font-size: 80%;
   }
+  #dataStream {
+    font-size: 0.8em;
+    max-width: 14em;
+  }
 </style>
 <div class="sxs">
-  <section id="dataDescr" class="withDivider">
+  <section id="dataDescr" class="dividerRight">
     <section>
       <h2>Machine description</h2>
-      <pre contenteditable id="jsonDescr">
+      <pre class="editable" contenteditable id="jsonDescr">
       </pre>
       <div id="descrValidate"></div>
       <p>&nbsp;</p>
@@ -83,9 +95,7 @@
       <div id="currentState"></div>
 
     </section>
-    <section>
-      <hr />
-
+    <section class="dividerTop">
       <div id="dataStream"></div>
     </section>
   </section>

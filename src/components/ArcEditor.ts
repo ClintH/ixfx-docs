@@ -2,7 +2,7 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {Arcs} from 'ixfx/lib/geometry';
-import {Svg} from 'ixfx/lib/visual';
+import {Svg, Palette} from 'ixfx/lib/visual';
 
 export const tagName = `arc-editor`;
 
@@ -29,19 +29,23 @@ export class ArcEditor extends LitElement {
   declare startRadian: number;
 
   @property()
+  declare strokeStyle: string;
+
+  @property()
   declare endRadian: number;
 
   @property()
   declare counterClockwise: boolean;
 
-  @property()
+  @property({type: Number})
   declare radius: number;
 
   constructor() {
     super();
+    this.radius = 20;
     this.startRadian = 0;
     this.endRadian = Math.PI;
-    this.radius = 10;
+    this.strokeStyle = `var(--accent-bold, "yellow")`;
   }
 
   getArc(): Arcs.Arc {
@@ -70,13 +74,15 @@ export class ArcEditor extends LitElement {
   renderSvg() {
     const svg = Svg.svg(
       this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`, strokeStyle: `pink`, strokeWidth: 3}
+      {fillStyle: `transparent`, strokeStyle: this.strokeStyle, strokeWidth: 3}
     );
 
     svg.clear();
     const w = svg.width;
     const h = svg.height;
     const a = this.getArc();
+    //  console.log(JSON.stringify(a));
+
     const origin = {x: w / 2, y: h / 2};
     svg.path(Arcs.toSvg(origin, a));
   }

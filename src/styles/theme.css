@@ -4,16 +4,12 @@
 	--font-mono: 'IBM Plex Mono', Consolas, 'Andale Mono WT', 'Andale Mono', 'Lucida Console', 'Lucida Sans Typewriter', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 		'Liberation Mono', 'Nimbus Mono L', Monaco, 'Courier New', Courier, monospace;
 
-	/*
-   * Variables with --color-base prefix define
-   * the hue, and saturation values to be used for
-   * hsla colors.
-   *
-   * ex:
-   *
-   * --color-base-{color}: {hue}, {saturation};
-   *
-   */
+	--black: hsl(206, 11%, 12%);
+	--white: hsl(206, 11%, 82%);
+
+	--radius: 1em;
+	--padding: 0.3em;
+	--padding-text: 0.8em;
 
 	--theme-hit-color-light: hsl(350, 70%, 83%);
 	--theme-hit-color: hsl(350, 100%, 83%);
@@ -28,13 +24,6 @@
 	--color-base-purple: 269, 79%;
 	--color-base-red: 351, 100%;
 	--color-base-yellow: 41, 100%;
-
-	/*
-   * Color palettes are made using --color-base 
-   * variables, along with a lightness value to
-   * define different variants.
-   *
-   */
 
 	--color-gray-5: var(--color-base-gray), 5%;
 	--color-gray-10: var(--color-base-gray), 10%;
@@ -59,8 +48,33 @@
 
 :root {
 	color-scheme: light;
-	--theme-accent: hsla(var(--color-blue), 1);
-	--theme-text-accent: hsla(var(--color-blue), 1);
+	--accent: hsl(217, 48%, 55%);
+	--accent-text:hsl(217, 38%, 45%);
+	--accent-bold:hsl(217, 38%, 45%);
+
+	--bg: hsl(229, 40%, 97%);
+	--bg-dim: hsl(194, 16%, 94%);
+
+	--fg-dim-slight: hsl(229, 5%, 65%);
+
+	--fg: hsl(200, 16%, 42%);
+	--fg-for-dim-bg: hsl(194, 16%, 60%);
+	--fg-dim: hsl(200, 16%, 32%);
+	--fg-bright: hsl(200, 10%, 72%);
+
+	--bg-contrast: hsl(200, 16%, 92%);
+	--fg-contrast: hsl(200, 16%, 22%);
+	--fg-contrast-dim: hsl(200, 16%, 62%);
+
+	--yellow: hsl(39, 90%, 49%);
+	--purple: hsl(256, 90%, 65%);
+	--blue: hsl(217, 38%, 65%);
+	--green: hsl(85, 40%, 54%);
+
+	/* --theme-accent: var(--blue);
+	--theme-text-accent: red; */
+	/* --theme-accent: hsla(var(--color-blue), 1); */
+	/* --theme-text-accent: hsla(var(--color-blue), 1); */
 	--theme-accent-opacity: 0.15;
 	--theme-divider: hsla(var(--color-gray-95), 1);
 	--theme-text: hsla(var(--color-gray-10), 1);
@@ -82,12 +96,33 @@
 }
 
 body {
-	background: var(--theme-bg);
-	color: var(--theme-text);
+	background: var(--bg);
+	color: var(--fg);
 }
 
 :root.theme-dark {
 	color-scheme: dark;
+	--accent: hsl(217, 48%, 75%);
+	--accent-text:hsl(217, 78%, 75%);
+	--accent-bold:hsl(217, 78%, 75%);
+
+	--bg: hsl(229, 20%, 20%);
+	--bg-dim: hsl(231, 21%, 9%);
+	
+	--fg-dim-slight: hsl(229, 20%, 45%);
+	
+	--fg: hsl(231, 28%, 73%);
+	--fg-bright: hsl(231, 28%, 82%);
+	
+	--bg-contrast: hsl(229, 16%, 32%);
+	--fg-contrast: hsl(229, 16%, 82%);
+	--fg-contrast-dim: hsl(229, 16%, 62%);
+
+	--yellow: hsl(39, 100%, 71%);
+	--purple: hsl(276, 68%, 75%);
+	--blue: hsl(197, 100%, 77%);
+	--green: hsl(68, 55%, 60%);
+
 	--theme-accent-opacity: 0.15;
 	--theme-accent: hsla(var(--color-blue), 1);
 	--theme-text-accent: hsla(var(--color-blue), 1);

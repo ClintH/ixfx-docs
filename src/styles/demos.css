@@ -38,3 +38,9 @@ fieldset legend {
   display: block;
   margin-bottom: calc(var(--spacing) * 0.25);
 }
+
+.demoFrame {
+  width: 30vw;
+  height: 20vw;
+}
+

@@ -1,11 +1,11 @@
 /* eslint-disable */
-import {mutableFrequency} from 'ixfx';
+import {frequencyMutable} from 'ixfx';
 import {log} from 'ixfx/lib/dom';
 import {HistogramVis, FrequencyHistogramPlot} from 'ixfx/lib/components';
 import {Random} from 'ixfx';
 
 const logger = log(`#dataStream`, {capacity: 8, timestamp: false});
-const freq = mutableFrequency<string>();
+const freq = frequencyMutable<string>();
 const plot = new FrequencyHistogramPlot(document.getElementById('dataPlot') as HistogramVis);
 // plot.el.showDataLabels = false;
 // plot.el.showXAxis = false;

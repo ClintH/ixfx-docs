@@ -4,32 +4,23 @@ import {property} from 'lit/decorators.js';
 import {Circles, Lines, Math as MathUtil} from 'ixfx/lib/geometry';
 import {themeChangeObservable} from 'ixfx/lib/dom';
 import {Svg, Palette} from 'ixfx/lib/visual';
+import {elStyles} from './styles.js';
 
 export const tagName = `radians-editor`;
 
 export class RadiansEditor extends LitElement {
-  static readonly styles = css`
-  :host {
-    color: var(--label-color, green);
-  }
-  #container {
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-  }
-  svg {
-  }
-  #toolbar {
-    display: flex;
-    padding: 1em;
-    display: none;
-  }
-  #toolbar input {
-    width: 3em;
-    margin-right: 1em;
-    margin-left: 0.3em;
-  }
-  `;
+  static readonly styles = [
+    elStyles,
+    css`
+      :host {
+        color: var(--label-color, green);
+      }
+      #container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+  `];
 
   @property()
   declare radian: number | undefined;
@@ -37,10 +28,8 @@ export class RadiansEditor extends LitElement {
   @property()
   declare degree: number | undefined;
 
-
   @property()
   declare width: number;
-
 
   @property()
   declare height: number;
@@ -82,7 +71,7 @@ export class RadiansEditor extends LitElement {
   renderSvg() {
     const svg = Svg.svg(
       this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`, strokeStyle: `pink`, strokeWidth: 3}
+      {fillStyle: `transparent`, strokeStyle: `red`, strokeWidth: 3}
     );
 
     svg.clear();
@@ -111,7 +100,6 @@ export class RadiansEditor extends LitElement {
 
     const labelC = {...c, radius: radius + 20};
 
-
     const addRadian = (rad: number, label?: string, opts: Svg.TextDrawingOpts = labelStyle) => {
       if (label === undefined) label = rad.toString();
       const pt = Circles.point(labelC, rad);
@@ -122,7 +110,6 @@ export class RadiansEditor extends LitElement {
     addRadian(Math.PI, `Math.PI`, {...labelStyle, align: `middle`, anchor: `end`});
     addRadian(Math.PI / 2, `Math.PI/2`, {...labelStyle, align: `text-bottom`});
     addRadian(3 * Math.PI / 2, `3*Math.PI/2`, {...labelStyle, align: `hanging`});
-
   }
 
   async updated() {
@@ -150,7 +137,7 @@ export class RadiansEditor extends LitElement {
 
     // Draw ray to intersection point
     const ray = Lines.extendFromStart(Lines.fromPoints(c, inter), 10);
-    let svgLine = svg.line(ray, {strokeStyle: this.palette.get(`theme-hit-color`, `red`)}, `pointerRay`);
+    let svgLine = svg.line(ray, {strokeStyle: this.palette.get(`accent-bold`, `yellow`)}, `pointerRay`);
 
     // Compute radians
     const lineRad = Lines.angleRadian(ray) * -1;

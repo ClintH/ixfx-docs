@@ -2,37 +2,49 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 
-import {mutableFrequency} from 'ixfx';
+import {frequencyMutable} from 'ixfx';
 import {KeyValues} from 'ixfx';
+import {elStyles} from '../../components/styles.js';
 
 export const tagName = `freq-letters`;
 
 export class FreqLettersElement extends LitElement {
-  static readonly styles = css`
-  #container {
+  static readonly styles = [
+    elStyles,
+    css`
+  .container {
     display: flex;
     align-items: center;
     flex-direction: column;
     padding: 1em;
   }
-  #toolbar {
-    display: flex;
-    padding: 1em;
-  }
-  #toolbar input {
-    width: 15em;
-    margin-right: 1em;
-    margin-left: 0.3em;
-    padding: 0.3em;
-    font-size: 1.5em;
-  }
+  
   ol {
     margin: 0;
     margin-top: 0.3em;
     padding: 0;
   }
-  `;
+  
+  input {
+    width: 15em;
+    margin-right: 1em;
+    margin-left: 0.3em;
+    padding: 0.3em;
+    font-size: 1.5em;  
+  }
+`];
 
+  // #toolbar {
+  //   display: flex;
+  //   padding: 1em;
+  // }
+  // #toolbar input {
+  //   width: 15em;
+  //   margin-right: 1em;
+  //   margin-left: 0.3em;
+  //   padding: 0.3em;
+  //   font-size: 1.5em;
+  // }
   @property()
   declare text: string;
 
@@ -46,7 +58,7 @@ export class FreqLettersElement extends LitElement {
   }
 
   render() {
-    const freq = mutableFrequency();
+    const freq = frequencyMutable();
     for (let i = 0; i < this.text.length; i++) {
       const letter = this.text.toLocaleUpperCase().charAt(i);
       if (letter === ` `) continue; // Skip spaces;
@@ -59,8 +71,8 @@ export class FreqLettersElement extends LitElement {
 
     const percent = (kv) => Math.round(kv[1] / mma.total * 100);
     return html`
-    <div id="container">
-      <div id="toolbar">
+    <div class="container">
+      <div class="toolbar">
         <input @input="${this._onInput}" type="text" .value="${this.text}">
       </div>
       <div>

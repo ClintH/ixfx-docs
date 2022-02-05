@@ -10,7 +10,6 @@ setup: |
 radians-editor {
   --label-color: var(--theme-text-light);
   --axis-color: var(--theme-bg-hover);
-  --ray-color: var(--theme-hit-color);
 }
 </style>
 

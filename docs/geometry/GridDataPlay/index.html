@@ -1,11 +1,11 @@
-<!DOCTYPE html><html class="astro-7CSEFHUK"><head><link rel="stylesheet" href="../../assets/demos.63b6dfe5.css"><link rel="stylesheet" href="../../assets/GridDataPlay.33ff3b98.css">
-<script type="module" src="../../assets/GridEditor.638259eb.js"></script>
+<!DOCTYPE html><html class="astro-EACUI2QC"><head><link rel="stylesheet" href="../../assets/demos.33272ba6.css"><link rel="stylesheet" href="../../assets/GridDataPlay.77a08dc2.css">
+<script type="module" src="../../assets/GridEditor.f75bc602.js"></script>
 <!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 
 <script type="module">
 import {resolveEl,Forms} from 'ixfx/lib/dom';
-import {randomElement} from 'ixfx/lib/collections';
+import {Arrays} from 'ixfx/lib/collections';
 import {Grids} from 'ixfx/lib/geometry';
 import {DictionaryOfColourCombinations} from 'ixfx/lib/visual';
 const dataGrid = resolveEl(`#dataGrid`);
@@ -33,7 +33,7 @@ dataGrid.addEventListener(`cellPointerMove`, (ev) => {
 const randomGrid = () => {
   const shape = dataGrid.getGrid();
 
-  const randomColour = () => randomElement(palette).rgb;
+  const randomColour = () => Arrays.randomElement(palette).rgb;
   for (let cell of Grids.cells(shape)) {
     dataGridStore.set(Grids.cellKeyString(cell), {colour: randomColour(), funk: Math.random()});
   }
@@ -41,9 +41,9 @@ const randomGrid = () => {
 }
 randomGrid();
 </script>
-</head><body><section id="dataGridSection" class="astro-7CSEFHUK">
-  <grid-editor rows="15" cols="15" pixelsize="20" id="dataGrid" class="astro-7CSEFHUK">undefined</grid-editor>
-  <button id="btnDataRandom" class="astro-7CSEFHUK">Randomise</button>
-  <div id="dataGridRead" class="astro-7CSEFHUK">&nbsp;</div>
+</head><body><section id="dataGridSection" class="astro-EACUI2QC">
+  <grid-editor rows="15" cols="15" pixelsize="20" id="dataGrid" class="astro-EACUI2QC">undefined</grid-editor>
+  <button id="btnDataRandom" class="astro-EACUI2QC">Randomise</button>
+  <div id="dataGridRead" class="astro-EACUI2QC">&nbsp;</div>
 </section>
 </body></html>

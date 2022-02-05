@@ -34,7 +34,6 @@ export const SIDEBAR =
     {text: `Docs`, header: true},
     {text: `Introduction`, link: `./`},
     {text: `Modulation`, header: true},
-    {text: `Intro`, link: `modulation/introduction`},
     {text: `Envelope`, link: `modulation/envelope`},
     {text: `Collections`, header: true},
     {text: `Map`, link: `collections/map`},

@@ -13,8 +13,7 @@ const envDataLog = log(`#envDataStream`, {
 
 // Setup plot
 const palette = Palette.create();
-palette.add(`scaled`, `yellow`);
-palette.add('scaled-axis', 'whitesmoke');
+palette.add(`series-`, Palette.getCssVariable(`accent-bold`, `yellow`));
 
 const envData = Plot.plot2(`#envData`, {
   capacity: 300,
@@ -64,10 +63,8 @@ fromEvent(resolveEl(`#envEditor`), `change`)
     debounceTime(1000))
   .subscribe(v => {
     opts = v;
-    console.log('hello')
     updateEnvelope();
   });
-
 
 const updateEnvelope = () => {
   try {
@@ -112,6 +109,5 @@ const startDrawing = () => {
   }
   window.requestAnimationFrame(draw);
 }
-
 
 updateEnvelope();

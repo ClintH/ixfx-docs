@@ -4,6 +4,8 @@ setup: |
   import { Markdown } from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
   import EnvelopePlay from './EnvelopePlay.astro';
+  import { DemoElement } from '../../components/DemoElement.ts';
+
 ---
 
 The notion of an _envelope_ is borrowed from [sound synthesis](https://en.wikipedia.org/wiki/Envelope_(music)). They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.
@@ -37,4 +39,7 @@ The playground uses the settings from the envelope editor above. You can _trigge
 <EnvelopePlay />
 
 
+## Demos
 
+
+<demo-element title="Decay value after trigger" src="/modulation/env-decay/" />

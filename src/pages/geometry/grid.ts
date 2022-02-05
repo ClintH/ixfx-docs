@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {mutableStringSet} from 'ixfx/lib/collections';
+import {setMutable} from 'ixfx/lib/collections';
 import {Grids} from 'ixfx/lib/geometry';
 import {Forms, resolveEl} from 'ixfx/lib/dom';
 
@@ -92,7 +92,7 @@ const visStart = () => {
   const delayMs = 100;
   const sel = Forms.select(`#selVisTechnique`);
   const grid = visGrid.getGrid();
-  const visited = mutableStringSet<Grids.Cell>(c => Grids.cellKeyString(c));
+  const visited = setMutable<Grids.Cell>(c => Grids.cellKeyString(c));
   const visitOpts = {visited};
   let visitor;
   switch (sel.value) {

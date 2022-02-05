@@ -12,10 +12,6 @@ setup: |
 input.code {
   font-family: var(--font-mono);
   font-size: 0.85em;
-  border-radius: 8px;
-  background-color: var(--theme-code-bg);
-  color: var(--theme-code-text);
-  padding: 1em;
 }
 
 radians-editor {
@@ -48,8 +44,8 @@ type Arc = {
 
 Try editing this example:
 
-<input style="width: 40em" class="code arc" type="text" id="arc1Txt" value="{ radius: 10, startRadian: 0, endRadian: Math.PI }">
-<arc-editor id="arc1" client:visible radius="10" startRadian="0" endRadian="{Math.PI}" />
+<input style="width: 40em" class="code arc" type="text" id="arc1Txt" value="{ radius: 20, startRadian: 0, endRadian: Math.PI }">
+<arc-editor id="arc1" client:visible  />
 
 Angles are set with _radians_, not the more familiar _degrees_. See [Units](units) for more info
 

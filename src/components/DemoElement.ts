@@ -1,0 +1,74 @@
+import {LitElement, html, css} from 'lit';
+import {property} from 'lit/decorators.js';
+import {elStyles} from './styles.js';
+
+export const tagName = 'demo-element';
+
+class DemoElement extends LitElement {
+  static styles = [
+    elStyles,
+    css`
+    .container {
+      border: 1px solid black;
+      padding: 0.5em;
+      border-radius: 3px;
+      background-color: var(--bg-mono);
+      color: var(--fg-mono);
+      display:flex;
+      flex-direction: column;
+    }
+    .toolbar a.icon:visited, .toolbar a.icon:link {
+      color: var(--fg-mono);
+    }
+
+    .toolbar {
+      opacity: 0.3;
+      transition: opacity 1s ease-out;
+    }
+    .titleBar:hover .toolbar {
+      opacity: 1.0;
+      transition: opacity 0.3s ease-in;
+    }
+    .titleBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    `
+  ];
+
+
+  @property()
+  declare title: string;
+
+  @property()
+  declare src: string;
+
+  constructor() {
+    super();
+    this.src = ``;
+    this.title = ``;
+  }
+
+  render() {
+    if (this.src.length == 0) return html``;
+    const src = this.src;
+    const title = this.title;
+    const demoUrl = `https://clinth.github.io/ixfx-demos` + src;
+    return html`
+			<div class="container">
+        <div class="titleBar">
+          <div>${title}</div>
+          <div class="toolbar">
+            <a class="icon icon-external-link" title="Edit code" target="_blank" href="${demoUrl}">Edit</a> 
+            <a class="icon icon-external-link" title="Open demo in new window" target="_blank" href="${demoUrl}">Open</a> 
+          </div>
+        </div>
+
+        <iframe src="${demoUrl}"></iframe>
+      </div>
+		`;
+  }
+}
+
+customElements.define(tagName, DemoElement);

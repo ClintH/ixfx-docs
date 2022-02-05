@@ -53,6 +53,7 @@ h6 {
 	margin-bottom: 1rem;
 	font-weight: bold;
 	line-height: 1;
+	color: var(--yellow);
 }
 
 h1,
@@ -71,6 +72,7 @@ h2 {
 h1 {
 	font-size: 3.25rem;
 	font-weight: 800;
+	
 }
 
 h2 {
@@ -96,11 +98,11 @@ p {
 .content ul {
 	line-height: 1.1em;
 }
-
+/* 
 p,
 .content ul {
 	color: var(--theme-text-light);
-}
+} */
 
 small,
 .text_small {
@@ -108,7 +110,7 @@ small,
 }
 
 a {
-	color: var(--theme-text-accent);
+	color: var(--accent-text);
 	font-weight: 400;
 	text-underline-offset: 0.08em;
 	align-items: center;
@@ -259,6 +261,22 @@ th {
 pre {
 	background-color: var(--theme-code-bg);
 	color: var(--theme-code-text);
+	border: 1px pink;
+}
+
+.editable {
+  border: 1px solid var(--fg-dim);
+	background-color: var(--bg-dim);
+	color: var(--fg-dim);
+}
+input[type="text"] {
+	border-radius: 8px;
+	padding: 1em;
+	border: 1px solid var(--fg-dim);
+}
+input, select {
+	background-color: var(--bg-dim);
+	padding: var(--padding);
 }
 
 blockquote code:not([class*='language']) {
@@ -292,7 +310,7 @@ img {
 	align-items: center;
 }
 
-button {
+xbutton {
 	display: flex;
 	align-items: center;
 	justify-items: center;
@@ -301,17 +319,26 @@ button {
 	border: 0;
 	background: var(--theme-bg);
 	display: flex;
+}
+
+button {
+	border: 0;
+	padding: 0.5em 1em;
 	font-size: 1rem;
 	align-items: center;
 	gap: 0.25em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
 	border-radius: 99em;
-	color: var(--theme-text);
-	background-color: var(--theme-code-inline-bg);
+	color: var(--fg-contrast-dim);
+	background-color: var(--bg-contrast);
+	transition: color 0.3s ease-out;
 }
 
 button:hover {
-	background: var(--theme-accent);
+	color: var(--fg-contrast);
 	cursor: pointer;
+	transition: color 0.3s ease-in;
 }
 
 button[disabled], button[disabled]:hover {
@@ -336,8 +363,8 @@ h2.heading {
 
 .header-link:hover,
 .header-link:focus {
-	border-left-color: var(--theme-accent);
-	color: var(--theme-accent);
+	border-left-color: var(--accent);
+	color: var(--accent);
 }
 .header-link:focus-within {
 	color: var(--theme-text-light);

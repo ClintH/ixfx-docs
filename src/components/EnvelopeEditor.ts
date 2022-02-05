@@ -4,6 +4,7 @@ import {Drawing, Palette} from 'ixfx/lib/visual';
 import {AdsrOpts, defaultAdsrOpts} from 'ixfx/lib/modulation';
 import {Beziers} from 'ixfx/lib/geometry';
 import {copyToClipboard} from 'ixfx/lib/dom';
+import {elStyles} from './styles.js';
 
 const jsonData = (obj: unknown) => {
   if (obj === null || typeof obj === `undefined` || obj === `undefined`) return;
@@ -24,44 +25,9 @@ const jsonData = (obj: unknown) => {
 
 @customElement(`envelope-editor`)
 export class EnvelopeEditor extends LitElement {
-  static readonly styles = css`
-  .container {
- 
-  }
-  label {
-    user-select: none;
-  }
-  section {
-    display: flex;
-    flex-direction: column;
-  }
-  #controls {
-    display: flex;
-    justify-content: center;
-  }
-  #controls>section {
-  }
-  #controls label {
-    display: flex;
-    flex-direction: column;
-    font-size: 80%;
-  }
-  section>h2 {
-    font-size: 80%;
-    text-align: center;
-  }
-  .toolbar {
-    display: flex;
-    justify-content: center;
-    margin: 0.5em;
-    flex-wrap: wrap;
-  }
-  
-  .toolbar > * {
-    margin-left: 0.3em;
-    margin-right: 0.3em;
-  }
-  `;
+  static readonly styles = [
+    elStyles
+  ];
 
   @query(`#attackPreview`) attackPreview!: HTMLCanvasElement;
 
@@ -184,7 +150,7 @@ export class EnvelopeEditor extends LitElement {
     const height = 100;
     ctx.clearRect(0, 0, width, height);
 
-    ctx.strokeStyle = Palette.getCssVariable(`theme-accent`, `yellow`);
+    ctx.strokeStyle = Palette.getCssVariable(`accent-bold`, `yellow`);
     ctx.lineWidth = 3;
 
     ctx.translate(padding / 2, padding / 2);
@@ -228,8 +194,8 @@ export class EnvelopeEditor extends LitElement {
 <div class="container">
 <div id="preview">
 </div>  
-<div id="controls">
-  <section>
+<div class="controls">
+  <div class="vertical">
     <h2>Attack</h2>
     <canvas title="Preview of attack stage" id="attackPreview" width="100" height="100"></canvas>
     <label>Duration: ${d.attackDuration} ms
@@ -241,8 +207,8 @@ export class EnvelopeEditor extends LitElement {
     <label>Initial: ${d.initialLevel}
       <input @input="${this._valueInput}" .value=${d.initialLevel * 100} type="range" id="initialValue" min="0" max="100">
     </label>
-  </section>
-  <section>
+  </div>
+  <div class="vertical">
     <h2>Decay</h2>
     <canvas title="Preview of decay stage" id="decayPreview" width="100" height="100"></canvas>
     <label>Duration: ${d.decayDuration} ms
@@ -254,15 +220,15 @@ export class EnvelopeEditor extends LitElement {
     <label>Peak: ${d.peakLevel}
       <input @input="${this._valueInput}" .value="${d.peakLevel * 100}" type="range" id="peakLevel" min="0" max="100">
     </label>
-  </section>
-  <section>
+  </div>
+  <div class="vertical">
     <h2>Sustain</h2>
     <canvas title="Preview of sustain stage" id="sustainPreview" width="100" height="100"></canvas>
     <label>Level: ${d.sustainLevel}
       <input @input="${this._valueInput}" .value="${d.sustainLevel * 100}" type="range" id="sustainLevel" min="0" max="100">
     </label>
-  </section>
-  <section>
+  </div>
+  <div class="vertical">
     <h2>Release</h2>
     <canvas title="Preview of release stage" id="releasePreview" width="100" height="100"></canvas>
     <label>Duration: ${d.releaseDuration} ms
@@ -274,7 +240,7 @@ export class EnvelopeEditor extends LitElement {
     <label>Release: ${d.releaseLevel}
       <input @input="${this._valueInput}" .value="${d.releaseLevel * 100}" type="range" id="releaseLevel" min="0" max="100">
     </label>
-  </section>
+  </div>
 </div>
 <div class="toolbar">
   <button title="Reset envelope to starting state" @click="${this._reset}">Reset</button>

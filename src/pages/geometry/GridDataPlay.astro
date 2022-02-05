@@ -21,7 +21,7 @@
 </style>
 <script type="module">
 import {resolveEl,Forms} from 'ixfx/lib/dom';
-import {randomElement} from 'ixfx/lib/collections';
+import {Arrays} from 'ixfx/lib/collections';
 import {Grids} from 'ixfx/lib/geometry';
 import {DictionaryOfColourCombinations} from 'ixfx/lib/visual';
 const dataGrid = resolveEl(`#dataGrid`);
@@ -49,7 +49,7 @@ dataGrid.addEventListener(`cellPointerMove`, (ev) => {
 const randomGrid = () => {
   const shape = dataGrid.getGrid();
 
-  const randomColour = () => randomElement(palette).rgb;
+  const randomColour = () => Arrays.randomElement(palette).rgb;
   for (let cell of Grids.cells(shape)) {
     dataGridStore.set(Grids.cellKeyString(cell), {colour: randomColour(), funk: Math.random()});
   }

@@ -128,12 +128,12 @@ const create = (initial:string, description:MachineDescription):StateMachine => 
   
   // State machine has changed state
   sm.addEventListener(`change`, (evt:StateChangeEvent) => {
-    logger.log(`'${evt.priorState}' -> '${evt.newState}'`);
+    logger.log(`${evt.priorState} -> ${evt.newState}`);
     update(sm);
   });
   
   sm.addEventListener(`stop`, (ev:StopEvent) => {
-    logger.log(`Completed. Final state: '${ev.state}'`);
+    logger.log(`Done: ${ev.state}`);
   })
   return sm;
 }
