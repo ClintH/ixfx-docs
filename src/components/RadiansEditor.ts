@@ -40,8 +40,8 @@ export class RadiansEditor extends LitElement {
     super();
     this.palette = Palette.create();
     this.palette.setElementBase(this);
-    this.width = 100;
-    this.height = 100;
+    this.width = 500;
+    this.height = 300;
 
     themeChangeObservable().subscribe(records => {
       console.log(`theme change`);

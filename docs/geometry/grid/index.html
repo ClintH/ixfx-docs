@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/demos.33272ba6.css"><link rel="stylesheet" href="../../assets/index.983f5d91.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/grid.8e51d4e8.css">
+<link rel="stylesheet" href="../../assets/demos.33272ba6.css"><link rel="stylesheet" href="../../assets/index.983f5d91.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/grid.e9ceddf6.css">
 
 
 
@@ -83,7 +83,7 @@
 
 
 
-<script type="module" src="../../assets/grid.444cd6ff.js"></script>
+<script type="module" src="../../assets/grid.ae247c56.js"></script>
 
 
 </head>
@@ -91,22 +91,22 @@
 	<body>
 		
 
-<header class="astro-DQ7RJIBR">
+<header class="astro-LPHCP5C4">
 	<a href="#article" class="sr-only skiplink astro-PWNYJVJP"><span class="astro-PWNYJVJP">Skip to Content</span></a>
 
 
 
-	<nav class="nav-wrapper astro-DQ7RJIBR" title="Top Navigation">
-		<div class="menu-toggle astro-DQ7RJIBR">
+	<nav class="nav-wrapper astro-LPHCP5C4" title="Top Navigation">
+		<div class="menu-toggle astro-LPHCP5C4">
 			<astro-root uid="Z12Vj7s"><button type="button" aria-pressed="false" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="sr-only">Toggle sidebar</span></button></astro-root>
 		</div>
-		<div class="logo flex astro-DQ7RJIBR">
+		<div class="logo flex astro-LPHCP5C4">
 			<!-- <AstroLogo size={40} /> -->
-			<a href="/ixfx-docs/" class="astro-DQ7RJIBR">
-				<h1 class="astro-DQ7RJIBR">ixfx docs</h1>
+			<a href="/ixfx-docs/" class="astro-LPHCP5C4">
+				<h1 class="astro-LPHCP5C4">ixfx docs</h1>
 			</a>
 		</div>
-		<div style="flex-grow: 1;" class="astro-DQ7RJIBR"></div>
+		<div style="flex-grow: 1;" class="astro-LPHCP5C4"></div>
 		<!-- {KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />} -->
 		<!-- {CONFIG.ALGOLIA && (
 			<div class="search-item">
@@ -247,8 +247,8 @@
   y<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span></code></pre><p>In action, this looks like:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it’s possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p>
-<script type="module" src="../../assets/GridEditor.f75bc602.js"></script>
-<script type="module" src="../../assets/grid.34477df1.js"></script>
+<script type="module" src="../../assets/GridEditor.dc6ba050.js"></script>
+<script type="module" src="../../assets/grid.b4668e6a.js"></script>
 
 <div class="toolbar astro-IOYBR6BL">
   <section class="astro-IOYBR6BL">
@@ -298,7 +298,7 @@
 <span class="token punctuation">}</span></code></pre><p>In the interactive demo above, this technique is used to colour cells differently depending on whether they’ve been visited.</p><h2 id="iterating-cells">Iterating cells</h2><p>The <code data-astro-raw="">cells</code> iterator is a simple alternative to the <em>visitor</em> technique if you don’t care about how the grid is traversed. It has a lower overhead than the visitor because it does not need to keep track of every cell it has visited.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cell <span class="token keyword">of</span> Grids<span class="token punctuation">.</span><span class="token function">cells</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with cell</span>
 <span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2>
-<script type="module" src="../../assets/GridEditor.f75bc602.js"></script>
+<script type="module" src="../../assets/GridEditor.dc6ba050.js"></script>
 <!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 <script type="module">
@@ -402,7 +402,7 @@ data<span class="token punctuation">.</span><span class="token function">set</sp
 <span class="token comment">// Fetch data associated with a given cell:</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token function">key</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre>
-<script type="module" src="../../assets/GridEditor.f75bc602.js"></script>
+<script type="module" src="../../assets/GridEditor.dc6ba050.js"></script>
 <!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 

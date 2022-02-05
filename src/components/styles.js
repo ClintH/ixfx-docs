@@ -108,7 +108,6 @@ export const elStyles = css`
 
   .toolbar {
     display: flex;
-    padding-bottom: 0.5em;
     margin: 0.5em;
     flex-wrap: wrap;
   }

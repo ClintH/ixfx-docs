@@ -41,5 +41,11 @@ The playground uses the settings from the envelope editor above. You can _trigge
 
 ## Demos
 
+In the demo below, `pointerdown` or `keydown` events triggers and holds the envelope. On the left side you see a typical binary on/off response, on the right you see a gradual effect of the envelope.
 
-<demo-element title="Decay value after trigger" src="/modulation/env-decay/" />
+Releasing the pointer or key calls the envelope's `release` function.
+
+This envelope has `retrigger` disabled, so pressing again while it's decaying will continue the envelope at that level, rather than resetting to zero (default behaviour).
+
+
+<demo-element title="Retrigger disabled" src="/modulation/env-decay/" />

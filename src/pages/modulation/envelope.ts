@@ -89,6 +89,7 @@ const startDrawing = () => {
   if (isDrawing) return;
   const draw = function () {
     let [stage, scaled, amt] = env.compute();
+    if (amt < 0) debugger;
     if (stage === undefined) {
       isDrawing = false;
       return;

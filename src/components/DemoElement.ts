@@ -15,6 +15,8 @@ class DemoElement extends LitElement {
       background-color: var(--bg-mono);
       color: var(--fg-mono);
       display:flex;
+      margin-top: 1em;
+      margin-bottom: 1em;
       flex-direction: column;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
@@ -33,6 +35,7 @@ class DemoElement extends LitElement {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      padding-bottom: 0.5em;
     }
     `
   ];
@@ -54,7 +57,11 @@ class DemoElement extends LitElement {
     if (this.src.length == 0) return html``;
     const src = this.src;
     const title = this.title;
-    const demoUrl = `https://clinth.github.io/ixfx-demos` + src;
+    const demoBase = import.meta.env.DEV ?
+      `http://127.0.0.1:5500` :
+      `https://clinth.github.io/ixfx-demos`
+
+    const demoUrl = demoBase + src;
     return html`
 			<div class="container">
         <div class="titleBar">
