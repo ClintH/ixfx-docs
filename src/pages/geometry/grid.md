@@ -8,6 +8,8 @@ setup: |
   import GridOffsetsPlay from './GridOffsetsPlay.astro';
 ---
 
+[API reference](https://clinth.github.io/ixfx/modules/Geometry.Grids.html)
+
 A _grid_ is a rectangular area divided by rows and columns into cells of equal size. A bit like a table or spreadsheet. Each cell has an _x,y_ location with _0,0_ being the top-left corner.
 
 Example: This grid has four rows and three columns.
@@ -54,7 +56,7 @@ For a given starting cell, it's possible to _visit_ all cells once and only once
 
 <GridVisitorPlay />
 
-Provided visitor functions are: `visitorDepth, visitorBreadth, visitorRandom, visitorContiguous, visitorRow,` and `visitorColumn`.
+Provided [visitor](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#visitor) functions are: `visitorDepth, visitorBreadth, visitorRandom, visitorContiguous, visitorRow,` and `visitorColumn`.
 
 The visitor can be used in a `for .. of` loop
 
@@ -88,10 +90,10 @@ const visit = () => {
 setTimeout(visit, visitorDelayMs);
 ```
 
-The visitor can have an instance of `MutableStringSet` passed in to track what cells have been visited. This is useful if you want to check the status of cells during the visitor's journey.
+The visitor can have an instance of [SetMutable](https://clinth.github.io/ixfx/interfaces/Collections.SetMutable.html) passed in to track what cells have been visited. This is useful if you want to check the status of cells during the visitor's journey.
 
 ```js
-const visited = mutableStringSet();
+const visited = setMutable();
 const visitor = Grids.visitorRandom(shape, {x: 5, y: 5}, visited);
 
 ...

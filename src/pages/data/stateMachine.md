@@ -7,6 +7,8 @@ setup: |
 
 ---
 
+[API docs](https://clinth.github.io/ixfx/classes/StateMachine.html)
+
 A _state machine_ allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It's up to you to 'drive' the machine, telling it when to transition. 
 
 State machines can be defined using a plain object, with keys the list of possible states, and the values state(s) that are possible to change to, or null if no further changes are possible.
@@ -56,11 +58,13 @@ A state machine therefore can help you catch errors and makes coding simpler whe
 
 ## Playground
 
-Try out some state machines in this playground. Edit the description or load a demo, click _Set_ to load it and check for errors. If successful, you can see available states and change state under _Control_.
+Try out some state machines in this playground. Edit the description or load a demo, click _Use description_ to load it and check for errors. If successful, you can see available states and change state under _Control_.
 
 <StateMachinePlay />
 
 ## Usage
+
+[API docs](https://clinth.github.io/ixfx/classes/StateMachine.html)
 
 Create the machine with the an initial state and its _description_:
 

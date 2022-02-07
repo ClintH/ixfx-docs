@@ -5,7 +5,7 @@ setup: |
   import Layout from '../../layouts/MainLayout.astro';
 ---
 
-[API Docs](/ixfx-docs/api/modules/Collections.Maps.html)
+[API Docs](https://clinth.github.io/ixfx/modules/Collections.Maps.html)
 
 ## Adding and deleting
 
@@ -39,6 +39,7 @@ transformMap
 
 ## Immutable map
 
-[API Docs](/ixfx-docs/api/interfaces/Collections.ImmutableMap.html)
+[MapImmutable docs](https://clinth.github.io/ixfx/interfaces/Collections.MapImmutable.html)
 
-[API Docs](/ixfx-docs/api/interfaces/Collections.MutableMap.html)
+
+[MapMutable docs](https://clinth.github.io/ixfx/interfaces/Collections.MapMutable.html)

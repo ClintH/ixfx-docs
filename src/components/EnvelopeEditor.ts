@@ -194,7 +194,7 @@ export class EnvelopeEditor extends LitElement {
 <div class="container">
 <div id="preview">
 </div>  
-<div class="controls">
+<div class="controls wrappable">
   <div class="vertical">
     <h2>Attack</h2>
     <canvas title="Preview of attack stage" id="attackPreview" width="100" height="100"></canvas>
@@ -242,7 +242,7 @@ export class EnvelopeEditor extends LitElement {
     </label>
   </div>
 </div>
-<div class="toolbar">
+<div class="toolbar centered mini">
   <button title="Reset envelope to starting state" @click="${this._reset}">Reset</button>
   <button title="Copy envelope data to clipboard" @click="${this._copy}">Copy envelope</button>
 </div>

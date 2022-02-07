@@ -267,7 +267,9 @@ pre {
 .editable {
   border: 1px solid var(--fg-dim);
 	background-color: var(--bg-dim);
-	color: var(--fg-dim);
+	color: var(--fg);
+	padding: 1em;
+	margin: 0;
 }
 input[type="text"] {
 	border-radius: 8px;
@@ -423,4 +425,66 @@ h2.heading {
 
 :target {
 	scroll-margin: calc(var(--theme-sidebar-offset, 5rem) + 2rem) 0 2rem;
+}
+
+
+.sxs {
+	display: flex;
+}
+
+
+.sxs>div {
+	min-height: 300px;
+	flex-grow: 1;
+}
+
+.sxs>section>section {
+	padding: var(--padding-text);
+	display: flex;
+	flex-direction: column;
+}
+
+.stackVertical {
+	display: flex;
+	flex-direction: column;	
+}
+
+.stackVertical>div {
+	flex-grow: 1
+}
+
+.dataLog {
+	overflow-y: scroll;
+}
+
+.toolbar {
+	display: flex;
+	margin: 0.5em;
+	flex-wrap: wrap;
+}
+
+.toolbar.centered {
+	justify-content: center;
+}
+
+.toolbar.right {
+	justify-content: right;
+}
+
+.toolbar > * {
+	margin-left: var(--padding);
+	margin-right: var(--padding);
+}
+
+section.dividerRight {
+	border-right: 0.2rem solid var(--bg-dim);
+}
+
+section.dividerTop {
+	border-top: 0.2rem solid var(--bg-dim);
+}
+
+hr {
+	border: 0;
+	border-top: 0.2rem solid var(--bg-dim);
 }

@@ -33,6 +33,8 @@ export const SIDEBAR =
     {text: ``, header: true},
     {text: `Docs`, header: true},
     {text: `Introduction`, link: `./`},
+    {text: `Importing`, link: `./importing`},
+
     {text: `Modulation`, header: true},
     {text: `Envelope`, link: `modulation/envelope`},
     {text: `Collections`, header: true},

@@ -1,32 +1,28 @@
 <script type="module" src={Astro.resolve('./freqWeighted.ts')}></script>
 <style>
-  .sxs {
-    display: flex;
-  }
 
-  .sxs>div {
-    height: 300px;
-    flex-grow: 1;
-  }
 
-  #dataStream {
-    overflow-y: scroll;
-  }
-  .toolbar {
+  /* .toolbar {
     display: flex;
   }
   .toolbar button {
     margin-right: 0.3em;
     margin-left: 0.3em;
+  } */
+  #dataStream {
+    width: 5em;
+  }
+  #dataStream {
+    flex-grow: unset;;
   }
 </style>
-<div class="toolbar">
+<div class="toolbar centered">
   <button id="btnStart">Start</button>
   <button id="btnStop">Stop</button>
   <button id="btnClear">Clear</button>
 </div>
 <div class="sxs">
-  <div id="dataStream"></div>
+  <div class="dataLog" id="dataStream"></div>
   <div>
     <histogram-vis id="dataPlot"></histogram-vis>
   </div>

@@ -7,7 +7,7 @@ setup: |
 
 A circle.
 
-[API docs](/ixfx/api/modules/Geometry.Circles.html)
+[API docs](https://clinth.github.io/ixfx/modules/Geometry.Circles.html)
 
 ## Type
 

@@ -3,10 +3,12 @@ title: Frequency
 setup: |
   import { Markdown } from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
-  import FreqLettersElement from './FreqLettersElement.ts';
+  import FreqLettersElement from '../../components/FreqLettersElement.ts';
   import FreqWeighted from './FreqWeighted.astro';
   import CounterElement from './CounterElement.ts';
 ---
+
+[API docs](https://clinth.github.io/ixfx/classes/FrequencyMutable.html)
 
 The `Frequency` class keeps track of the number of times a certain value is 'seen'.
 
@@ -22,13 +24,16 @@ In the demo below, a weighted distribution of random numbers is produced. In thi
 
 ## Usage
 
+[API docs](https://clinth.github.io/ixfx/classes/FrequencyMutable.html)
+
 The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
+
 
 ### Adding and clearing
 
 ```js
 // Create an instance
-const freq = mutableFrequency();
+const freq = frequencyMutable();
 
 // Add string or numeric data...
 freq.add(`apples`);
@@ -104,7 +109,7 @@ const cars = [
 ]
 
 // Count cars by make
-const freq = mutableFrequency(car => car.make);
+const freq = frequencyMutable(car => car.make);
 
 // Add array of cars
 freq.add(...cars);
@@ -123,7 +128,7 @@ freq.frequencyOf(cars[1]); // 1
 The below example calculates frequency distribution of letters in a string. It demonstrates how to add items to the `Frequency`, sort by frequency and calculate a proportional amount.
 
 ```js
-const freq = mutableFrequency();
+const freq = frequencyMutable();
 
 // Loop through all characters
 for (let i = 0; i < this.text.length; i++) {

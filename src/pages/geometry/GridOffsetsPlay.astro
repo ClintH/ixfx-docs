@@ -1,6 +1,4 @@
-<link rel="stylesheet" href={Astro.resolve('../../styles/demos.css')} />
 <script type="module" src={Astro.resolve('../../components/GridEditor.ts')}></script>
-<!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 <style>
   #offsetsGrid {
     --grid-color:var(--theme-divider);
@@ -49,7 +47,7 @@ const offsetsWrapSel = Forms.select(`#selOffsetsWrap`, offsets);
 
 offsets();
 </script>
-<div class="toolbar">
+<div class="toolbar centered">
   <section>
     <label>Bounds:</label>
     <select id="selOffsetsWrap" title="How should coordinate wrapping behave?">

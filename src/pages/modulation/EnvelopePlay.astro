@@ -1,5 +1,6 @@
-<link rel="stylesheet" href={Astro.resolve('../../styles/demos.css')} />
 <script type="module" src={Astro.resolve('../../components/EnvelopeEditor.ts')}></script>
+<script type="module" src={Astro.resolve('../../components/LogElement.ts')}></script>
+
 <script type="module" src={Astro.resolve('./envelope.ts')}></script>
 <style>
   .sxs {
@@ -17,9 +18,17 @@
     width: 5em;
     border: 1px solid yellow;
   }
-  #envDataStream {
-    overflow-y: scroll;
-    width: 11em;
+  #envDataStream:not(.expanded) {
+    max-height: 3em;
+    flex-grow: 1;
+  }
+
+  #envDataStream.expanded {
+    max-height: 10em;
+    flex-grow: 1;
+  }  
+  #envDataLog {
+    flex-grow: 1;
   }
 </style>
 <div class="toolbar">
@@ -46,7 +55,9 @@
       </select>
   </section>
 </div>
-<div class="sxs">
+<div class="stackVertical">
   <div id="envData"></div>
-  <div id="envDataStream"></div>
+  <div style="display: flex">
+    <log-element id="envDataLog" />
+  </div>
 </div>

@@ -54,13 +54,17 @@ export const elStyles = css`
     justify-content: center;
   }
 
+  .controls.wrappable {
+    flex-wrap: wrap;
+  }
+
   .controls .vertical {
     display: flex;
     flex-direction: column;
   }
 
   .controls h2 {
-    font-size: 80%;
+   
     text-align: center;
   }
 
@@ -120,16 +124,27 @@ export const elStyles = css`
   .toolbar.centered {
     justify-content: center;
   }
+  .toolbar.vertical {
+    flex-direction: column;
+  }
   
   .toolbar input {
     min-width: 3em;
-    margin-right: 1em;
-    margin-left: var(--padding);
+    margin-right: 1vw;
+    margin-left: 1vw;
   }
 
+  .toolbar.mini, .toolbar.mini>button {
+    font-size: 80%;
+  }
   .toolbar > * {
     margin-left: var(--padding);
     margin-right: var(--padding);
+  }
+
+  .toolbar.vertical > * {
+    margin-top: var(--padding);
+    margin-bottom: var(--padding);
   }
 
   .icon {
@@ -140,6 +155,7 @@ export const elStyles = css`
     opacity: 1;
     transition: opacity 0.3s ease-in;
   }
+
 
   @media (prefers-color-scheme: dark) {
     :host {

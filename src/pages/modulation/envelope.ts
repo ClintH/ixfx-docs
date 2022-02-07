@@ -4,12 +4,9 @@ import {Forms, resolveEl, log} from 'ixfx/lib/dom';
 import {Palette, Plot} from 'ixfx/lib/visual';
 import {fromEvent, debounceTime} from 'rxjs';
 import {map} from 'rxjs/operators';
+import {LogElement} from '../../components/LogElement.js';
 
-// Setup data logger
-const envDataLog = log(`#envDataStream`, {
-  minIntervalMs: 20,
-  capacity: 150
-});
+const envDataLog = document.getElementById(`envDataLog`) as LogElement;
 
 // Setup plot
 const palette = Palette.create();
@@ -23,13 +20,13 @@ const envData = Plot.plot2(`#envData`, {
 });
 
 // Setup envelope
-let opts: Envelopes.AdsrOpts = {
+let shouldLoop = false;
+let opts: Envelopes.AdsrOpts & Envelopes.EnvelopeOpts = {
   ...Envelopes.defaultAdsrOpts(),
   attackBend: 1,
   decayBend: -1,
   releaseBend: 1
 };
-let shouldLoop = false;
 let env = Envelopes.adsr({...opts, shouldLoop});
 
 env.addEventListener(`change`, ev => {
@@ -52,7 +49,7 @@ Forms.button(`#btnTrigger`, () => {
 
 const selectShow = Forms.select(`#selectShow`, (val) => {
   envData.clear();
-  envDataLog.log()
+  envDataLog.log(``);
   startDrawing();
 });
 

@@ -2,7 +2,7 @@
 <script type="module" src={Astro.resolve('./stateMachine.ts')}></script>
 
 <style>
-  .sxs {
+  /* .sxs {
     display: flex;
   }
 
@@ -11,28 +11,9 @@
     margin-right: 0rem;
   }
 
-  .sxs>section>section {
-    padding: var(--padding-text);
-    display: flex;
-    flex-direction: column;
-  }
-
-  section.dividerRight {
-    border-right: 0.2rem solid var(--bg-dim);
-  }
-
-  section.dividerTop {
-    border-top: 0.2rem solid var(--bg-dim);
-  }
-
-  hr {
-    border: 0;
-    border-top: 0.2rem solid var(--bg-dim);
-  }
-
+ */
   #jsonDescr {
     padding: var(--padding-text);
-  
   }
 
   h2 {
@@ -40,6 +21,7 @@
     text-transform: uppercase;
     color: var(--muted-color);
   }
+
   #descrValidate {
     font-size: 80%;
   }
@@ -50,37 +32,50 @@
     margin: 10px;
     font-size: 80%;
   }
+  #dataDescr {
+    flex-grow: 1;
+  }
   #dataStream {
     font-size: 0.8em;
     max-width: 14em;
   }
+  .sxs {
+    flex-wrap: wrap;
+  }
+  @media (max-width: 40em) {
+	  .dividerRight,.dividerTop {
+      border-color: var(--bg);
+	  }
+  }
+
 </style>
 <div class="sxs">
   <section id="dataDescr" class="dividerRight">
+    <section>
+      <div class="toolbar centered">
+        <label for="selDemoMachines">Load demo:</label>
+        <select id="selDemoMachines">
+          <option>one</option>
+        </select>
+      </div>
+    </section>
     <section>
       <h2>Machine description</h2>
       <pre class="editable" contenteditable id="jsonDescr">
       </pre>
       <div id="descrValidate"></div>
-      <p>&nbsp;</p>
+
       <label>
         Initial state:
         <select id="selDescrInitial">
           <option></option>
         </select>
       </label>
-      <div class="toolbar">
-        <button id="btnSetDescr">1. Set</button>
+      <div class="toolbar centered">
+        <button id="btnSetDescr">1. Use description</button>
       </div>
     </section>
-    <section>
-      <label>
-        Load demo:
-        <select id="selDemoMachines">
-          <option>one</option>
-        </select>
-      </label>
-    </section>
+
   </section>
   <section >
     <section>

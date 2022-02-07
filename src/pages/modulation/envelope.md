@@ -10,11 +10,9 @@ setup: |
 
 The notion of an _envelope_ is borrowed from [sound synthesis](https://en.wikipedia.org/wiki/Envelope_(music)). They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.
 
-Envelopes have some similarity with easing functions, as they describe a shape over time.
+Envelopes have some similarity with _easing_ functions, as they describe a shape over time.
 
-Envelopes in action:
-* [Decay over time](): Envelopes are used to 'fade out' a button press
-* [Modulating another value]()
+[Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
 
 ## Anatomy of an envelope
 
