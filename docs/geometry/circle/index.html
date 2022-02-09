@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.eae0cdf3.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/point.e1a9ae84.css">
+<link rel="stylesheet" href="../../assets/index.eae0cdf3.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/import-url.f7251fc6.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/circle.2edeecc4.js"></script>
+<script type="module" src="../../assets/circle.f18d6692.js"></script>
 
 
 
@@ -146,6 +146,17 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow</h2>
+					<ul class="astro-NO4JLDNO">
+						<li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
+									State Machine
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
 					<h2 class="nav-group-title astro-NO4JLDNO">Modulation</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
@@ -157,26 +168,19 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Collections</h2>
-					<ul class="astro-NO4JLDNO">
-						<li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/collections/map" aria-current="false" class="astro-NO4JLDNO">
-									Map
-								</a>
-							</li>
-					</ul>
-				</div>
-			</li><li class="astro-NO4JLDNO">
-				<div class="nav-group astro-NO4JLDNO">
 					<h2 class="nav-group-title astro-NO4JLDNO">Data</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/data/stateMachine" aria-current="false" class="astro-NO4JLDNO">
-									State Machine
+								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
+									Introduction
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/frequency" aria-current="false" class="astro-NO4JLDNO">
 									Frequency
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-NO4JLDNO">
+									Collections
 								</a>
 							</li>
 					</ul>
@@ -233,7 +237,7 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="2tecOX"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#type">Type</a></li><li class="header-link depth-2"><a href="#geometry">Geometry</a></li><li class="header-link depth-2"><a href="#conversions">Conversions</a></li><li class="header-link depth-2"><a href="#other-functions">Other functions</a></li></ul></astro-root>
 			</nav>
-		<p>A circle.</p><p><a href="https://clinth.github.io/ixfx/modules/Geometry.Circles.html">API docs</a></p><h2 id="type">Type</h2><pre class="language-typescript"><code data-astro-raw="" class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Circle</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+		<p>A circle.</p><p><a href="https://clinth.github.io/ixfx-demos/geometry/">Online geometry demos</a>, <a href="https://clinth.github.io/ixfx/modules/Geometry.Circles.html">API docs</a></p><h2 id="type">Type</h2><pre class="language-typescript"><code data-astro-raw="" class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Circle</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   radius<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span></code></pre><p><code data-astro-raw="">CirclePositioned</code> also includes <code data-astro-raw="">x</code> and <code data-astro-raw="">y</code> fields.</p><h2 id="geometry">Geometry</h2><p>Get the points of intersection between a line and circle.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> circle <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">radius</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> line <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>

@@ -1,6 +1,0 @@
----
-
----
-<script type="module" src={Astro.resolve('./FreqLettersElement.ts')}></script>
-
-<freq-letters client:load />

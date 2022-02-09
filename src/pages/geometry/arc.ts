@@ -1,13 +1,11 @@
 /* eslint-disable */
 import {fromEvent, debounceTime} from 'rxjs';
-import {map} from 'rxjs/operators';
 import {ArcEditor} from '../../components/ArcEditor';
-import {Arcs, Math as MathUtil} from 'ixfx/lib/geometry';
+import {Arcs, degreeToRadian} from 'ixfx/lib/geometry';
 import {createAfter, createIn} from 'ixfx/lib/dom';
-import json5 from 'json5';
 
 // @ts-ignore
-window.degreeToRadian = MathUtil.degreeToRadian;
+window.degreeToRadian = degreeToRadian;
 
 document.querySelectorAll(`.arc`).forEach((el: HTMLInputElement) => {
   const id = el.id;

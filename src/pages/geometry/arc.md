@@ -4,7 +4,7 @@ setup: |
   import {Markdown} from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
   import ArcEditor from '../../components/ArcEditor';
-  import RadiansEditor from '../../components/RadiansEditor';
+  import AnglesElement from '../../components/AnglesElement';
 
 ---
 <script type="module" src={Astro.resolve('./arc.ts')}></script>
@@ -24,7 +24,7 @@ radians-editor {
 
 An arc describes a segment of a circle. It is defined by its radius as well as the start and end radian.
 
-[API docs](https://clinth.github.io/ixfx/modules/Geometry.Arcs.html)
+[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API docs](https://clinth.github.io/ixfx/modules/Geometry.Arcs.html)
 
 ## Type
 
@@ -49,7 +49,7 @@ Try editing this example:
 
 Angles are set with _radians_, not the more familiar _degrees_. See [Units](units) for more info
 
-<radians-editor width="500" height="300" client:visible />
+<angles-element width="500" height="300" client:visible />
 
 ## Conversions
 

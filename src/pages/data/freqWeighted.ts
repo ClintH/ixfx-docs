@@ -49,12 +49,3 @@ document.getElementById(`btnStart`).addEventListener(`click`, start);
 document.getElementById(`btnStop`).addEventListener(`click`, stop);
 document.getElementById(`btnClear`).addEventListener(`click`, clear);
 start();
-
-// plot.update([
-//   ['apples', 4],
-//   ['oranges', 2],
-//   ['mangoes', 10],
-//   ['kiwi', 1],
-//   ['banana', 0],
-//   ['tomato', 5]
-// ])

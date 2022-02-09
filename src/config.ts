@@ -35,18 +35,17 @@ export const SIDEBAR =
     {text: `Introduction`, link: `./`},
     {text: `Importing`, link: `./importing`},
 
+    {text: `Flow`, header: true},
+    {text: `State Machine`, link: `flow/stateMachine`},
+
     {text: `Modulation`, header: true},
     {text: `Envelope`, link: `modulation/envelope`},
-    {text: `Collections`, header: true},
-    {text: `Map`, link: `collections/map`},
-    // { text: `Circular Array`, link: `data/circularArray` },
-    // { text: `Set`, link: `data/circularArray` },
-    // { text: `Queue`, link: `data/circularArray` },
-    // { text: `Stack`, link: `data/circularArray` },
-    // { text: `MapOf`, link: `data/circularArray` },
+
     {text: `Data`, header: true},
-    {text: `State Machine`, link: `data/stateMachine`},
+    {text: `Introduction`, link: `data/`},
     {text: `Frequency`, link: `data/frequency`},
+    {text: `Collections`, link: `data/collections/`},
+
     {text: `Geometry`, header: true},
     {text: `Units`, link: `geometry/units`},
     {text: `Point`, link: `geometry/point`},
