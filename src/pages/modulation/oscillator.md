@@ -7,6 +7,8 @@ setup: |
   import {OscElement} from './OscElement.ts';
 ---
 
+[API Docs: Modulation.Oscillators module](https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html)
+
 <script type="module" src={Astro.resolve('./OscElement.ts')}></script>
 <script type="module" src={Astro.resolve('../../loader.ts')}></script>
 
