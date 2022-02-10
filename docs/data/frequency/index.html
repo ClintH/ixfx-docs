@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.eae0cdf3.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/frequency.60a70333.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/frequency.60a70333.css">
 
 
 
@@ -81,7 +81,7 @@
 
 
 
-<script type="module" src="../../assets/frequency.f0fb9cb4.js"></script>
+<script type="module" src="../../assets/frequency.e6a945ea.js"></script>
 
 
 
@@ -133,7 +133,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Docs</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Getting Started</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/./" aria-current="false" class="astro-NO4JLDNO">
@@ -154,6 +154,10 @@
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
 									State Machine
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/time" aria-current="false" class="astro-NO4JLDNO">
+									Time
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -165,6 +169,10 @@
 								<a href="/ixfx-docs/modulation/envelope" aria-current="false" class="astro-NO4JLDNO">
 									Envelope
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
+									Oscillator
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -175,6 +183,10 @@
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
 									Introduction
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/generator" aria-current="false" class="astro-NO4JLDNO">
+									Generators
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/frequency" aria-current="page" class="astro-NO4JLDNO">
@@ -237,9 +249,9 @@
 	<section class="main-section astro-EDKM2WF4">
 		<h1 class="content-title astro-EDKM2WF4" id="overview">Frequency</h1>
 		<nav class="block sm:hidden astro-EDKM2WF4">
-				<astro-root uid="1jYWcJ"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#why">Why?</a></li><li class="header-link depth-2"><a href="#demo">Demo</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#adding-and-clearing">Adding and clearing</a></li><li class="header-link depth-3"><a href="#working-with-frequency">Working with frequency</a></li><li class="header-link depth-3"><a href="#iterating">Iterating</a></li><li class="header-link depth-3"><a href="#custom-objects">Custom objects</a></li><li class="header-link depth-2"><a href="#examples">Examples</a></li><li class="header-link depth-3"><a href="#letter-frequency">Letter frequency</a></li></ul></astro-root>
+				<astro-root uid="ZDGmOb"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#adding-and-clearing">Adding and clearing</a></li><li class="header-link depth-3"><a href="#working-with-frequency">Working with frequency</a></li><li class="header-link depth-3"><a href="#iterating">Iterating</a></li><li class="header-link depth-3"><a href="#custom-objects">Custom objects</a></li><li class="header-link depth-2"><a href="#examples">Examples</a></li><li class="header-link depth-3"><a href="#letter-frequency">Letter frequency</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/classes/FrequencyMutable.html">API docs</a></p><p>The <code data-astro-raw="">Frequency</code> class keeps track of the number of times a certain value is ‘seen’.</p><h2 id="why">Why?</h2><p>In some scenarios it can be useful to aggregate data over time, rather than looking at a single event or snapshot-in-time. It allows you to do some fuzzy logic, for example using the value that <em>mostly</em> occurs.</p><h2 id="demo">Demo</h2><p>In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. The <code data-astro-raw="">Frequency</code> is used to count how many times each number appears, and for visualisation purposes shown as a histogram.</p><script type="module" src="../../assets/freqWeighted.c5283b7f.js"></script>
+		<p><a href="https://clinth.github.io/ixfx/classes/FrequencyMutable.html">API Docs: Frequency class</a></p><p>The <code data-astro-raw="">Frequency</code> class keeps track of the number of times a certain value is ‘seen’.</p><p>In some scenarios it can be useful to aggregate data over time, rather than looking at a single event or snapshot-in-time. It allows you to do some fuzzy logic, for example using the value that <em>mostly</em> occurs.</p><p>In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. The <code data-astro-raw="">Frequency</code> is used to count how many times each number appears, and for visualisation purposes shown as a histogram.</p><script type="module" src="../../assets/freqWeighted.f21482b6.js"></script>
 
 
 <div class="toolbar centered astro-IIUVSKBM">
@@ -310,7 +322,7 @@ freq<span class="token punctuation">.</span><span class="token function">frequen
 <span class="token comment">// Calculate percentage for a given letter</span>
 <span class="token keyword">const</span> <span class="token function-variable function">percent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">kv</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>kv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">/</span> mma<span class="token punctuation">.</span>total <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Letter </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> appears </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">percent</span><span class="token punctuation">(</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">% of the time.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><astro-root uid="dVnwH"><freq-letters><template shadowroot="open"><style>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Letter </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> appears </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">percent</span><span class="token punctuation">(</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">% of the time.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><astro-root uid="Z1DliLl"><freq-letters><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -349,6 +361,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     --padding: 0.3em;
     --padding-text: 0.8em;
 
+    --divider: red;
     --light-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAzMCAzMCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDI1Ljk4MDQ2OSAyLjk5MDIzNDQgQSAxLjAwMDEgMS4wMDAxIDAgMCAwIDI1Ljg2OTE0MSAzIEwgMjAgMyBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMjAgNSBMIDIzLjU4NTkzOCA1IEwgMTMuMjkyOTY5IDE1LjI5Mjk2OSBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMTQuNzA3MDMxIDE2LjcwNzAzMSBMIDI1IDYuNDE0MDYyNSBMIDI1IDEwIEEgMS4wMDAxIDEuMDAwMSAwIDEgMCAyNyAxMCBMIDI3IDQuMTI2OTUzMSBBIDEuMDAwMSAxLjAwMDEgMCAwIDAgMjUuOTgwNDY5IDIuOTkwMjM0NCB6IE0gNiA3IEMgNC45MDY5MzcyIDcgNCA3LjkwNjkzNzIgNCA5IEwgNCAyNCBDIDQgMjUuMDkzMDYzIDQuOTA2OTM3MiAyNiA2IDI2IEwgMjEgMjYgQyAyMi4wOTMwNjMgMjYgMjMgMjUuMDkzMDYzIDIzIDI0IEwgMjMgMTQgTCAyMyAxMS40MjE4NzUgTCAyMSAxMy40MjE4NzUgTCAyMSAxNiBMIDIxIDI0IEwgNiAyNCBMIDYgOSBMIDE0IDkgTCAxNiA5IEwgMTYuNTc4MTI1IDkgTCAxOC41NzgxMjUgNyBMIDE2IDcgTCAxNCA3IEwgNiA3IHoiPjwvcGF0aD48L3N2Zz4=') no-repeat left top;
     --dark-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTE0OC45NTQ2OSwxNy4xNDQwMWMtMC4yMTM2NCwwLjAwNjc1IC0wLjQyNjczLDAuMDI1NDQgLTAuNjM4MjgsMC4wNTU5OWgtMzMuNjQ5NzRjLTIuMDY3NjUsLTAuMDI5MjQgLTMuOTkwODcsMS4wNTcwOSAtNS4wMzMyMiwyLjg0M2MtMS4wNDIzNiwxLjc4NTkyIC0xLjA0MjM2LDMuOTk0NzQgMCw1Ljc4MDY2YzEuMDQyMzYsMS43ODU5MiAyLjk2NTU4LDIuODcyMjUgNS4wMzMyMiwyLjg0M2gyMC41NTkzOGwtNTkuMDEzMDIsNTkuMDEzMDJjLTEuNDk3NzgsMS40MzgwMiAtMi4xMDExMywzLjU3MzQgLTEuNTc3MzUsNS41ODI2YzAuNTIzNzgsMi4wMDkyIDIuMDkyODQsMy41NzgyNiA0LjEwMjA0LDQuMTAyMDRjMi4wMDkyLDAuNTIzNzggNC4xNDQ1OCwtMC4wNzk1NyA1LjU4MjYsLTEuNTc3MzVsNTkuMDEzMDIsLTU5LjAxMzAydjIwLjU1OTM4Yy0wLjAyOTI0LDIuMDY3NjUgMS4wNTcwOSwzLjk5MDg3IDIuODQzLDUuMDMzMjJjMS43ODU5MiwxLjA0MjM2IDMuOTk0NzQsMS4wNDIzNiA1Ljc4MDY2LDBjMS43ODU5MiwtMS4wNDIzNiAyLjg3MjI1LC0yLjk2NTU4IDIuODQzLC01LjAzMzIydi0zMy42NzIxNGMwLjIzMTExLC0xLjY3MDc2IC0wLjI4NTExLC0zLjM1ODUzIC0xLjQxMTI5LC00LjYxNDE1Yy0xLjEyNjE3LC0xLjI1NTYyIC0yLjc0ODA2LC0xLjk1MTcyIC00LjQzNDAyLC0xLjkwMzA0ek0zNC40LDQwLjEzMzMzYy02LjI2Njg5LDAgLTExLjQ2NjY3LDUuMTk5NzcgLTExLjQ2NjY3LDExLjQ2NjY3djg2YzAsNi4yNjY4OSA1LjE5OTc3LDExLjQ2NjY3IDExLjQ2NjY3LDExLjQ2NjY3aDg2YzYuMjY2ODksMCAxMS40NjY2NywtNS4xOTk3NyAxMS40NjY2NywtMTEuNDY2Njd2LTU3LjMzMzMzdi0xNC43ODEyNWwtMTEuNDY2NjcsMTEuNDY2Njd2MTQuNzgxMjV2NDUuODY2NjdoLTg2di04Nmg0NS44NjY2N2gxMS40NjY2N2gzLjMxNDU4bDExLjQ2NjY3LC0xMS40NjY2N2gtMTQuNzgxMjVoLTExLjQ2NjY3eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+') no-repeat left top;
   }
@@ -403,7 +416,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     padding: 0;
   }
   
-  button {
+  button, .toolbar .radios label {
     border: 0;
     padding: 0.5em 1em;
     font-size: 1rem;
@@ -413,6 +426,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
     color: var(--fg-contrast-dim);
     background-color: var(--bg-contrast);
     transition: color 0.3s ease-out;
+    cursor: pointer;
+    user-select: none;
   }
   
   button:hover {
@@ -457,6 +472,35 @@ console<span class="token punctuation">.</span><span class="token function">log<
     margin-bottom: var(--padding);
   }
 
+  .radios input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  .radios label {
+    display: inline-block;
+    opacity: 0.5;
+    font-size: 80% !important;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios label:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .radios input[type="radio"]:checked + label {
+    background-color: var(--bg-contrast);
+    font-size: 100%;
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios input[type="radio"]:focus + label {
+    border: 1px solid var(--fg);
+  }
+  
   .icon {
     opacity: 0.6;
     transition: opacity 0.5s ease-out;
@@ -472,6 +516,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
       --bg-mono: var(--black);
       --bg: var(--dark-bg);
       --bg-dim: var(--dark-bg-dim);
+
+      --divider: hsl(229, 30%, 30%);
+
       --accent: var(--dark-accent);
       --accent-text: var(--dark-accent-text);
       --accent-bold: var(--dark-accent-bold);
@@ -480,8 +527,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
       --fg-mono: var(--dark-fgDim);
       --fgDim: var(--dark-fgDim);
       --fg-bright: var(--dark-fg-bright);
-      --bg-dim: var(--dark-bg-dim);
-    
+      
       --purple: var(--dark-purple);
       --green: var(--dark-green);
       --blue: var(--dark-blue);
@@ -496,6 +542,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
     --bg-mono: var(--white);
     --bg: var(--light-bg);
     --bg-dim: var(--light-bg-dim);
+    
+    --divider: hsl(193, 10%, 84%);
+
     --accent: var(--light-accent);
     --accent-bold: var(--light-accent-bold);
     --accent-text: var(--light-accent-text);
@@ -539,12 +588,12 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </style><!--lit-part aax5zYRy+Oc=-->
     <div class="container">
       <div class="toolbar">
-        <input type="text" value="Hello there! - Obiwan Kenobi"><!--lit-node 2-->
+        <input type="text" value="Hello there! - Obi-wan Kenobi"><!--lit-node 2-->
       </div>
       <div>
         Top <!--lit-part-->3<!--/lit-part--> letters:
         <ol>
-        <!--lit-part--><!--lit-part 82V6oJm+gFo=--><li>'<!--lit-part-->E<!--/lit-part-->' <!--lit-part-->17<!--/lit-part-->%</li><!--/lit-part--><!--lit-part 82V6oJm+gFo=--><li>'<!--lit-part-->O<!--/lit-part-->' <!--lit-part-->13<!--/lit-part-->%</li><!--/lit-part--><!--lit-part 82V6oJm+gFo=--><li>'<!--lit-part-->H<!--/lit-part-->' <!--lit-part-->8<!--/lit-part-->%</li><!--/lit-part--><!--/lit-part-->
+        <!--lit-part--><!--lit-part 82V6oJm+gFo=--><li>'<!--lit-part-->E<!--/lit-part-->' <!--lit-part-->16<!--/lit-part-->%</li><!--/lit-part--><!--lit-part 82V6oJm+gFo=--><li>'<!--lit-part-->O<!--/lit-part-->' <!--lit-part-->12<!--/lit-part-->%</li><!--/lit-part--><!--lit-part 82V6oJm+gFo=--><li>'<!--lit-part-->H<!--/lit-part-->' <!--lit-part-->8<!--/lit-part-->%</li><!--/lit-part--><!--/lit-part-->
         </ol>
         </div>
     </div>
@@ -575,7 +624,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-LR56V2JR">
-		<astro-root uid="1jYWcJ"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#why">Why?</a></li><li class="header-link depth-2"><a href="#demo">Demo</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#adding-and-clearing">Adding and clearing</a></li><li class="header-link depth-3"><a href="#working-with-frequency">Working with frequency</a></li><li class="header-link depth-3"><a href="#iterating">Iterating</a></li><li class="header-link depth-3"><a href="#custom-objects">Custom objects</a></li><li class="header-link depth-2"><a href="#examples">Examples</a></li><li class="header-link depth-3"><a href="#letter-frequency">Letter frequency</a></li></ul></astro-root>
+		<astro-root uid="ZDGmOb"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#adding-and-clearing">Adding and clearing</a></li><li class="header-link depth-3"><a href="#working-with-frequency">Working with frequency</a></li><li class="header-link depth-3"><a href="#iterating">Iterating</a></li><li class="header-link depth-3"><a href="#custom-objects">Custom objects</a></li><li class="header-link depth-2"><a href="#examples">Examples</a></li><li class="header-link depth-3"><a href="#letter-frequency">Letter frequency</a></li></ul></astro-root>
 		
 
 

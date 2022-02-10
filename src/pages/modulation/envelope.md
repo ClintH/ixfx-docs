@@ -8,6 +8,8 @@ setup: |
 
 ---
 
+[API Docs: Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html)
+
 The notion of an _envelope_ is borrowed from [sound synthesis](https://en.wikipedia.org/wiki/Envelope_(music)). They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.
 
 Envelopes have some similarity with _easing_ functions, as they describe a shape over time.

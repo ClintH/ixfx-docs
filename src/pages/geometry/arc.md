@@ -24,7 +24,7 @@ radians-editor {
 
 An arc describes a segment of a circle. It is defined by its radius as well as the start and end radian.
 
-[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API docs](https://clinth.github.io/ixfx/modules/Geometry.Arcs.html)
+[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API Docs: Geometry.Arcs module](https://clinth.github.io/ixfx/modules/Geometry.Arcs.html)
 
 ## Type
 

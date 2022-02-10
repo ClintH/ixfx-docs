@@ -35,7 +35,6 @@ export class PolarCoordsElement extends LitElement {
   declare height: number;
 
   palette: Palette.Palette;
-
   constructor() {
     super();
     this.palette = Palette.create();
@@ -66,39 +65,6 @@ export class PolarCoordsElement extends LitElement {
     return {width: svg.width, height: svg.height};
   }
 
-  lastCircle: Circles.CirclePositioned | undefined;
-
-
-  renderGrid(center: Points.Point, spacing: number, width: number, height: number) {
-
-    const svg = Svg.svg(
-      this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`, strokeStyle: `red`, strokeWidth: 3}
-    );
-
-    const traceStyle = {
-      strokeStyle: this.palette.get(`bg-dim`, `whitesmoke`),
-      strokeWidth: 1
-    };
-
-    // Horizontals
-    let y = 0;
-    while (y < height) {
-      let horiz = Lines.fromNumbers(0, y, width, y);
-      svg.line(horiz, traceStyle);
-      y += spacing;
-    }
-
-    // Verticals
-    let x = 0;
-    while (x < width) {
-      let vert = Lines.fromNumbers(x, 0, x, height);
-      svg.line(vert, traceStyle);
-      x += spacing;
-    }
-
-  }
-
   renderSvg() {
     const poleColour = `black`;
     const svg = Svg.svg(
@@ -109,10 +75,10 @@ export class PolarCoordsElement extends LitElement {
     svg.clear();
     const w = svg.width;
     const h = svg.height;
-    const minWh = Math.min(w, h);
+    const minWh = Math.min(w / 2, h / 2);
     const center = {x: w / 2, y: h / 2};
 
-    this.renderGrid(center, 25, w, h);
+    Svg.grid(svg.parent, center, 25, w, h);
 
     // Pole
     const axisYOffset = 25;
@@ -125,9 +91,9 @@ export class PolarCoordsElement extends LitElement {
       fillStyle: poleColour
     }
 
-    const poleAxisLine = Lines.fromNumbers(center.x, center.y, minWh - 10, center.y);
+    const poleAxisLine = Lines.fromNumbers(center.x, center.y, center.x + minWh - 10, center.y);
     svg.line(poleAxisLine, {fillStyle: `none`, markerEnd: triangleMarker, strokeStyle: poleColour});
-    svg.text({x: minWh - 30, y: center.y + axisYOffset}, `A`, {strokeStyle: `none`, fillStyle: poleColour});
+    svg.text({x: center.x + minWh - 30, y: center.y + axisYOffset}, `A`, {strokeStyle: `none`, fillStyle: poleColour});
   }
 
   async updated() {
@@ -165,10 +131,6 @@ export class PolarCoordsElement extends LitElement {
     // Calculate angle
     const polar = Polar.fromCartesian(ptr, center);
     const polarAngleDeg = radianToDegree(polar.angleRadian);
-    // let rad = Points.angleBetween(center, ptr);
-    // let degRaw = radianToDegree(rad);
-    // let deg = degRaw;
-    // if (deg < 0) deg += 360;
 
     // Draw arc
     const rad = Math.PI * 2 - polar.angleRadian;
@@ -184,15 +146,12 @@ export class PolarCoordsElement extends LitElement {
     }
     if (Math.round(polarAngleDeg) !== 0) svg.path(Arcs.toSvg(arc, arcSvgOpts), {strokeStyle: angleColour}, `#arc`);
 
-    //deg = 360 - deg;
-
     // Update angle labels
     const labelStyle: Svg.TextDrawingOpts = {
       strokeStyle: `transparent`,
       fillStyle: targetColour,
       anchor: `middle`
     }
-
 
     svg.text({x: ptr.x, y: ptr.y + 40}, `(${Math.round(lineToCursorDistance)}, ${Math.floor(polarAngleDeg)}°)`, labelStyle, `#coordLabel`);
   }

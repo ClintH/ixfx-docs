@@ -323,7 +323,7 @@ xbutton {
 	display: flex;
 }
 
-button {
+button,  .toolbar .radios label{
 	border: 0;
 	padding: 0.5em 1em;
 	font-size: 1rem;
@@ -487,4 +487,33 @@ section.dividerTop {
 hr {
 	border: 0;
 	border-top: 0.2rem solid var(--bg-dim);
+}
+
+.radios input[type="radio"] {
+	opacity: 0;
+	position: fixed;
+	width: 0;
+}
+
+.radios label {
+	display: inline-block;
+	opacity: 0.5;
+	font-size: 80% !important;
+	transition: all 0.3s ease-in;
+}
+
+.radios label:hover {
+	opacity: 0.8;
+	transition: opacity 0.3s ease-in;
+}
+
+.radios input[type="radio"]:checked + label {
+	background-color: var(--bg-contrast);
+	font-size: 100%;
+	opacity: 1;
+	transition: all 0.3s ease-in;
+}
+
+.radios input[type="radio"]:focus + label {
+	border: 1px solid var(--fg);
 }

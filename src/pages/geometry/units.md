@@ -14,7 +14,7 @@ radians-editor {
 }
 </style>
 
-[API docs](https://clinth.github.io/ixfx/modules/Geometry.html)
+[API Docs: Geometry module](https://clinth.github.io/ixfx/modules/Geometry.html)
 
 ## Angles
 
@@ -62,6 +62,8 @@ Grid
 
 ### Polar
 
+[API Docs](https://clinth.github.io/ixfx/modules/Geometry.Polar.html), [Polar spiral demo](https://clinth.github.io/ixfx-demos/geometry/polar-spiral/)
+
 [Polar coordinates](https://en.wikipedia.org/wiki/Polar_coordinate_system) are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the _origin_, coordinate are defined by their _distance_ from the origin, as well as _angle_ from the _polar axis_. 
 
 In the example below, the _origin_ is marked with _O_, appearing in the center of the grid. The _polar axis_ is marked _A_.
@@ -79,7 +81,7 @@ const polarToCartesian = (distance, angleRadians, originX, originY) => ({
   });
 ```
 
-In ixfx, the function is provided and can be used as:
+In ixfx, [toCartesian](https://clinth.github.io/ixfx/modules/Geometry.Polar.html#toCartesian) function is provided and can be used as:
 
 ```js
 import { Polar } from 'https://unpkg.com/ixfx/geometry.js';
@@ -98,6 +100,9 @@ const point = Polar.toCartesian(polar, origin);
 // Polar.fromCartesian(point, origin): Coord;
 const polar = Polar.fromCartesian({x: 50, y: 50}, origin);
 ```
+
+Demos:
+* [Polar spiral](https://clinth.github.io/ixfx-demos/geometry/polar-spiral/): Uses the [spiral function](https://clinth.github.io/ixfx/modules/Geometry.Polar.html) to generate a spiral, modulated by two ping-pongs.
 
 
 

@@ -50,7 +50,7 @@ export class FreqLettersElement extends LitElement {
 
   constructor() {
     super();
-    this.text = `Hello there! - Obiwan Kenobi`;
+    this.text = `Hello there! - Obi-wan Kenobi`;
   }
 
   _onInput(el) {

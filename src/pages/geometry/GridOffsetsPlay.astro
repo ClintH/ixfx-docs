@@ -1,12 +1,12 @@
 <script type="module" src={Astro.resolve('../../components/GridEditor.ts')}></script>
 <style>
   #offsetsGrid {
-    --grid-color:var(--theme-divider);
-    --hover-color: var(--theme-bg-hover);
+    --grid-color:var(--divider);
+    --hover-color: var(--bg-contrast);
   }
 </style>
 <script type="module">
-
+console.log(`offsets`);
 import {resolveEl} from 'ixfx/lib/dom';
 import {Forms} from 'ixfx/lib/dom';
 import {Grids} from 'ixfx/lib/geometry';
@@ -27,7 +27,7 @@ const offsets = () => {
     //if (kv[0] === `s`) console.log(kv[0] + ' ' + JSON.stringify(kv[1]));
     ctx.fillStyle = Palette.getCssVariable(`theme-bg-hover`, `yellow`);
     //ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-    ctx.fillStyle = `white`;
+    ctx.fillStyle =  Palette.getCssVariable(`fg`, `yellow`);
     ctx.textBaseline = `top`;
 
     const yOffset = kv[0].startsWith(`n`) ? 20 : 5;

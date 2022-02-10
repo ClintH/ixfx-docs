@@ -39,6 +39,7 @@ export const elStyles = css`
     --padding: 0.3em;
     --padding-text: 0.8em;
 
+    --divider: red;
     --light-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAzMCAzMCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDI1Ljk4MDQ2OSAyLjk5MDIzNDQgQSAxLjAwMDEgMS4wMDAxIDAgMCAwIDI1Ljg2OTE0MSAzIEwgMjAgMyBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMjAgNSBMIDIzLjU4NTkzOCA1IEwgMTMuMjkyOTY5IDE1LjI5Mjk2OSBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMTQuNzA3MDMxIDE2LjcwNzAzMSBMIDI1IDYuNDE0MDYyNSBMIDI1IDEwIEEgMS4wMDAxIDEuMDAwMSAwIDEgMCAyNyAxMCBMIDI3IDQuMTI2OTUzMSBBIDEuMDAwMSAxLjAwMDEgMCAwIDAgMjUuOTgwNDY5IDIuOTkwMjM0NCB6IE0gNiA3IEMgNC45MDY5MzcyIDcgNCA3LjkwNjkzNzIgNCA5IEwgNCAyNCBDIDQgMjUuMDkzMDYzIDQuOTA2OTM3MiAyNiA2IDI2IEwgMjEgMjYgQyAyMi4wOTMwNjMgMjYgMjMgMjUuMDkzMDYzIDIzIDI0IEwgMjMgMTQgTCAyMyAxMS40MjE4NzUgTCAyMSAxMy40MjE4NzUgTCAyMSAxNiBMIDIxIDI0IEwgNiAyNCBMIDYgOSBMIDE0IDkgTCAxNiA5IEwgMTYuNTc4MTI1IDkgTCAxOC41NzgxMjUgNyBMIDE2IDcgTCAxNCA3IEwgNiA3IHoiPjwvcGF0aD48L3N2Zz4=') no-repeat left top;
     --dark-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTE0OC45NTQ2OSwxNy4xNDQwMWMtMC4yMTM2NCwwLjAwNjc1IC0wLjQyNjczLDAuMDI1NDQgLTAuNjM4MjgsMC4wNTU5OWgtMzMuNjQ5NzRjLTIuMDY3NjUsLTAuMDI5MjQgLTMuOTkwODcsMS4wNTcwOSAtNS4wMzMyMiwyLjg0M2MtMS4wNDIzNiwxLjc4NTkyIC0xLjA0MjM2LDMuOTk0NzQgMCw1Ljc4MDY2YzEuMDQyMzYsMS43ODU5MiAyLjk2NTU4LDIuODcyMjUgNS4wMzMyMiwyLjg0M2gyMC41NTkzOGwtNTkuMDEzMDIsNTkuMDEzMDJjLTEuNDk3NzgsMS40MzgwMiAtMi4xMDExMywzLjU3MzQgLTEuNTc3MzUsNS41ODI2YzAuNTIzNzgsMi4wMDkyIDIuMDkyODQsMy41NzgyNiA0LjEwMjA0LDQuMTAyMDRjMi4wMDkyLDAuNTIzNzggNC4xNDQ1OCwtMC4wNzk1NyA1LjU4MjYsLTEuNTc3MzVsNTkuMDEzMDIsLTU5LjAxMzAydjIwLjU1OTM4Yy0wLjAyOTI0LDIuMDY3NjUgMS4wNTcwOSwzLjk5MDg3IDIuODQzLDUuMDMzMjJjMS43ODU5MiwxLjA0MjM2IDMuOTk0NzQsMS4wNDIzNiA1Ljc4MDY2LDBjMS43ODU5MiwtMS4wNDIzNiAyLjg3MjI1LC0yLjk2NTU4IDIuODQzLC01LjAzMzIydi0zMy42NzIxNGMwLjIzMTExLC0xLjY3MDc2IC0wLjI4NTExLC0zLjM1ODUzIC0xLjQxMTI5LC00LjYxNDE1Yy0xLjEyNjE3LC0xLjI1NTYyIC0yLjc0ODA2LC0xLjk1MTcyIC00LjQzNDAyLC0xLjkwMzA0ek0zNC40LDQwLjEzMzMzYy02LjI2Njg5LDAgLTExLjQ2NjY3LDUuMTk5NzcgLTExLjQ2NjY3LDExLjQ2NjY3djg2YzAsNi4yNjY4OSA1LjE5OTc3LDExLjQ2NjY3IDExLjQ2NjY3LDExLjQ2NjY3aDg2YzYuMjY2ODksMCAxMS40NjY2NywtNS4xOTk3NyAxMS40NjY2NywtMTEuNDY2Njd2LTU3LjMzMzMzdi0xNC43ODEyNWwtMTEuNDY2NjcsMTEuNDY2Njd2MTQuNzgxMjV2NDUuODY2NjdoLTg2di04Nmg0NS44NjY2N2gxMS40NjY2N2gzLjMxNDU4bDExLjQ2NjY3LC0xMS40NjY2N2gtMTQuNzgxMjVoLTExLjQ2NjY3eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+') no-repeat left top;
   }
@@ -93,7 +94,7 @@ export const elStyles = css`
     padding: 0;
   }
   
-  button {
+  button, .toolbar .radios label {
     border: 0;
     padding: 0.5em 1em;
     font-size: 1rem;
@@ -103,6 +104,8 @@ export const elStyles = css`
     color: var(--fg-contrast-dim);
     background-color: var(--bg-contrast);
     transition: color 0.3s ease-out;
+    cursor: pointer;
+    user-select: none;
   }
   
   button:hover {
@@ -147,6 +150,35 @@ export const elStyles = css`
     margin-bottom: var(--padding);
   }
 
+  .radios input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  .radios label {
+    display: inline-block;
+    opacity: 0.5;
+    font-size: 80% !important;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios label:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .radios input[type="radio"]:checked + label {
+    background-color: var(--bg-contrast);
+    font-size: 100%;
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios input[type="radio"]:focus + label {
+    border: 1px solid var(--fg);
+  }
+  
   .icon {
     opacity: 0.6;
     transition: opacity 0.5s ease-out;
@@ -162,6 +194,9 @@ export const elStyles = css`
       --bg-mono: var(--black);
       --bg: var(--dark-bg);
       --bg-dim: var(--dark-bg-dim);
+
+      --divider: hsl(229, 30%, 30%);
+
       --accent: var(--dark-accent);
       --accent-text: var(--dark-accent-text);
       --accent-bold: var(--dark-accent-bold);
@@ -170,8 +205,7 @@ export const elStyles = css`
       --fg-mono: var(--dark-fgDim);
       --fgDim: var(--dark-fgDim);
       --fg-bright: var(--dark-fg-bright);
-      --bg-dim: var(--dark-bg-dim);
-    
+      
       --purple: var(--dark-purple);
       --green: var(--dark-green);
       --blue: var(--dark-blue);
@@ -186,6 +220,9 @@ export const elStyles = css`
     --bg-mono: var(--white);
     --bg: var(--light-bg);
     --bg-dim: var(--light-bg-dim);
+    
+    --divider: hsl(193, 10%, 84%);
+
     --accent: var(--light-accent);
     --accent-bold: var(--light-accent-bold);
     --accent-text: var(--light-accent-text);

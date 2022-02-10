@@ -31,18 +31,21 @@ export const OPEN_GRAPH = {
 export const SIDEBAR =
   [
     {text: ``, header: true},
-    {text: `Docs`, header: true},
+    {text: `Getting Started`, header: true},
     {text: `Introduction`, link: `./`},
     {text: `Importing`, link: `./importing`},
 
     {text: `Flow`, header: true},
     {text: `State Machine`, link: `flow/stateMachine`},
+    {text: `Time`, link: `flow/time`},
 
     {text: `Modulation`, header: true},
     {text: `Envelope`, link: `modulation/envelope`},
+    {text: `Oscillator`, link: `modulation/oscillator`},
 
     {text: `Data`, header: true},
     {text: `Introduction`, link: `data/`},
+    {text: `Generators`, link: `data/generator`},
     {text: `Frequency`, link: `data/frequency`},
     {text: `Collections`, link: `data/collections/`},
 

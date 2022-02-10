@@ -84,7 +84,7 @@ export class ArcEditor extends LitElement {
     //  console.log(JSON.stringify(a));
 
     const origin = {x: w / 2, y: h / 2};
-    svg.path(Arcs.toSvg(origin, a));
+    svg.path(Arcs.toSvg(a, origin));
   }
 
   async updated() {

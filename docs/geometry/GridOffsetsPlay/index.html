@@ -1,7 +1,7 @@
-<!DOCTYPE html><html class="astro-GG2WI7Q5"><head><script type="module" src="../../assets/GridEditor.597d4b02.js"></script>
+<!DOCTYPE html><html class="astro-67BRJUMS"><head><script type="module" src="../../assets/GridEditor.6c8a174d.js"></script>
 
 <script type="module">
-
+console.log(`offsets`);
 import {resolveEl} from 'ixfx/lib/dom';
 import {Forms} from 'ixfx/lib/dom';
 import {Grids} from 'ixfx/lib/geometry';
@@ -22,7 +22,7 @@ const offsets = () => {
     //if (kv[0] === `s`) console.log(kv[0] + ' ' + JSON.stringify(kv[1]));
     ctx.fillStyle = Palette.getCssVariable(`theme-bg-hover`, `yellow`);
     //ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-    ctx.fillStyle = `white`;
+    ctx.fillStyle =  Palette.getCssVariable(`fg`, `yellow`);
     ctx.textBaseline = `top`;
 
     const yOffset = kv[0].startsWith(`n`) ? 20 : 5;
@@ -42,20 +42,20 @@ const offsetsWrapSel = Forms.select(`#selOffsetsWrap`, offsets);
 
 offsets();
 </script>
-<link rel="stylesheet" href="../../assets/GridOffsetsPlay.e6d05395.css"></head><body><div class="toolbar centered astro-GG2WI7Q5">
-  <section class="astro-GG2WI7Q5">
-    <label class="astro-GG2WI7Q5">Bounds:</label>
-    <select id="selOffsetsWrap" title="How should coordinate wrapping behave?" class="astro-GG2WI7Q5">
-      <option class="astro-GG2WI7Q5">stop</option>
-      <option class="astro-GG2WI7Q5">wrap</option>
-      <option class="astro-GG2WI7Q5">undefined</option>
+<link rel="stylesheet" href="../../assets/GridOffsetsPlay.7be4158a.css"></head><body><div class="toolbar centered astro-67BRJUMS">
+  <section class="astro-67BRJUMS">
+    <label class="astro-67BRJUMS">Bounds:</label>
+    <select id="selOffsetsWrap" title="How should coordinate wrapping behave?" class="astro-67BRJUMS">
+      <option class="astro-67BRJUMS">stop</option>
+      <option class="astro-67BRJUMS">wrap</option>
+      <option class="astro-67BRJUMS">undefined</option>
     </select>
   </section>
-  <section class="astro-GG2WI7Q5">
-    <label class="astro-GG2WI7Q5">Distance:</label>
-    <input title="Coordinate distance" type="range" id="rangeOffsetsDistance" value="2" min="1" max="4" class="astro-GG2WI7Q5">
+  <section class="astro-67BRJUMS">
+    <label class="astro-67BRJUMS">Distance:</label>
+    <input title="Coordinate distance" type="range" id="rangeOffsetsDistance" value="2" min="1" max="4" class="astro-67BRJUMS">
   </section>
 </div>
-<div class="astro-GG2WI7Q5">
-  <grid-editor rows="5" cols="5" pixelsize="30" id="offsetsGrid" class="astro-GG2WI7Q5">undefined</grid-editor>
+<div class="astro-67BRJUMS">
+  <grid-editor rows="5" cols="5" pixelsize="30" id="offsetsGrid" class="astro-67BRJUMS">undefined</grid-editor>
 </div></body></html>

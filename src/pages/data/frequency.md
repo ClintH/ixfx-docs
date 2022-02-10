@@ -8,15 +8,11 @@ setup: |
   import CounterElement from './CounterElement.ts';
 ---
 
-[API docs](https://clinth.github.io/ixfx/classes/FrequencyMutable.html)
+[API Docs: Frequency class](https://clinth.github.io/ixfx/classes/FrequencyMutable.html)
 
 The `Frequency` class keeps track of the number of times a certain value is 'seen'.
 
-## Why?
-
 In some scenarios it can be useful to aggregate data over time, rather than looking at a single event or snapshot-in-time. It allows you to do some fuzzy logic, for example using the value that _mostly_ occurs.
-
-## Demo
 
 In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. The `Frequency` is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
 

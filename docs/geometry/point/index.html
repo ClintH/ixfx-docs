@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.eae0cdf3.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/import-url.f7251fc6.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/import-npm.237a9975.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/point.296ed7e7.js"></script>
+<script type="module" src="../../assets/point.cd4f3178.js"></script>
 
 
 
@@ -131,7 +131,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Docs</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Getting Started</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/./" aria-current="false" class="astro-NO4JLDNO">
@@ -152,6 +152,10 @@
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
 									State Machine
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/time" aria-current="false" class="astro-NO4JLDNO">
+									Time
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -163,6 +167,10 @@
 								<a href="/ixfx-docs/modulation/envelope" aria-current="false" class="astro-NO4JLDNO">
 									Envelope
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
+									Oscillator
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -173,6 +181,10 @@
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
 									Introduction
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/generator" aria-current="false" class="astro-NO4JLDNO">
+									Generators
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/frequency" aria-current="false" class="astro-NO4JLDNO">
@@ -237,7 +249,7 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="1AyJP1"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#type">Type</a></li><li class="header-link depth-2"><a href="#distances-and-geometry">Distances and geometry</a></li><li class="header-link depth-2"><a href="#conversions">Conversions</a></li><li class="header-link depth-2"><a href="#helper-functions">Helper functions</a></li><li class="header-link depth-2"><a href="#math">Math</a></li></ul></astro-root>
 			</nav>
-		<p>A point is an <em>x</em> and <em>y</em> coordinate; the basic building block for lines, arcs, rectangles and paths.</p><p><a href="https://clinth.github.io/ixfx-demos/geometry/">Online geometry demos</a>, <a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html">API docs</a></p><h2 id="type">Type</h2><p>Points consist of an <em>x</em> and <em>y</em>:</p><pre class="language-typescript"><code data-astro-raw="" class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Point</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+		<p>A point is an <em>x</em> and <em>y</em> coordinate; the basic building block for lines, arcs, rectangles and paths.</p><p><a href="https://clinth.github.io/ixfx-demos/geometry/">Online geometry demos</a>, <a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html">API Docs: Geometry.Points module</a></p><h2 id="type">Type</h2><p>Points consist of an <em>x</em> and <em>y</em>:</p><pre class="language-typescript"><code data-astro-raw="" class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Point</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   x<span class="token operator">:</span> <span class="token builtin">number</span>
   y<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span></code></pre><p>Points are agnostic about the units of <em>x</em> and <em>y</em>, but typically it would be pixel coordinates.</p><h2 id="distances-and-geometry">Distances and geometry</h2><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>

@@ -7,7 +7,7 @@
 
 A point is an _x_ and _y_ coordinate; the basic building block for lines, arcs, rectangles and paths.
 
-[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API docs](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
+[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API Docs: Geometry.Points module](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
 
 ## Type
 

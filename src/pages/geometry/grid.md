@@ -8,7 +8,7 @@ setup: |
   import GridOffsetsPlay from './GridOffsetsPlay.astro';
 ---
 
-[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API reference](https://clinth.github.io/ixfx/modules/Geometry.Grids.html)
+[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API Docs: Geometry.Grids module](https://clinth.github.io/ixfx/modules/Geometry.Grids.html)
 
 A _grid_ is a rectangular area divided by rows and columns into cells of equal size. A bit like a table or spreadsheet. Each cell has an _x,y_ location with _0,0_ being the top-left corner.
 

@@ -12,11 +12,12 @@ const envDataLog = document.getElementById(`envDataLog`) as LogElement;
 const palette = Palette.create();
 palette.add(`series-`, Palette.getCssVariable(`accent-bold`, `yellow`));
 
-const envData = Plot.plot2(`#envData`, {
+const envData = Plot.plot(`#envData`, {
   capacity: 300,
   showYAxis: true,
   palette: palette,
-  lineWidth: 3
+  lineWidth: 3,
+  autoSizeCanvas: true
 });
 
 // Setup envelope
