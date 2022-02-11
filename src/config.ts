@@ -48,6 +48,7 @@ export const SIDEBAR =
     {text: `Generators`, link: `data/generator`},
     {text: `Frequency`, link: `data/frequency`},
     {text: `Collections`, link: `data/collections/`},
+    {text: `Colour`, link: `data/colour`},
 
     {text: `Geometry`, header: true},
     {text: `Units`, link: `geometry/units`},
