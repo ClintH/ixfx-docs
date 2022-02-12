@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/generator.00886a28.js"></script>
+<script type="module" src="../../assets/generator.f63ba243.js"></script>
 
 
 
@@ -171,6 +171,10 @@
 								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
 									Oscillator
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/easing" aria-current="false" class="astro-NO4JLDNO">
+									Easing
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -179,10 +183,6 @@
 					<h2 class="nav-group-title astro-NO4JLDNO">Data</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
-									Introduction
-								</a>
-							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/generator" aria-current="page" class="astro-NO4JLDNO">
 									Generators
 								</a>
@@ -193,6 +193,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-NO4JLDNO">
 									Collections
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/colour" aria-current="false" class="astro-NO4JLDNO">
+									Colour
 								</a>
 							</li>
 					</ul>
@@ -208,6 +212,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/point" aria-current="false" class="astro-NO4JLDNO">
 									Point
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/geometry/line" aria-current="false" class="astro-NO4JLDNO">
+									Line
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/arc" aria-current="false" class="astro-NO4JLDNO">
@@ -286,7 +294,7 @@
     state <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token operator">...</span>state<span class="token punctuation">,</span> <span class="token literal-property property">value</span><span class="token operator">:</span> <span class="token keyword">undefined</span> <span class="token punctuation">}</span>
     <span class="token function">clearInterval</span><span class="token punctuation">(</span>iterInterval<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 60 seconds </span></code></pre><p>Iterables can be converted into an array:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> asArray <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>iterable<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">60</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 60 seconds </span></code></pre><p>ixfx’s <a href="../flow/time#interval">interval</a> helps with this.</p><p>Iterables can be converted into an array:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> asArray <span class="token operator">=</span> Array<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span>iterable<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Or alternatively:</span>
 <span class="token keyword">const</span> asArray <span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">...</span>iterable<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre><p>What’s interesting about iterables is that they aren’t an actual collection or set of things, but rather return values on-demand. This means it’s possible to have an iterable that never ends.</p><h2 id="generators">Generators</h2><p><a href="https://clinth.github.io/ixfx/modules/Generators.html">API documentation</a></p><p>ixfx includes some utility generators.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Import as a module, meaning you have to prefix functions with Generators.</span>

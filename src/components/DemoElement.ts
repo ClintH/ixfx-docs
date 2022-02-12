@@ -60,14 +60,16 @@ class DemoElement extends LitElement {
     const demoBase = import.meta.env.DEV ?
       `http://127.0.0.1:5500` :
       `https://clinth.github.io/ixfx-demos`
+    const editBase = `https://github.com/ClintH/ixfx-demos/tree/main/`
 
     const demoUrl = demoBase + src;
+    const editUrl = editBase + src;
     return html`
 			<div class="container">
         <div class="titleBar">
           <div>${title}</div>
           <div class="toolbar">
-            <a class="icon icon-external-link" title="Edit code" target="_blank" href="${demoUrl}">Edit</a> 
+            <a class="icon icon-external-link" title="Edit code" target="_blank" href="${editUrl}">Edit</a> 
             <a class="icon icon-external-link" title="Open demo in new window" target="_blank" href="${demoUrl}">Open</a> 
           </div>
         </div>

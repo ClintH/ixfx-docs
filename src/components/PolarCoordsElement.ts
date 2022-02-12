@@ -3,7 +3,8 @@ import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {Circles, Arcs, Lines, Points, Polar, radianToDegree} from 'ixfx/lib/geometry';
 import {themeChangeObservable} from 'ixfx/lib/dom';
-import {Svg, Palette} from 'ixfx/lib/visual';
+import {Palette} from 'ixfx/lib/visual';
+import * as Svg from 'ixfx/lib/svg';
 import {elStyles} from './styles.js';
 
 export const tagName = `polar-coords-element`;
@@ -78,12 +79,12 @@ export class PolarCoordsElement extends LitElement {
     const minWh = Math.min(w / 2, h / 2);
     const center = {x: w / 2, y: h / 2};
 
-    Svg.grid(svg.parent, center, 25, w, h);
+    Svg.Elements.grid(svg.parent, center, 25, w, h);
 
     // Pole
     const axisYOffset = 25;
     svg.circle({radius: 3, ...center}, {fillStyle: poleColour, strokeStyle: `none`})
-    svg.text(Points.sum(center, 2, axisYOffset), 'O', {fillStyle: poleColour, strokeStyle: `none`});
+    svg.text('Origin', Points.sum(center, 2, axisYOffset), {fillStyle: poleColour, strokeStyle: `none`});
 
     // Pole axis
     const triangleMarker = {
@@ -93,7 +94,7 @@ export class PolarCoordsElement extends LitElement {
 
     const poleAxisLine = Lines.fromNumbers(center.x, center.y, center.x + minWh - 10, center.y);
     svg.line(poleAxisLine, {fillStyle: `none`, markerEnd: triangleMarker, strokeStyle: poleColour});
-    svg.text({x: center.x + minWh - 30, y: center.y + axisYOffset}, `A`, {strokeStyle: `none`, fillStyle: poleColour});
+    svg.text(`A`, {x: center.x + minWh - 35, y: center.y + 20}, {strokeStyle: `none`, fillStyle: poleColour});
   }
 
   async updated() {
@@ -153,7 +154,7 @@ export class PolarCoordsElement extends LitElement {
       anchor: `middle`
     }
 
-    svg.text({x: ptr.x, y: ptr.y + 40}, `(${Math.round(lineToCursorDistance)}, ${Math.floor(polarAngleDeg)}°)`, labelStyle, `#coordLabel`);
+    svg.text(`(${Math.round(lineToCursorDistance)}, ${Math.floor(polarAngleDeg)}°)`, {x: ptr.x, y: ptr.y + 40}, labelStyle, `#coordLabel`);
   }
 
   render() {

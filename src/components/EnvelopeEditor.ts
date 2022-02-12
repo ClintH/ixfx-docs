@@ -1,7 +1,7 @@
 import {LitElement, css, html} from 'lit';
 import {customElement, property, query} from 'lit/decorators.js';
-import {Drawing, Palette} from 'ixfx/lib/visual';
-import {AdsrOpts, defaultAdsrOpts} from 'ixfx/lib/modulation';
+import {Drawing, Colour} from 'ixfx/lib/visual';
+import {AdsrOpts, AdsrTimingOpts, defaultAdsrOpts} from 'ixfx/lib/modulation';
 import {Beziers} from 'ixfx/lib/geometry';
 import {copyToClipboard} from 'ixfx/lib/dom';
 import {elStyles} from './styles.js';
@@ -33,7 +33,7 @@ export class EnvelopeEditor extends LitElement {
 
   // eslint-disable-next-line functional/prefer-readonly-type
   @property()
-  declare data: AdsrOpts;
+  declare data: AdsrOpts & AdsrTimingOpts;
 
   // eslint-disable-next-line functional/prefer-readonly-type
   @property({converter: jsonData, type: Object})
@@ -150,7 +150,7 @@ export class EnvelopeEditor extends LitElement {
     const height = 100;
     ctx.clearRect(0, 0, width, height);
 
-    ctx.strokeStyle = Palette.getCssVariable(`accent-bold`, `yellow`);
+    ctx.strokeStyle = Colour.getCssVariable(`accent-bold`, `yellow`);
     ctx.lineWidth = 3;
 
     ctx.translate(padding / 2, padding / 2);

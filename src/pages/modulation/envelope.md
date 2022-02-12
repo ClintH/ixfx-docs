@@ -38,6 +38,66 @@ The playground uses the settings from the envelope editor above. You can _trigge
 
 <EnvelopePlay />
 
+## Usage
+
+Docs: [Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html), [AdsrOpts](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrOpts), [AdsrTimingOpts](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrTimingOpts)
+
+```js
+import { adsr, defaultAdsrOpts } from "https://unpkg.com/ixfx/modulation.js"
+
+// Initialise envelope
+const opts = {
+  ...defaultAdsrOpts(),
+  attackDuration: 1000,
+  decayDuration: 200,
+  sustainDuration: 100
+};
+const env = adsr(opts);
+```
+
+Trigger and release
+
+```js
+// Trigger envelope
+env.trigger();
+
+// Trigger and hold at sustain
+env.trigger(true); 
+env.release(); // Release a held envelope
+```
+
+Get value from envelope
+
+```js
+// Value of envelope
+const scaled = env.value;
+
+// Get current stage (as a string), scaled value, and raw value (0 -> 1 progress within a stage)
+const r = env.compute();  // returns [stage, scaled, raw]
+```
+
+Other functions:
+```js
+// Reset envelope
+env.reset();
+// True if envelope is finished
+env.isDone;
+```
+
+Envelopes also have events:
+
+```js
+// Envelope has changed stage
+env.addEventListener(`change`, ev => {
+  console.log(`Old: ${evt.oldState} new: ${ev.newState}`);
+})
+
+// Envelope has finished
+env.addEventListener(`complete`, () => {
+  console.log(`Done.`);
+})
+
+```
 
 ## Demos
 

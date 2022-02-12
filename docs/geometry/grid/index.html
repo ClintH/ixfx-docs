@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/grid.3758730d.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/grid.04ee2c93.css">
 
 
 
@@ -83,7 +83,7 @@
 
 
 
-<script type="module" src="../../assets/grid.f9934450.js"></script>
+<script type="module" src="../../assets/grid.9ebb2a7e.js"></script>
 
 
 </head>
@@ -173,6 +173,10 @@
 								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
 									Oscillator
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/easing" aria-current="false" class="astro-NO4JLDNO">
+									Easing
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -181,10 +185,6 @@
 					<h2 class="nav-group-title astro-NO4JLDNO">Data</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
-									Introduction
-								</a>
-							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/generator" aria-current="false" class="astro-NO4JLDNO">
 									Generators
 								</a>
@@ -195,6 +195,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-NO4JLDNO">
 									Collections
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/colour" aria-current="false" class="astro-NO4JLDNO">
+									Colour
 								</a>
 							</li>
 					</ul>
@@ -210,6 +214,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/point" aria-current="false" class="astro-NO4JLDNO">
 									Point
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/geometry/line" aria-current="false" class="astro-NO4JLDNO">
+									Line
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/arc" aria-current="false" class="astro-NO4JLDNO">
@@ -266,28 +274,28 @@
   x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
   y<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span></code></pre><p>In action, this looks like:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it’s possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p><script type="module" src="../../assets/GridEditor.6c8a174d.js"></script>
-<script type="module" src="../../assets/grid.eb9af452.js"></script>
+<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it’s possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p><script type="module" src="../../assets/GridEditor.d05dae6a.js"></script>
+<script type="module" src="../../assets/grid.ecd62a51.js"></script>
 
-<div class="toolbar centered astro-LFLMFJK3">
-  <section class="astro-LFLMFJK3">
-    <button id="btnVisStart" class="astro-LFLMFJK3">Start</button>
-    <button id="btnVisStop" class="astro-LFLMFJK3">Stop</button>
+<div class="toolbar centered astro-JCU4OET3">
+  <section class="astro-JCU4OET3">
+    <button id="btnVisStart" class="astro-JCU4OET3">Start</button>
+    <button id="btnVisStop" class="astro-JCU4OET3">Stop</button>
   </section>
-  <section class="astro-LFLMFJK3">
-    <label class="astro-LFLMFJK3">Function:</label>
-    <select id="selVisTechnique" class="astro-LFLMFJK3">
-      <option class="astro-LFLMFJK3">Depth</option>
-      <option class="astro-LFLMFJK3">Breadth</option>
-      <option class="astro-LFLMFJK3">Row</option>
-      <option class="astro-LFLMFJK3">Column</option>
-      <option class="astro-LFLMFJK3">Random Contiguous</option>
-      <option class="astro-LFLMFJK3">Random</option>
+  <section class="astro-JCU4OET3">
+    <label class="astro-JCU4OET3">Function:</label>
+    <select id="selVisTechnique" class="astro-JCU4OET3">
+      <option class="astro-JCU4OET3">Depth</option>
+      <option class="astro-JCU4OET3">Breadth</option>
+      <option class="astro-JCU4OET3">Row</option>
+      <option class="astro-JCU4OET3">Column</option>
+      <option class="astro-JCU4OET3">Random Contiguous</option>
+      <option class="astro-JCU4OET3">Random</option>
     </select>
   </section>
 </div>
-<div class="astro-LFLMFJK3">
-  <grid-editor rows="5" cols="5" pixelsize="20" id="visGrid" class="astro-LFLMFJK3">undefined</grid-editor>
+<div class="astro-JCU4OET3">
+  <grid-editor rows="15" cols="15" pixelsize="15" id="visGrid" class="astro-JCU4OET3">undefined</grid-editor>
 </div><p>Provided <a href="https://clinth.github.io/ixfx/modules/Geometry.Grids.html#visitor">visitor</a> functions are: <code data-astro-raw="">visitorDepth, visitorBreadth, visitorRandom, visitorContiguous, visitorRow,</code> and <code data-astro-raw="">visitorColumn</code>.</p><p>The visitor can be used in a <code data-astro-raw="">for .. of</code> loop</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Start visitor at 5,5</span>
 <span class="token keyword">const</span> visitor <span class="token operator">=</span> Grids<span class="token punctuation">.</span><span class="token function">visitorDepth</span><span class="token punctuation">(</span>shape<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cell <span class="token keyword">of</span> visitor<span class="token punctuation">)</span> <span class="token punctuation">{</span>
@@ -316,14 +324,14 @@
   <span class="token comment">// Do something if cell has been visited...</span>
 <span class="token punctuation">}</span></code></pre><p>In the interactive demo above, this technique is used to colour cells differently depending on whether they’ve been visited.</p><h2 id="iterating-cells">Iterating cells</h2><p>The <code data-astro-raw="">cells</code> iterator is a simple alternative to the <em>visitor</em> technique if you don’t care about how the grid is traversed. It has a lower overhead than the visitor because it does not need to keep track of every cell it has visited.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cell <span class="token keyword">of</span> Grids<span class="token punctuation">.</span><span class="token function">cells</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with cell</span>
-<span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2><script type="module" src="../../assets/GridEditor.6c8a174d.js"></script>
+<span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2><script type="module" src="../../assets/GridEditor.d05dae6a.js"></script>
 
 <script type="module">
 console.log(`offsets`);
 import {resolveEl} from 'ixfx/lib/dom';
 import {Forms} from 'ixfx/lib/dom';
 import {Grids} from 'ixfx/lib/geometry';
-import {Palette} from 'ixfx/lib/visual';
+import {Colour} from 'ixfx/lib/visual';
 const offsetsGrid = resolveEl(`#offsetsGrid`);
 offsetsGrid.selectedCell = {x: 0, y: 0};
 
@@ -338,9 +346,9 @@ const offsets = () => {
     if (kv === undefined) return false;
 
     //if (kv[0] === `s`) console.log(kv[0] + ' ' + JSON.stringify(kv[1]));
-    ctx.fillStyle = Palette.getCssVariable(`theme-bg-hover`, `yellow`);
+    ctx.fillStyle = Colour.getCssVariable(`theme-bg-hover`, `yellow`);
     //ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-    ctx.fillStyle =  Palette.getCssVariable(`fg`, `yellow`);
+    ctx.fillStyle =  Colour.getCssVariable(`fg`, `yellow`);
     ctx.textBaseline = `top`;
 
     const yOffset = kv[0].startsWith(`n`) ? 20 : 5;
@@ -360,22 +368,22 @@ const offsetsWrapSel = Forms.select(`#selOffsetsWrap`, offsets);
 
 offsets();
 </script>
-<div class="toolbar centered astro-67BRJUMS">
-  <section class="astro-67BRJUMS">
-    <label class="astro-67BRJUMS">Bounds:</label>
-    <select id="selOffsetsWrap" title="How should coordinate wrapping behave?" class="astro-67BRJUMS">
-      <option class="astro-67BRJUMS">stop</option>
-      <option class="astro-67BRJUMS">wrap</option>
-      <option class="astro-67BRJUMS">undefined</option>
+<div class="toolbar centered astro-2NPWKT25">
+  <section class="astro-2NPWKT25">
+    <label class="astro-2NPWKT25">Bounds:</label>
+    <select id="selOffsetsWrap" title="How should coordinate wrapping behave?" class="astro-2NPWKT25">
+      <option class="astro-2NPWKT25">stop</option>
+      <option class="astro-2NPWKT25">wrap</option>
+      <option class="astro-2NPWKT25">undefined</option>
     </select>
   </section>
-  <section class="astro-67BRJUMS">
-    <label class="astro-67BRJUMS">Distance:</label>
-    <input title="Coordinate distance" type="range" id="rangeOffsetsDistance" value="2" min="1" max="4" class="astro-67BRJUMS">
+  <section class="astro-2NPWKT25">
+    <label class="astro-2NPWKT25">Distance:</label>
+    <input title="Coordinate distance" type="range" id="rangeOffsetsDistance" value="2" min="1" max="4" class="astro-2NPWKT25">
   </section>
 </div>
-<div class="astro-67BRJUMS">
-  <grid-editor rows="5" cols="5" pixelsize="30" id="offsetsGrid" class="astro-67BRJUMS">undefined</grid-editor>
+<div class="astro-2NPWKT25">
+  <grid-editor rows="5" cols="5" pixelsize="30" id="offsetsGrid" class="astro-2NPWKT25">undefined</grid-editor>
 </div><p>You can calculate the coordinates of each compass cardinal direction using <code data-astro-raw="">offsetCardinals</code>. It has the following signature:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token function">offsetCardinals</span><span class="token punctuation">(</span>shape<span class="token operator">:</span>Grid<span class="token punctuation">,</span> <span class="token literal-property property">origin</span><span class="token operator">:</span>Cell<span class="token punctuation">,</span> <span class="token literal-property property">distance</span><span class="token operator">:</span>number<span class="token punctuation">,</span> <span class="token literal-property property">boundsLogic</span><span class="token operator">:</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">unbounded</span><span class="token template-punctuation string">`</span></span> <span class="token operator">|</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">undefined</span><span class="token template-punctuation string">`</span></span><span class="token operator">|</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">stop</span><span class="token template-punctuation string">`</span></span> <span class="token operator">|</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">wrap</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token operator">:</span> Neighbours</code></pre><p><code data-astro-raw="">distance</code> is how many cells away from origin you want to calculate.</p><p><code data-astro-raw="">boundsLogic</code> determines how coordinates should wrap in the grid. Allowed values are:</p><ul>
 <li><code data-astro-raw="">wrap</code>: coordinates wrap around the edges of grid to opposite edge</li>
 <li><code data-astro-raw="">stop</code>: coordinates clamp to edge</li>
@@ -411,14 +419,15 @@ data<span class="token punctuation">.</span><span class="token function">set</sp
 <span class="token comment">// cellData.colour, etc</span></code></pre><p>As a complete example, we can associate a random colour and number to every cell.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">key</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">cell</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>cell<span class="token punctuation">.</span>x<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">-</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>cell<span class="token punctuation">.</span>y<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> store <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Map</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">10</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> colours <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bisque</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">cadetblue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">cornflowerblue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">coral</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span>
 
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cell <span class="token keyword">of</span> Grids<span class="token punctuation">.</span><span class="token function">cells</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  store<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token function">key</span><span class="token punctuation">(</span>cell<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">colour</span><span class="token operator">:</span> <span class="token function">randomColour</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token literal-property property">funk</span><span class="token operator">:</span> <span class="token function">randomNumber</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  store<span class="token punctuation">.</span><span class="token function">set</span><span class="token punctuation">(</span><span class="token function">key</span><span class="token punctuation">(</span>cell<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">colour</span><span class="token operator">:</span> Arrays<span class="token punctuation">.</span><span class="token function">randomElement</span><span class="token punctuation">(</span>colours<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token literal-property property">funk</span><span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment">// Fetch data associated with a given cell:</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token function">key</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre><script type="module" src="../../assets/GridEditor.6c8a174d.js"></script>
+<span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre><script type="module" src="../../assets/GridEditor.d05dae6a.js"></script>
 <!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 
@@ -430,14 +439,12 @@ import {DictionaryOfColourCombinations} from 'ixfx/lib/visual';
 const dataGrid = resolveEl(`#dataGrid`);
 const dataGridRead = resolveEl(`#dataGridRead`);
 const dataGridStore = new Map();
-const palette = DictionaryOfColourCombinations.randomPalette();
 
 Forms.button(`#btnDataRandom`, () => randomGrid());
 dataGrid.cellRenderer = (cell, rect, ctx) => {
   const d = dataGridStore.get(Grids.cellKeyString(cell));
   if (d === undefined) return;
-  const [r, g, b] = d.colour;
-  ctx.fillStyle = `rgba(${r}, ${g}, ${b}, ${d.funk})`;
+  ctx.fillStyle = d.colour;
   ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
   return true;
 };
@@ -451,8 +458,8 @@ dataGrid.addEventListener(`cellPointerMove`, (ev) => {
 
 const randomGrid = () => {
   const shape = dataGrid.getGrid();
-
-  const randomColour = () => Arrays.randomElement(palette).rgb;
+  const colours = [`bisque`, `cadetblue`,`cornflowerblue`, `coral`]
+  const randomColour = () => Arrays.randomElement(colours);
   for (let cell of Grids.cells(shape)) {
     dataGridStore.set(Grids.cellKeyString(cell), {colour: randomColour(), funk: Math.random()});
   }
@@ -461,10 +468,10 @@ const randomGrid = () => {
 randomGrid();
 </script>
 
-<section id="dataGridSection" class="astro-KVE46UPP">
-  <grid-editor rows="15" cols="15" pixelsize="20" id="dataGrid" class="astro-KVE46UPP">undefined</grid-editor>
-  <button id="btnDataRandom" class="astro-KVE46UPP">Randomise</button>
-  <div id="dataGridRead" class="astro-KVE46UPP">&nbsp;</div>
+<section id="dataGridSection" class="astro-YYDL52DE">
+  <grid-editor rows="15" cols="15" pixelsize="20" id="dataGrid" class="astro-YYDL52DE">undefined</grid-editor>
+  <button id="btnDataRandom" class="astro-YYDL52DE">Randomise</button>
+  <div id="dataGridRead" class="astro-YYDL52DE">&nbsp;</div>
 </section>
 <h2 id="mapping-to-pixels">Mapping to pixels</h2><p>Although the grid is not meant to be a literal visual grid, it can be used as such.</p><p>To map a grid to pixel coordinates, the cell size (assumed pixels) needs to be provided:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">size</span><span class="token operator">:</span> <span class="token number">5</span> <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>Draw the grid by iterating over its cells:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> ctx <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">myCanvas</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">getContext</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">2d</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">size</span><span class="token operator">:</span> <span class="token number">5</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>

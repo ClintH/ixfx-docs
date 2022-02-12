@@ -4,6 +4,7 @@ setup: |
   import {Markdown} from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
   import {AnglesElement} from '../../components/AnglesElement';
+  import {CartesianElement} from '../../components/CartesianElement';
   import {PolarCoordsElement} from '../../components/PolarCoordsElement';
 ---
 
@@ -55,14 +56,25 @@ let d = radianToDegree(Math.PI*2);  // 360
 
 ## Coordinates
 
+<a name="cartesian"></a>
+
 ### Cartesian
 
-Pixels
-Grid
+The most common coordinate system for screen-based interaction is the _Cartesian_ system. It consists of `x` (horizontal) and `y` (vertical) expressed as a [point `(x, y)`](./point). Mostly the _origin_ or `(0,0)` is the top-left corner of a rectangle. 
+
+This means that `x` increases from left-to-right, and `y` increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:
+
+<cartesian-element client:visible width="200" height="200"  />
+
+Read more:
+* [Point](./point)
+* [API Docs: Points module](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
+
+<a name="polar"></a>
 
 ### Polar
 
-[API Docs](https://clinth.github.io/ixfx/modules/Geometry.Polar.html), [Polar spiral demo](https://clinth.github.io/ixfx-demos/geometry/polar-spiral/)
+[Polar spiral demo](https://clinth.github.io/ixfx-demos/geometry/polar-spiral/)
 
 [Polar coordinates](https://en.wikipedia.org/wiki/Polar_coordinate_system) are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the _origin_, coordinate are defined by their _distance_ from the origin, as well as _angle_ from the _polar axis_. 
 
@@ -101,10 +113,8 @@ const point = Polar.toCartesian(polar, origin);
 const polar = Polar.fromCartesian({x: 50, y: 50}, origin);
 ```
 
+Read more:
+* [API Docs: Polar modular](https://clinth.github.io/ixfx/modules/Geometry.Polar.html)
+
 Demos:
 * [Polar spiral](https://clinth.github.io/ixfx-demos/geometry/polar-spiral/): Uses the [spiral function](https://clinth.github.io/ixfx/modules/Geometry.Polar.html) to generate a spiral, modulated by two ping-pongs.
-
-
-
-## Colour
-

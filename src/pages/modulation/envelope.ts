@@ -1,7 +1,7 @@
 /* eslint-disable */
 import * as Envelopes from 'ixfx/lib/modulation';
 import {Forms, resolveEl, log} from 'ixfx/lib/dom';
-import {Palette, Plot} from 'ixfx/lib/visual';
+import {Colour, Plot, Palette} from 'ixfx/lib/visual';
 import {fromEvent, debounceTime} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {LogElement} from '../../components/LogElement.js';
@@ -10,7 +10,7 @@ const envDataLog = document.getElementById(`envDataLog`) as LogElement;
 
 // Setup plot
 const palette = Palette.create();
-palette.add(`series-`, Palette.getCssVariable(`accent-bold`, `yellow`));
+palette.add(`series-`, Colour.getCssVariable(`accent-bold`, `yellow`));
 
 const envData = Plot.plot(`#envData`, {
   capacity: 300,

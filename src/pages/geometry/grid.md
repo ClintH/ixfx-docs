@@ -116,7 +116,6 @@ for (let cell of Grids.cells(shape)) {
 
 ## Offsets
 
-
 <GridOffsetsPlay />
 
 You can calculate the coordinates of each compass cardinal direction using `offsetCardinals`. It has the following signature:
@@ -182,9 +181,10 @@ As a complete example, we can associate a random colour and number to every cell
 const key = (cell) => `${cell.x}-${cell.y}`;
 const store = new Map();
 const shape = { rows: 10, cols: 10 };
+const colours = [`bisque`, `cadetblue`,`cornflowerblue`, `coral`]
 
 for (let cell of Grids.cells(shape)) {
-  store.set(key(cell), {colour: randomColour(), funk: randomNumber()});
+  store.set(key(cell), {colour: Arrays.randomElement(colours), funk: Math.random()});
 }
 
 // Fetch data associated with a given cell:

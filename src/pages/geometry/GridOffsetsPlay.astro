@@ -10,7 +10,7 @@ console.log(`offsets`);
 import {resolveEl} from 'ixfx/lib/dom';
 import {Forms} from 'ixfx/lib/dom';
 import {Grids} from 'ixfx/lib/geometry';
-import {Palette} from 'ixfx/lib/visual';
+import {Colour} from 'ixfx/lib/visual';
 const offsetsGrid = resolveEl(`#offsetsGrid`);
 offsetsGrid.selectedCell = {x: 0, y: 0};
 
@@ -25,9 +25,9 @@ const offsets = () => {
     if (kv === undefined) return false;
 
     //if (kv[0] === `s`) console.log(kv[0] + ' ' + JSON.stringify(kv[1]));
-    ctx.fillStyle = Palette.getCssVariable(`theme-bg-hover`, `yellow`);
+    ctx.fillStyle = Colour.getCssVariable(`theme-bg-hover`, `yellow`);
     //ctx.fillRect(rect.x, rect.y, rect.width, rect.height);
-    ctx.fillStyle =  Palette.getCssVariable(`fg`, `yellow`);
+    ctx.fillStyle =  Colour.getCssVariable(`fg`, `yellow`);
     ctx.textBaseline = `top`;
 
     const yOffset = kv[0].startsWith(`n`) ? 20 : 5;

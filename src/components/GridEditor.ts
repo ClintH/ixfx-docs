@@ -1,7 +1,7 @@
 /* eslint-disable */
 import {LitElement, css, html} from 'lit';
 import {customElement, property} from 'lit/decorators.js';
-import {Palette} from 'ixfx/lib/visual';
+import {Colour} from 'ixfx/lib/visual';
 import {Grids, Rects} from 'ixfx/lib/geometry';
 
 export type CellRenderer = (cell: Grids.Cell, rect: Rects.RectPositioned, ctx: CanvasRenderingContext2D) => boolean;
@@ -121,12 +121,12 @@ export class GridEditor extends LitElement {
     //const walker = Grids.walkByRow(shape, {x:0, y:0}, true);
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
     ctx.translate(padding, padding);
-    ctx.strokeStyle = Palette.getCssVariable(`grid-color`, `whitesmoke`, this);
+    ctx.strokeStyle = Colour.getCssVariable(`grid-color`, `whitesmoke`, this);
     for (const cell of Grids.cells(shape)) {
       let r = Grids.rectangleForCell(cell, shape);
       if (this.cellRenderer !== undefined) this.cellRenderer(cell, r, ctx);
       if (cell.x == this.selectedCell?.x && cell.y == this.selectedCell?.y) {
-        ctx.fillStyle = Palette.getCssVariable(`hover-color`, `black`, this);
+        ctx.fillStyle = Colour.getCssVariable(`hover-color`, `black`, this);
         ctx.fillRect(r.x, r.y, r.width, r.height);
       } else {
         ctx.strokeRect(r.x, r.y, r.width, r.height);

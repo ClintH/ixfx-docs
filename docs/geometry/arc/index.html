@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/arc.77b2f411.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/arc.bd5145f8.css">
 
 
 
@@ -81,7 +81,7 @@
 
 
 
-<script type="module" src="../../assets/arc.4d94d3db.js"></script>
+<script type="module" src="../../assets/arc.6882c1ca.js"></script>
 
 
 
@@ -175,6 +175,10 @@
 								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
 									Oscillator
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/easing" aria-current="false" class="astro-NO4JLDNO">
+									Easing
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -183,10 +187,6 @@
 					<h2 class="nav-group-title astro-NO4JLDNO">Data</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
-									Introduction
-								</a>
-							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/generator" aria-current="false" class="astro-NO4JLDNO">
 									Generators
 								</a>
@@ -197,6 +197,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-NO4JLDNO">
 									Collections
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/colour" aria-current="false" class="astro-NO4JLDNO">
+									Colour
 								</a>
 							</li>
 					</ul>
@@ -212,6 +216,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/point" aria-current="false" class="astro-NO4JLDNO">
 									Point
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/geometry/line" aria-current="false" class="astro-NO4JLDNO">
+									Line
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/arc" aria-current="page" class="astro-NO4JLDNO">
@@ -253,12 +261,22 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="20Si22"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#type">Type</a></li><li class="header-link depth-2"><a href="#conversions">Conversions</a></li><li class="header-link depth-2"><a href="#other-functions">Other functions</a></li></ul></astro-root>
 			</nav>
-		<script type="module" src="../../assets/arc.79ecf329.js"></script><p class="astro-BA773GR7">An arc describes a segment of a circle. It is defined by its radius as well as the start and end radian.</p><p class="astro-BA773GR7"><a href="https://clinth.github.io/ixfx-demos/geometry/" class="astro-BA773GR7">Online geometry demos</a>, <a href="https://clinth.github.io/ixfx/modules/Geometry.Arcs.html" class="astro-BA773GR7">API Docs: Geometry.Arcs module</a></p><h2 id="type" class="astro-BA773GR7">Type</h2><p class="astro-BA773GR7">The expected type of arcs in ixfx is:</p><pre class="language-typescript astro-BA773GR7"><code data-astro-raw="" class="language-typescript astro-BA773GR7"><span class="token keyword">type</span> <span class="token class-name">Arc</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+		<script type="module" src="../../assets/arc.9f6af375.js"></script><p class="astro-EMXUERXX">An arc describes a segment of a <a href="./circle" class="astro-EMXUERXX">circle</a>. It is defined by its radius as well as the start and end radian.</p><ul class="astro-EMXUERXX">
+<li class="astro-EMXUERXX"><a href="https://clinth.github.io/ixfx-demos/geometry/" class="astro-EMXUERXX">Online geometry demos</a></li>
+<li class="astro-EMXUERXX"><a href="https://clinth.github.io/ixfx/modules/Geometry.Arcs.html" class="astro-EMXUERXX">API Docs: Geometry.Arcs module</a></li>
+</ul><h2 id="type" class="astro-EMXUERXX">Type</h2><p class="astro-EMXUERXX">The expected type of arcs in ixfx is:</p><pre class="language-typescript astro-EMXUERXX"><code data-astro-raw="" class="language-typescript astro-EMXUERXX"><span class="token keyword">type</span> <span class="token class-name">Arc</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   radius<span class="token operator">:</span><span class="token builtin">number</span>
   startRadian<span class="token operator">:</span><span class="token builtin">number</span>
   endRadian<span class="token operator">:</span><span class="token builtin">number</span>
   counterClockwise<span class="token operator">?</span><span class="token operator">:</span><span class="token builtin">boolean</span>
-<span class="token punctuation">}</span><span class="token operator">&gt;</span></code></pre><p class="astro-BA773GR7"><code data-astro-raw="" class="astro-BA773GR7">ArcPositioned</code> also includes <code data-astro-raw="" class="astro-BA773GR7">x</code> and <code data-astro-raw="" class="astro-BA773GR7">y</code> fields.</p><p class="astro-BA773GR7">Try editing this example:</p><input style="width: 40em" class="code arc astro-BA773GR7" type="text" id="arc1Txt" value="{ radius: 20, startRadian: 0, endRadian: Math.PI }"><astro-root uid="ZpB5Du"><arc-editor id="arc1" class="astro-BA773GR7"><template shadowroot="open"><style>
+<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+
+<span class="token comment">// eg:</span>
+<span class="token keyword">const</span> arc <span class="token operator">=</span> <span class="token punctuation">{</span>
+  radius<span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>
+  startRadian<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+  endRadian<span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span>
+<span class="token punctuation">}</span></code></pre><p class="astro-EMXUERXX"><code data-astro-raw="" class="astro-EMXUERXX">ArcPositioned</code> also includes <code data-astro-raw="" class="astro-EMXUERXX">x</code> and <code data-astro-raw="" class="astro-EMXUERXX">y</code> fields.</p><p class="astro-EMXUERXX">Try editing this example:</p><input style="width: 40em" class="code arc astro-EMXUERXX" type="text" id="arc1Txt" value="{ radius: 20, startRadian: 0, endRadian: Math.PI }"><astro-root uid="1wuMsz"><arc-editor id="arc1" class="astro-EMXUERXX"><template shadowroot="open"><style>
   #container {
     display: flex;
     align-items: center;
@@ -292,7 +310,7 @@
         </div>
         <svg width="200" height="200"></svg>
 			</div>
-		<!--/lit-part--></template></arc-editor></astro-root><p class="astro-BA773GR7">Angles are set with <em class="astro-BA773GR7">radians</em>, not the more familiar <em class="astro-BA773GR7">degrees</em>. See <a href="units" class="astro-BA773GR7">Units</a> for more info</p><astro-root uid="CX81j"><angles-element class="astro-BA773GR7"><template shadowroot="open"><style>
+		<!--/lit-part--></template></arc-editor></astro-root><p class="astro-EMXUERXX">Angles are set with <em class="astro-EMXUERXX">radians</em>, not the more familiar <em class="astro-EMXUERXX">degrees</em>. See <a href="units" class="astro-EMXUERXX">Units</a> for more info.</p><astro-root uid="1657iX"><angles-element class="astro-EMXUERXX"><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -428,7 +446,9 @@
     margin-right: 1vw;
     margin-left: 1vw;
   }
-
+  .vertical input {
+    margin-left: 0;
+  }
   .toolbar.mini, .toolbar.mini>button {
     font-size: 80%;
   }
@@ -547,17 +567,19 @@
 			<div id="container">
         <svg style="font-size: 1em" viewBox="0 0 500 300" width="500" height="300"><!--lit-node 1--></svg>
 			</div>
-		<!--/lit-part--></template></angles-element></astro-root><h2 id="conversions" class="astro-BA773GR7">Conversions</h2><p class="astro-BA773GR7">Create an arc from degrees:</p><pre class="language-js astro-BA773GR7"><code data-astro-raw="" class="language-js astro-BA773GR7"><span class="token comment">// fromDegrees(radius, startDegrees, endDegrees, origin?)</span>
+		<!--/lit-part--></template></angles-element></astro-root><h2 id="conversions" class="astro-EMXUERXX">Conversions</h2><p class="astro-EMXUERXX">Create an arc from degrees:</p><pre class="language-js astro-EMXUERXX"><code data-astro-raw="" class="language-js astro-EMXUERXX"><span class="token comment">// fromDegrees(radius:number, startDegrees:number, endDegrees:number, origin?:Point)</span>
 <span class="token keyword">const</span> a <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> b <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-BA773GR7">Return a <a href="path" class="astro-BA773GR7">Path</a> instance, which wraps up some functions together with the arc:</p><pre class="language-js astro-BA773GR7"><code data-astro-raw="" class="language-js astro-BA773GR7"><span class="token keyword">const</span> p <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">toPath</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span>
-p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-p<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-p<span class="token punctuation">.</span><span class="token function">compute</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-p<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-BA773GR7">Get a <a href="line" class="astro-BA773GR7">Line</a> connecting the start and end point of the arc:</p><pre class="language-js astro-BA773GR7"><code data-astro-raw="" class="language-js astro-BA773GR7"><span class="token keyword">const</span> line <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">toLine</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="other-functions" class="astro-BA773GR7">Other functions</h2><p class="astro-BA773GR7">Get the x,y coordinate of a point at specified angle</p><pre class="language-js astro-BA773GR7"><code data-astro-raw="" class="language-js astro-BA773GR7"><span class="token comment">// Arcs.point(arc, angleRadian, origin?);</span>
-<span class="token keyword">const</span> p <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">point</span><span class="token punctuation">(</span>arc<span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-BA773GR7">Equality</p><pre class="language-js astro-BA773GR7"><code data-astro-raw="" class="language-js astro-BA773GR7"><span class="token comment">// Returns true if `a` and `b` arcs have the same value</span>
-Arcs<span class="token punctuation">.</span><span class="token function">isEqual</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-BA773GR7">Dimensions/distances</p><pre class="language-js astro-BA773GR7"><code data-astro-raw="" class="language-js astro-BA773GR7">Arcs<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Get a rectangle that encompasses arc</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">fromDegrees</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">90</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-EMXUERXX">Return a <a href="path" class="astro-EMXUERXX">Path</a> instance, which wraps up some functions together with the arc:</p><pre class="language-js astro-EMXUERXX"><code data-astro-raw="" class="language-js astro-EMXUERXX"><span class="token keyword">const</span> p <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">toPath</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span>
+p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// Length</span>
+p<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// Get bounding </span>
+p<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Get position at relative</span>
+p<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// Human-readable string</span></code></pre><p class="astro-EMXUERXX">Get a <a href="line" class="astro-EMXUERXX">Line</a> connecting the start and end point of the arc:</p><pre class="language-js astro-EMXUERXX"><code data-astro-raw="" class="language-js astro-EMXUERXX"><span class="token keyword">const</span> line <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">toLine</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="other-functions" class="astro-EMXUERXX">Other functions</h2><p class="astro-EMXUERXX">Get the <code data-astro-raw="" class="astro-EMXUERXX">x,y</code> coordinate of a point at specified angle</p><pre class="language-js astro-EMXUERXX"><code data-astro-raw="" class="language-js astro-EMXUERXX"><span class="token comment">// Arcs.point(arc:Arc, angleRadian:number, origin?:Point);</span>
+<span class="token keyword">const</span> p <span class="token operator">=</span> Arcs<span class="token punctuation">.</span><span class="token function">point</span><span class="token punctuation">(</span>arc<span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-EMXUERXX">Equality</p><pre class="language-js astro-EMXUERXX"><code data-astro-raw="" class="language-js astro-EMXUERXX"><span class="token comment">// Returns true if `a` and `b` arcs have the same value</span>
+Arcs<span class="token punctuation">.</span><span class="token function">isEqual</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-EMXUERXX">Dimensions/distances</p><pre class="language-js astro-EMXUERXX"><code data-astro-raw="" class="language-js astro-EMXUERXX">Arcs<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Get a rectangle that encompasses arc</span>
 Arcs<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Get the length of arc</span>
-Arcs<span class="token punctuation">.</span><span class="token function">distanceCenter</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Distance between the centers of two arcs </span></code></pre>
+Arcs<span class="token punctuation">.</span><span class="token function">distanceCenter</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Distance between the centers of two arcs </span></code></pre><p class="astro-EMXUERXX">Compute position on arc</p><pre class="language-js astro-EMXUERXX"><code data-astro-raw="" class="language-js astro-EMXUERXX"><span class="token comment">// Returns point at relative place on arc</span>
+<span class="token comment">// ie. 0.5 = halfway along arc</span>
+Arcs<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span>arc<span class="token punctuation">,</span> amount<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		

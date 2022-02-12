@@ -102,7 +102,7 @@ export class AnglesElement extends LitElement {
     const addRadian = (rad: number, label?: string, opts: Svg.TextDrawingOpts = labelStyle) => {
       if (label === undefined) label = rad.toString();
       const pt = Circles.point(labelC, rad);
-      svg.text({x: pt.x, y: pt.y}, label, opts);
+      svg.text(label, {x: pt.x, y: pt.y}, opts);
     }
 
     addRadian(0, `0`, {...labelStyle, anchor: `start`, align: `middle`});
@@ -177,8 +177,8 @@ export class AnglesElement extends LitElement {
       fillStyle: this.palette.get(`label-color`, `black`),
       anchor: `middle`
     }
-    let radiansLabel = svg.text({x: c.x, y: c.y}, `Radians: ${radStr}`, labelStyle, `#radiansLabel`);
-    let degreesLabel = svg.text({x: c.x, y: c.y + 20}, `Degrees: ${degStr}`, labelStyle, `#degreesLabel`);
+    let radiansLabel = svg.text(`Radians: ${radStr}`, {x: c.x, y: c.y}, labelStyle, `#radiansLabel`);
+    let degreesLabel = svg.text(`Degrees: ${degStr}`, {x: c.x, y: c.y + 20}, labelStyle, `#degreesLabel`);
   }
 
   render() {

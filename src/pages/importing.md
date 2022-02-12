@@ -5,8 +5,8 @@ layout: ../layouts/MainLayout.astro
 setup: |
   import ModuleList from './ModuleList.astro';
 ---
-
-<ModuleList />
+<!-- 
+<ModuleList /> -->
 
 Read on for how to import ixfx with a URL import. Advanced users might want to install ixfx [via NPM](./import-npm) or a [downloaded ZIP](./import-zip).
 

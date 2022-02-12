@@ -81,7 +81,7 @@
 
 
 
-<script type="module" src="../../assets/stateMachine.e2ceee46.js"></script>
+<script type="module" src="../../assets/stateMachine.3aec1ac3.js"></script>
 
 
 </head>
@@ -171,6 +171,10 @@
 								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
 									Oscillator
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/easing" aria-current="false" class="astro-NO4JLDNO">
+									Easing
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -179,10 +183,6 @@
 					<h2 class="nav-group-title astro-NO4JLDNO">Data</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
-									Introduction
-								</a>
-							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/generator" aria-current="false" class="astro-NO4JLDNO">
 									Generators
 								</a>
@@ -193,6 +193,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-NO4JLDNO">
 									Collections
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/colour" aria-current="false" class="astro-NO4JLDNO">
+									Colour
 								</a>
 							</li>
 					</ul>
@@ -208,6 +212,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/point" aria-current="false" class="astro-NO4JLDNO">
 									Point
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/geometry/line" aria-current="false" class="astro-NO4JLDNO">
+									Line
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/arc" aria-current="false" class="astro-NO4JLDNO">
@@ -264,7 +272,7 @@
   <span class="token string-property property">"diced"</span><span class="token operator">:</span> <span class="token string">"sprinkled-on-soup"</span><span class="token punctuation">,</span>
   <span class="token string-property property">"sprinkled-on-soup"</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
   <span class="token string-property property">"eaten"</span><span class="token operator">:</span> <span class="token keyword">null</span>
-<span class="token punctuation">}</span></code></pre><h2 id="why">Why?</h2><p>Behaving according to a current state is a common pattern in programming interactivity. This is often solved by using different variables track state. The downside is that you have to be mindful what variables contribute to state, when and where to enforce rules about state changes. It can also be hard to keep track of all possible states.</p><p>A state machine therefore can help you catch errors and makes coding simpler when you know there are a fixed number of well-defined states to handle.</p><h2 id="playground">Playground</h2><p>Try out some state machines in this playground. Edit the description or load a demo, click <em>Use description</em> to load it and check for errors. If successful, you can see available states and change state under <em>Control</em>.</p><!-- <link rel="stylesheet" href={Astro.resolve('../../styles/demos.css')} /> --><script type="module" src="../../assets/stateMachine.a833bf3d.js"></script>
+<span class="token punctuation">}</span></code></pre><h2 id="why">Why?</h2><p>Behaving according to a current state is a common pattern in programming interactivity. This is often solved by using different variables track state. The downside is that you have to be mindful what variables contribute to state, when and where to enforce rules about state changes. It can also be hard to keep track of all possible states.</p><p>A state machine therefore can help you catch errors and makes coding simpler when you know there are a fixed number of well-defined states to handle.</p><h2 id="playground">Playground</h2><p>Try out some state machines in this playground. Edit the description or load a demo, click <em>Use description</em> to load it and check for errors. If successful, you can see available states and change state under <em>Control</em>.</p><!-- <link rel="stylesheet" href={Astro.resolve('../../styles/demos.css')} /> --><script type="module" src="../../assets/stateMachine.e0798eba.js"></script>
 
 
 
@@ -314,7 +322,9 @@
   </section>
   
 </div>
-<h2 id="usage">Usage</h2><p><a href="https://clinth.github.io/ixfx/classes/StateMachine.html">API docs</a></p><p>Create the machine with the an initial state and its <em>description</em>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> machine <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StateMachine</span><span class="token punctuation">(</span>initialState<span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The machine description is a simple object that 1) lists all possible states (as its top-level properties), and 2) for each state, what other state(s) can be transitioned to, or <code data-astro-raw="">null</code> if it is a final state.</p><p>The following example has four possible states (<code data-astro-raw="">wakeup, sleep, coffee, breakfast, bike</code>). <code data-astro-raw="">sleep</code> can only transition to the <code data-astro-raw="">wakeup</code> state, while <code data-astro-raw="">wakeup</code> can transition to either <code data-astro-raw="">coffee</code> or <code data-astro-raw="">breakfast</code>.</p><p>Use <code data-astro-raw="">null</code> to signify the final state. Multiple states can terminate the machine if desired.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> description <span class="token operator">=</span> <span class="token punctuation">{</span> 
+<h2 id="usage">Usage</h2><p><a href="https://clinth.github.io/ixfx/classes/StateMachine.html">API docs</a></p><p>Create the machine with the an initial state and its <em>description</em>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> machine <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StateMachine</span><span class="token punctuation">(</span>initialState<span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The machine description is a simple object that 1) lists all possible states (as its top-level properties), and 2) for each state, what other state(s) can be transitioned to, or <code data-astro-raw="">null</code> if it is a final state.</p><p>The following example has four possible states (<code data-astro-raw="">wakeup, sleep, coffee, breakfast, bike</code>). <code data-astro-raw="">sleep</code> can only transition to the <code data-astro-raw="">wakeup</code> state, while <code data-astro-raw="">wakeup</code> can transition to either <code data-astro-raw="">coffee</code> or <code data-astro-raw="">breakfast</code>.</p><p>Use <code data-astro-raw="">null</code> to signify the final state. Multiple states can terminate the machine if desired.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> StateMachine <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+
+<span class="token keyword">const</span> description <span class="token operator">=</span> <span class="token punctuation">{</span> 
  <span class="token literal-property property">sleep</span><span class="token operator">:</span> <span class="token string">'wakeup'</span><span class="token punctuation">,</span>
  <span class="token literal-property property">wakeup</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">'coffee'</span><span class="token punctuation">,</span> <span class="token string">'breakfast'</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
  <span class="token literal-property property">coffee</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bike</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>

@@ -79,6 +79,8 @@ The following example has four possible states (`wakeup, sleep, coffee, breakfas
 Use `null` to signify the final state. Multiple states can terminate the machine if desired.
 
 ```js
+import { StateMachine } from "https://unpkg.com/ixfx/flow.js"
+
 const description = { 
  sleep: 'wakeup',
  wakeup: ['coffee', 'breakfast'],

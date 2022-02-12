@@ -136,7 +136,9 @@ export const elStyles = css`
     margin-right: 1vw;
     margin-left: 1vw;
   }
-
+  .vertical input {
+    margin-left: 0;
+  }
   .toolbar.mini, .toolbar.mini>button {
     font-size: 80%;
   }

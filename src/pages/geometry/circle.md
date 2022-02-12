@@ -7,7 +7,8 @@ setup: |
 
 A circle.
 
-[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API Docs: Geometry.Circles](https://clinth.github.io/ixfx/modules/Geometry.Circles.html)
+* [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), 
+* [API Docs: Geometry.Circles](https://clinth.github.io/ixfx/modules/Geometry.Circles.html)
 
 ## Type
 
@@ -15,10 +16,15 @@ A circle.
 type Circle = {
   radius: number
 }
+
+const c = { radius: 100 };
 ```
 
 `CirclePositioned` also includes `x` and `y` fields.
 
+```js
+const c = { radius: 100, x: 50, y: 50 };
+```
 
 ## Geometry
 
@@ -53,7 +59,7 @@ Return a [Path](path) instance, which wraps up some functions together with the 
 const p = Circles.toPath(circle);
 p.length();
 p.bbox();
-p.compute(0.5);
+p.interpolate(0.5);
 p.toString();
 ```
 
@@ -70,7 +76,7 @@ Get the x,y coordinate at a relative distance along circle
 
 ```js
 // Get x,y at 50% along circle
-const p = Circles.compute(circle, 0.5);
+const p = Circles.interpolate(circle, 0.5);
 ```
 
 Equality

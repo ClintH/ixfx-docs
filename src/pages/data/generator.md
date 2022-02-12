@@ -78,6 +78,8 @@ const iterInterval = setInterval(() => {
 }, 60*1000); // 60 seconds 
 ```
 
+ixfx's [interval](../flow/time#interval) helps with this.
+
 Iterables can be converted into an array:
 
 ```js

@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/collections.542e64d4.js"></script>
+<script type="module" src="../../assets/collections.a519d8ef.js"></script>
 
 
 
@@ -171,6 +171,10 @@
 								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
 									Oscillator
 								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/easing" aria-current="false" class="astro-NO4JLDNO">
+									Easing
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -179,10 +183,6 @@
 					<h2 class="nav-group-title astro-NO4JLDNO">Data</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/data/" aria-current="false" class="astro-NO4JLDNO">
-									Introduction
-								</a>
-							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/generator" aria-current="false" class="astro-NO4JLDNO">
 									Generators
 								</a>
@@ -193,6 +193,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-NO4JLDNO">
 									Collections
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/colour" aria-current="false" class="astro-NO4JLDNO">
+									Colour
 								</a>
 							</li>
 					</ul>
@@ -208,6 +212,10 @@
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/point" aria-current="false" class="astro-NO4JLDNO">
 									Point
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/geometry/line" aria-current="false" class="astro-NO4JLDNO">
+									Line
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/geometry/arc" aria-current="false" class="astro-NO4JLDNO">
@@ -247,11 +255,34 @@
 	<section class="main-section astro-EDKM2WF4">
 		<h1 class="content-title astro-EDKM2WF4" id="overview">Collections</h1>
 		<nav class="block sm:hidden astro-EDKM2WF4">
-				<astro-root uid="ZIUcmN"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li></ul></astro-root>
+				<astro-root uid="1Ne5Ix"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#patterns">Patterns</a></li><li class="header-link depth-3"><a href="#process-a-queue-or-stack-of-items">Process a queue or stack of items</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Collections.html">API Docs: Collections module</a></p><ul>
-<li><a href="./map">Map</a></li>
-</ul>
+		<p><a href="https://clinth.github.io/ixfx/modules/Collections.html">API Docs: Collections module</a></p><h2 id="patterns">Patterns</h2><a name="jobQueue">
+</a><h3 id="process-a-queue-or-stack-of-items">Process a queue or stack of items</h3><p>Use a <a href="https://clinth.github.io/ixfx/modules/Collections.Queues.html">Queue</a> or <a href="https://clinth.github.io/ixfx/modules/Collections.Stacks.html">Stack</a> data for enforcing ordering:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/timers.js"</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> stack <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/collections.js"</span>
+
+<span class="token comment">// Eg: limit stack to 10 items</span>
+<span class="token keyword">let</span> toProcess <span class="token operator">=</span> <span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> processor <span class="token operator">=</span> <span class="token function">continuously</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>toProcess<span class="token punctuation">.</span>isEmpty<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// Stack is empty</span>
+  <span class="token keyword">const</span> item <span class="token operator">=</span> toProcess<span class="token punctuation">.</span>peek<span class="token punctuation">;</span>
+  toProcess <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Do something with item</span>
+  <span class="token operator">...</span>
+  
+  <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Keep loop running</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+<span class="token comment">// Add to stack:</span>
+<span class="token keyword">const</span> <span class="token function-variable function">process</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">item</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  toProcess <span class="token operator">=</span> toProcess<span class="token punctuation">.</span><span class="token function">push</span><span class="token punctuation">(</span>item<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  
+  <span class="token comment">// Start if it's not already running</span>
+  processor<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -278,7 +309,7 @@
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-LR56V2JR">
-		<astro-root uid="ZIUcmN"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li></ul></astro-root>
+		<astro-root uid="1Ne5Ix"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#patterns">Patterns</a></li><li class="header-link depth-3"><a href="#process-a-queue-or-stack-of-items">Process a queue or stack of items</a></li></ul></astro-root>
 		
 
 

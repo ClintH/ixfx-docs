@@ -22,9 +22,10 @@ radians-editor {
 
 </style>
 
-An arc describes a segment of a circle. It is defined by its radius as well as the start and end radian.
+An arc describes a segment of a [circle](./circle). It is defined by its radius as well as the start and end radian.
 
-[Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), [API Docs: Geometry.Arcs module](https://clinth.github.io/ixfx/modules/Geometry.Arcs.html)
+* [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/)
+* [API Docs: Geometry.Arcs module](https://clinth.github.io/ixfx/modules/Geometry.Arcs.html)
 
 ## Type
 
@@ -37,6 +38,13 @@ type Arc = {
   endRadian:number
   counterClockwise?:boolean
 }>
+
+// eg:
+const arc = {
+  radius: 5,
+  startRadian: 0,
+  endRadian: Math.PI
+}
 ```
 
 `ArcPositioned` also includes `x` and `y` fields.
@@ -47,7 +55,7 @@ Try editing this example:
 <input style="width: 40em" class="code arc" type="text" id="arc1Txt" value="{ radius: 20, startRadian: 0, endRadian: Math.PI }">
 <arc-editor id="arc1" client:visible  />
 
-Angles are set with _radians_, not the more familiar _degrees_. See [Units](units) for more info
+Angles are set with _radians_, not the more familiar _degrees_. See [Units](units) for more info.
 
 <angles-element width="500" height="300" client:visible />
 
@@ -56,7 +64,7 @@ Angles are set with _radians_, not the more familiar _degrees_. See [Units](unit
 Create an arc from degrees:
 
 ```js
-// fromDegrees(radius, startDegrees, endDegrees, origin?)
+// fromDegrees(radius:number, startDegrees:number, endDegrees:number, origin?:Point)
 const a = Arcs.fromDegrees(10, 0, 90);
 const b = Arcs.fromDegrees(10, 0, 90, {x: 100, y: 100});
 ```
@@ -65,10 +73,10 @@ Return a [Path](path) instance, which wraps up some functions together with the 
 
 ```js
 const p = Arcs.toPath(arc);
-p.length();
-p.bbox();
-p.compute(0.5);
-p.toString();
+p.length();             // Length
+p.bbox();               // Get bounding 
+p.interpolate(amount);  // Get position at relative
+p.toString();           // Human-readable string
 ```
 
 Get a [Line](line) connecting the start and end point of the arc:
@@ -79,9 +87,9 @@ const line = Arcs.toLine(arc);
 
 ## Other functions
 
-Get the x,y coordinate of a point at specified angle
+Get the `x,y` coordinate of a point at specified angle
 ```js
-// Arcs.point(arc, angleRadian, origin?);
+// Arcs.point(arc:Arc, angleRadian:number, origin?:Point);
 const p = Arcs.point(arc, Math.PI);
 ```
 
@@ -98,4 +106,11 @@ Dimensions/distances
 Arcs.bbox(arc);   // Get a rectangle that encompasses arc
 Arcs.length(arc); // Get the length of arc
 Arcs.distanceCenter(a, b); // Distance between the centers of two arcs 
+```
+
+Compute position on arc
+```js
+// Returns point at relative place on arc
+// ie. 0.5 = halfway along arc
+Arcs.interpolate(arc, amount);
 ```

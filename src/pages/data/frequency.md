@@ -28,6 +28,8 @@ The provided frequency histogram is _mutable_, meaning that the object reference
 ### Adding and clearing
 
 ```js
+import { frequencyMutable } from "https://unpkg.com/ixfx/collections.js"
+
 // Create an instance
 const freq = frequencyMutable();
 
@@ -90,6 +92,8 @@ To keep track of objects, provide a function that creates a string for the items
 In the below example, cars are grouped by their make:
 
 ```js
+import { frequencyMutable } from "https://unpkg.com/ixfx/collections.js"
+
 // Two cars
 const cars = [
   {
@@ -124,6 +128,8 @@ freq.frequencyOf(cars[1]); // 1
 The below example calculates frequency distribution of letters in a string. It demonstrates how to add items to the `Frequency`, sort by frequency and calculate a proportional amount.
 
 ```js
+import { frequencyMutable } from "https://unpkg.com/ixfx/collections.js"
+
 const freq = frequencyMutable();
 
 // Loop through all characters
