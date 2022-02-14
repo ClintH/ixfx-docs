@@ -2,7 +2,7 @@ import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {elStyles} from '../../components/styles.js';
 import {Palette, Plot} from 'ixfx/lib/visual';
-import {debounce, ModTimer, continuously, frequencyTimer, Continuously} from 'ixfx/lib/timers';
+import {debounce, ModTimer, continuously, frequencyTimer, Continuously} from 'ixfx/lib/flow';
 import {Oscillators} from 'ixfx/lib/modulation';
 
 export const tagName = 'oscillator-element';

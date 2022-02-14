@@ -65,14 +65,14 @@ export class ArcEditor extends LitElement {
   }
 
   getBounds() {
-    const svg = Svg.svg(
+    const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`)
     );
     return {width: svg.width, height: svg.height};
   }
 
   renderSvg() {
-    const svg = Svg.svg(
+    const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
       {fillStyle: `transparent`, strokeStyle: this.strokeStyle, strokeWidth: 3}
     );

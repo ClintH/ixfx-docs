@@ -18,14 +18,14 @@ You'll then need to you use your bundler of choice to include ixfx.
 Example module import:
 
 ```js
-import { Timers } from "ixfx"
-Timers.continuously(...);
+import { Flow } from "ixfx"
+Flow.continuously(...);
 ```
 
 Example function import:
 
 ```js
-import { continuously } from "ixfx/lib/timers.js"
+import { continuously } from "ixfx/lib/flow.js"
 continuously(...);
 ```
 

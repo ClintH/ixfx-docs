@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../assets/index.4ebbe857.css"><link rel="stylesheet" href="../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../assets/import-npm.237a9975.css">
+<link rel="stylesheet" href="../assets/index.4ebbe857.css"><link rel="stylesheet" href="../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../assets/colour.e3e2b7f2.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../assets/import-url.d75f04d7.js"></script>
+<script type="module" src="../assets/import-url.855c01eb.js"></script>
 
 
 
@@ -153,8 +153,12 @@
 									State Machine
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/flow/time" aria-current="false" class="astro-NO4JLDNO">
-									Time
+								<a href="/ixfx-docs/flow/loops" aria-current="false" class="astro-NO4JLDNO">
+									Loops &amp; Intervals
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/delay" aria-current="false" class="astro-NO4JLDNO">
+									Delay
 								</a>
 							</li>
 					</ul>
@@ -260,7 +264,7 @@
 		<h2 id="via-url-import">Via URL import</h2><p>You can import the whole package with a URL to <em>bundle.js</em></p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Timers<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/bundle.js"</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Use something from the module, eg:</span>
-Timers<span class="token punctuation">.</span><span class="token function">continuously</span><span class="token punctuation">(</span> <span class="token operator">...</span> <span class="token punctuation">)</span></code></pre><p>Or an individual module, note <em>timers.js</em> instead:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>continuously<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/timers.js"</span><span class="token punctuation">;</span>
+Timers<span class="token punctuation">.</span><span class="token function">continuously</span><span class="token punctuation">(</span> <span class="token operator">...</span> <span class="token punctuation">)</span></code></pre><p>Or an individual module, note <em>flow.js</em> instead:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>continuously<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Use something from the module, eg:</span>
 <span class="token function">continuously</span><span class="token punctuation">(</span> <span class="token operator">...</span> <span class="token punctuation">)</span></code></pre><p>A starting template is available on <a href="https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A1%3A0">Glitch</a></p>

@@ -59,7 +59,7 @@ export class AnglesElement extends LitElement {
   }
 
   getBounds() {
-    const svg = Svg.svg(
+    const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`)
     );
     return {width: svg.width, height: svg.height};
@@ -68,7 +68,7 @@ export class AnglesElement extends LitElement {
   lastCircle: Circles.CirclePositioned | undefined;
 
   renderSvg() {
-    const svg = Svg.svg(
+    const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
       {fillStyle: `transparent`, strokeStyle: `red`, strokeWidth: 3}
     );
@@ -116,7 +116,7 @@ export class AnglesElement extends LitElement {
   }
 
   _pointerMove(ev: PointerEvent) {
-    const svg = Svg.svg(this.shadowRoot.querySelector(`svg`));
+    const svg = Svg.makeHelper(this.shadowRoot.querySelector(`svg`));
     const ptr = {
       x: ev.offsetX,
       y: ev.offsetY

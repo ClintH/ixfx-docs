@@ -37,7 +37,8 @@ export const SIDEBAR =
 
     {text: `Flow`, header: true},
     {text: `State Machine`, link: `flow/stateMachine`},
-    {text: `Time`, link: `flow/time`},
+    {text: `Loops & Intervals`, link: `flow/loops`},
+    {text: `Delay`, link: `flow/delay`},
 
     {text: `Modulation`, header: true},
     {text: `Envelope`, link: `modulation/envelope`},

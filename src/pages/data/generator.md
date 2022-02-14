@@ -8,6 +8,7 @@ layout: ../../layouts/MainLayout.astro
 Generators are a [language feature of Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators) that essentially allows a function to output multiple values, potentially asynchronously.
 
 Included generators:
+* [count](#count): yields a series of integers counting up (or down) from zero
 * [numericRange](#numericRange): yields a series of numbers with a defined interval, start and end. Can reset back to start and loop
 * [ping pong](#pingPong): same as numeric range, but it counts back down to start before looping
 
@@ -15,7 +16,19 @@ See also:
 * [oscillators](../modulation/oscillator): ixfx's oscillators are implemented as generators
 * [interval](../flow/time#interval): calls and yields the result of a function at a specified interval
 
-## Iterators
+
+Importing tips:
+
+```js
+// Import as a module, meaning you have to prefix functions with Generators.
+import * as Generators from 'ixfx/lib/generators.js';
+// Or, import as a module from the web directly
+import * as Generators from "https://unpkg.com/ixfx/generators.js"
+// Or, import a single function, eg interval
+import { interval } from 'ixfx/lib/generators.js';
+```
+
+## Background
 
 Generators are a form of _iterator_, is an object that allows you to traverse some other data. _Iterables_ are kinds of objects that provide an iterator on request. This includes the usual [collections](./collections/) - arrays, maps and so on.
 
@@ -91,24 +104,9 @@ const asArray =[...iterable];
 
 What's interesting about iterables is that they aren't an actual collection or set of things, but rather return values on-demand. This means it's possible to have an iterable that never ends.
 
-## Generators
-
-[API documentation](https://clinth.github.io/ixfx/modules/Generators.html) 
-
-ixfx includes some utility generators.
-
-```js
-// Import as a module, meaning you have to prefix functions with Generators.
-import { Generators } from 'ixfx/lib/bundle.js';
-// Or, import as a module from the web directly
-import { Timers } from "https://unpkg.com/ixfx/bundle.js"
-// Or, import a single function, eg interval
-import { interval } from 'ixfx/lib/generators.js';
-```
-
 <a name="interval"></a>
 
-### Interval
+## Interval
 
 [interval](https://clinth.github.io/ixfx/modules/Generators.html#interval) calls and yields the result of an asynchronous callback function every `intervalMs`. It is an asynchronous generator, note the _for await_ rather than _for_.
 
@@ -116,26 +114,69 @@ import { interval } from 'ixfx/lib/generators.js';
 // interval(callback, intervalMs)
 const randomGenerator = Generators.interval(() => Math.random, 1000);
 for await (const r of randomGenerator) {
-  console.log(r); // Prints a new random number every second
+  // Prints a new random number every second
+  console.log(r);
 }
-console.log(`Done.`); // This will not run unless there is a `return` in the for await loop
+// This will not run unless there is a `break` in the for await loop
+console.log(`Done.`); 
 ```
+
+<a name="count"></a>
+
+## Count
+
+[count](https://clinth.github.io/ixfx/modules/Generators.html#count) yields a series of integers, counting by one: `0 1 2 3 ... `
+
+As the examples show, `count` can also be a useful way of running a chunk of code _x_ number of times. It might be more readable and robust than a typical `do`/`while` or `for` loop because there's only one thing you need to express: the amount of times to loop.
+
+
+```js
+import * as Generators from "https://unpkg.com/ixfx/generators.js"
+
+// count(amount:number, offset:number = 0);
+
+// Yields the array: [0,1,2,3,4]
+const a = [...Generators.count(5)];
+
+for (let i of Generators.count(5)) {
+  // Loop runs five times, with i being 0, 1, 2, 3 and then 4
+}
+```
+
+A negative `amount` counts backwards from zero:
+
+```js
+// Prints Hi! 0, Hi! -1 ... Hi! -4
+[...Generators.count(-5)].forEach(i => {
+  console.log(`Hi! ${i}`);
+});
+```
+
+If an offset is supplied, it is added to the result:
+
+```js
+// Yields [1,2,3,4,5]
+const a = [...Generators.count(5,1)];
+```
+
+For more complicated counting, consider `numericRange`, which allows you to set the counting interval, and whether counting resets.
 
 <a name="numericRange"></a>
 
-### Numeric range
+## Numeric range
+
 [numericRange](https://clinth.github.io/ixfx/modules/Generators.html#numericRange) yields a series of numbers from `start` to `end`, with a specified `interval`.
 
 ```js
 // numericRange(interval, start, end, repeating)
 
-// Counts from 0-100
+// Counts from 0-100, by 1
 for (const v of Generators.numericRange(1, 0, 100)) { }
 
 // Counts in twos from 0-100, and repeats from 0 again after 100
 for (const v of Generators.numericRange(2, 0, 100, true)) { 
   // Caution: this generator never ends by itself, so you need
-  // a `return` statement somewhere in the for loop
+  // a `break` statement somewhere in the for loop
 }
 
 // Don't forget generators can be used manually as well...
@@ -143,7 +184,9 @@ const range = Generators.numericRange(1, 0, 100);
 range.next().value;
 ```
 
-If you want a range constrained to a percentage scale (0-1), use `rangePercent`:
+If you just want to simply count from 0 to some number, consider using `count` instead.
+
+To constrain the range to the percentage scale (0-1), use `rangePercent`:
 
 ```js
 // rangePercent(interval, repeating, start, end)
@@ -158,9 +201,9 @@ for (const v of rangePercent(0.1, true)) { }
 
 <a name="pingPong"></a>
 
-### Up and down with ping pong
+## Up and down with ping pong
 
-[pingPong](https://clinth.github.io/ixfx/modules/Generators.html#pingPong) is like a `numericRange` with repeat turned on, but instead of resetting to `start`, it counts down, and then continues.
+[pingPong](https://clinth.github.io/ixfx/modules/Generators.html#pingPong) is like a `numericRange` with repeat turned on, but instead of resetting to `start`, it counts down to `start`, and then up, for ever.
 
 ```js
 // pingPong(interval, start, end, offset)
@@ -168,6 +211,7 @@ for (const v of rangePercent(0.1, true)) { }
 // Counts up and down to 100 in 10s
 for (const v of Generators.pingPong(10, 0, 100)) {
   // 0, 10, 20 ... 100, 90, 80 ...0, 10, 20 ...
+  // Warning: infinite generator, make sure you `break` at some point
 }
 ```
 
@@ -176,8 +220,7 @@ for (const v of Generators.pingPong(10, 0, 100)) {
 ```js
 for (const v of pingPongPercent(0.01)) {
   // go up and down from 0->1 by 1%
-  // warning: this will run forever, so you need a `return` statement
-  // somewhere to stop.
+  // Warning: infinite generator, make sure you `break` at some point
 }
 
 // Loops between 20-80% by 10%

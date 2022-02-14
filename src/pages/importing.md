@@ -40,10 +40,10 @@ import { clamp } from "https://unpkg.com/ixfx/bundle.js"
 You can also import functions from within a module:
 
 ```js
-import { continuously } from "https://unpkg.com/ixfx/timers.js"
+import { continuously } from "https://unpkg.com/ixfx/flow.js"
 continuously(...)
 ```
 
-Note here the URL is using the module file _timers.js_, rather than _bundle.js_, and now we can call `continuously` without prefixing with a module name.
+Note here the URL is using the module file _flow.js_, rather than _bundle.js_, and now we can call `continuously` without prefixing with a module name.
 
 Browsing the [API documentation](https://clinth.github.io/ixfx/modules.html) is a good way of figuring out where to import from, if you're confused.

@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/import-npm.237a9975.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/colour.e3e2b7f2.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/collections.a519d8ef.js"></script>
+<script type="module" src="../../assets/collections.32b25615.js"></script>
 
 
 
@@ -153,8 +153,12 @@
 									State Machine
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/flow/time" aria-current="false" class="astro-NO4JLDNO">
-									Time
+								<a href="/ixfx-docs/flow/loops" aria-current="false" class="astro-NO4JLDNO">
+									Loops &amp; Intervals
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/delay" aria-current="false" class="astro-NO4JLDNO">
+									Delay
 								</a>
 							</li>
 					</ul>
@@ -257,20 +261,27 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="1Ne5Ix"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#patterns">Patterns</a></li><li class="header-link depth-3"><a href="#process-a-queue-or-stack-of-items">Process a queue or stack of items</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Collections.html">API Docs: Collections module</a></p><h2 id="patterns">Patterns</h2><a name="jobQueue">
-</a><h3 id="process-a-queue-or-stack-of-items">Process a queue or stack of items</h3><p>Use a <a href="https://clinth.github.io/ixfx/modules/Collections.Queues.html">Queue</a> or <a href="https://clinth.github.io/ixfx/modules/Collections.Stacks.html">Stack</a> data for enforcing ordering:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/timers.js"</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> stack <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/collections.js"</span>
+		<p><a href="https://clinth.github.io/ixfx/modules/Collections.html">API Docs: Collections module</a></p><ul>
+<li><a href="./stack">Stack</a> - Keep track of items like a stack of plates. Most recent gets added to the top, and you can only take the most recent from the top.</li>
+<li><a href="./queue">Queue</a> - Keep track of items like a bakery queue. Most recent is added to the back of the queue, and you can only take from the front of the queue (ie the oldest)</li>
+</ul><h2 id="patterns">Patterns</h2><a name="jobQueue">
+</a><h3 id="process-a-queue-or-stack-of-items">Process a queue or stack of items</h3><p>Use a <a href="./queue">Queue</a> or <a href="./stack">Stack</a> data structure to enforce ordering:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Stacks <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/collections.js"</span>
 
 <span class="token comment">// Eg: limit stack to 10 items</span>
-<span class="token keyword">let</span> toProcess <span class="token operator">=</span> <span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> toProcess <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> processor <span class="token operator">=</span> <span class="token function">continuously</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">if</span> <span class="token punctuation">(</span>toProcess<span class="token punctuation">.</span>isEmpty<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> <span class="token comment">// Stack is empty</span>
+
+  <span class="token comment">// Get the top-most item (ie most recently added)</span>
   <span class="token keyword">const</span> item <span class="token operator">=</span> toProcess<span class="token punctuation">.</span>peek<span class="token punctuation">;</span>
-  toProcess <span class="token operator">=</span> stack<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+  <span class="token comment">// Set toProcess to be a new stack without top-most item</span>
+  toProcess <span class="token operator">=</span> toProcess<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
   <span class="token comment">// Do something with item</span>
-  <span class="token operator">...</span>
+  <span class="token comment">// ...</span>
   
   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Keep loop running</span>
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -282,7 +293,9 @@
   
   <span class="token comment">// Start if it's not already running</span>
   processor<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre>
+<span class="token punctuation">}</span></code></pre><ul>
+<li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demo</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/list-async">source</a>)</li>
+</ul>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		

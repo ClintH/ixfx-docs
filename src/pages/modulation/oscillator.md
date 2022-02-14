@@ -53,7 +53,7 @@ importEl(
 Initialisation
 
 ```js
-import { frequencyTimerSource } from 'ixfx/lib/timers';
+import { frequencyTimerSource } from 'ixfx/lib/flow';
 import { Oscillators } from 'ixfx/lib/modulation';
 
 // Create a timer for 10Hz (10 cycles per second)

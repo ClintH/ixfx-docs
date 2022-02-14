@@ -1,0 +1,14 @@
+var m=Object.defineProperty;var x=(i,e,s)=>e in i?m(i,e,{enumerable:!0,configurable:!0,writable:!0,value:s}):i[e]=s;var a=(i,e,s)=>(x(i,typeof e!="symbol"?e+"":e,s),s);import{s as u,r as S,$ as v,e as d}from"./vendor.d9edd6b2.js";import{P as b,L as h}from"./chunk-UWLZSNHO.ed4a88a1.js";import"./chunk-6JTGCZJL.d1807a28.js";import"./chunk-MBZ4GFG7.e6b9ac15.js";import{t as w}from"./chunk-V6WGO73W.92c7aaab.js";import{P as k,m as y,b as _}from"./chunk-3SMTKDXD.e3dcb359.js";import"./chunk-FRVUOYS5.39dff0b3.js";import{e as j}from"./styles.f341ab18.js";var O=Object.defineProperty,P=Object.getOwnPropertyDescriptor,p=(i,e,s,t)=>{for(var r=t>1?void 0:t?P(e,s):e,o=i.length-1,l;o>=0;o--)(l=i[o])&&(r=(t?l(e,s,r):l(r))||r);return t&&r&&O(e,s,r),r};const $="cartesian-element";class c extends u{constructor(){super();a(this,"origin");a(this,"palette");this.palette=k.create(),this.palette.setElementBase(this),this.width=500,this.height=300,this.origin={x:10,y:10},w().subscribe(e=>{this.updated()})}getBounds(){const e=y(this.shadowRoot.querySelector("svg"));return{width:e.width,height:e.height}}renderSvg(){const e=this.origin,s="black",t=y(this.shadowRoot.querySelector("svg"),{fillStyle:"transparent",strokeWidth:3});t.clear();const r=t.width,o=t.height-40;_.grid(t.parent,e,25,r,o),t.circle({radius:5,...e},{fillStyle:s,strokeStyle:"none"}),t.text("Origin",b.sum(e,5,20),{fillStyle:s,strokeStyle:"none"});const l={id:"triangle",fillStyle:s},n=20,g=h.fromNumbers(e.x,e.y,e.x+r-n,e.y);t.line(g,{fillStyle:"none",markerEnd:l,strokeStyle:s}),t.text("X",{x:e.x+r-45,y:e.y+n},{strokeStyle:"none",fillStyle:s});const f=h.fromNumbers(e.x,e.y,e.x,o);t.line(f,{fillStyle:"none",markerEnd:l,strokeStyle:s}),t.text("Y",{x:e.x+10,y:e.y+o-n-10},{strokeStyle:"none",fillStyle:s})}async updated(){this.renderSvg()}_pointerMove(e){const s=this.palette.get("accent-bold","yellow");this.palette.get("fg-dim","yellow");const t=this.origin,r=y(this.shadowRoot.querySelector("svg"));r.width,r.height;const o={x:e.offsetX,y:e.offsetY};o.x<t.x&&(o.x=t.x),o.y<t.y&&(o.y=t.y);const l=h.fromPoints(t,o);r.line(l,{strokeDash:"5",strokeStyle:s},"#pointerRay"),h.length(l),r.circle({radius:5,...o},{fillStyle:s,strokeStyle:"none"},"#targetCircle");const n={strokeStyle:"transparent",fillStyle:s,anchor:"middle"};r.text(`(${Math.round(o.x-t.x)}, ${Math.round(o.y-t.y)})`,{x:o.x,y:o.y+40},n,"#coordLabel")}render(){return v`
+      <div id="container">
+      <svg @pointermove="${this._pointerMove}" style="font-size: 1em" viewBox="0 0 ${this.width} ${this.height}" width=${this.width} height=${this.height}> </svg>
+        </div>
+          `}}a(c,"styles",[j,S`
+      :host {
+        color: var(--label-color, green);
+      }
+      #container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+  `]);p([d()],c.prototype,"width",2);p([d()],c.prototype,"height",2);customElements.define($,c);export{c as CartesianElement,$ as tagName};

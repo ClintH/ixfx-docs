@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../assets/index.4ebbe857.css"><link rel="stylesheet" href="../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../assets/import-npm.237a9975.css">
+<link rel="stylesheet" href="../assets/index.4ebbe857.css"><link rel="stylesheet" href="../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../assets/colour.e3e2b7f2.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../assets/importing.ff7476e3.js"></script>
+<script type="module" src="../assets/importing.365edd3b.js"></script>
 
 
 
@@ -153,8 +153,12 @@
 									State Machine
 								</a>
 							</li><li class="nav-link astro-NO4JLDNO">
-								<a href="/ixfx-docs/flow/time" aria-current="false" class="astro-NO4JLDNO">
-									Time
+								<a href="/ixfx-docs/flow/loops" aria-current="false" class="astro-NO4JLDNO">
+									Loops &amp; Intervals
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/delay" aria-current="false" class="astro-NO4JLDNO">
+									Delay
 								</a>
 							</li>
 					</ul>
@@ -258,8 +262,8 @@
 				<astro-root uid="J9Mb8"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#modules">Modules</a></li><li class="header-link depth-2"><a href="#functions">Functions</a></li></ul></astro-root>
 			</nav>
 		<p>Read on for how to import ixfx with a URL import. Advanced users might want to install ixfx <a href="./import-npm">via NPM</a> or a <a href="./import-zip">downloaded ZIP</a>.</p><h2 id="modules">Modules</h2><p>You’ll mostly want to import functions as <em>modules</em>: <code data-astro-raw="">import { NameOfModule } from "https://unpkg.com/ixfx/bundle.js"</code></p><p>The names of predefined modules are given in the list above. All of these can be imported from the main bundle.</p><p>For example, to import <em>Timers</em>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Timers <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/bundle.js"</span>
-Timers<span class="token punctuation">.</span><span class="token function">continuously</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Note the module name is capitalised, while the names in the URL are not. Also note that function names are preceded by the module name. One needs to call <code data-astro-raw="">Timers.continuously</code> not <code data-astro-raw="">continuously</code>.</p><h2 id="functions">Functions</h2><p>Some functions (<a href="https://clinth.github.io/ixfx/modules.html">listed here</a>) don’t live in a module at all. Or other times you just want to import a single function from within a module.</p><p>To import a function: <code data-astro-raw="">import { nameOfFunction } from "https://unpkg.com/ixfx/bundle.js</code></p><p>For example, to import <code data-astro-raw="">clamp</code>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> clamp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/bundle.js"</span></code></pre><p>You can also import functions from within a module:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/timers.js"</span>
-<span class="token function">continuously</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span></code></pre><p>Note here the URL is using the module file <em>timers.js</em>, rather than <em>bundle.js</em>, and now we can call <code data-astro-raw="">continuously</code> without prefixing with a module name.</p><p>Browsing the <a href="https://clinth.github.io/ixfx/modules.html">API documentation</a> is a good way of figuring out where to import from, if you’re confused.</p>
+Timers<span class="token punctuation">.</span><span class="token function">continuously</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Note the module name is capitalised, while the names in the URL are not. Also note that function names are preceded by the module name. One needs to call <code data-astro-raw="">Timers.continuously</code> not <code data-astro-raw="">continuously</code>.</p><h2 id="functions">Functions</h2><p>Some functions (<a href="https://clinth.github.io/ixfx/modules.html">listed here</a>) don’t live in a module at all. Or other times you just want to import a single function from within a module.</p><p>To import a function: <code data-astro-raw="">import { nameOfFunction } from "https://unpkg.com/ixfx/bundle.js</code></p><p>For example, to import <code data-astro-raw="">clamp</code>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> clamp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/bundle.js"</span></code></pre><p>You can also import functions from within a module:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+<span class="token function">continuously</span><span class="token punctuation">(</span><span class="token operator">...</span><span class="token punctuation">)</span></code></pre><p>Note here the URL is using the module file <em>flow.js</em>, rather than <em>bundle.js</em>, and now we can call <code data-astro-raw="">continuously</code> without prefixing with a module name.</p><p>Browsing the <a href="https://clinth.github.io/ixfx/modules.html">API documentation</a> is a good way of figuring out where to import from, if you’re confused.</p>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		

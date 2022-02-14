@@ -15,10 +15,10 @@ import {Timers} from "https://unpkg.com/ixfx/dist/bundle.js";
 Timers.continuously( ... )
 ```
 
-Or an individual module, note _timers.js_ instead:
+Or an individual module, note _flow.js_ instead:
 
 ```js
-import {continuously} from "https://unpkg.com/ixfx/dist/timers.js";
+import {continuously} from "https://unpkg.com/ixfx/dist/flow.js";
 
 // Use something from the module, eg:
 continuously( ... )

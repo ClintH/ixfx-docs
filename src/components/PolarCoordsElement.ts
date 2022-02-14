@@ -60,7 +60,7 @@ export class PolarCoordsElement extends LitElement {
   }
 
   getBounds() {
-    const svg = Svg.svg(
+    const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`)
     );
     return {width: svg.width, height: svg.height};
@@ -68,7 +68,7 @@ export class PolarCoordsElement extends LitElement {
 
   renderSvg() {
     const poleColour = `black`;
-    const svg = Svg.svg(
+    const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
       {fillStyle: `transparent`, strokeWidth: 3}
     );
@@ -105,7 +105,7 @@ export class PolarCoordsElement extends LitElement {
     const targetColour = this.palette.get(`accent-bold`, `yellow`);
     const angleColour = this.palette.get(`fg-dim`, `yellow`);
 
-    const svg = Svg.svg(this.shadowRoot.querySelector(`svg`));
+    const svg = Svg.makeHelper(this.shadowRoot.querySelector(`svg`));
     const w = svg.width;
     const h = svg.height;
     const center = {x: w / 2, y: h / 2};
