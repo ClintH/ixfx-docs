@@ -197,6 +197,10 @@ for (const v of rangePercent(0.1)) { }
 // Counts from 0 to 1 by 10%, looping from 0
 //   (use pingPongPercent to loop up and down)
 for (const v of rangePercent(0.1, true)) { }
+
+// Constant rotation
+const r = rangePercent(0.1); // Setup once
+const angle = Math.PI*2*r.next().value; // Per animation loop
 ```
 
 <a name="pingPong"></a>

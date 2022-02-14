@@ -21,6 +21,9 @@ export class CartesianElement extends LitElement {
         align-items: center;
         flex-direction: column;
       }
+      #container>svg {
+        touch-action: none;
+      }
   `];
 
   @property()
@@ -52,8 +55,10 @@ export class CartesianElement extends LitElement {
   }
 
   renderSvg() {
+
     const origin = this.origin;
-    const poleColour = `black`;
+    const poleColour = this.palette.get(`fgDim`, `black`);
+
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
       {fillStyle: `transparent`, strokeWidth: 3}
@@ -90,6 +95,7 @@ export class CartesianElement extends LitElement {
   }
 
   _pointerMove(ev: PointerEvent) {
+
     const targetColour = this.palette.get(`accent-bold`, `yellow`);
     const angleColour = this.palette.get(`fg-dim`, `yellow`);
     const origin = this.origin;

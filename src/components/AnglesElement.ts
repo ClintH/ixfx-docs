@@ -20,6 +20,9 @@ export class AnglesElement extends LitElement {
         align-items: center;
         flex-direction: column;
       }
+      #container>svg {
+        touch-action: none;
+      }
   `];
 
   @property()
@@ -82,7 +85,7 @@ export class AnglesElement extends LitElement {
     const traceStyle = {strokeStyle: this.palette.get(`axis-color`, `orange`)};
     const labelStyle: Svg.TextDrawingOpts = {
       strokeStyle: `transparent`,
-      fillStyle: this.palette.get(`label-color`, `orange`),
+      fillStyle: this.palette.get(`fgDim`, `orange`),
       anchor: `middle`,
       align: `hanging`
     };
@@ -174,7 +177,7 @@ export class AnglesElement extends LitElement {
     // Update labels
     const labelStyle: Svg.TextDrawingOpts = {
       strokeStyle: `transparent`,
-      fillStyle: this.palette.get(`label-color`, `black`),
+      fillStyle: this.palette.get(`fgDim`, `black`),
       anchor: `middle`
     }
     let radiansLabel = svg.text(`Radians: ${radStr}`, {x: c.x, y: c.y}, labelStyle, `#radiansLabel`);

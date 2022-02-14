@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/colour.e3e2b7f2.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/oscillator.18d955d3.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/generator.9bd3c599.js"></script>
+<script type="module" src="../../assets/generator.28d453eb.js"></script>
 
 
 
@@ -350,7 +350,11 @@ range<span class="token punctuation">.</span><span class="token function">next</
 
 <span class="token comment">// Counts from 0 to 1 by 10%, looping from 0</span>
 <span class="token comment">//   (use pingPongPercent to loop up and down)</span>
-<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> v <span class="token keyword">of</span> <span class="token function">rangePercent</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span></code></pre><a name="pingPong">
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> v <span class="token keyword">of</span> <span class="token function">rangePercent</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span> <span class="token punctuation">}</span>
+
+<span class="token comment">// Constant rotation</span>
+<span class="token keyword">const</span> r <span class="token operator">=</span> <span class="token function">rangePercent</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Setup once</span>
+<span class="token keyword">const</span> angle <span class="token operator">=</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token operator">*</span><span class="token number">2</span><span class="token operator">*</span>r<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span> <span class="token comment">// Per animation loop</span></code></pre><a name="pingPong">
 </a><h2 id="up-and-down-with-ping-pong">Up and down with ping pong</h2><p><a href="https://clinth.github.io/ixfx/modules/Generators.html#pingPong">pingPong</a> is like a <code data-astro-raw="">numericRange</code> with repeat turned on, but instead of resetting to <code data-astro-raw="">start</code>, it counts down to <code data-astro-raw="">start</code>, and then up, for ever.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// pingPong(interval, start, end, offset)</span>
 
 <span class="token comment">// Counts up and down to 100 in 10s</span>

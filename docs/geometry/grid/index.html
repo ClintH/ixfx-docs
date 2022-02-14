@@ -83,7 +83,7 @@
 
 
 
-<script type="module" src="../../assets/grid.f9934450.js"></script>
+<script type="module" src="../../assets/grid.071c8ee4.js"></script>
 
 
 </head>
@@ -261,9 +261,9 @@
 	<section class="main-section astro-EDKM2WF4">
 		<h1 class="content-title astro-EDKM2WF4" id="overview">Grid</h1>
 		<nav class="block sm:hidden astro-EDKM2WF4">
-				<astro-root uid="ZUaUdH"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#types">Types</a></li><li class="header-link depth-2"><a href="#visiting">Visiting</a></li><li class="header-link depth-2"><a href="#iterating-cells">Iterating cells</a></li><li class="header-link depth-2"><a href="#offsets">Offsets</a></li><li class="header-link depth-2"><a href="#mapping-to-data">Mapping to data</a></li><li class="header-link depth-2"><a href="#mapping-to-pixels">Mapping to pixels</a></li></ul></astro-root>
+				<astro-root uid="Z99QEa"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#types">Types</a></li><li class="header-link depth-2"><a href="#visiting">Visiting</a></li><li class="header-link depth-2"><a href="#iterating-cells">Iterating cells</a></li><li class="header-link depth-2"><a href="#offsets">Offsets</a></li><li class="header-link depth-2"><a href="#mapping-to-data">Mapping to data</a></li><li class="header-link depth-2"><a href="#mapping-to-pixels">Mapping to pixels</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx-demos/geometry/">Online geometry demos</a>, <a href="https://clinth.github.io/ixfx/modules/Geometry.Grids.html">API Docs: Geometry.Grids module</a></p><p>A <em>grid</em> is a rectangular area divided by rows and columns into cells of equal size. A bit like a table or spreadsheet. Each cell has an <em>x,y</em> location with <em>0,0</em> being the top-left corner.</p><p>Example: This grid has four rows and three columns.</p><div>
+		<p><a href="https://clinth.github.io/ixfx/modules/Geometry.Grids.html">API Docs: Geometry.Grids module</a></p><p>A <em>grid</em> is a rectangular area divided by rows and columns into cells of equal size. A bit like a table or spreadsheet. Each cell has an <em>x,y</em> location with <em>0,0</em> being the top-left corner.</p><p>Example: This grid has four rows and three columns.</p><div>
   <table style="width:auto; border: 1px solid whitesmoke">
   <tbody><tr><td>0,0</td><td>0,1</td><td>2,0</td></tr>
   <tr><td>0,1</td><td>1,1</td><td>2,1</td></tr>
@@ -278,8 +278,8 @@
   x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
   y<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span></code></pre><p>In action, this looks like:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it’s possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p><script type="module" src="../../assets/GridEditor.86a7a207.js"></script>
-<script type="module" src="../../assets/grid.1adf0964.js"></script>
+<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it’s possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p><script type="module" src="../../assets/GridEditor.e997bac4.js"></script>
+<script type="module" src="../../assets/grid.e692c23d.js"></script>
 
 <div class="toolbar centered astro-JCU4OET3">
   <section class="astro-JCU4OET3">
@@ -328,7 +328,7 @@
   <span class="token comment">// Do something if cell has been visited...</span>
 <span class="token punctuation">}</span></code></pre><p>In the interactive demo above, this technique is used to colour cells differently depending on whether they’ve been visited.</p><h2 id="iterating-cells">Iterating cells</h2><p>The <code data-astro-raw="">cells</code> iterator is a simple alternative to the <em>visitor</em> technique if you don’t care about how the grid is traversed. It has a lower overhead than the visitor because it does not need to keep track of every cell it has visited.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cell <span class="token keyword">of</span> Grids<span class="token punctuation">.</span><span class="token function">cells</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with cell</span>
-<span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2><script type="module" src="../../assets/GridEditor.86a7a207.js"></script>
+<span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2><script type="module" src="../../assets/GridEditor.e997bac4.js"></script>
 
 <script type="module">
 console.log(`offsets`);
@@ -431,7 +431,7 @@ data<span class="token punctuation">.</span><span class="token function">set</sp
 
 <span class="token comment">// Fetch data associated with a given cell:</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token function">key</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre><script type="module" src="../../assets/GridEditor.86a7a207.js"></script>
+<span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre><script type="module" src="../../assets/GridEditor.e997bac4.js"></script>
 <!-- <script type="module" src={Astro.resolve('./grid.ts')}></script> -->
 
 
@@ -487,7 +487,10 @@ randomGrid();
 
 <span class="token comment">// Returns { x, y, width, height } for cell at position 5,5</span>
 <span class="token keyword">const</span> rect <span class="token operator">=</span> <span class="token function">rectangleForCell</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">5</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> shape<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre><p>Or to go from coordinate (eg. mouse pointer) to cell:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Convert pointer position to cell coordinate</span>
-<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token function">cellAtPoint</span><span class="token punctuation">(</span><span class="token punctuation">{</span>evt<span class="token punctuation">.</span>offsetX<span class="token punctuation">,</span> evt<span class="token punctuation">.</span>offsetY<span class="token punctuation">}</span><span class="token punctuation">,</span> shape<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token function">cellAtPoint</span><span class="token punctuation">(</span><span class="token punctuation">{</span>evt<span class="token punctuation">.</span>offsetX<span class="token punctuation">,</span> evt<span class="token punctuation">.</span>offsetY<span class="token punctuation">}</span><span class="token punctuation">,</span> shape<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="demos">Demos</h2><ul>
+<li><a href="https://clinth.github.io/ixfx-demos/geometry/grid-dom/">Grid DOM</a>: Generate DIVs based on grid cells (<a href="https://github.com/ClintH/ixfx-demos/tree/main/geometry/grid-dom">source</a>)</li>
+<li><a href="https://clinth.github.io/ixfx-demos/geometry/grid-canvas/">Grid Canvas</a>: Draw elements based on grid cells (<a href="https://github.com/ClintH/ixfx-demos/tree/main/geometry/grid-canvas">source</a>)</li>
+</ul>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -514,7 +517,7 @@ randomGrid();
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-LR56V2JR">
-		<astro-root uid="ZUaUdH"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#types">Types</a></li><li class="header-link depth-2"><a href="#visiting">Visiting</a></li><li class="header-link depth-2"><a href="#iterating-cells">Iterating cells</a></li><li class="header-link depth-2"><a href="#offsets">Offsets</a></li><li class="header-link depth-2"><a href="#mapping-to-data">Mapping to data</a></li><li class="header-link depth-2"><a href="#mapping-to-pixels">Mapping to pixels</a></li></ul></astro-root>
+		<astro-root uid="Z99QEa"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#types">Types</a></li><li class="header-link depth-2"><a href="#visiting">Visiting</a></li><li class="header-link depth-2"><a href="#iterating-cells">Iterating cells</a></li><li class="header-link depth-2"><a href="#offsets">Offsets</a></li><li class="header-link depth-2"><a href="#mapping-to-data">Mapping to data</a></li><li class="header-link depth-2"><a href="#mapping-to-pixels">Mapping to pixels</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li></ul></astro-root>
 		
 
 

@@ -66,6 +66,19 @@ This means that `x` increases from left-to-right, and `y` increases from top-to-
 
 <cartesian-element client:visible width="200" height="200"  />
 
+A useful technique is to _translate_ the coordinate space, shifting the origin. For example, if you translate by `(100,50)`, drawing a point at `(0,0)` actually draws it at `(100,50)`. 
+
+Usually one would shift the point of origin to be relative to the object you are drawing/working with. For example, the middle, or the top-left. This can make it easier to define and work with coordinates, because it's all relative to the object.
+
+In canvas:
+
+```js
+ctx.save(); // Save existing translation, if any
+ctx.translate(100,100);
+// Do drawing, with 100,100 as 0,0
+ctx.restore(); // Undo translation
+```
+
 Read more:
 * [Point](./point)
 * [API Docs: Points module](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
@@ -73,8 +86,6 @@ Read more:
 <a name="polar"></a>
 
 ### Polar
-
-[Polar spiral demo](https://clinth.github.io/ixfx-demos/geometry/polar-spiral/)
 
 [Polar coordinates](https://en.wikipedia.org/wiki/Polar_coordinate_system) are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the _origin_, coordinate are defined by their _distance_ from the origin, as well as _angle_ from the _polar axis_. 
 
@@ -118,3 +129,4 @@ Read more:
 
 Demos:
 * [Polar spiral](https://clinth.github.io/ixfx-demos/geometry/polar-spiral/): Uses the [spiral function](https://clinth.github.io/ixfx/modules/Geometry.Polar.html) to generate a spiral, modulated by two ping-pongs.
+* [Polar orbit](https://clinth.github.io/ixfx-demos/geometry/polar-orbit/): Moves an element on a circular orbit using polar coordinates.
