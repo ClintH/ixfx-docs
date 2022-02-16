@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/queue.9963f459.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/easing.bf724df0.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/colour.829270fe.js"></script>
+<script type="module" src="../../assets/colour.77de41a2.js"></script>
 
 
 
@@ -261,7 +261,7 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="ZeRXJ8"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#interpolating">Interpolating</a></li><li class="header-link depth-2"><a href="#scale">Scale</a></li><li class="header-link depth-2"><a href="#parsing">Parsing</a></li><li class="header-link depth-2"><a href="#variations">Variations</a></li><li class="header-link depth-2"><a href="#credits">Credits</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Visual.Colour.html">API Docs: Colour module</a></p><script type="module" src="../../assets/ColourScaleElement.140421e5.js"></script><script type="module" src="../../assets/loader.469a11a4.js"></script><h2 id="interpolating">Interpolating</h2><p>Colours can be <em>interpolated</em>, eg. getting the colour that is 50% between red and blue.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/visuals.js"</span>
+		<p><a href="https://clinth.github.io/ixfx/modules/Visual.Colour.html">API Docs: Colour module</a></p><script type="module" src="../../assets/ColourScaleElement.2c0bca48.js"></script><script type="module" src="../../assets/loader.469a11a4.js"></script><h2 id="interpolating">Interpolating</h2><p>Colours can be <em>interpolated</em>, eg. getting the colour that is 50% between red and blue.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/visuals.js"</span>
 
 <span class="token comment">// Returns  `rgb(128, 0, 128)`</span>
 Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">red</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Regular CSS colour definitions can also be used:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns `rgb(0, 85, 128))`</span>
