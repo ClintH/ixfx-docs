@@ -63,21 +63,23 @@ jobLoop.elapsedMs; // How long since last start()
 jobLoop.ticks;     // How many iterations of loop
 ```
 
-The function that runs is given the number of loops and elapsed time as parameters. If the callback returns _false_, this will cause the loop to end. If _true_ or _undefined_ is returned, loop will continue to run (unless `cancel()` is called).
+The function that runs is given the number of loops and elapsed time as parameters. If the callback returns _false_, this will cause the loop to end. If _true_ or _undefined_ is returned, loop will continue to run.
 
 ```js
 const job = (ticks, elapsedMs) => { 
-  if (ticks > 100) return false; // End loop after 100 iterations  
+  // End loop after 100 iterations  
+  if (ticks > 100) return false; 
 }
 const jobLoop = continuously(job, 1000).start();
 ```
 
-A callback can also be provided for when the loop resets, if ever. Resets happen if `start()` is called when the loop is running.
+A callback can also be provided if the loop resets. Resets when  `start()` is called and but it's already running (ie. `isDone` returns _false_).
 
 ```js
 const job = () => { ... }
 const onJobReset = (ticks, elapsedMs) => {
-  return (elapsedMs < 60*1000); // If we've been running for a minute, don't allow restart
+  // If we've been running for a minute, don't allow restart
+  return (elapsedMs < 60*1000); 
 }
 const jobLoop = continuously(job, 1000, onJobReset).start();
 ```
@@ -94,7 +96,8 @@ import { interval } from "https://unpkg.com/ixfx/flow.js"
 // interval(callback, intervalMs)
 const randomGenerator = interval(() => Math.random, 1000);
 for await (const r of randomGenerator) {
-  console.log(r); // Prints a new random number every second
+  // Prints a new random number every second
+  console.log(r); 
 }
 // This won't run until generator finishes or there is a `break` in the for .. of loop.
 console.log(`Done.`);
@@ -108,16 +111,16 @@ console.log(`Done.`);
 import { forEach, count } from "https://unpkg.com/ixfx/generators.js"
 
 forEach(count(5), () => {
-  // This code will run five times
+  // This will run five times
 })
 ```
 
-If you know the generator is finite, another option is to convert it to an array:
+If you know the generator is finite, an alternative is to convert to an array:
 
 ```js
 import { count } from "https://unpkg.com/ixfx/generators.js"
 [...count(5)].forEach( () => {
-  // This code will run five times
+  // This will run five times
 });
 ```
 
@@ -126,8 +129,8 @@ Or naturally, using a `for ... of`:
 ```js
 import { count } from "https://unpkg.com/ixfx/generators.js"
 for (const i of count(5)) {
-  // this code will run five times.
+  // This will run five times.
 }
 ```
 
-Which to use? the ixfx `forEach` is concise and readable. It also has the advantage of needing to declare a parameter, unlike `for ... of`. Converting to an array avoids having to declare a variable too, but it's not possible to use infinite generators (such as [pingPong](../data/generator#pingPong)).
+Which to use? the ixfx `forEach` is concise and readable. It has the advantage of not needing to declare a parameter, unlike `for ... of`. Converting to an array avoids having to declare a variable too, but it's not possible to use infinite generators (such as [pingPong](../../data/generator#pingPong)).
