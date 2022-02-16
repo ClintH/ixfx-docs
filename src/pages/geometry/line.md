@@ -49,13 +49,14 @@ Length of line
 ```js
 import { Lines } from "https://unpkg.com/ixfx/geometry.js"
 const line = Lines.fromNumbers(0,0,200,200);
-const length = Lines.length(line);
+const length = Lines.length(line); // Returns number
 ```
 
 Relation of line to a point
 
 ```js
 // Closest distance of point to anywhere on a line
+// returns number
 Lines.distance(line, {x:150, y:200});
 
 // Get the closest position on a line to some other point
@@ -76,20 +77,23 @@ Calculate an in-between point with `interpolate`
 // Calculate a Point between `a` and `b` using a relative 
 // progress amount (0 -> 1). 0 = a, 0.5 = halfway between
 // the two, 1 = b, and so on.
+// returns Point {x,y}
 const p = Lines.interpolate(0.5, a, b);
 ```
 
 Calculates a rectangle that encompasses line
 
 ```js
-const rect = Points.bbox(line);  // eg {x:0, y:0, width:10, height:10}
+// Returns Rectangle {x,y,width,height}
+const rect = Points.bbox(line);
 ```
 
 ## Angles
 
-Slope (gradient) of line
+Slope (gradient) of line.
 
 ```js
+// Returns number
 Lines.slope(line);
 Lines.slope(pointA, pointB); // Provide two points intead
 ```
@@ -97,14 +101,17 @@ Lines.slope(pointA, pointB); // Provide two points intead
 Angle in radians of line
 
 ```js
+// Returns number
 Lines.angleRadian(line, referencePoint);
 ```
 
 ## Conversions
 
-Converting _from_ some other shape
+Converting _from_ some other shape. These all return a Line (ie. `{a:{x,y}, b:{x,y}}`)
+
 
 ```js
+// Returns Line {a:{x,y}, b:}
 Lines.fromPoints({x:0,y:0}, {x:100,y:100});
 
 // Convert from an array
@@ -119,7 +126,7 @@ Lines.fromNumbers(0,0,100,100);
 Converting _to_ some other shape
 
 ```js
-// yields [a.x,a.y,b.x,b.y]
+// Yields [a.x,a.y,b.x,b.y]
 Lines.toFlatArray(line.a, line.b);
 ```
 
@@ -127,9 +134,9 @@ Return a [Path](path) instance, which wraps up some functions together with the 
 
 ```js
 const p = Lines.toPath(line);
-p.length();             // Length
-p.bbox();               // Get bounding 
-p.interpolate(amount);  // Get position at relative
+p.length();             // Length (numer)
+p.bbox();               // Get bounding box as rect {x,y,width,height}
+p.interpolate(amount);  // Get position at relative. Returns point {x,y}
 p.toString();           // Human-readable string
 p.toFlatArray();        // Returns [x1,y1,x2,y2]
 p.toPoints();           // Returns [ptA, ptB]
@@ -140,6 +147,7 @@ p.toPoints();           // Returns [ptA, ptB]
 Compare lines by value:
 
 ```js
+// Returns _true_ if lines have same value
 Lines.equals(lineA, lineB);
 ```
 
@@ -147,6 +155,6 @@ Extend the length of the line from its start position
 
 ```js
 // Lines.extendFromStart(line:Line, distance:number): Line
-// Returns a new Line
+// Returns a new Line, ie { a:{x,y}, b:{x,y} }
 Lines.extendFromStart(line, 20);
 ```

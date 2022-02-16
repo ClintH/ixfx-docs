@@ -65,6 +65,7 @@ Create an arc from degrees:
 
 ```js
 // fromDegrees(radius:number, startDegrees:number, endDegrees:number, origin?:Point)
+// returns Arc {radius, startRadian, endRadian}
 const a = Arcs.fromDegrees(10, 0, 90);
 const b = Arcs.fromDegrees(10, 0, 90, {x: 100, y: 100});
 ```
@@ -73,23 +74,26 @@ Return a [Path](path) instance, which wraps up some functions together with the 
 
 ```js
 const p = Arcs.toPath(arc);
-p.length();             // Length
-p.bbox();               // Get bounding 
-p.interpolate(amount);  // Get position at relative
+p.length();             // Length as a number
+p.bbox();               // Get bounding rectangle, ie. {x,y,width,height}
+p.interpolate(amount);  // Get point at relative position, returns {x,y} 
 p.toString();           // Human-readable string
 ```
 
 Get a [Line](line) connecting the start and end point of the arc:
 
 ```js
+// Returns {a: {x,y}, b:{x,y} }
 const line = Arcs.toLine(arc);
 ```
 
 ## Other functions
 
 Get the `x,y` coordinate of a point at specified angle
+
 ```js
-// Arcs.point(arc:Arc, angleRadian:number, origin?:Point);
+// Arcs.point(arc:Arc, angleRadian:number, origin?:Point):Point
+// returns {x,y}
 const p = Arcs.point(arc, Math.PI);
 ```
 
@@ -103,14 +107,15 @@ Arcs.isEqual(a, b);
 Dimensions/distances
 
 ```js
-Arcs.bbox(arc);   // Get a rectangle that encompasses arc
-Arcs.length(arc); // Get the length of arc
-Arcs.distanceCenter(a, b); // Distance between the centers of two arcs 
+Arcs.bbox(arc);   // Get a rectangle that encompasses arc: {x,y,width,height}
+Arcs.length(arc); // Get the length of arc as a number
+Arcs.distanceCenter(a, b); // Distance between the centers of two arcs, as a number 
 ```
 
 Compute position on arc
 ```js
 // Returns point at relative place on arc
 // ie. 0.5 = halfway along arc
+// returns {x,y}
 Arcs.interpolate(arc, amount);
 ```

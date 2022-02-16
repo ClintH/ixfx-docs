@@ -41,8 +41,22 @@ continuously(draw).start(); // run at animation speed
 If you don't want the loop to run as fast as possible, provide the number of milliseconds between loops:
 
 ```js
-continuously(draw, 60*1000).start(); // Runs every minute
+const fetchData = async () => {
+  try {
+    const r = await fetch(`someurl`);
+    this.state = {
+      ...state,
+      response: await r.json()
+    }
+  } catch (ex) {
+    console.error(ex);
+  }
+};
+// Runs every minute
+continuously(fetchData, 60*1000).start();
 ```
+
+[See an example of polling API data](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-poll)
 
 ### Control
 

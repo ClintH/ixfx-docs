@@ -29,7 +29,7 @@ const a = {x: 10, y: 10};
 const b = {x: 20, y: 20};
 
 // Calculates distance between point a and b
-const distance = Points.distance(a, b); 
+const distance = Points.distance(a, b); // Returns a number
 ```
 
 Calculate an in-between point with `interpolate`
@@ -38,13 +38,13 @@ Calculate an in-between point with `interpolate`
 // Calculate a Point between `a` and `b` using a relative 
 // progress amount (0 -> 1). 0 = a, 0.5 = halfway between
 // the two, 1 = b, and so on.
-const p = Points.interpolate(0.5, a, b);
+const p = Points.interpolate(0.5, a, b); // Returns {x,y}
 ```
 
 Calculates a rectangle which encompasses all the provided points
 ```js
 const points = [a, b];
-const rect = Points.bbox(...points);  // eg {x:0, y:0, width:10, height:10}
+const rect = Points.bbox(...points);  // returns {x,y,width,height}
 ```
 
 ## Conversions
@@ -87,7 +87,8 @@ import { Points } from "https://unpkg.com/ixfx/geometry.js"
 // Find the point closest to the {x:100, y:100}
 const points = [/* ... points ... */];
 const center = {x: 100, y: 100};
- 
+
+// closestToCenter will be a Point {x,y}
 const closestToCenter = findMinimum((a, b) => {
   const aDist = distance(a, center);
   const bDist = distance(b, center);
@@ -101,15 +102,15 @@ const closestToCenter = findMinimum((a, b) => {
 ### Math
 
 ```js
-// Returns a * b
+// Returns {x,y} of a * b
 Points.multiply(a, b);
 
-// Returns point a scaled by 2 x and 0.5 for y
+// Returns {x,y} of a, with a.x * 2 and a.y * 0.5
 Points.multiply(a, 2, 0.5);
 
-// Returns a + b
+// Returns {x,y} of a + b
 Points.sum(a, b);
 
-// Returns a - b;
+// Returns {x,y} of a - b;
 Points.subtract(a, b);
 ```

@@ -42,10 +42,14 @@ The playground uses the settings from the envelope editor above. You can _trigge
 
 Docs: [Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html), [AdsrOpts](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrOpts), [AdsrTimingOpts](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrTimingOpts)
 
+
+Initialise an envelope with a few timing settings:
+
 ```js
 import { adsr, defaultAdsrOpts } from "https://unpkg.com/ixfx/modulation.js"
 
-// Initialise envelope
+// It's a good idea to use the defaultAdsrOpts(),
+// and then override what you want.
 const opts = {
   ...defaultAdsrOpts(),
   attackDuration: 1000,
@@ -96,7 +100,43 @@ env.addEventListener(`change`, ev => {
 env.addEventListener(`complete`, () => {
   console.log(`Done.`);
 })
+```
 
+### Envelope options
+
+Envelope options are documented [here](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrOpts) and the [timing options here](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrTimingOpts).
+
+There are three 'bend' options for setting a stage curve, `attackBend, decayBend` and `releaseBend`. Bend values run from -1 to 1. A value of `0` means there is no bend (ie. straight line), `-1` pulls curve down, and `1` pushes it outward. 
+
+eg: 
+```js
+const opts = {
+  ...defaultAdsrOpts(),
+  attackBend: -1,
+  decayBend: 0.5,
+  releaseBend: 0
+}
+```
+
+Levels can be set via `initialLevel`, `peakLevel`, `releaseLevel` and `sustainLevel`. These are presumed to be 0 to 1, inclusive. Typically the initial level is `0`, the peak `1` and release `0` (these are the defaults).
+
+eg:
+```js
+const opts = {
+  ...defaultAdsrOpts(),
+  initialLevel: 0,
+  peakLevel: 1,
+  releaseLevel: 0
+}
+```
+
+`retrigger` means a retriggered envelope continues its value from it is at the point of retrigger. By default, as retrigger is _false_, always start `0` (or whatever `initialLevel` is set to).
+
+```js
+const opts = {
+  ...defaultAdrsOpts(),
+  retrigger: true
+}
 ```
 
 ## Demos

@@ -110,7 +110,7 @@ The `cells` iterator is a simple alternative to the _visitor_ technique if you d
 
 ```js
 for (let cell of Grids.cells(shape)) {
-  // do something with cell
+  // do something with cell (defined as {x,y})
 }
 ```
 
@@ -221,6 +221,7 @@ To get the visual bounds for a given:
 ```js
 const shape = { rows: 100, cols: 100, size: 5 };
 
+// rectangleForCell(cell:Cell, grid:Grid): Rect
 // Returns { x, y, width, height } for cell at position 5,5
 const rect = rectangleForCell({ x: 5, y: 5 }, shape); 
 ```
@@ -229,7 +230,8 @@ Or to go from coordinate (eg. mouse pointer) to cell:
 
 ```js
 // Convert pointer position to cell coordinate
-const cell = cellAtPoint({evt.offsetX, evt.offsetY}, shape);
+// cellAtPoint(point:Point, grid:Grid): Cell
+const cell = cellAtPoint({evt.offsetX, evt.offsetY}, shape); // Returns {x,y}
 ```
 
 ## Demos

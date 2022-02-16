@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/oscillator.18d955d3.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/queue.9963f459.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/point.170fb651.js"></script>
+<script type="module" src="../../assets/point.4379f841.js"></script>
 
 
 
@@ -272,11 +272,11 @@
 <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Calculates distance between point a and b</span>
-<span class="token keyword">const</span> distance <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">distance</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre><p>Calculate an in-between point with <code data-astro-raw="">interpolate</code></p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Calculate a Point between `a` and `b` using a relative </span>
+<span class="token keyword">const</span> distance <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">distance</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns a number</span></code></pre><p>Calculate an in-between point with <code data-astro-raw="">interpolate</code></p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Calculate a Point between `a` and `b` using a relative </span>
 <span class="token comment">// progress amount (0 -&gt; 1). 0 = a, 0.5 = halfway between</span>
 <span class="token comment">// the two, 1 = b, and so on.</span>
-<span class="token keyword">const</span> p <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Calculates a rectangle which encompasses all the provided points</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> rect <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token operator">...</span>points<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// eg {x:0, y:0, width:10, height:10}</span></code></pre><h2 id="conversions">Conversions</h2><p>Converting a Point <em>to</em> some other shape of data</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/geometry.js"</span>
+<span class="token keyword">const</span> p <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns {x,y}</span></code></pre><p>Calculates a rectangle which encompasses all the provided points</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> rect <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token operator">...</span>points<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// returns {x,y,width,height}</span></code></pre><h2 id="conversions">Conversions</h2><p>Converting a Point <em>to</em> some other shape of data</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/geometry.js"</span>
 <span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// To an array [x, y]</span>
@@ -295,7 +295,8 @@ Points<span class="token punctuation">.</span><span class="token function">fromN
 <span class="token comment">// Find the point closest to the {x:100, y:100}</span>
 <span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token comment">/* ... points ... */</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> center <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
- 
+
+<span class="token comment">// closestToCenter will be a Point {x,y}</span>
 <span class="token keyword">const</span> closestToCenter <span class="token operator">=</span> <span class="token function">findMinimum</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> aDist <span class="token operator">=</span> <span class="token function">distance</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> center<span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">const</span> bDist <span class="token operator">=</span> <span class="token function">distance</span><span class="token punctuation">(</span>b<span class="token punctuation">,</span> center<span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -303,16 +304,16 @@ Points<span class="token punctuation">.</span><span class="token function">fromN
   <span class="token comment">// Returns `a` if its distance is less than `b`</span>
   <span class="token comment">//  or otherwise returns `b`</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>aDistance <span class="token operator">&lt;</span> bDistance<span class="token punctuation">)</span> <span class="token operator">?</span> a <span class="token operator">:</span> b<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> points<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="math">Math</h3><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns a * b</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> points<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="math">Math</h3><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns {x,y} of a * b</span>
 Points<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment">// Returns point a scaled by 2 x and 0.5 for y</span>
+<span class="token comment">// Returns {x,y} of a, with a.x * 2 and a.y * 0.5</span>
 Points<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment">// Returns a + b</span>
+<span class="token comment">// Returns {x,y} of a + b</span>
 Points<span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment">// Returns a - b;</span>
+<span class="token comment">// Returns {x,y} of a - b;</span>
 Points<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">

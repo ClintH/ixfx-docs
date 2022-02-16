@@ -94,7 +94,11 @@ _Debounce_ reduces a series of function calls that happen within a duration to a
 
 ```js
 import { debounce } from "https://unpkg.com/ixfx/flow.js"
-debounce(callback, timeoutMs);
+// Signature:
+// debounce(
+//  callback:(elapsedMs?:number, ...args:unknown[])=> void, 
+//  timeoutMs:number
+// );
 ```
 
 For example, only respond to resize event 500ms after the last resize event. If no event has happened before, it will still wait 500ms.
@@ -121,7 +125,11 @@ This is useful when processing event or stream data (eg user input, camera or au
 
 ```js
 import { throttle } from "https://unpkg.com/ixfx/flow.js"
-throttle(callback, intervalMs);
+// Signature:
+// throttle(
+//  callback:(elapsedMs?:number, ...args:unknown[])=> void, 
+//  timeoutMs:number
+// );
 ```
 
 In this scenario, the event handler will run at maximum rate of 500ms.
@@ -173,4 +181,4 @@ continuously(() => {
 }, 1000).start();
 ```
 
-See [an example pattern using a Stack](../data/collections/#jobQueue)
+Example: [a stack of tasks](../data/collections/#jobQueue)

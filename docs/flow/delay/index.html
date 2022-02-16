@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/oscillator.18d955d3.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/queue.9963f459.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/delay.7161cce3.js"></script>
+<script type="module" src="../../assets/delay.b8f56d07.js"></script>
 
 
 
@@ -292,7 +292,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// Hello</span>
 <span class="token comment">// !</span>
 <span class="token comment">// There [after one second]</span></code></pre><h2 id="debounce">Debounce</h2><p><em>Debounce</em> reduces a series of function calls that happen within a duration to a single call. It allows you to ignore all events until there is a break in the flow of the given <code data-astro-raw="">timeoutMs</code>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> debounce <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
-<span class="token function">debounce</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> timeoutMs<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>For example, only respond to resize event 500ms after the last resize event. If no event has happened before, it will still wait 500ms.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> resizeDebounced <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+<span class="token comment">// Signature:</span>
+<span class="token comment">// debounce(</span>
+<span class="token comment">//  callback:(elapsedMs?:number, ...args:unknown[])=&gt; void, </span>
+<span class="token comment">//  timeoutMs:number</span>
+<span class="token comment">// );</span></code></pre><p>For example, only respond to resize event 500ms after the last resize event. If no event has happened before, it will still wait 500ms.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> resizeDebounced <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
    <span class="token comment">// Handle event</span>
 
    <span class="token comment">// Use original event args if we want</span>
@@ -585,7 +589,11 @@ window<span class="token punctuation">.</span><span class="token function">addEv
         <iframe src="https://clinth.github.io/ixfx-demos/flow/debounce/"><!--lit-node 7--></iframe>
       </div>
 		<!--/lit-part--></template></demo-element><p>Note in the demo that lots of events (ie. movement) produce no debounced result until the events stop. If you want to have a continual stream of events, albeit at a slower rate, consider <code data-astro-raw="">throttle</code>.</p><h2 id="throttle">Throttle</h2><p><em>Throttle</em> reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.</p><p>This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with <em>throttle</em> and an appropriate <code data-astro-raw="">intervalMs</code>, you might avoid this.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> throttle <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
-<span class="token function">throttle</span><span class="token punctuation">(</span>callback<span class="token punctuation">,</span> intervalMs<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>In this scenario, the event handler will run at maximum rate of 500ms.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> resizeThrottled <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+<span class="token comment">// Signature:</span>
+<span class="token comment">// throttle(</span>
+<span class="token comment">//  callback:(elapsedMs?:number, ...args:unknown[])=&gt; void, </span>
+<span class="token comment">//  timeoutMs:number</span>
+<span class="token comment">// );</span></code></pre><p>In this scenario, the event handler will run at maximum rate of 500ms.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> resizeThrottled <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
    <span class="token comment">// Handle event</span>
 
    <span class="token comment">// Use original event data if we need to</span>
@@ -894,7 +902,7 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 
   <span class="token comment">// Do something with item</span>
   <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span> <span class="token comment">// Keep loop running</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>See <a href="../data/collections/#jobQueue">an example pattern using a Stack</a></p>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Example: <a href="../data/collections/#jobQueue">a stack of tasks</a></p>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
