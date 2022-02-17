@@ -1,0 +1,17 @@
+<script type="module" src={Astro.resolve('../../../components/ArrayVisElement.ts')}></script>
+<script type="module" src={Astro.resolve('./QueueDiscardVis.ts')}></script>
+<div class="centered toolbar">
+  <button id="btnEnqueueDiscard">Enqueue</button>
+  <button id="btnDequeueDiscard">Dequeue</button>
+  <label for="selDiscard" style="align-self: center">Capacity 3.<br /> Discard policy</label>
+  <select id="selDiscard">
+    <option value="older">older</option>
+    <option value="newer">newer</option>
+    <option value="additions">additions</option>
+  </select>
+</div>
+<div class="centered toolbar">
+  <div id="peekDiscard"></div>
+</div>
+<div id="visDiscard"></div>
+

@@ -1,16 +1,20 @@
 ---
 title: Queue
 layout: ../../../layouts/MainLayout.astro
+setup: |
+  import QueueVis from './QueueVis.astro';
+  import QueueDiscardVis from './QueueDiscardVis.astro';
 ---
 
 [API Docs: Queues](https://clinth.github.io/ixfx/modules/Collections.Queues.html)
 
 A queue stores items like a queue at a bakery. Items added are put at the _back_ of the queue, and if you want to grab an item, you can only see, and grab from the _front_ of the queue. This is useful if you want to process items in the same order as they are added to the queue
 
-In other words, it is FIFO (first in, first out).
+In other words, it is FIFO (first in, first out). If you want last-in first out, see [Stack](./stack).
 
 The default implementation in ixfx is immutable, meaning that every operation that changes the queue returns a _new_ queue. A queue instance itself never changes.
 
+<QueueVis />
 
 ## Basics
 
@@ -80,3 +84,5 @@ Values for `discardPolicy` are:
 * `older`: Removes existing items from the front of the queue to make room for additions. Ie. the oldest items are thrown away
 * `newer`: Removes existing items from the back of the queue to make room for additions. Ie. the newest items are thrown away
 * `additions`: Does not change the existing items, but rather throws away items that are being _enqueued_. 
+
+<QueueDiscardVis />

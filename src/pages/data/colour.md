@@ -12,7 +12,6 @@ setup: |
 <script type="module" src={Astro.resolve('../../loader.ts')}></script>
 
 
-
 ## Interpolating
 
 Colours can be _interpolated_, eg. getting the colour that is 50% between red and blue.

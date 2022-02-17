@@ -8,12 +8,18 @@
  * This is a dirty workaround. 
  */
 
-export const importEl = (parentId: string, name: string, attribs: any) => {
+export const importEl = (parentId: string, name: string, attribs?: any) => {
+  const parent = document.getElementById(parentId);
+  if (parent === null) throw new Error(`parent could not be found: ${parentId}`);
   const el = document.createElement(name);
-  for (const [key, value] of Object.entries(attribs)) {
-    el.setAttribute(key, value);
+  if (el === null) throw new Error(`Element could not be created: ${name}`);
+  if (attribs !== undefined) {
+    for (const [key, value] of Object.entries(attribs)) {
+      el.setAttribute(key, value);
+    }
   }
-  document.getElementById(parentId).append(el);
+  parent.append(el);
+  return el;
 }
 //@ts-ignore
 window.importEl = importEl;
