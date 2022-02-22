@@ -11,10 +11,11 @@ Included generators:
 * [count](#count): yields a series of integers counting up (or down) from zero
 * [numericRange](#numericRange): yields a series of numbers with a defined interval, start and end. Can reset back to start and loop
 * [ping pong](#pingPong): same as numeric range, but it counts back down to start before looping
-
-See also:
 * [oscillators](../modulation/oscillator): ixfx's oscillators are implemented as generators
-* [interval](../flow/time#interval): calls and yields the result of a function at a specified interval
+
+Uses:
+
+* [interval](../flow/loops#interval): an _asynchronous_ generator, `interval` calls and returns a result at a specified interval.
 
 
 Importing tips:
@@ -108,17 +109,31 @@ What's interesting about iterables is that they aren't an actual collection or s
 
 ## Interval
 
-[interval](https://clinth.github.io/ixfx/modules/Generators.html#interval) calls and yields the result of an asynchronous callback function every `intervalMs`. It is an asynchronous generator, note the _for await_ rather than _for_.
+[interval](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
 
 ```js
+import { interval } from "https://unpkg.com/ixfx/flow.js"
+
 // interval(callback, intervalMs)
-const randomGenerator = Generators.interval(() => Math.random, 1000);
+const randomGenerator = interval(() => Math.random, 1000);
 for await (const r of randomGenerator) {
   // Prints a new random number every second
   console.log(r);
 }
 // This will not run unless there is a `break` in the for await loop
 console.log(`Done.`); 
+```
+
+You can also step through a generator's return values using `interval`:
+
+```js
+// Make a generator that counts to 5
+const counter = count(5);
+// Use iterval to loop over counter with 1000ms delay
+for await (const v of interval(counter, 1000)) {
+  // Counts from 0...4, with a delay of 1s between each
+  console.log(v);
+}
 ```
 
 <a name="count"></a>

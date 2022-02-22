@@ -7,8 +7,6 @@ import {Random} from 'ixfx';
 const logger = log(`#dataStream`, {capacity: 8, timestamp: false});
 const freq = frequencyMutable<string>();
 const plot = new FrequencyHistogramPlot(document.getElementById('dataPlot') as HistogramVis);
-// plot.el.showDataLabels = false;
-// plot.el.showXAxis = false;
 
 plot.setAutoSort(`valueReverse`);
 let itemsLeft = 200;
@@ -23,13 +21,12 @@ const start = () => {
   logger.log();
   producerId = window.setInterval(() => {
     itemsLeft--;
-    //const r = `something really long ` +  Math.floor(Math.random()*100);// weightedRandom(1, 100);
-    const r = Random.weighted(1, 100).toString();
+    const r = Random.weightedInteger(10).toString();
     freq.add(r);
     logger.log(r.toString());
 
     if (itemsLeft <= 0) stop();
-  }, 1000);
+  }, 100);
 };
 
 const stop = () => {

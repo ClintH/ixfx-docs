@@ -102,7 +102,7 @@ const jobLoop = continuously(job, 1000, onJobReset).start();
 
 ## Interval
 
-[interval](https://clinth.github.io/ixfx/modules/Timers.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
+[interval](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
 
 ```js
 import { interval } from "https://unpkg.com/ixfx/flow.js"
@@ -111,10 +111,22 @@ import { interval } from "https://unpkg.com/ixfx/flow.js"
 const randomGenerator = interval(() => Math.random, 1000);
 for await (const r of randomGenerator) {
   // Prints a new random number every second
-  console.log(r); 
+  console.log(r);
 }
-// This won't run until generator finishes or there is a `break` in the for .. of loop.
-console.log(`Done.`);
+// This will not run unless there is a `break` in the for await loop
+console.log(`Done.`); 
+```
+
+You can also step through a generator's return values using `interval`:
+
+```js
+// Make a generator that counts to 5
+const counter = count(5);
+// Use iterval to loop over counter with 1000ms delay
+for await (const v of interval(counter, 1000)) {
+  // Counts from 0...4, with a delay of 1s between each
+  console.log(v);
+}
 ```
 
 ## With generators

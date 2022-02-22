@@ -121,7 +121,7 @@ export const elStyles = css`
 
   .toolbar.rightJustify {
     justify-content: flex-end;
-    
+   
   }
 
   .toolbar.centered {
@@ -129,6 +129,7 @@ export const elStyles = css`
   }
   .toolbar.vertical {
     flex-direction: column;
+    justify-content: center;
   }
   
   .toolbar input {

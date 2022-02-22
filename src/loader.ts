@@ -8,14 +8,14 @@
  * This is a dirty workaround. 
  */
 
-export const importEl = (parentId: string, name: string, attribs?: any) => {
-  const parent = document.getElementById(parentId);
-  if (parent === null) throw new Error(`parent could not be found: ${parentId}`);
+export const importEl = (parentIdOrEl: string | Element, name: string, attribs?: any) => {
+  const parent = typeof parentIdOrEl === `string` ? document.getElementById(parentIdOrEl) : parentIdOrEl;
+  if (parent === null) throw new Error(`parent could not be found: ${parentIdOrEl}`);
   const el = document.createElement(name);
   if (el === null) throw new Error(`Element could not be created: ${name}`);
   if (attribs !== undefined) {
     for (const [key, value] of Object.entries(attribs)) {
-      el.setAttribute(key, value);
+      el.setAttribute(key, value as string);
     }
   }
   parent.append(el);

@@ -10,7 +10,7 @@ const envDataLog = document.getElementById(`envDataLog`) as LogElement;
 
 // Setup plot
 const palette = Palette.create();
-palette.add(`series-`, Colour.getCssVariable(`accent-bold`, `yellow`));
+palette.add(`series`, Colour.getCssVariable(`accent-bold`, `yellow`));
 
 const envData = Plot.plot(`#envData`, {
   capacity: 300,
