@@ -15,22 +15,17 @@ export class FuncPlotElement extends LitElement {
   static readonly styles = [
     elStyles,
     css`
-      :host {
-        --margin: 0.2em;
-        --border: 3px solid;
-      }
+
       #container {
         display: flex;
       }
       #plot {
-        border: 1px solid red;
       }
       #demo {
-        border: 1px solid green;
         flex-grow: 1;
       }
       #demoCanvas {
-        border: 1px solid blue;
+        position: absolute;
       }
   `];
 
@@ -91,7 +86,7 @@ export class FuncPlotElement extends LitElement {
       }
     }
 
-    this.demoSize();
+    this.demoMove();
   }
 
   demoOpacity() {
@@ -143,17 +138,15 @@ export class FuncPlotElement extends LitElement {
     this.demoInit((bounds, ctx): boolean => {
       ctx.fillStyle = `yellow`;
       ctx.beginPath();
-
+      const xMax = bounds.width - (4 * size);
       const rangeNext = range.next();
       const y = bounds.height / 2 - size / 2;
-      let x = 0;
-      if (rangeNext.done) {
-        x = bounds.width - size - size;
-      } else {
-        const v = this.func(rangeNext.value);
-        x = v * (bounds.width - size - size)
+      let v = 1;
+      if (!rangeNext.done) {
+        v = this.func(rangeNext.value);
       }
 
+      const x = size + size + (v * xMax);
       ctx.arc(x, y, size, 0, Math.PI * 2);
       ctx.fill();
       return !rangeNext.done;
@@ -171,8 +164,8 @@ export class FuncPlotElement extends LitElement {
     const parentBounds = parent.getBoundingClientRect();
     const margin = 0;
     const bounds = {width: parentBounds.width - margin - margin, height: parentBounds.height - margin - margin};
-    el.height = parentBounds.height;
-    el.width = parentBounds.width;
+    el.height = parent.clientHeight;
+    el.width = parent.clientWidth;
 
     const draw = () => {
       const ctx = el.getContext(`2d`);

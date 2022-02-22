@@ -81,7 +81,7 @@
 
 
 
-<script type="module" src="../../assets/units.b185eb75.js"></script>
+<script type="module" src="../../assets/units.9359549e.js"></script>
 
 
 
@@ -301,7 +301,7 @@
 <td class="astro-OMW3JYBS">2π</td>
 </tr>
 </tbody>
-</table><astro-root uid="Z1wTcJ8"><angles-element class="astro-OMW3JYBS"><template shadowroot="open"><style>
+</table><astro-root uid="Z17AT5n"><angles-element class="astro-OMW3JYBS"><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -422,7 +422,7 @@
 
   .toolbar.rightJustify {
     justify-content: flex-end;
-    
+   
   }
 
   .toolbar.centered {
@@ -430,6 +430,7 @@
   }
   .toolbar.vertical {
     flex-direction: column;
+    justify-content: center;
   }
   
   .toolbar input {
@@ -564,7 +565,7 @@
 		<!--/lit-part--></template></angles-element></astro-root><p class="astro-OMW3JYBS">Conversion functions:</p><pre class="language-js astro-OMW3JYBS"><code data-astro-raw="" class="language-js astro-OMW3JYBS"><span class="token keyword">const</span> <span class="token function-variable function">degreeToRadian</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">angleInDegrees</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">(</span>angleInDegrees <span class="token operator">-</span> <span class="token number">90</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">/</span> <span class="token number">180.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> <span class="token function-variable function">radianToDegree</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">angleInRadians</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> angleInRadians <span class="token operator">*</span> <span class="token number">180</span> <span class="token operator">/</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span></code></pre><p class="astro-OMW3JYBS">Both of these functions are in the <a href="https://clinth.github.io/ixfx/modules/Geometry.html" class="astro-OMW3JYBS">Geometry</a> module and can be imported:</p><pre class="language-js astro-OMW3JYBS"><code data-astro-raw="" class="language-js astro-OMW3JYBS"><span class="token keyword">import</span> <span class="token punctuation">{</span>degreeToRadian<span class="token punctuation">,</span> radianToDegree<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/geometry.js'</span></code></pre><p class="astro-OMW3JYBS">Example usage:</p><pre class="language-js astro-OMW3JYBS"><code data-astro-raw="" class="language-js astro-OMW3JYBS"><span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token function">degreeToRadian</span><span class="token punctuation">(</span><span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// π</span>
 <span class="token keyword">let</span> d <span class="token operator">=</span> <span class="token function">radianToDegree</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 360</span></code></pre><h2 id="coordinates" class="astro-OMW3JYBS">Coordinates</h2><a name="cartesian" class="astro-OMW3JYBS">
-</a><h3 id="cartesian" class="astro-OMW3JYBS">Cartesian</h3><p class="astro-OMW3JYBS">The most common coordinate system for screen-based interaction is the <em class="astro-OMW3JYBS">Cartesian</em> system. It consists of <code data-astro-raw="" class="astro-OMW3JYBS">x</code> (horizontal) and <code data-astro-raw="" class="astro-OMW3JYBS">y</code> (vertical) expressed as a <a href="./point" class="astro-OMW3JYBS">point <code data-astro-raw="" class="astro-OMW3JYBS">(x, y)</code></a>. Mostly the <em class="astro-OMW3JYBS">origin</em> or <code data-astro-raw="" class="astro-OMW3JYBS">(0,0)</code> is the top-left corner of a rectangle.</p><p class="astro-OMW3JYBS">This means that <code data-astro-raw="" class="astro-OMW3JYBS">x</code> increases from left-to-right, and <code data-astro-raw="" class="astro-OMW3JYBS">y</code> increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:</p><astro-root uid="1nfOXp"><cartesian-element class="astro-OMW3JYBS"><template shadowroot="open"><style>
+</a><h3 id="cartesian" class="astro-OMW3JYBS">Cartesian</h3><p class="astro-OMW3JYBS">The most common coordinate system for screen-based interaction is the <em class="astro-OMW3JYBS">Cartesian</em> system. It consists of <code data-astro-raw="" class="astro-OMW3JYBS">x</code> (horizontal) and <code data-astro-raw="" class="astro-OMW3JYBS">y</code> (vertical) expressed as a <a href="./point" class="astro-OMW3JYBS">point <code data-astro-raw="" class="astro-OMW3JYBS">(x, y)</code></a>. Mostly the <em class="astro-OMW3JYBS">origin</em> or <code data-astro-raw="" class="astro-OMW3JYBS">(0,0)</code> is the top-left corner of a rectangle.</p><p class="astro-OMW3JYBS">This means that <code data-astro-raw="" class="astro-OMW3JYBS">x</code> increases from left-to-right, and <code data-astro-raw="" class="astro-OMW3JYBS">y</code> increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:</p><astro-root uid="ZuMNX3"><cartesian-element class="astro-OMW3JYBS"><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -685,7 +686,7 @@
 
   .toolbar.rightJustify {
     justify-content: flex-end;
-    
+   
   }
 
   .toolbar.centered {
@@ -693,6 +694,7 @@
   }
   .toolbar.vertical {
     flex-direction: column;
+    justify-content: center;
   }
   
   .toolbar input {
@@ -831,7 +833,7 @@ ctx<span class="token punctuation">.</span><span class="token function">restore<
 <li class="astro-OMW3JYBS"><a href="./point" class="astro-OMW3JYBS">Point</a></li>
 <li class="astro-OMW3JYBS"><a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html" class="astro-OMW3JYBS">API Docs: Points module</a></li>
 </ul><a name="polar" class="astro-OMW3JYBS">
-</a><h3 id="polar" class="astro-OMW3JYBS">Polar</h3><p class="astro-OMW3JYBS"><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" class="astro-OMW3JYBS">Polar coordinates</a> are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the <em class="astro-OMW3JYBS">origin</em>, coordinate are defined by their <em class="astro-OMW3JYBS">distance</em> from the origin, as well as <em class="astro-OMW3JYBS">angle</em> from the <em class="astro-OMW3JYBS">polar axis</em>.</p><p class="astro-OMW3JYBS">In the example below, the <em class="astro-OMW3JYBS">origin</em> is marked with <em class="astro-OMW3JYBS">O</em>, appearing in the center of the grid. The <em class="astro-OMW3JYBS">polar axis</em> is marked <em class="astro-OMW3JYBS">A</em>.</p><p class="astro-OMW3JYBS">As you move your pointer, the polar coordinates are shown. For understandability, angle is shown here in degrees, but radians are the usual unit.</p><astro-root uid="Z1RxwOe"><polar-coords-element class="astro-OMW3JYBS"><template shadowroot="open"><style>
+</a><h3 id="polar" class="astro-OMW3JYBS">Polar</h3><p class="astro-OMW3JYBS"><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" class="astro-OMW3JYBS">Polar coordinates</a> are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the <em class="astro-OMW3JYBS">origin</em>, coordinate are defined by their <em class="astro-OMW3JYBS">distance</em> from the origin, as well as <em class="astro-OMW3JYBS">angle</em> from the <em class="astro-OMW3JYBS">polar axis</em>.</p><p class="astro-OMW3JYBS">In the example below, the <em class="astro-OMW3JYBS">origin</em> is marked with <em class="astro-OMW3JYBS">O</em>, appearing in the center of the grid. The <em class="astro-OMW3JYBS">polar axis</em> is marked <em class="astro-OMW3JYBS">A</em>.</p><p class="astro-OMW3JYBS">As you move your pointer, the polar coordinates are shown. For understandability, angle is shown here in degrees, but radians are the usual unit.</p><astro-root uid="bPPQC"><polar-coords-element class="astro-OMW3JYBS"><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -952,7 +954,7 @@ ctx<span class="token punctuation">.</span><span class="token function">restore<
 
   .toolbar.rightJustify {
     justify-content: flex-end;
-    
+   
   }
 
   .toolbar.centered {
@@ -960,6 +962,7 @@ ctx<span class="token punctuation">.</span><span class="token function">restore<
   }
   .toolbar.vertical {
     flex-direction: column;
+    justify-content: center;
   }
   
   .toolbar input {

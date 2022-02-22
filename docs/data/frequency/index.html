@@ -81,7 +81,7 @@
 
 
 
-<script type="module" src="../../assets/frequency.28a3c4a7.js"></script>
+<script type="module" src="../../assets/frequency.b1dfb3b2.js"></script>
 
 
 
@@ -263,7 +263,7 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="ZDGmOb"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#adding-and-clearing">Adding and clearing</a></li><li class="header-link depth-3"><a href="#working-with-frequency">Working with frequency</a></li><li class="header-link depth-3"><a href="#iterating">Iterating</a></li><li class="header-link depth-3"><a href="#custom-objects">Custom objects</a></li><li class="header-link depth-2"><a href="#examples">Examples</a></li><li class="header-link depth-3"><a href="#letter-frequency">Letter frequency</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/classes/FrequencyMutable.html">API Docs: Frequency class</a></p><p>The <code data-astro-raw="">Frequency</code> class keeps track of the number of times a certain value is ‘seen’.</p><p>In some scenarios it can be useful to aggregate data over time, rather than looking at a single event or snapshot-in-time. It allows you to do some fuzzy logic, for example using the value that <em>mostly</em> occurs.</p><p>In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. The <code data-astro-raw="">Frequency</code> is used to count how many times each number appears, and for visualisation purposes shown as a histogram.</p><script type="module" src="../../assets/freqWeighted.db592ccf.js"></script>
+		<p><a href="https://clinth.github.io/ixfx/classes/FrequencyMutable.html">API Docs: Frequency class</a></p><p>The <code data-astro-raw="">Frequency</code> class keeps track of the number of times a certain value is ‘seen’.</p><p>In some scenarios it can be useful to aggregate data over time, rather than looking at a single event or snapshot-in-time. It allows you to do some fuzzy logic, for example using the value that <em>mostly</em> occurs.</p><p>In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. The <code data-astro-raw="">Frequency</code> is used to count how many times each number appears, and for visualisation purposes shown as a histogram.</p><script type="module" src="../../assets/freqWeighted.c11c9ca5.js"></script>
 
 
 <div class="toolbar centered astro-IIUVSKBM">
@@ -340,7 +340,7 @@ freq<span class="token punctuation">.</span><span class="token function">frequen
 <span class="token comment">// Calculate percentage for a given letter</span>
 <span class="token keyword">const</span> <span class="token function-variable function">percent</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">kv</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span><span class="token function">round</span><span class="token punctuation">(</span>kv<span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">/</span> mma<span class="token punctuation">.</span>total <span class="token operator">*</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Letter </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> appears </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">percent</span><span class="token punctuation">(</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">% of the time.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><astro-root uid="1kJyW4"><freq-letters><template shadowroot="open"><style>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Letter </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> appears </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">percent</span><span class="token punctuation">(</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">% of the time.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><astro-root uid="208Jvi"><freq-letters><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -461,7 +461,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
   .toolbar.rightJustify {
     justify-content: flex-end;
-    
+   
   }
 
   .toolbar.centered {
@@ -469,6 +469,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   }
   .toolbar.vertical {
     flex-direction: column;
+    justify-content: center;
   }
   
   .toolbar input {

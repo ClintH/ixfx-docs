@@ -10,21 +10,21 @@ setup: |
 * [API Docs: easeOverTime](https://clinth.github.io/ixfx/modules/Modulation.html#easeOverTime)
 * [Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
 
-Easing functions help to give a *dynamic* to transition. In [Cartesian](../geometry/units.md#cartesian) terms, they give a _y_ value for _x_ from `0 -> 1`. In temporal terms, you can think of them as giving a point in time from start to finish (`0 -> 1`).
+Easing functions help to give a *dynamic* to transition. In [Cartesian](../geometry/units.md#cartesian) terms, they give a _y_ value for _x_ (where x is 0 .. 1). Or in temporal terms, you can think of them as giving a value at time `t` (where _t_ is 0 .. 1).
 
-Normally, one would start at `0` and count up by a fixed amount to `1`. And if that's all you need, ixfx's [count](../data/generator#count) and [numericRange](../data/generator#numericRange) functions might do the job.
+Normally, a way of getting from 0 to 1 would be count upwards by some fixed amount. And if that's all you need, ixfx's [count](../data/generator#count) and [numericRange](../data/generator#numericRange) functions might do the job.
 
-Here we count by 0.1:
+For example, here we count from 0 to 1, counting up by 0.1:
 
 <div data-easing=true id="demo0" fn="x"></div>
 
 This is a _linear_ function, with the same 'speed' throughout the progression towards the end point.
 
-In contrast, easing functions can give some dynamics to the journey. For example, maybe it starts slowly, but gets faster as it nears the end:
+In contrast, easing functions give some dynamics to the journey. For example, maybe it starts slowly, but gets faster as it nears the end, as in this `easeInCubic` function:
 
 <div data-easing=true id="demo1" title="easeInCubic" easing="easeInCubic"></div>
 
-Or perhaps gathering speed quickly, but then slowing down toward the end:
+Or perhaps gathering speed quickly, but then slowing down toward the end (`easeOutCubic`):
 
 <div data-easing=true id="demo1" title="easeOutCubic" easing="easeOutCubic"></div>
 

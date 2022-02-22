@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/easing.bf724df0.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/import-npm.237a9975.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/generator.d534701e.js"></script>
+<script type="module" src="../../assets/generator.a5bfec27.js"></script>
 
 
 
@@ -265,9 +265,9 @@
 <li><a href="#count">count</a>: yields a series of integers counting up (or down) from zero</li>
 <li><a href="#numericRange">numericRange</a>: yields a series of numbers with a defined interval, start and end. Can reset back to start and loop</li>
 <li><a href="#pingPong">ping pong</a>: same as numeric range, but it counts back down to start before looping</li>
-</ul><p>See also:</p><ul>
 <li><a href="../modulation/oscillator">oscillators</a>: ixfx’s oscillators are implemented as generators</li>
-<li><a href="../flow/time#interval">interval</a>: calls and yields the result of a function at a specified interval</li>
+</ul><p>Uses:</p><ul>
+<li><a href="../flow/loops#interval">interval</a>: an <em>asynchronous</em> generator, <code data-astro-raw="">interval</code> calls and returns a result at a specified interval.</li>
 </ul><p>Importing tips:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Import as a module, meaning you have to prefix functions with Generators.</span>
 <span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> Generators <span class="token keyword">from</span> <span class="token string">'ixfx/lib/generators.js'</span><span class="token punctuation">;</span>
 <span class="token comment">// Or, import as a module from the web directly</span>
@@ -308,14 +308,22 @@
 
 <span class="token comment">// Or alternatively:</span>
 <span class="token keyword">const</span> asArray <span class="token operator">=</span><span class="token punctuation">[</span><span class="token operator">...</span>iterable<span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre><p>What’s interesting about iterables is that they aren’t an actual collection or set of things, but rather return values on-demand. This means it’s possible to have an iterable that never ends.</p><a name="interval">
-</a><h2 id="interval">Interval</h2><p><a href="https://clinth.github.io/ixfx/modules/Generators.html#interval">interval</a> calls and yields the result of an asynchronous callback function every <code data-astro-raw="">intervalMs</code>. It is an asynchronous generator, note the <em>for await</em> rather than <em>for</em>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// interval(callback, intervalMs)</span>
-<span class="token keyword">const</span> randomGenerator <span class="token operator">=</span> Generators<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span>random<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+</a><h2 id="interval">Interval</h2><p><a href="https://clinth.github.io/ixfx/modules/Flow.html#interval">interval</a> calls and yields the result of an <em>asynchronous</em> function every <code data-astro-raw="">intervalMs</code>. It is an asynchronous generator, note the <code data-astro-raw="">for await</code> rather than <code data-astro-raw="">for</code>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> interval <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+
+<span class="token comment">// interval(callback, intervalMs)</span>
+<span class="token keyword">const</span> randomGenerator <span class="token operator">=</span> <span class="token function">interval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span>random<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> r <span class="token keyword">of</span> randomGenerator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// Prints a new random number every second</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 <span class="token comment">// This will not run unless there is a `break` in the for await loop</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Done.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre><a name="count">
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Done.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre><p>You can also step through a generator’s return values using <code data-astro-raw="">interval</code>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Make a generator that counts to 5</span>
+<span class="token keyword">const</span> counter <span class="token operator">=</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Use iterval to loop over counter with 1000ms delay</span>
+<span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> v <span class="token keyword">of</span> <span class="token function">interval</span><span class="token punctuation">(</span>counter<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Counts from 0...4, with a delay of 1s between each</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre><a name="count">
 </a><h2 id="count">Count</h2><p><a href="https://clinth.github.io/ixfx/modules/Generators.html#count">count</a> yields a series of integers, counting by one: <code data-astro-raw="">0 1 2 3 ... </code></p><p>As the examples show, <code data-astro-raw="">count</code> can also be a useful way of running a chunk of code <em>x</em> number of times. It might be more readable and robust than a typical <code data-astro-raw="">do</code>/<code data-astro-raw="">while</code> or <code data-astro-raw="">for</code> loop because there’s only one thing you need to express: the amount of times to loop.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> Generators <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/generators.js"</span>
 
 <span class="token comment">// count(amount:number, offset:number = 0);</span>

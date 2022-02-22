@@ -9,7 +9,7 @@
 <link rel="sitemap" href="/sitemap.xml">
 
 <!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/easing.bf724df0.css">
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/import-npm.237a9975.css">
 
 
 
@@ -80,7 +80,7 @@
 
 
 
-<script type="module" src="../../assets/loops.62646842.js"></script>
+<script type="module" src="../../assets/loops.979aca48.js"></script>
 
 
 
@@ -299,16 +299,22 @@ jobLoop<span class="token punctuation">.</span>ticks<span class="token punctuati
   <span class="token keyword">return</span> <span class="token punctuation">(</span>elapsedMs <span class="token operator">&lt;</span> <span class="token number">60</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> 
 <span class="token punctuation">}</span>
 <span class="token keyword">const</span> jobLoop <span class="token operator">=</span> <span class="token function">continuously</span><span class="token punctuation">(</span>job<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">,</span> onJobReset<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><a name="interval">
-</a><h2 id="interval">Interval</h2><p><a href="https://clinth.github.io/ixfx/modules/Timers.html#interval">interval</a> calls and yields the result of an <em>asynchronous</em> function every <code data-astro-raw="">intervalMs</code>. It is an asynchronous generator, note the <code data-astro-raw="">for await</code> rather than <code data-astro-raw="">for</code>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> interval <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+</a><h2 id="interval">Interval</h2><p><a href="https://clinth.github.io/ixfx/modules/Flow.html#interval">interval</a> calls and yields the result of an <em>asynchronous</em> function every <code data-astro-raw="">intervalMs</code>. It is an asynchronous generator, note the <code data-astro-raw="">for await</code> rather than <code data-astro-raw="">for</code>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> interval <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
 
 <span class="token comment">// interval(callback, intervalMs)</span>
 <span class="token keyword">const</span> randomGenerator <span class="token operator">=</span> <span class="token function">interval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span>random<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> r <span class="token keyword">of</span> randomGenerator<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// Prints a new random number every second</span>
-  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span> 
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>r<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token comment">// This won't run until generator finishes or there is a `break` in the for .. of loop.</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Done.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="with-generators">With generators</h2><p><a href="../data/generator">Generators</a> can looped over with <code data-astro-raw="">forEach</code></p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> forEach<span class="token punctuation">,</span> count <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/generators.js"</span>
+<span class="token comment">// This will not run unless there is a `break` in the for await loop</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Done.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> </code></pre><p>You can also step through a generator’s return values using <code data-astro-raw="">interval</code>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Make a generator that counts to 5</span>
+<span class="token keyword">const</span> counter <span class="token operator">=</span> <span class="token function">count</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Use iterval to loop over counter with 1000ms delay</span>
+<span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> v <span class="token keyword">of</span> <span class="token function">interval</span><span class="token punctuation">(</span>counter<span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Counts from 0...4, with a delay of 1s between each</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>v<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre><h2 id="with-generators">With generators</h2><p><a href="../data/generator">Generators</a> can looped over with <code data-astro-raw="">forEach</code></p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> forEach<span class="token punctuation">,</span> count <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/generators.js"</span>
 
 <span class="token function">forEach</span><span class="token punctuation">(</span><span class="token function">count</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token comment">// This will run five times</span>
