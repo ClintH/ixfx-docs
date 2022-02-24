@@ -8,10 +8,12 @@
  * This is a dirty workaround. 
  */
 
+import {LitElement} from "lit";
+
 export const importEl = (parentIdOrEl: string | Element, name: string, attribs?: any) => {
   const parent = typeof parentIdOrEl === `string` ? document.getElementById(parentIdOrEl) : parentIdOrEl;
   if (parent === null) throw new Error(`parent could not be found: ${parentIdOrEl}`);
-  const el = document.createElement(name);
+  const el = document.createElement(name) as LitElement;
   if (el === null) throw new Error(`Element could not be created: ${name}`);
   if (attribs !== undefined) {
     for (const [key, value] of Object.entries(attribs)) {
