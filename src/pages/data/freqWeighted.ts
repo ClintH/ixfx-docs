@@ -26,7 +26,7 @@ const start = () => {
     logger.log(r.toString());
 
     if (itemsLeft <= 0) stop();
-  }, 100);
+  }, 300);
 };
 
 const stop = () => {
