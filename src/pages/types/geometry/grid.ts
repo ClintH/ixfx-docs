@@ -3,7 +3,7 @@ import {setMutable} from 'ixfx/lib/collections';
 import {Grids} from 'ixfx/lib/geometry';
 import {Forms, resolveEl} from 'ixfx/lib/dom';
 
-import {GridEditor} from '../../components/GridEditor';
+import {GridEditor} from '../../../components/GridEditor.js';
 
 // -----------------------------
 // Square perimeter & Neighbours

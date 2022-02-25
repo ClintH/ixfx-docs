@@ -2,9 +2,9 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 
-import {frequencyMutable} from 'ixfx';
+import {frequencyMutable} from 'ixfx/lib/temporal';
 import {KeyValues} from 'ixfx';
-import {elStyles} from './styles.js';
+import {elStyles} from '../../components/styles.js';
 
 export const tagName = `freq-letters`;
 

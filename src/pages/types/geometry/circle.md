@@ -2,7 +2,7 @@
 title: Circle
 setup: |
   import {Markdown} from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
+  import Layout from '../../../layouts/MainLayout.astro';
 ---
 
 A circle.

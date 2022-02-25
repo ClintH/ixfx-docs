@@ -2,9 +2,9 @@
 title: Arc
 setup: |
   import {Markdown} from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
-  import ArcEditor from '../../components/ArcEditor';
-  import AnglesElement from '../../components/AnglesElement';
+  import Layout from '../../../layouts/MainLayout.astro';
+  import ArcEditor from './ArcEditor';
+  import AnglesElement from './AnglesElement';
 
 ---
 <script type="module" src={Astro.resolve('./arc.ts')}></script>

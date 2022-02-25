@@ -2,14 +2,14 @@
 title: Colour
 setup: |
   import { Markdown } from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
+  import Layout from '../../../layouts/MainLayout.astro';
   import ColourScaleElement from './ColourScaleElement.ts';
 ---
 
 [API Docs: Colour module](https://clinth.github.io/ixfx/modules/Visual.Colour.html)
 
 <script type="module" src={Astro.resolve('./ColourScaleElement.ts')}></script>
-<script type="module" src={Astro.resolve('../../loader.ts')}></script>
+<script type="module" src={Astro.resolve('../../../loader.ts')}></script>
 
 
 ## Interpolating

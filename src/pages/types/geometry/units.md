@@ -2,10 +2,10 @@
 title: Units & Coordinates
 setup: |
   import {Markdown} from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
-  import {AnglesElement} from '../../components/AnglesElement';
-  import {CartesianElement} from '../../components/CartesianElement';
-  import {PolarCoordsElement} from '../../components/PolarCoordsElement';
+  import Layout from '../../../layouts/MainLayout.astro';
+  import {AnglesElement} from './AnglesElement';
+  import {CartesianElement} from './CartesianElement';
+  import {PolarCoordsElement} from './PolarCoordsElement';
 ---
 
 <style>

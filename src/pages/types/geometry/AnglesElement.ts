@@ -4,7 +4,7 @@ import {property} from 'lit/decorators.js';
 import {Circles, Lines, radianToDegree} from 'ixfx/lib/geometry';
 import {themeChangeObservable} from 'ixfx/lib/dom';
 import {Svg, Palette} from 'ixfx/lib/visual';
-import {elStyles} from './styles.js';
+import {elStyles} from '../../../components/styles.js';
 
 export const tagName = `angles-element`;
 

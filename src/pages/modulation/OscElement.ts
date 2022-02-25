@@ -1,7 +1,7 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {elStyles} from '../../components/styles.js';
-import {Palette, Plot} from 'ixfx/lib/visual';
+import {Colour, Palette, Plot} from 'ixfx/lib/visual';
 import {debounce, ModTimer, continuously, frequencyTimer, Continuously} from 'ixfx/lib/flow';
 import {Oscillators} from 'ixfx/lib/modulation';
 
@@ -86,7 +86,6 @@ export class OscElement extends LitElement {
     this.height = 400;
     this.width = 300;
     this.mode = `editor`;
-    this.palette.alias('series-', `accent-bold`);
   }
 
   initPlot(capacity, recycle: boolean = false): Plot.Plotter {
@@ -103,8 +102,17 @@ export class OscElement extends LitElement {
     let opts: Plot.PlotOpts = {
       capacity: capacity,
       lineWidth: 1,
-      fixedRange: [0, 1],
-      palette: this.palette,
+      digitsPrecision: 1,
+      y: {
+        ...Plot.defaultAxis(`y`),
+        scaleRange: [0, 1],
+        labelRange: [0, 1],
+        colour: Colour.getCssVariable(`fg`, `gray`)
+      },
+      x: {
+        ...Plot.defaultAxis(`x`),
+        showLine: false
+      },
       style: (this.mode == `am` || this.mode === `fm`) ? `connected` : `dots`
     }
     // if (this.mode !== `fm`) {

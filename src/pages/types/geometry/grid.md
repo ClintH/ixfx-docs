@@ -2,7 +2,7 @@
 title: Grid
 setup: |
   import { Markdown } from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
+  import Layout from '../../../layouts/MainLayout.astro';
   import GridVisitorPlay from './GridVisitorPlay.astro';
   import GridDataPlay from './GridDataPlay.astro';
   import GridOffsetsPlay from './GridOffsetsPlay.astro';

@@ -47,10 +47,6 @@ export class GridEditor extends LitElement {
   }
   `;
 
-  // eslint-disable-next-line functional/prefer-readonly-type
-  // @property()
-  // declare grid: Grids.Grid & Grids.GridVisual;
-
   @property()
   declare selectedCell: Grids.Cell | undefined;
 

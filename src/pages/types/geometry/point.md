@@ -2,7 +2,7 @@
   title: Point
   setup: |
     import {Markdown} from 'astro/components';
-    import Layout from '../../layouts/MainLayout.astro';
+    import Layout from '../../../layouts/MainLayout.astro';
 ---
 
 A point is an `x` and `y` [Cartesian coordinate](./units#cartesian); the basic building block for lines, [arcs](./arc), rectangles and paths.

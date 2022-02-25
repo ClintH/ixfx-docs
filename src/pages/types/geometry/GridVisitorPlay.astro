@@ -1,4 +1,4 @@
-<script type="module" src={Astro.resolve('../../components/GridEditor.ts')}></script>
+<script type="module" src={Astro.resolve('./GridEditor.ts')}></script>
 <script type="module" src={Astro.resolve('./grid.ts')}></script>
 <style>
   #visGrid {
@@ -14,12 +14,12 @@
   <section>
     <label>Function:</label>
     <select id="selVisTechnique">
+      <option>Random Contiguous</option>
+      <option>Random</option>
       <option>Depth</option>
       <option>Breadth</option>
       <option>Row</option>
       <option>Column</option>
-      <option>Random Contiguous</option>
-      <option>Random</option>
     </select>
   </section>
 </div>

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import {fromEvent, debounceTime} from 'rxjs';
-import {ArcEditor} from '../../components/ArcEditor';
+import {ArcEditor} from './ArcEditor.js';
 import {Arcs, degreeToRadian} from 'ixfx/lib/geometry';
 import {createAfter, createIn} from 'ixfx/lib/dom';
 

@@ -5,7 +5,7 @@ import {Circles, Arcs, Lines, Points, Polar, radianToDegree} from 'ixfx/lib/geom
 import {themeChangeObservable} from 'ixfx/lib/dom';
 import {Palette} from 'ixfx/lib/visual';
 import * as Svg from 'ixfx/lib/svg';
-import {elStyles} from './styles.js';
+import {elStyles} from '../../../components/styles.js';
 
 export const tagName = `polar-coords-element`;
 

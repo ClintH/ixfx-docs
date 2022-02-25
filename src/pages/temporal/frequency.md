@@ -3,9 +3,8 @@ title: Frequency
 setup: |
   import { Markdown } from 'astro/components';
   import Layout from '../../layouts/MainLayout.astro';
-  import FreqLettersElement from '../../components/FreqLettersElement.ts';
+  import FreqLettersElement from './FreqLettersElement.ts';
   import FreqWeighted from './FreqWeighted.astro';
-  import CounterElement from './CounterElement.ts';
 ---
 
 [API Docs: Frequency class](https://clinth.github.io/ixfx/classes/FrequencyMutable.html)

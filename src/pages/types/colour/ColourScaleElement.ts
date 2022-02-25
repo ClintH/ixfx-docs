@@ -1,6 +1,6 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
-import {elStyles} from '../../components/styles.js';
+import {elStyles} from '../../../components/styles.js';
 import {Colour} from 'ixfx/lib/visual';
 import {interpolate} from 'ixfx';
 
@@ -56,7 +56,6 @@ export class ColourScaleElement extends LitElement {
     this.colourSpace = `hsl`;
     this.fromColour = `rgb(129,254,233)`;//`hsl(0, 100%, 50%)`;
     this.toColour = `rgb(246,110,255)`; // `hsl(300, 100%, 50%)`;
-
   }
 
   renderSteps(space: Colour.Spaces) {

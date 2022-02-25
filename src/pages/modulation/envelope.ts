@@ -9,15 +9,23 @@ import {LogElement} from '../../components/LogElement.js';
 const envDataLog = document.getElementById(`envDataLog`) as LogElement;
 
 // Setup plot
-const palette = Palette.create();
-palette.add(`series`, Colour.getCssVariable(`accent-bold`, `yellow`));
+//const palette = Palette.create();
+//palette.add(`series`, Colour.getCssVariable(`accent-bold`, `yellow`));
 
 const envData = Plot.plot(`#envData`, {
   capacity: 300,
-  showYAxis: true,
-  palette: palette,
+  x: {
+    ...Plot.defaultAxis(`x`),
+    showLine: false
+  },
+  y: {
+    ...Plot.defaultAxis(`y`),
+    showLine: false,
+    colour: Colour.getCssVariable(`fg`, `grey`)
+  },
   lineWidth: 3,
-  autoSizeCanvas: true
+  autoSizeCanvas: true,
+  debug: false
 });
 
 // Setup envelope

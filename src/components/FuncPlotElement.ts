@@ -139,6 +139,7 @@ export class FuncPlotElement extends LitElement {
       const opts: Plot.PlotOpts = {
         capacity: 0,
         autoSizeCanvas: false,
+        digitsPrecision: 1,
         y: {
           ...Plot.defaultAxis(`y`),
           scaleRange: [-.3, 1.3],
@@ -306,11 +307,11 @@ export class FuncPlotElement extends LitElement {
 
   connectedCallback(): void {
     super.connectedCallback();
-    // document.addEventListener(`visibilitychange`, evt => {
-    //   if (document.visibilityState === `visible`) {
-    //     this.plotter.drawValue(0);
-    //   }
-    // })
+    document.addEventListener(`visibilitychange`, evt => {
+      if (document.visibilityState === `visible`) {
+        this.plot(false);
+      }
+    })
   }
 
   plotAnimationRunning = false;
