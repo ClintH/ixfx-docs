@@ -65,6 +65,8 @@ export class GridEditor extends LitElement {
   lastCanvasSize = {rows: 0, cols: 0, shape: 15};
   cellRenderer: undefined | CellRenderer;
 
+  hoveredCell: Grids.Cell | undefined;
+
   constructor() {
     super();
     this.rows = 5;
@@ -104,6 +106,9 @@ export class GridEditor extends LitElement {
   draw() {
     const shape = this.getGrid();
     const canvasEl = this.shadowRoot?.getElementById(`previewCanvas`) as HTMLCanvasElement;
+    const hoverColour = Colour.getCssVariable(`hover-color`, `black`, this);
+    const selectedColour = Colour.getCssVariable(`selected-color`, `yellow`, this);
+
     if (canvasEl === null) return;
     const ctx = canvasEl.getContext(`2d`);
     if (ctx === null) return;
@@ -114,15 +119,17 @@ export class GridEditor extends LitElement {
       canvasEl.height = (shape.rows * shape.size) + padding + padding;
     }
 
-    //const walker = Grids.walkByRow(shape, {x:0, y:0}, true);
     ctx.clearRect(0, 0, canvasEl.width, canvasEl.height);
     ctx.translate(padding, padding);
     ctx.strokeStyle = Colour.getCssVariable(`grid-color`, `whitesmoke`, this);
     for (const cell of Grids.cells(shape)) {
       let r = Grids.rectangleForCell(cell, shape);
       if (this.cellRenderer !== undefined) this.cellRenderer(cell, r, ctx);
-      if (cell.x == this.selectedCell?.x && cell.y == this.selectedCell?.y) {
-        ctx.fillStyle = Colour.getCssVariable(`hover-color`, `black`, this);
+      if (Grids.cellEquals(cell, this.selectedCell)) {
+        ctx.fillStyle = selectedColour;
+        ctx.fillRect(r.x, r.y, r.width, r.height);
+      } else if (Grids.cellEquals(cell, this.hoveredCell)) {
+        ctx.fillStyle = hoverColour;
         ctx.fillRect(r.x, r.y, r.width, r.height);
       } else {
         ctx.strokeRect(r.x, r.y, r.width, r.height);
@@ -144,8 +151,11 @@ export class GridEditor extends LitElement {
 
   _cellPointerMove(evt: PointerEvent) {
     const cell = Grids.cellAtPoint({x: evt.offsetX, y: evt.offsetY}, this.getGrid());
+    if (!Grids.cellEquals(cell, this.hoveredCell)) {
+      this.hoveredCell = cell;
+      this.draw();
+    }
     if (cell === undefined) return;
-
     const ev = new CustomEvent(`cellPointerMove`, {bubbles: true, composed: true, detail: cell});
     this.dispatchEvent(ev);
     this.title = `Cell ${cell.x}, ${cell.y}`;
@@ -173,12 +183,15 @@ export class GridEditor extends LitElement {
   </div>`
   }
 
-  render() {
+  _pointerLeave() {
+    this.hoveredCell = undefined;
+  }
 
+  render() {
     const h = html`
       <div class="container">
         ${this.renderToolbar()}
-        <div id="preview"><canvas @pointermove="${this._cellPointerMove}" @pointerup="${this._cellPointerUp}" id="previewCanvas"></div>  
+        <div id="preview"><canvas @pointerleave="${this._pointerLeave}" @pointermove="${this._cellPointerMove}" @pointerup="${this._cellPointerUp}" id="previewCanvas"></div>  
       </div>`;
     return h;
   }

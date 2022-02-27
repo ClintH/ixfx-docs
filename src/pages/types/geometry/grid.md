@@ -3,10 +3,12 @@ title: Grid
 setup: |
   import { Markdown } from 'astro/components';
   import Layout from '../../../layouts/MainLayout.astro';
-  import GridVisitorPlay from './GridVisitorPlay.astro';
-  import GridDataPlay from './GridDataPlay.astro';
-  import GridOffsetsPlay from './GridOffsetsPlay.astro';
+  import GridVisitorElement from './GridVisitorElement.ts';
+  import GridColourElement from './GridColourElement.ts';
+  import GridOffsetElement from './GridOffsetElement.ts';
 ---
+
+<script type="module" src={Astro.resolve('./GridEditor.ts')}></script>
 
 [API Docs: Geometry.Grids module](https://clinth.github.io/ixfx/modules/Geometry.Grids.html)
 
@@ -54,7 +56,7 @@ If a grid is going to be mapped to pixels (more on that below) it also need a _s
 
 For a given starting cell, it's possible to _visit_ all cells once and only once with movement following a spatial logic.
 
-<GridVisitorPlay />
+<grid-visitor-element client:visible />
 
 Provided [visitor](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#visitor) functions are: `visitorDepth, visitorBreadth, visitorRandom, visitorContiguous, visitorRow,` and `visitorColumn`.
 
@@ -104,6 +106,8 @@ if (visited.has(cell)) {
 
 In the interactive demo above, this technique is used to colour cells differently depending on whether they've been visited.
 
+To get a cell _x_ steps away from a position, use [visitFor](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#visitFor)
+
 ## Iterating cells
 
 The `cells` iterator is a simple alternative to the _visitor_ technique if you don't care about how the grid is traversed. It has a lower overhead than the visitor because it does not need to keep track of every cell it has visited.
@@ -116,7 +120,7 @@ for (let cell of Grids.cells(shape)) {
 
 ## Offsets
 
-<GridOffsetsPlay />
+<grid-offset-element client:visible />
 
 You can calculate the coordinates of each compass cardinal direction using `offsetCardinals`. It has the following signature:
 
@@ -192,7 +196,7 @@ const val = store.get(key({x:5, y:5}));
 // {colour: '...', funk: 0.235}
 ```
 
-<GridDataPlay client:load />
+<grid-colour-element client:visible />
 
 ## Mapping to pixels
 
@@ -238,3 +242,22 @@ const cell = cellAtPoint({evt.offsetX, evt.offsetY}, shape); // Returns {x,y}
 
 * [Grid DOM](https://clinth.github.io/ixfx-demos/geometry/grid-dom/): Generate DIVs based on grid cells ([source](https://github.com/ClintH/ixfx-demos/tree/main/geometry/grid-dom))
 * [Grid Canvas](https://clinth.github.io/ixfx-demos/geometry/grid-canvas/): Draw elements based on grid cells ([source](https://github.com/ClintH/ixfx-demos/tree/main/geometry/grid-canvas))
+
+
+## Functions overview
+
+
+* [inside](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#inside): Returns _true_ if given cell is within grid dimensions
+* [getLine](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#getLine): Returns all cells on a straight line between two cell coordinates
+
+Enumerating cells
+* [cells](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#cells): Iterate all cells
+* [rows](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#rows): Iterate all rows
+* [visitFor](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#visitFor): Return cell _x_ steps away from a position using the provided visitor function
+* [visitor](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#visitor): Step through cells in some way
+* [offset](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#offset): Returns cell some x,y offset away from start
+* [neighbours](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#neighbours): Return neighbours for a cell
+  
+Visual grids
+* [cellMiddle](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#cellMiddle): Return pixel coordinate for the middle of a cell
+* [rectangleForCell](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#rectangleForCell): Get visual rectangle for cell

@@ -14,7 +14,7 @@ In ixfx, we consider normalisation as converting numbers to be on the percentage
 An array of numbers can be normalised:
 
 ```js
-import {Normalise} from 'https://unpkg.com/ixfx/temporal.js';
+import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
 
 // Normalise with the largest value being 100%, the smallest 0%
 // Yields: [1, 0.2, 0, 0.5]
@@ -29,7 +29,7 @@ Normalise.array([100,20,0,50], 0, 50); // Range 0-50
 [minMaxAvg](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#minMaxAvg) might also be a useful when working with arrays. It returns the minimum, maximum, average and total.
 
 ```js
-import {Arrays} from 'https://unpkg.com/ixfx/collections.js';
+import {Arrays} from 'https://unpkg.com/ixfx/dist/collections.js';
 
 const mma = Arrays.minMaxAvg([100,20,0,50]);
 // {min, max, avg, total}
@@ -44,7 +44,7 @@ It's not always feasible to neatly normalise an array where you know exactly wha
 `Normalise.stream` creates a normalise function based on 'seen' values. It allows simple normalisation of independent input streams. 
 
 ```js
-import {Normalise} from 'https://unpkg.com/ixfx/temporal.js';
+import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
 
 // Initialise a streaming normaliser
 const n = Normalise.stream();
@@ -70,7 +70,7 @@ It should be clear from the examples that the input that produces a certain outp
 It's possible to 'prime' the normalisation if you know in advance what range of values to expect. If a value exceeds the range, the range is updated to encompass the new min or max.
 
 ```js
-import {Normalise} from 'https://unpkg.com/ixfx/temporal.js';
+import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
 
 // Initialise normaliser, assuming range of 0-10 
 const n = Normalise.stream(0, 10);
@@ -87,7 +87,7 @@ n(11);
 In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/modules.html#scale) keeps no record of the current min or max, but yields a normalised value based on the provided range. This is a fine alternative if you're dealing with a static range.
 
 ```js
-import {scale} from 'https://unpkg.com/ixfx/bundle.js'
+import {scale} from 'https://unpkg.com/ixfx/dist/bundle.js'
 
 // Scale(v:number, inMin:number, inMax:number, outMin?:number, outMax?:number):number
 

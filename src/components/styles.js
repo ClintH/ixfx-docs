@@ -113,6 +113,12 @@ export const elStyles = css`
     transition: color 0.3s ease-in;
   }
 
+  button[disabled], button[disabled]:hover {
+    opacity: 0.6;
+    background-color: var(--theme-code-inline-bg);
+    cursor: default;
+  }
+
   .toolbar {
     display: flex;
     margin: 0.5em;

@@ -2,7 +2,7 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {Arcs} from 'ixfx/lib/geometry';
-import {Svg, Palette} from 'ixfx/lib/visual';
+import {Svg} from 'ixfx/lib/visual';
 
 export const tagName = `arc-editor`;
 
