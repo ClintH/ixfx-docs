@@ -1,0 +1,24 @@
+---
+import {Markdown} from 'astro/components';
+import {Layout} from '../../layouts/MainLayout.astro';
+import {CodeSnippet} from '../../components/CodeSnippet.astro';
+---
+
+<Layout>
+
+<Markdown>
+Data coming in from events, sensors etc can have radically different scales or even units. Rather than having to juggle these differences throughout your code, a strategy is to try to _normalise_ it as soon as you can.
+
+Normalisation allows values to be compared more readily: 0.5 can mean half a volume level, but it can also mean half of the screen width. That's easier to manage than having to work with the equivalent absolute values of -12dB and 800.
+
+In ixfx, we consider normalisation as converting numbers to be on the percentage scale of 0..1. Ie, 0.5 = 50%. Once you have this, it's easy to apply modulation factors and eventually, map the value to some absolute value in the output domain.
+
+## Arrays
+
+An array of numbers can be normalised:
+
+
+</Markdown>
+
+  
+</Layout>
