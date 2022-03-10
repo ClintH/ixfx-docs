@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,11 @@
 
 
 
-<script type="module" src="../../assets/normalising.e9d46c51.js"></script>
+<script type="module" src="../../assets/normalising.f6da5328.js"></script>
+
+
+
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/normalising.59d29e0a.css">
 
 
 
@@ -116,8 +107,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +137,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -243,16 +234,17 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
 	<section class="main-section astro-EDKM2WF4">
 		<h1 class="content-title astro-EDKM2WF4" id="overview">Normalising</h1>
 		<nav class="block sm:hidden astro-EDKM2WF4">
-				<astro-root uid="BxEjC"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-2"><a href="#scale">Scale</a></li></ul></astro-root>
+				<astro-root uid="Zt5meK"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-3"><a href="#scale">Scale</a></li></ul></astro-root>
 			</nav>
-		<p>Data coming in from events, sensors etc can have radically different scales or even units. Rather than having to juggle these differences throughout your code, a strategy is to try to <em>normalise</em> it as soon as you can.</p><p>Normalisation allows values to be compared more readily: 0.5 can mean half a volume level, but it can also mean half of the screen width. That’s easier to manage than having to work with the equivalent absolute values of -12dB and 800.</p><p>In ixfx, we consider normalisation as converting numbers to be on the percentage scale of 0..1. Ie, 0.5 = 50%. Once you have this, it’s easy to apply modulation factors and eventually, map the value to some absolute value in the output domain.</p><h2 id="arrays">Arrays</h2><p>An array of numbers can be normalised:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Normalise<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/temporal.js'</span><span class="token punctuation">;</span>
+		<p>Data coming in from events, sensors etc can have radically different scales or even units. Rather than having to juggle these differences throughout your code, a strategy is to try to <em>normalise</em> it as soon as you can.</p><p>Normalisation allows values to be compared more readily: 0.5 can mean half a volume level, but it can also mean half of the screen width. That's easier to manage than having to work with the equivalent absolute values of -12dB and 800.</p><p>In ixfx, we consider normalisation as converting numbers to be on the percentage scale of 0..1. Ie, 0.5 = 50%. Once you have this, it's easy to apply modulation factors and eventually, map the value to some absolute value in the output domain.</p><p>For our simple normalisation, we need some sense of the range of values - a minimum and maximum. For example, although an analog input value might theoretically be in the range of 0..1023, perhaps we've empirically discovered that the usable range is actually 0..400. This would constitute the range of the value.</p><h2 id="arrays">Arrays</h2><p>An array of numbers can be normalised:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Normalise<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/temporal.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Normalise with the largest value being 100%, the smallest 0%</span>
 <span class="token comment">// Yields: [1, 0.2, 0, 0.5]</span>
@@ -260,11 +252,13 @@ Normalise<span class="token punctuation">.</span><span class="token function">ar
 
 <span class="token comment">// Normalise with a forced min/max range</span>
 <span class="token comment">// Values outside of range will be clipped</span>
-<span class="token comment">// Yields:</span>
-Normalise<span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Range 0-50</span></code></pre><p><a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html#minMaxAvg">minMaxAvg</a> might also be a useful when working with arrays. It returns the minimum, maximum, average and total.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Arrays<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/collections.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields: [1, 0.4, 0, 1]</span>
+Normalise<span class="token punctuation">.</span><span class="token function">array</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Range 0-50</span></code></pre><p><a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html#minMaxAvg">minMaxAvg</a> might also be a useful when working with arrays. It returns the minimum, maximum, average and total.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Arrays<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/collections.js'</span><span class="token punctuation">;</span>
 
-<span class="token keyword">const</span> mma <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">minMaxAvg</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// {min, max, avg, total}</span></code></pre><h2 id="individual-values">Individual values</h2><p>It’s not always feasible to neatly normalise an array where you know exactly what the minimum and maximum is. Rather, you’ll be getting a stream of data from events or sensors that needs to be normalised.</p><h3 id="stream">Stream</h3><p><code data-astro-raw="">Normalise.stream</code> creates a normalise function based on ‘seen’ values. It allows simple normalisation of independent input streams.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Normalise<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/temporal.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields: {total:170, max:100, min:0, avg:42.5}</span>
+<span class="token keyword">const</span> mma <span class="token operator">=</span> Arrays<span class="token punctuation">.</span><span class="token function">minMaxAvg</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">20</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">50</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="individual-values">Individual values</h2><p>It's not always feasible to neatly normalise an array where you know exactly what the minimum and maximum is. Rather, you'll be getting a stream of data from events or sensors that needs to be normalised.</p><h3 id="stream">Stream</h3><p><code>Normalise.stream</code> creates a normalise function based on 'seen' values. It allows simple normalisation of independent input streams.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Normalise<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/temporal.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Initialise a streaming normaliser</span>
 <span class="token keyword">const</span> n <span class="token operator">=</span> Normalise<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -282,7 +276,8 @@ Normalise<span class="token punctuation">.</span><span class="token function">ar
 <span class="token function">n</span><span class="token punctuation">(</span><span class="token number">7.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Yields 1, because now it's the largest seen</span>
-<span class="token function">n</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>It should be clear from the examples that the input that produces a certain output will vary based on what has been seen before. ie, 5 yields 1 as an input when it’s the highest value, but 5 yields 0.05 if 100 is the highest value. It’s good to remember then that normalised values aren’t necessarily comparable to each other.</p><p>It’s possible to ‘prime’ the normalisation if you know in advance what range of values to expect. If a value exceeds the range, the range is updated to encompass the new min or max.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Normalise<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/temporal.js'</span><span class="token punctuation">;</span>
+<span class="token function">n</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>It should be clear from the examples that the input that produces a certain output will vary based on what has been seen before. ie, 5 yields 1 as an input when it's the highest value, but 5 yields 0.05 if 100 is the highest value. It's good to remember then that normalised values aren't necessarily comparable to each other.</p><p>It's possible to 'prime' the normalisation if you know in advance what range of values to expect. If a value exceeds the range, the range is updated to encompass the new min or max.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Normalise<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/temporal.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Initialise normaliser, assuming range of 0-10 </span>
 <span class="token keyword">const</span> n <span class="token operator">=</span> Normalise<span class="token punctuation">.</span><span class="token function">stream</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -290,8 +285,9 @@ Normalise<span class="token punctuation">.</span><span class="token function">ar
 <span class="token comment">// Yields 0.5, because it's in the middle of the primed range</span>
 <span class="token function">n</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
-<span class="token comment">// Yields 1, and now is 11 is treated as the max</span>
-<span class="token function">n</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="scale">Scale</h2><p>In contrast to <code data-astro-raw="">stream</code>, <a href="https://clinth.github.io/ixfx/modules.html#scale"><code data-astro-raw="">scale</code></a> keeps no record of the current min or max, but yields a normalised value based on the provided range. This is a fine alternative if you’re dealing with a static range.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>scale<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/bundle.js'</span>
+<span class="token comment">// Yields 1, with 11 now treated as the max</span>
+<span class="token function">n</span><span class="token punctuation">(</span><span class="token number">11</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="scale">Scale</h3><p>In contrast to <code>stream</code>, <a href="https://clinth.github.io/ixfx/modules.html#scale"><code>scale</code></a> keeps no record of the current min or max, but yields a normalised value based on the provided range. This is a fine alternative if you know what the range should be.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>scale<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/bundle.js'</span>
 
 <span class="token comment">// Scale(v:number, inMin:number, inMax:number, outMin?:number, outMax?:number):number</span>
 
@@ -302,7 +298,10 @@ Normalise<span class="token punctuation">.</span><span class="token function">ar
 
 <span class="token comment">// Scales 20 on a range of 20-40</span>
 <span class="token comment">// Yields 0</span>
-<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><code>scale</code> can also be used to map from one input range to another input range. To do this, provide the output range as parameter as well:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+<span class="token comment">// Maps the value 30 from an input range of 20-40 (thus 30 = 0.5 or 50%)</span>
+<span class="token comment">// to an output range of 100-200, yielding 100 (50% of the range 100-200)</span>
+<span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">30</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">40</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -324,12 +323,12 @@ Normalise<span class="token punctuation">.</span><span class="token function">ar
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-LR56V2JR">
-		<astro-root uid="BxEjC"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-2"><a href="#scale">Scale</a></li></ul></astro-root>
+		<astro-root uid="Zt5meK"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-3"><a href="#scale">Scale</a></li></ul></astro-root>
 		
 
 

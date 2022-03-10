@@ -1,5 +1,5 @@
 ---
-title: Loops & Intervals
+title: Loops and Intervals
 layout: ../../layouts/MainLayout.astro
 setup: |
   import { DemoElement } from '../../components/DemoElement.ts';
@@ -30,7 +30,7 @@ But what if you want to the loop to run for a certain period and then stop? Or n
 `continuously` is an ixfx function to simplify this pattern:
 
 ```js
-import { continuously } from "https://unpkg.com/ixfx/flow.js"
+import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
 
 const draw = () => {
   // ... do some drawing
@@ -105,7 +105,7 @@ const jobLoop = continuously(job, 1000, onJobReset).start();
 [interval](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
 
 ```js
-import { interval } from "https://unpkg.com/ixfx/flow.js"
+import { interval } from "https://unpkg.com/ixfx/dist/flow.js"
 
 // interval(callback, intervalMs)
 const randomGenerator = interval(() => Math.random, 1000);
@@ -134,7 +134,7 @@ for await (const v of interval(counter, 1000)) {
 [Generators](../data/generator) can looped over with `forEach`
 
 ```js
-import { forEach, count } from "https://unpkg.com/ixfx/generators.js"
+import { forEach, count } from "https://unpkg.com/ixfx/dist/generators.js"
 
 forEach(count(5), () => {
   // This will run five times
@@ -144,7 +144,7 @@ forEach(count(5), () => {
 If you know the generator is finite, an alternative is to convert to an array:
 
 ```js
-import { count } from "https://unpkg.com/ixfx/generators.js"
+import { count } from "https://unpkg.com/ixfx/dist/generators.js"
 [...count(5)].forEach( () => {
   // This will run five times
 });
@@ -153,7 +153,7 @@ import { count } from "https://unpkg.com/ixfx/generators.js"
 Or naturally, using a `for ... of`:
 
 ```js
-import { count } from "https://unpkg.com/ixfx/generators.js"
+import { count } from "https://unpkg.com/ixfx/dist/generators.js"
 for (const i of count(5)) {
   // This will run five times.
 }

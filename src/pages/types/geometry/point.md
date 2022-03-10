@@ -23,7 +23,7 @@ There's no defined unit for `x` and `y`, but pixel coordinates are typical.
 Calculate distance between two points
 
 ```js
-import { Points } from "https://unpkg.com/ixfx/geometry.js"
+import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
 
 const a = {x: 10, y: 10};
 const b = {x: 20, y: 20};
@@ -52,7 +52,7 @@ const rect = Points.bbox(...points);  // returns {x,y,width,height}
 Converting a Point _to_ some other shape of data
 
 ```js
-import { Points } from "https://unpkg.com/ixfx/geometry.js"
+import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
 const p = {x: 5, y: 10};
 
 // To an array [x, y]
@@ -82,7 +82,7 @@ Points.fromNumbers([ [10, 15], [5, 5]]); // [{x:10, y:15}, {x:5, y:5}]
 Example:
 
 ```js
-import { Points } from "https://unpkg.com/ixfx/geometry.js"
+import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
 
 // Find the point closest to the {x:100, y:100}
 const points = [/* ... points ... */];

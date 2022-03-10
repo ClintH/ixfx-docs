@@ -1,7 +1,8 @@
-<script type="module" src={Astro.resolve('../../components/EnvelopeEditor.ts')}></script>
-<script type="module" src={Astro.resolve('../../components/LogElement.ts')}></script>
-
-<script type="module" src={Astro.resolve('./envelope.ts')}></script>
+<script type="module" hoist>
+  import '/src/components/modulation/EnvelopeEditor';
+  import '/src/components/LogElement';
+  import '/src/components/modulation/envelope';
+</script>
 <style>
   .sxs {
     display: flex;

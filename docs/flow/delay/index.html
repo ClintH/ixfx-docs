@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,8 +67,11 @@
 
 
 
-<script type="module" src="../../assets/delay.c6406295.js"></script>
+<script type="module" src="../../assets/delay.3ac87fb2.js"></script>
 
+
+
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/normalising.59d29e0a.css">
 
 
 
@@ -117,8 +107,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -147,7 +137,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -244,7 +234,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -253,8 +243,8 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="y9z8C"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#timeout">Timeout</a></li><li class="header-link depth-2"><a href="#asynchronous-execution">Asynchronous execution</a></li><li class="header-link depth-3"><a href="#sleep">Sleep</a></li><li class="header-link depth-3"><a href="#delay">Delay</a></li><li class="header-link depth-3"><a href="#update-when-required">Update when required</a></li><li class="header-link depth-2"><a href="#debounce">Debounce</a></li><li class="header-link depth-2"><a href="#throttle">Throttle</a></li><li class="header-link depth-2"><a href="#patterns">Patterns</a></li><li class="header-link depth-3"><a href="#process-a-set-of-items">Process a set of items</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Flow.html">API Docs: Flow module</a></p><h2 id="timeout">Timeout</h2><p><code data-astro-raw="">setTimeout</code> is the usual way to call a function after some elapsed time:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Call `doSomething` once after one minute</span>
-<span class="token keyword">const</span> t <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>doSomething<span class="token punctuation">,</span> <span class="token number">60</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>If you want to trigger the same timeout at different points in your code, it soon gets messy  detecting and cancelling the existing timeout and scheduling a new one.</p><p>ixfx’s <code data-astro-raw="">timeout</code> makes this a bit simpler. Once setup, calling <code data-astro-raw="">start()</code> resets the timeout if it’s already started. To cancel a started timeout, use <code data-astro-raw="">cancel()</code>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> timeout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+		<p><a href="https://clinth.github.io/ixfx/modules/Flow.html">API Docs: Flow module</a></p><h2 id="timeout">Timeout</h2><p><code>setTimeout</code> is the usual way to call a function after some elapsed time:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Call `doSomething` once after one minute</span>
+<span class="token keyword">const</span> t <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>doSomething<span class="token punctuation">,</span> <span class="token number">60</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>If you want to trigger the same timeout at different points in your code, it soon gets messy  detecting and cancelling the existing timeout and scheduling a new one.</p><p>ixfx's <code>timeout</code> makes this a bit simpler. Once setup, calling <code>start()</code> resets the timeout if it's already started. To cancel a started timeout, use <code>cancel()</code>.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> timeout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 
 <span class="token comment">// Set up once</span>
 <span class="token keyword">const</span> fadeOut <span class="token operator">=</span> <span class="token function">timeout</span><span class="token punctuation">(</span>doFadeOut<span class="token punctuation">,</span> <span class="token number">30</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -263,10 +253,10 @@ document<span class="token punctuation">.</span><span class="token function">get
   <span class="token comment">// Trigger if there's a button press.</span>
   <span class="token comment">// Multiple calls to .start() simply reset timeout</span>
   fadeOut<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>When calling <code data-astro-raw="">start</code>, you can override its default delay:</p><pre class="language-js"><code data-astro-raw="" class="language-js">fadeOut<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Run after 20s this time</span></code></pre><p>Your callback function can use the elapsed time, if you like:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token function">timeout</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Timeout after </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>elapsedMs<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="asynchronous-execution">Asynchronous execution</h2><h3 id="sleep">Sleep</h3><p>Using JS’s <em>await</em> feature, you can essentially pause execution of your code using <code data-astro-raw="">sleep</code>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> sleep <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>When calling <code>start</code>, you can override its default delay:</p><pre class="language-js"><code class="language-js">fadeOut<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token number">20</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Run after 20s this time</span></code></pre><p>Your callback function can use the elapsed time, if you like:</p><pre class="language-js"><code class="language-js"><span class="token function">timeout</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Timeout after </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>elapsedMs<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="asynchronous-execution">Asynchronous execution</h2><h3 id="sleep">Sleep</h3><p>Using JS's <em>await</em> feature, you can essentially pause execution of your code using <code>sleep</code>:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> sleep <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">await</span> <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">There</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Print one second after</span></code></pre><p>There are a few tricks to using the <em>await</em> keyword. You may need to declare your function as being asynchronous:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">something</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">There</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Print one second after</span></code></pre><p>There are a few tricks to using the <em>await</em> keyword. You may need to declare your function as being asynchronous:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">something</span> <span class="token operator">=</span> <span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   <span class="token keyword">await</span> <span class="token function">sleep</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">There</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Print one second after</span>
@@ -274,7 +264,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 
 <span class="token comment">// Call the asynchronous function</span>
 <span class="token function">something</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// Execution will continue immediately, but execution within `something` will pause as expected.</span></code></pre><h3 id="delay">Delay</h3><p>To run a function after a delay, you can use <a href="#timeout">timeout</a>, or the asynchronous <code data-astro-raw="">delay</code>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> delay <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+<span class="token comment">// Execution will continue immediately, but execution within `something` will pause as expected.</span></code></pre><h3 id="delay">Delay</h3><p>To run a function after a delay, you can use <a href="#timeout">timeout</a>, or the asynchronous <code>delay</code>:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> delay <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Hello</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">delay</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">There</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -282,18 +272,18 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment">// Prints:</span>
 <span class="token comment">// Hello</span>
 <span class="token comment">// !</span>
-<span class="token comment">// There [after one second]</span></code></pre><h3 id="update-when-required">Update when required</h3><p>Let’s say you want to fetch live JSON data. It would be rude to the site operator to fetch the data continually, so we want to reduce how often the data is fetched. Polling is one option, but it might that we can’t really know what the optimum polling rate should be.</p><p><a href="https://clinth.github.io/ixfx/modules/Flow.html#updateOutdated">updateOutdated</a> addresses this dilemma. It only calls a function if it hasn’t been called for a while, or never called. If, however, it has recently been called, the last result is returned. It is a similar outcome as <a href="#throttle">throttle</a> - lots of calls get reduced to an occasional call.</p><p>Initialisation takes an async function to run, and a interval.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Set up one time.</span>
+<span class="token comment">// There [after one second]</span></code></pre><h3 id="update-when-required">Update when required</h3><p>Let's say you want to fetch live JSON data. It would be rude to the site operator to fetch the data continually, so we want to reduce how often the data is fetched. Polling is one option, but it might that we can't really know what the optimum polling rate should be.</p><p><a href="https://clinth.github.io/ixfx/modules/Flow.html#updateOutdated">updateOutdated</a> addresses this dilemma. It only calls a function if it hasn't been called for a while, or never called. If, however, it has recently been called, the last result is returned. It is a similar outcome as <a href="#throttle">throttle</a> - lots of calls get reduced to an occasional call.</p><p>Initialisation takes an async function to run, and a interval.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Set up one time.</span>
 <span class="token comment">// Here we're invoking `fetch`, and have a min interval of 5 minutes </span>
 <span class="token keyword">const</span> fetcher <span class="token operator">=</span> <span class="token function">updateOutdated</span><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
     <span class="token keyword">const</span> r <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">https://jsonplaceholder.typicode.com/todos/1</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     <span class="token keyword">return</span> <span class="token keyword">await</span> r<span class="token punctuation">.</span><span class="token function">json</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Somewhere else in your code, when you need the data, <em>await</em> the fetcher. If it hasn’t run yet, the callback will run (in this case, fetching JSON data). But if it has run within the last 5 minutes, the cached result will be returned rather than a network request being made again.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns the JSON data from the fetch request (or a cached copy)</span>
-<span class="token keyword">const</span> json <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a href="https://clinth.github.io/ixfx-demos/flow/fetch-outdated/">Online demo</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-outdated">source</a>)</p><p>What is useful about this pattern is that when you need the data (ie. <code data-astro-raw="">await fetcher()</code>) you can be ignorant to when or how the data is fetched.</p><p>Note that execution blocks until data is fetched, so there may be cases where polling might be more appropriate.</p><h2 id="debounce">Debounce</h2><p><em>Debounce</em> reduces a series of function calls that happen within a duration to a single call. It allows you to ignore all events until there is a break in the flow of the given <code data-astro-raw="">timeoutMs</code>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> debounce <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">5</span> <span class="token operator">*</span> <span class="token number">60</span> <span class="token operator">*</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Somewhere else in your code, when you need the data, <em>await</em> the fetcher. If it hasn't run yet, the callback will run (in this case, fetching JSON data). But if it has run within the last 5 minutes, the cached result will be returned rather than a network request being made again.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns the JSON data from the fetch request (or a cached copy)</span>
+<span class="token keyword">const</span> json <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">fetcher</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a href="https://clinth.github.io/ixfx-demos/flow/fetch-outdated/">Online demo</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-outdated">source</a>)</p><p>What is useful about this pattern is that when you need the data (ie. <code>await fetcher()</code>) you can be ignorant to when or how the data is fetched.</p><p>Note that execution blocks until data is fetched, so there may be cases where polling might be more appropriate.</p><h2 id="debounce">Debounce</h2><p><em>Debounce</em> reduces a series of function calls that happen within a duration to a single call. It allows you to ignore all events until there is a break in the flow of the given <code>timeoutMs</code>.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> debounce <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 <span class="token comment">// Signature:</span>
 <span class="token comment">// debounce(</span>
 <span class="token comment">//  callback:(elapsedMs?:number, ...args:unknown[])=&gt; void, </span>
 <span class="token comment">//  timeoutMs:number</span>
-<span class="token comment">// );</span></code></pre><p>For example, only respond to resize event 500ms after the last resize event. If no event has happened before, it will still wait 500ms.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> resizeDebounced <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+<span class="token comment">// );</span></code></pre><p>For example, only respond to resize event 500ms after the last resize event. If no event has happened before, it will still wait 500ms.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> resizeDebounced <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
    <span class="token comment">// Handle event</span>
 
    <span class="token comment">// Use original event args if we want</span>
@@ -410,6 +400,12 @@ window<span class="token punctuation">.</span><span class="token function">addEv
   button:hover {
     color: var(--fg-contrast);
     transition: color 0.3s ease-in;
+  }
+
+  button[disabled], button[disabled]:hover {
+    opacity: 0.6;
+    background-color: var(--theme-code-inline-bg);
+    cursor: default;
   }
 
   .toolbar {
@@ -586,12 +582,12 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 
         <iframe src="https://clinth.github.io/ixfx-demos/flow/debounce/"><!--lit-node 7--></iframe>
       </div>
-		<!--/lit-part--></template></demo-element><p>Note in the demo that lots of events (ie. movement) produce no debounced result until the events stop. If you want to have a continual stream of events, albeit at a slower rate, consider <code data-astro-raw="">throttle</code>.</p><h2 id="throttle">Throttle</h2><p><em>Throttle</em> reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.</p><p>This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with <em>throttle</em> and an appropriate <code data-astro-raw="">intervalMs</code>, you might avoid this.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> throttle <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+		<!--/lit-part--></template></demo-element><p>Note in the demo that lots of events (ie. movement) produce no debounced result until the events stop. If you want to have a continual stream of events, albeit at a slower rate, consider <code>throttle</code>.</p><h2 id="throttle">Throttle</h2><p><em>Throttle</em> reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.</p><p>This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with <em>throttle</em> and an appropriate <code>intervalMs</code>, you might avoid this.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> throttle <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 <span class="token comment">// Signature:</span>
 <span class="token comment">// throttle(</span>
 <span class="token comment">//  callback:(elapsedMs?:number, ...args:unknown[])=&gt; void, </span>
 <span class="token comment">//  timeoutMs:number</span>
-<span class="token comment">// );</span></code></pre><p>In this scenario, the event handler will run at maximum rate of 500ms.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> resizeThrottled <span class="token operator">=</span> <span class="token function">debounce</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+<span class="token comment">// );</span></code></pre><p>In this scenario, the event handler will run at maximum rate of 500ms.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> resizeThrottled <span class="token operator">=</span> <span class="token function">throttle</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token parameter">elapsedMs<span class="token punctuation">,</span> <span class="token operator">...</span>evtArgs</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
    <span class="token comment">// Handle event</span>
 
    <span class="token comment">// Use original event data if we need to</span>
@@ -708,6 +704,12 @@ window<span class="token punctuation">.</span><span class="token function">addEv
   button:hover {
     color: var(--fg-contrast);
     transition: color 0.3s ease-in;
+  }
+
+  button[disabled], button[disabled]:hover {
+    opacity: 0.6;
+    background-color: var(--theme-code-inline-bg);
+    cursor: default;
   }
 
   .toolbar {
@@ -884,7 +886,7 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 
         <iframe src="https://clinth.github.io/ixfx-demos/flow/throttle/"><!--lit-node 7--></iframe>
       </div>
-		<!--/lit-part--></template></demo-element><p><code data-astro-raw="">throttle</code> handles an initial event (when nothing has happened before), and <em>continue</em> to handle events, albeit at a reduced rate. <code data-astro-raw="">debounce</code>, in comparison, only handles the first event after <code data-astro-raw="">timeoutMs</code> has elapsed. And if a new event comes in the meantime, the timer is reset again. It’s only when there is a break in the events that <code data-astro-raw="">debounce</code> will run.</p><p>It’s also possible to use <code data-astro-raw="">throttle</code> and <code data-astro-raw="">debounce</code> without events being involved.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Some function that we want slowed execution</span>
+		<!--/lit-part--></template></demo-element><p><code>throttle</code> handles an initial event (when nothing has happened before), and <em>continue</em> to handle events, albeit at a reduced rate. <code>debounce</code>, in comparison, only handles the first event after <code>timeoutMs</code> has elapsed. And if a new event comes in the meantime, the timer is reset again. It's only when there is a break in the events that <code>debounce</code> will run.</p><p>It's also possible to use <code>throttle</code> and <code>debounce</code> without events being involved.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Some function that we want slowed execution</span>
 <span class="token keyword">const</span> <span class="token function-variable function">reset</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span> <span class="token comment">/* do something */</span> <span class="token punctuation">}</span>
 
 <span class="token comment">// Set up the throttle one time</span>
@@ -892,7 +894,7 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 
 <span class="token comment">// ...and now call `resetThrottled()` whenever you like, </span>
 <span class="token comment">// as often as you like. `reset` will only be invoked every 200ms</span>
-<span class="token function">resetThrottled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="patterns">Patterns</h2><h3 id="process-a-set-of-items">Process a set of items</h3><p>Let us say you have an array of items you want to process with some interval:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+<span class="token function">resetThrottled</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="patterns">Patterns</h2><h3 id="process-a-set-of-items">Process a set of items</h3><p>Let us say you have an array of items you want to process with some interval:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 <span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token comment">/* some array of things */</span><span class="token punctuation">]</span>
 
 <span class="token function">continuously</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -923,7 +925,7 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

@@ -1,1 +1,0 @@
-const u=(e,o,n)=>{const r=typeof e=="string"?document.getElementById(e):e;if(r===null)throw new Error(`parent could not be found: ${e}`);const t=document.createElement(o);if(t===null)throw new Error(`Element could not be created: ${o}`);if(n!==void 0)for(const[c,l]of Object.entries(n))t.setAttribute(c,l);return r.append(t),t};window.importEl=u;

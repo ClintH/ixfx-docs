@@ -31,6 +31,7 @@ const c = { radius: 100, x: 50, y: 50 };
 Get the [points](./point) of intersection between a line and circle. 
 
 ```js
+import { Circles } from "https://unpkg.com/ixfx/dist/geometry.js"
 const circle = { radius: 10, x: 100, y: 100};
 const line = {a: {x: 0, y: 0}, b: { x: 100, y: 100 } };
 // returns [ {x,y} ... ]
@@ -58,6 +59,8 @@ Circles.isContainedBy(circleA, circleB); // boolean
 Return a [Path](path) instance, which wraps up some functions together with the circle:
 
 ```js
+import { Circles } from "https://unpkg.com/ixfx/dist/geometry.js"
+
 const p = Circles.toPath(circle);
 p.length();           // Perimeter of cicle (number)
 p.bbox();             // Bounding box of circle as Rectangle {x,y,width,height}

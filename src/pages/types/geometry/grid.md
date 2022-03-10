@@ -1,14 +1,15 @@
 ---
 title: Grid
+layout: ../../../layouts/MainLayout.astro
 setup: |
-  import { Markdown } from 'astro/components';
-  import Layout from '../../../layouts/MainLayout.astro';
-  import GridVisitorElement from './GridVisitorElement.ts';
-  import GridColourElement from './GridColourElement.ts';
-  import GridOffsetElement from './GridOffsetElement.ts';
+  import GridVisitorElement from '/src/components/geometry/GridVisitorElement';
+  import GridColourElement from '/src/components/geometry/GridColourElement';
+  import GridOffsetElement from '/src/components/geometry/GridOffsetElement';
 ---
 
-<script type="module" src={Astro.resolve('./GridEditor.ts')}></script>
+<script type="module" hoist>
+import '/src/components/geometry/GridEditor';
+</script>
 
 [API Docs: Geometry.Grids module](https://clinth.github.io/ixfx/modules/Geometry.Grids.html)
 
@@ -63,6 +64,8 @@ Provided [visitor](https://clinth.github.io/ixfx/modules/Geometry.Grids.html#vis
 The visitor can be used in a `for .. of` loop
 
 ```js
+import { Grids } from "https://unpkg.com/ixfx/dist/geometry.js"
+
 // Start visitor at 5,5
 const visitor = Grids.visitorDepth(shape, {x: 5, y: 5});
 for (let cell of visitor) {
@@ -73,6 +76,8 @@ for (let cell of visitor) {
 Or for more flexibility, you can manually progress the visitor using `.next. In the below example, each step through the grid takes 500ms.
 
 ```js
+import { Grids } from "https://unpkg.com/ixfx/dist/geometry.js"
+
 // Set up visitor once
 const visitor = Grids.visitorBreadth(shape, {x: 5, y: 5});
 const visitorDelayMs = 500;
@@ -95,6 +100,9 @@ setTimeout(visit, visitorDelayMs);
 The visitor can have an instance of [SetMutable](https://clinth.github.io/ixfx/interfaces/Collections.SetMutable.html) passed in to track what cells have been visited. This is useful if you want to check the status of cells during the visitor's journey.
 
 ```js
+import { Grids } from "https://unpkg.com/ixfx/dist/geometry.js"
+import { setMutable } from "https://unpkg.com/ixfx/dist/collections.js"
+
 const visited = setMutable();
 const visitor = Grids.visitorRandom(shape, {x: 5, y: 5}, visited);
 
@@ -137,6 +145,8 @@ offsetCardinals(shape:Grid, origin:Cell, distance:number, boundsLogic:`unbounded
 *  `unbounded`: coordinates are returned without bounds checking
 
 ```js
+import { Grids } from "https://unpkg.com/ixfx/dist/geometry.js"
+
 const shape = { rows: 10, cols: 10 };
 const origin = { x: 4, y: 4 };
 const distance = 2;
@@ -160,6 +170,7 @@ To link a cell to your own data, use its coordinates as a key.
 Lets say you want to associate colour with each cell:
 
 ```js
+
 // 1. We want a function to create a key for a given cell
 // Function takes a cell and returns its coordinates as a string
 // eg: {x:10, y:5} => "10-5"
@@ -182,6 +193,9 @@ const cellData = data.get(key({x:0, y:0}));
 As a complete example, we can associate a random colour and number to every cell.
 
 ```js
+import { Grids } from "https://unpkg.com/ixfx/dist/geometry.js"
+import { Arrays } from "https://unpkg.com/ixfx/dist/collections.js"
+
 const key = (cell) => `${cell.x}-${cell.y}`;
 const store = new Map();
 const shape = { rows: 10, cols: 10 };
@@ -196,7 +210,7 @@ const val = store.get(key({x:5, y:5}));
 // {colour: '...', funk: 0.235}
 ```
 
-<grid-colour-element client:visible />
+<grid-colour-element client:load />
 
 ## Mapping to pixels
 
@@ -227,7 +241,7 @@ const shape = { rows: 100, cols: 100, size: 5 };
 
 // rectangleForCell(cell:Cell, grid:Grid): Rect
 // Returns { x, y, width, height } for cell at position 5,5
-const rect = rectangleForCell({ x: 5, y: 5 }, shape); 
+const rect = Grids.rectangleForCell({ x: 5, y: 5 }, shape); 
 ```
 
 Or to go from coordinate (eg. mouse pointer) to cell:
@@ -235,7 +249,7 @@ Or to go from coordinate (eg. mouse pointer) to cell:
 ```js
 // Convert pointer position to cell coordinate
 // cellAtPoint(point:Point, grid:Grid): Cell
-const cell = cellAtPoint({evt.offsetX, evt.offsetY}, shape); // Returns {x,y}
+const cell = Grids.cellAtPoint({evt.offsetX, evt.offsetY}, shape); // Returns {x,y}
 ```
 
 ## Demos

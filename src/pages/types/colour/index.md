@@ -1,15 +1,14 @@
 ---
 title: Colour
-setup: |
-  import { Markdown } from 'astro/components';
-  import Layout from '../../../layouts/MainLayout.astro';
-  import ColourScaleElement from './ColourScaleElement.ts';
+layout: ../../../layouts/MainLayout.astro
 ---
 
 [API Docs: Colour module](https://clinth.github.io/ixfx/modules/Visual.Colour.html)
 
-<script type="module" src={Astro.resolve('./ColourScaleElement.ts')}></script>
-<script type="module" src={Astro.resolve('../../../loader.ts')}></script>
+<script type="module" hoist>
+import '/src/loader';
+import '/src/components/types/colour/ColourScaleElement';
+</script>
 
 
 ## Interpolating
@@ -17,7 +16,7 @@ setup: |
 Colours can be _interpolated_, eg. getting the colour that is 50% between red and blue.
 
 ```js
-import { Colour } from "https://unpkg.com/ixfx/visuals.js"
+import { Colour } from "https://unpkg.com/ixfx/dist/visuals.js"
 
 // Returns  `rgb(128, 0, 128)`
 Colour.interpolate(0.5, `red`, `blue`);
@@ -48,7 +47,7 @@ The colour space you choose can have a large impact on what colour is generated.
 You can generate a series of colours with a specified number of steps with `scale`. The start and end colours are included appear as first and last step respectively.
 
 ```js
-import { Colour } from "https://unpkg.com/ixfx/visuals.js"
+import { Colour } from "https://unpkg.com/ixfx/dist/visuals.js"
 
 // Mixes in HCL space, returns an array of 10 string rgb() values, spaced between red and blue.
 Colour.scale(10, `hcl`, `red`, `blue`});
@@ -74,7 +73,7 @@ Colour.scale(10, {space: `hcl`, long: true}, `red`, `blue`);
 If you need to parse a colour string into its components:
 
 ```js
-import { Colour } from "https://unpkg.com/ixfx/visuals.js"
+import { Colour } from "https://unpkg.com/ixfx/dist/visuals.js"
 
 // Returns { h: 10.47, s: 1, l: 0.875 }
 Colour.toHsl(`pink`);
@@ -85,7 +84,7 @@ Colour.toRgb(`pink`);
 ## Variations
 
 ```js
-import { Colour } from "https://unpkg.com/ixfx/visuals.js"
+import { Colour } from "https://unpkg.com/ixfx/dist/visuals.js"
 
 // Returns a colour string for blue at 50% opacity
 // `rgba(0, 0, 255, 0.5)`

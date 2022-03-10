@@ -1,27 +1,15 @@
-<!-- <link rel="stylesheet" href={Astro.resolve('../../styles/demos.css')} /> -->
-<script type="module" src={Astro.resolve('./stateMachine.ts')}></script>
-
+<script type="module" hoist>
+import '/src/components/flow/stateMachine';
+</script>
 <style>
-  /* .sxs {
-    display: flex;
-  }
-
-  .sxs>section {
-    flex-grow: 1;
-    margin-right: 0rem;
-  }
-
- */
   #jsonDescr {
     padding: var(--padding-text);
   }
-
   h2 {
     font-size: 90%;
     text-transform: uppercase;
     color: var(--muted-color);
   }
-
   #descrValidate {
     font-size: 80%;
   }
@@ -47,7 +35,6 @@
       border-color: var(--bg);
 	  }
   }
-
 </style>
 <div class="sxs">
   <section id="dataDescr" class="dividerRight">
@@ -94,5 +81,4 @@
       <div id="dataStream"></div>
     </section>
   </section>
-  
 </div>

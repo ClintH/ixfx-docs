@@ -2,14 +2,9 @@
 title: Easing
 layout: ../../layouts/MainLayout.astro
 setup: |
-  import { DemoElement } from '../../components/DemoElement.ts';
-  import EasingFunc from './EasingFunc.astro';
-  import EasingGalleryElement from './EasingGalleryElement.ts';
-  
+  import { DemoElement } from '/src/components/DemoElement.ts';
+  import FuncPlotElement from '/src/components/FuncPlotElement.ts';
 ---
-
-<script type="module" src={Astro.resolve('./EasingGalleryElement.ts')}></script>
-<script type="module" src={Astro.resolve('../../loader.ts')}></script>
 
 * API Docs: [Easings.time](https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time)
 * [Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
@@ -55,7 +50,7 @@ type Easing = {
 Example: `sineIn` easing that takes one second to complete:
 
 ```js
-import {Easings} from "https://unpkg.com/ixfx/modulation.js";
+import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
 
 // Set up
 const e = Easings.time(`sineIn`, 1000);
@@ -72,8 +67,8 @@ if (t.isDone) ...
 You'll probably call `compute()` inside an existing draw/update loop that is running. If you don't have a loop already, here is a snippet that returns an easing over time:
 
 ```js
-import {Generators, Flow} from "https://unpkg.com/ixfx/bundle.js";
-import {Easings} from "https://unpkg.com/ixfx/modulation.js";
+import {Generators, Flow} from "https://unpkg.com/ixfx/dist/bundle.js";
+import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
 
 // Define an easing that takes 1 second to reach end
 const e = Easings.time(`sineIn`, 1000);
@@ -90,7 +85,7 @@ for await (const v of Flow.interval(range, 100)) {
 Example: a `sineOut` easing that takes 100 ticks to complete:
 
 ```js
-import {Easings} from "https://unpkg.com/ixfx/modulation.js";
+import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
 
 // Set up
 const e = Easings.tick(`sineOut`, 100);
@@ -158,19 +153,57 @@ Below is the common usage of time-based easing
 
 <demo-element title="Timer easing" src="/modulation/easing-timer/" />
 
-<EasingFunc />
+<script type="module" hoist>
+import '/src/components/FuncPlotElement';
+import {Easings} from 'ixfx/lib/modulation';
+const run = () => {
+  document.querySelectorAll(`[data-easing]`).forEach(el => {
+    const plot = document.createElement(`func-plot-element`);// importEl(el, `func-plot-element`);
+    el.append(plot);
+    const fnAttr = el.getAttribute(`fn`);
+    const easingAttr = el.getAttribute(`easing`);
+    const editableAttr = el.getAttribute(`editable`);
+    plot.editable = editableAttr !== `false` && editableAttr !== null;
+
+    if (fnAttr !== null && fnAttr.length > 0) {
+      plot.setFunctionByString(fnAttr);
+    } else if (easingAttr !== null && easingAttr.length > 0) {
+      const easingFn = Easings.get(easingAttr);
+      if (easingFn === undefined) {
+        console.error(`Could not find easing: ${easingAttr}`);
+      } else {
+        plot.setFunction(easingAttr, easingFn);
+      }
+    } else {
+      console.warn(`Neither fn or easing attributes defined for function plot.`);
+    }
+
+    // Give component time to render before plotting
+    // setTimeout(() => {
+    //   plot.plot(false);
+    // }, 1000);
+  });
+}
+setTimeout(() => run(), 10);
+</script>
 
 ## Defined easings
 
 There are several well known easing functions that can be used in CSS, in animation software and so on.
 
+<!-- Astro bug. Either we get two lit elements, or an exception -->
+<!-- <easing-gallery-element client:only="lit" /> -->
 
-<div id="easingGallery"></div>
-<script type="module">
+ <div id="easingGallery"></div>
+
+<script type="module" hoist>
+import '/src/loader';
+import '/src/components/modulation/EasingGalleryElement';
 importEl(
   `easingGallery`, 
-  `easinggallery-element`, {});
+  `easing-gallery-element`, {});
 </script>
+
 
 ## Credits
 

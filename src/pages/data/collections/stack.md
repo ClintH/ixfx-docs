@@ -1,8 +1,6 @@
 ---
 title: Stack
 layout: ../../../layouts/MainLayout.astro
-setup: |
-  import StackVis from './StackVis.astro';
 ---
 
 [API Docs: Stacks](https://clinth.github.io/ixfx/modules/Collections.Stacks.html)
@@ -13,7 +11,19 @@ In other words, it is LIFO (last in, first out). If you want first-in first out,
 
 The default implementation in ixfx is immutable, meaning that every operation that changes the stack returns a _new_ stack. A stack instance itself never changes.
 
-<StackVis />
+<script type="module" hoist>
+import '/src/components/data/collections/ArrayVisElement';
+import '/src/components/data/collections/StackVis';
+</script>
+<div class="centered toolbar">
+  <button id="btnPush">Push</button>
+  <button id="btnPop">Pop</button>
+</div>
+<div class="centered toolbar">
+  <div id="peek"></div>
+</div>
+<div id="vis"></div>
+
 
 ## Basics
 
@@ -83,3 +93,22 @@ Values for `discardPolicy` are:
 * `older`: Removes existing items from the bottom of the stack to make room for additions. Ie. the oldest items are thrown away
 * `newer`: Removes existing items from the top of the stack to make room for additions. Ie. the newest items are thrown away
 * `additions`: Does not change the existing items, but rather throws away items that are being _pushed_. 
+
+<script type="module" hoist>
+import '/src/components/data/collections/ArrayVisElement';
+import '/src/components/data/collections/StackDiscardVis';
+</script>
+<div class="centered toolbar">
+  <button id="btnPushDiscard">Push</button>
+  <button id="btnPopDiscard">Pop</button>
+  <label for="selDiscard" style="align-self: center">Capacity 3.<br /> Discard policy</label>
+  <select id="selDiscard">
+    <option value="older">older</option>
+    <option value="newer">newer</option>
+    <option value="additions">additions</option>
+  </select>
+</div>
+<div class="centered toolbar">
+  <div id="peekDiscard"></div>
+</div>
+<div id="visDiscard"></div>

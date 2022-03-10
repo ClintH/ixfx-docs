@@ -17,8 +17,8 @@ layout: ../../../layouts/MainLayout.astro
 Use a [Queue](./queue) or [Stack](./stack) data structure to enforce ordering:
 
 ```js
-import { continuously } from "https://unpkg.com/ixfx/flow.js"
-import { Stacks } from "https://unpkg.com/ixfx/collections.js"
+import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
+import { Stacks } from "https://unpkg.com/ixfx/dist/collections.js"
 
 // Eg: limit stack to 10 items
 let toProcess = Stacks.stack({capacity: 10});

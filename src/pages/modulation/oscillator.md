@@ -1,16 +1,15 @@
 ---
 title: Oscillators
-setup: |
-  import { Markdown } from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
-  import Clock from  './Clock.tsx';
-  import {OscElement} from './OscElement.ts';
+layout: ../../layouts/MainLayout.astro
 ---
 
 [API Docs: Modulation.Oscillators module](https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html)
 
-<script type="module" src={Astro.resolve('./OscElement.ts')}></script>
-<script type="module" src={Astro.resolve('../../loader.ts')}></script>
+<script type="module" hoist>
+import '/src/loader';
+import '/src/components/modulation/OscElement';
+</script>
+
 
 _Oscillators_ are generators that produce value according to a wave shape. Common shapes include _sine_, _sawtooth_ (or _ramp_), _square_ and _triangle_.
 
@@ -53,8 +52,8 @@ importEl(
 Initialisation
 
 ```js
-import { frequencyTimerSource } from 'ixfx/lib/flow';
-import { Oscillators } from 'ixfx/lib/modulation';
+import { frequencyTimerSource } from 'https://unpkg.com/ixfx/dist/flow.js';
+import { Oscillators } from 'https://unpkg.com/ixfx/dist/modulation.js';
 
 // Create a timer for 10Hz (10 cycles per second)
 const freq = frequencyTimerSource(10);
@@ -149,9 +148,12 @@ See the [modulation demos](https://clinth.github.io/ixfx-demos/modulation/) for 
 Below is a skeleton for a sketch that defines settings, state and an update/apply loop. The oscillator is sampled on every loop.
 
 ```js
+import { frequencyTimer } from 'https://unpkg.com/ixfx/dist/flow.js';
+import { Oscillators } from 'https://unpkg.com/ixfx/dist/modulation.js';
+
 // Define settings
 const settings = {
-  osc: Oscillators.sine(frequencyCycleSource(10))
+  osc: Oscillators.sine(frequencyTimer(0.01))
 }
 
 // Initialise state
@@ -161,6 +163,7 @@ let state = {
 
 // Update state
 const updateState = () => {
+  const {osc} = settings;
   state = {
     ...state,                  // Copy any other values in state
     oscValue: osc.next().value // Sample oscillator
@@ -170,7 +173,9 @@ const updateState = () => {
 // Apply state
 const applyState = () => {
   const { oscValue } = state;
+  
   // Use oscValue somehow...
+  document.getElementById(`oscValue`).innerText = oscValue.toString();
 }
 
 const loop = () => {
@@ -180,6 +185,8 @@ const loop = () => {
 }
 window.requestAnimationFrame(loop);
 ```
+
+Starter skeleton on [Glitch](https://glitch.com/~ixfx-starter-oscillators), [Github](https://github.com/ClintH/ixfx-demos/tree/main/modulation/oscillator-skeleton)
 
 
 

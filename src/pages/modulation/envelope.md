@@ -1,8 +1,7 @@
 ---
 title: Envelope
+layout: ../../layouts/MainLayout.astro
 setup: |
-  import { Markdown } from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
   import EnvelopePlay from './EnvelopePlay.astro';
   import { DemoElement } from '../../components/DemoElement.ts';
 
@@ -46,7 +45,7 @@ Docs: [Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html), [Ad
 Initialise an envelope with a few timing settings:
 
 ```js
-import { adsr, defaultAdsrOpts } from "https://unpkg.com/ixfx/modulation.js"
+import { adsr, defaultAdsrOpts } from "https://unpkg.com/ixfx/dist/modulation.js"
 
 // It's a good idea to use the defaultAdsrOpts(),
 // and then override what you want.
@@ -146,6 +145,5 @@ In the demo below, `pointerdown` or `keydown` events triggers and holds the enve
 Releasing the pointer or key calls the envelope's `release` function.
 
 This envelope has `retrigger` disabled, so pressing again while it's decaying will continue the envelope at that level, rather than resetting to zero (default behaviour).
-
 
 <demo-element title="Retrigger disabled" src="/modulation/env-decay/" />

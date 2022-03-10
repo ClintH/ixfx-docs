@@ -1,9 +1,6 @@
 ---
 title: Queue
 layout: ../../../layouts/MainLayout.astro
-setup: |
-  import QueueVis from './QueueVis.astro';
-  import QueueDiscardVis from './QueueDiscardVis.astro';
 ---
 
 [API Docs: Queues](https://clinth.github.io/ixfx/modules/Collections.Queues.html)
@@ -14,14 +11,26 @@ In other words, it is FIFO (first in, first out). If you want last-in first out,
 
 The default implementation in ixfx is immutable, meaning that every operation that changes the queue returns a _new_ queue. A queue instance itself never changes.
 
-<QueueVis />
+<script type="module" hoist>
+import '/src/components/data/collections/ArrayVisElement';
+import '/src/components/data/collections/QueueVis';
+</script>
+<div class="centered toolbar">
+  <button id="btnEnqueue">Enqueue</button>
+  <button id="btnDequeue">Dequeue</button>
+</div>
+<div class="centered toolbar">
+  <div id="peek"></div>
+</div>
+<div id="vis"></div>
+
 
 ## Basics
 
 `enqueue` and `dequeue` are the main means of interacting with a dequeue.
 
 ```js
-import {Queues} from "https://unpkg.com/ixfx/collections.js"
+import {Queues} from "https://unpkg.com/ixfx/dist/collections.js"
 
 // Initialise
 let q = Queues.queue();
@@ -85,4 +94,21 @@ Values for `discardPolicy` are:
 * `newer`: Removes existing items from the back of the queue to make room for additions. Ie. the newest items are thrown away
 * `additions`: Does not change the existing items, but rather throws away items that are being _enqueued_. 
 
-<QueueDiscardVis />
+<script type="module" hoist>
+import '/src/components/data/collections/ArrayVisElement';
+import '/src/components/data/collections/QueueDiscardVis';
+</script>
+<div class="centered toolbar">
+  <button id="btnEnqueueDiscard">Enqueue</button>
+  <button id="btnDequeueDiscard">Dequeue</button>
+  <label for="selDiscard" style="align-self: center">Capacity 3.<br /> Discard policy</label>
+  <select id="selDiscard">
+    <option value="older">older</option>
+    <option value="newer">newer</option>
+    <option value="additions">additions</option>
+  </select>
+</div>
+<div class="centered toolbar">
+  <div id="peekDiscard"></div>
+</div>
+<div id="visDiscard"></div>

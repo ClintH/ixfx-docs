@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,13 @@
 
 
 
-<script type="module" src="../../../assets/stack.e2a55051.js"></script>
+<script type="module" src="../../../assets/stack.836dd8c9.js"></script>
+
+
+
+
+<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/normalising.59d29e0a.css">
+
 
 
 </head>
@@ -115,8 +108,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -145,7 +138,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -242,7 +235,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -251,19 +244,12 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="Z2lX9JN"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#basics">Basics</a></li><li class="header-link depth-2"><a href="#iterating">Iterating</a></li><li class="header-link depth-2"><a href="#additional-properties">Additional properties</a></li><li class="header-link depth-2"><a href="#capacity-limiting">Capacity limiting</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Collections.Stacks.html">API Docs: Stacks</a></p><p>A stack stores items like a stack of plates. Items added get put on the top, and if you want to grab an item, you can only see, and grab from the top. This is useful if newer things have priority.</p><p>In other words, it is LIFO (last in, first out). If you want first-in first out, see <a href="./queue">Queue</a>.</p><p>The default implementation in ixfx is immutable, meaning that every operation that changes the stack returns a <em>new</em> stack. A stack instance itself never changes.</p><script type="module" src="../../../assets/ArrayVisElement.21733268.js"></script>
-<script type="module" src="../../../assets/StackVis.04b64d94.js"></script>
-
-<div class="centered toolbar">
+		<p><a href="https://clinth.github.io/ixfx/modules/Collections.Stacks.html">API Docs: Stacks</a></p><p>A stack stores items like a stack of plates. Items added get put on the top, and if you want to grab an item, you can only see, and grab from the top. This is useful if newer things have priority.</p><p>In other words, it is LIFO (last in, first out). If you want first-in first out, see <a href="./queue">Queue</a>.</p><p>The default implementation in ixfx is immutable, meaning that every operation that changes the stack returns a <em>new</em> stack. A stack instance itself never changes.</p><div class="centered toolbar">
   <button id="btnPush">Push</button>
   <button id="btnPop">Pop</button>
-</div>
-<div class="centered toolbar">
+</div><div class="centered toolbar">
   <div id="peek"></div>
-</div>
-<div id="vis"></div>
-
-<h2 id="basics">Basics</h2><p><code data-astro-raw="">push</code> and <code data-astro-raw="">pop</code> are the main means of interacting with a stack.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Stacks<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/collections.js"</span>
+</div><div id="vis"></div><h2 id="basics">Basics</h2><p><code>push</code> and <code>pop</code> are the main means of interacting with a stack.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Stacks<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/collections.js"</span>
 
 <span class="token comment">// Initialise</span>
 <span class="token keyword">let</span> s <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -276,7 +262,7 @@ s <span class="token operator">=</span> s<span class="token punctuation">.</span
 s<span class="token punctuation">.</span>peek<span class="token punctuation">;</span>
 
 <span class="token comment">// Return a new stack with top-most item removed</span>
-s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="iterating">Iterating</h2><p>For the most part, you’re meant to just access the top-most item of a stack. If you find yourself needing to dig through a stack, it may not be the right data structure.</p><p>That said, there are ways of iterating:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Iterate from bottom-to-top of stack</span>
+s <span class="token operator">=</span> s<span class="token punctuation">.</span><span class="token function">pop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="iterating">Iterating</h2><p>For the most part, you're meant to just access the top-most item of a stack. If you find yourself needing to dig through a stack, it may not be the right data structure.</p><p>That said, there are ways of iterating:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Iterate from bottom-to-top of stack</span>
 s<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with item</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -284,7 +270,7 @@ s<span class="token punctuation">.</span><span class="token function">forEach</s
 <span class="token comment">// Iterate from top-to-bottom of stack</span>
 s<span class="token punctuation">.</span><span class="token function">forEachFromTop</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with item</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="additional-properties">Additional properties</h2><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// True if stack is empty</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="additional-properties">Additional properties</h2><pre class="language-js"><code class="language-js"><span class="token comment">// True if stack is empty</span>
 s<span class="token punctuation">.</span>isEmpty<span class="token punctuation">;</span>
 
 <span class="token comment">// How many items in stack</span>
@@ -293,11 +279,22 @@ s<span class="token punctuation">.</span>length<span class="token punctuation">;
 <span class="token comment">// Returns the underlying array</span>
 <span class="token comment">// used by the stack. Be careful not to</span>
 <span class="token comment">// modify or it may break the stack semantics</span>
-s<span class="token punctuation">.</span>data<span class="token punctuation">;</span></code></pre><h2 id="capacity-limiting">Capacity limiting</h2><p>When creating the stack, it’s possible to set a capacity limit. This can be useful to avoid a <em>backlog</em> of data. For example, if you’re processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don’t really care about older things any longer.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">let</span> q <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">discardPolicy</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">newer</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The <code data-astro-raw="">capacity</code> naturally sets the total number of items the stack will store. The <code data-astro-raw="">discardPolicy</code> determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is <em>pushed</em>.</p><p>Values for <code data-astro-raw="">discardPolicy</code> are:</p><ul>
-<li><code data-astro-raw="">older</code>: Removes existing items from the bottom of the stack to make room for additions. Ie. the oldest items are thrown away</li>
-<li><code data-astro-raw="">newer</code>: Removes existing items from the top of the stack to make room for additions. Ie. the newest items are thrown away</li>
-<li><code data-astro-raw="">additions</code>: Does not change the existing items, but rather throws away items that are being <em>pushed</em>.</li>
-</ul>
+s<span class="token punctuation">.</span>data<span class="token punctuation">;</span></code></pre><h2 id="capacity-limiting">Capacity limiting</h2><p>When creating the stack, it's possible to set a capacity limit. This can be useful to avoid a <em>backlog</em> of data. For example, if you're processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don't really care about older things any longer.</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> q <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">discardPolicy</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">newer</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The <code>capacity</code> naturally sets the total number of items the stack will store. The <code>discardPolicy</code> determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is <em>pushed</em>.</p><p>Values for <code>discardPolicy</code> are:</p><ul>
+<li><code>older</code>: Removes existing items from the bottom of the stack to make room for additions. Ie. the oldest items are thrown away</li>
+<li><code>newer</code>: Removes existing items from the top of the stack to make room for additions. Ie. the newest items are thrown away</li>
+<li><code>additions</code>: Does not change the existing items, but rather throws away items that are being <em>pushed</em>.</li>
+</ul><div class="centered toolbar">
+  <button id="btnPushDiscard">Push</button>
+  <button id="btnPopDiscard">Pop</button>
+  <label for="selDiscard" style="align-self: center">Capacity 3.<br> Discard policy</label>
+  <select id="selDiscard">
+    <option value="older">older</option>
+    <option value="newer">newer</option>
+    <option value="additions">additions</option>
+  </select>
+</div><div class="centered toolbar">
+  <div id="peekDiscard"></div>
+</div><div id="visDiscard"></div>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -319,7 +316,7 @@ s<span class="token punctuation">.</span>data<span class="token punctuation">;</
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

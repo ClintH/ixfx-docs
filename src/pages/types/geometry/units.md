@@ -1,11 +1,10 @@
 ---
-title: Units & Coordinates
+title: Units and Coordinates
+layout: ../../../layouts/MainLayout.astro
 setup: |
-  import {Markdown} from 'astro/components';
-  import Layout from '../../../layouts/MainLayout.astro';
-  import {AnglesElement} from './AnglesElement';
-  import {CartesianElement} from './CartesianElement';
-  import {PolarCoordsElement} from './PolarCoordsElement';
+  import {AnglesElement} from '/src/components/geometry/AnglesElement';
+  import {CartesianElement} from '/src/components/geometry/CartesianElement';
+  import {PolarCoordsElement} from '/src/components/geometry/PolarCoordsElement';
 ---
 
 <style>
@@ -44,7 +43,7 @@ const radianToDegree = (angleInRadians) => angleInRadians * 180 / Math.PI;
 Both of these functions are in the [Geometry](https://clinth.github.io/ixfx/modules/Geometry.html) module and can be imported:
 
 ```js
-import {degreeToRadian, radianToDegree} from 'https://unpkg.com/ixfx/geometry.js'
+import {degreeToRadian, radianToDegree} from 'https://unpkg.com/ixfx/dist/geometry.js'
 ```
 
 Example usage:
@@ -107,7 +106,7 @@ const polarToCartesian = (distance, angleRadians, originX, originY) => ({
 In ixfx, [toCartesian](https://clinth.github.io/ixfx/modules/Geometry.Polar.html#toCartesian) function is provided and can be used as:
 
 ```js
-import { Polar } from 'https://unpkg.com/ixfx/geometry.js';
+import { Polar } from 'https://unpkg.com/ixfx/dist/geometry.js';
 
 // Origin (ie. center) of polar coordinates
 const origin = { x: 100, y: 100 };

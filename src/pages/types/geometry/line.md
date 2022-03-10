@@ -30,7 +30,7 @@ const line = {
 Lines can be defined with both `a` and `b` fields as shown above. Alternatively, functions can initialise a line for you:
 
 ```js
-import { Lines } from "https://unpkg.com/ixfx/geometry.js"
+import { Lines } from "https://unpkg.com/ixfx/dist/geometry.js"
 
 // fromArray([x1,y1,x2,y])
 const l = Lines.fromArray([0,0,200,200]);
@@ -47,7 +47,7 @@ const l = Lines.fromPoints({x:0,y:0}, {x:200,y:200});
 Length of line
 
 ```js
-import { Lines } from "https://unpkg.com/ixfx/geometry.js"
+import { Lines } from "https://unpkg.com/ixfx/dist/geometry.js"
 const line = Lines.fromNumbers(0,0,200,200);
 const length = Lines.length(line); // Returns number
 ```

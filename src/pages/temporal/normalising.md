@@ -3,12 +3,9 @@ title: Normalising
 layout: ../../layouts/MainLayout.astro
 ---
 
-<script>
-  setTimeout(() => {
-    window.replPadEnable();
-  }, 1000);
+<script type="module" hoist>
+  import '/src/components/ReplPad';
 </script>
-
 
 Data coming in from events, sensors etc can have radically different scales or even units. Rather than having to juggle these differences throughout your code, a strategy is to try to _normalise_ it as soon as you can.
 
@@ -22,7 +19,8 @@ For our simple normalisation, we need some sense of the range of values - a mini
 
 An array of numbers can be normalised:
 
-```js x
+```js
+// repl-pad
 import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
 
 // Normalise with the largest value being 100%, the smallest 0%
@@ -31,17 +29,18 @@ Normalise.array([100,20,0,50]);
 
 // Normalise with a forced min/max range
 // Values outside of range will be clipped
-// Yields:
+// Yields: [1, 0.4, 0, 1]
 Normalise.array([100,20,0,50], 0, 50); // Range 0-50
 ```
 
 [minMaxAvg](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#minMaxAvg) might also be a useful when working with arrays. It returns the minimum, maximum, average and total.
 
 ```js
+// repl-pad
 import {Arrays} from 'https://unpkg.com/ixfx/dist/collections.js';
 
+// Yields: {total:170, max:100, min:0, avg:42.5}
 const mma = Arrays.minMaxAvg([100,20,0,50]);
-// {min, max, avg, total}
 ```
 
 ## Individual values
@@ -53,6 +52,7 @@ It's not always feasible to neatly normalise an array where you know exactly wha
 `Normalise.stream` creates a normalise function based on 'seen' values. It allows simple normalisation of independent input streams. 
 
 ```js
+// repl-pad
 import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
 
 // Initialise a streaming normaliser
@@ -79,6 +79,7 @@ It should be clear from the examples that the input that produces a certain outp
 It's possible to 'prime' the normalisation if you know in advance what range of values to expect. If a value exceeds the range, the range is updated to encompass the new min or max.
 
 ```js
+// repl-pad
 import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
 
 // Initialise normaliser, assuming range of 0-10 
@@ -96,6 +97,7 @@ n(11);
 In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/modules.html#scale) keeps no record of the current min or max, but yields a normalised value based on the provided range. This is a fine alternative if you know what the range should be.
 
 ```js
+// repl-pad#1
 import {scale} from 'https://unpkg.com/ixfx/dist/bundle.js'
 
 // Scale(v:number, inMin:number, inMax:number, outMin?:number, outMax?:number):number
@@ -113,7 +115,8 @@ scale(20, 20, 40);
 `scale` can also be used to map from one input range to another input range. To do this, provide the output range as parameter as well:
 
 ```js
+// repl-pad#1
 // Maps the value 30 from an input range of 20-40 (thus 30 = 0.5 or 50%)
-// to an output range of 100-200, yielding 150 (50% of the range 100-200)
-scale(30, 20, 40, 0, 100);
+// to an output range of 100-200, yielding 100 (50% of the range 100-200)
+scale(30, 20, 40, 100, 200);
 ```

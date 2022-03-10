@@ -1,13 +1,15 @@
 ---
 title: Frequency
+layout: ../../layouts/MainLayout.astro
 setup: |
-  import { Markdown } from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
   import FreqLettersElement from './FreqLettersElement.ts';
-  import FreqWeighted from './FreqWeighted.astro';
 ---
 
-[API Docs: Frequency class](https://clinth.github.io/ixfx/classes/FrequencyMutable.html)
+<script type="module" hoist>
+  import '/src/components/ReplPad';
+</script>
+
+[API Docs: Frequency class](https://clinth.github.io/ixfx/classes/Temporal.FrequencyMutable.html)
 
 The `Frequency` class keeps track of the number of times a certain value is 'seen'.
 
@@ -15,11 +17,34 @@ In some scenarios it can be useful to aggregate data over time, rather than look
 
 In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. A `Frequency` instance is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
 
-<FreqWeighted />
+<script type="module" hoist>
+import '/src/components/temporal/freqWeighted';
+</script>
+<style>
+  #dataStream {
+    width: 5em;
+  }
+  #dataStream {
+    flex-grow: unset;
+    max-height: 5em;
+  }
+</style>
+<div class="toolbar centered">
+  <button id="btnStart">Start</button>
+  <button id="btnStop">Stop</button>
+  <button id="btnClear">Clear</button>
+</div>
+<div class="sxs">
+  <div class="dataLog" id="dataStream"></div>
+  <div>
+    <histogram-vis id="dataPlot"></histogram-vis>
+  </div>
+</div>
+
 
 ## Usage
 
-[API docs](https://clinth.github.io/ixfx/classes/FrequencyMutable.html)
+[API docs](https://clinth.github.io/ixfx/classes/Temporal.FrequencyMutable.html)
 
 The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
 
@@ -27,17 +52,18 @@ The provided frequency histogram is _mutable_, meaning that the object reference
 ### Adding and clearing
 
 ```js
-import { frequencyMutable } from "https://unpkg.com/ixfx/collections.js"
+// repl-pad#1
+import { frequencyMutable } from "https://unpkg.com/ixfx/dist/temporal.js"
 
 // Create an instance
 const freq = frequencyMutable();
 
-// Add string or numeric data...
-freq.add(`apples`);
-freq.add(`oranges`);
-freq.add(`apples`);
-freq.add(`pears`);
-freq.add(`pears`);
+// Add data, here several at once
+freq.add(`apples`, `oranges`, `apples`, `pears`, `pears`);
+
+// Get an array version
+// [ ["apples", 2], ["oranges",1],["pears",2] ]
+const t = freq.toArray();
 ```
 
 Clear all data
@@ -50,19 +76,23 @@ freq.clear();
 Get the count of a specific group. Returns `undefined` if group is not found.
 
 ```js
-const apples = freq.frequencyOf(`apples`); // 2
+// repl-pad#1
+const f = freq.frequencyOf(`apples`); // 2
 ```
 
 It can be useful to work with the relative frequency rather than the absolute amount. For example, `apples` appears 40% of the time:
 
 ```js
-const apples = freq.relativeFrequencyOf(`apples`); // 0.4
+// repl-pad#1
+const rel = freq.relativeFrequencyOf(`apples`); // 0.4
 ```
 
 To find the smallest, largest, average frequencies as well as the total frequency (ie. how many things have been added):
 
 ```js
-const mma = freq.minMaxAvg(); // Returns {min, max, avg, total}
+// repl-pad#1
+// Returns {min, max, avg, total}
+const mma = freq.minMaxAvg(); 
 console.log(`Average frequency is ${mma.avg}`);
 ```
 
@@ -71,8 +101,9 @@ console.log(`Average frequency is ${mma.avg}`);
 You can get the data as an array and iterate:
 
 ```js
+// repl-pad#1
 const data = freq.entries(); // freq.toArray() gives same result
-for ([group, count] of data) {
+for (const [group, count] of data) {
   console.log(`${group} has a count of ${count}`); // apples has a count of 2...
 }
 ```
@@ -80,6 +111,7 @@ for ([group, count] of data) {
 To get the entries sorted:
 
 ```js
+// repl-pad#1
 // Sorting options are: value, valueReverse, key or keyReverse
 const sorted = freq.entriesSorted(`key`); // Sort alphabetically by key
 ```
@@ -91,7 +123,8 @@ To keep track of objects, provide a function that creates a string for the items
 In the below example, cars are grouped by their make:
 
 ```js
-import { frequencyMutable } from "https://unpkg.com/ixfx/collections.js"
+// repl-pad
+import { frequencyMutable } from "https://unpkg.com/ixfx/dist/temporal.js"
 
 // Two cars
 const cars = [
@@ -127,13 +160,15 @@ freq.frequencyOf(cars[1]); // 1
 The below example calculates frequency distribution of letters in a string. It demonstrates how to add items to the `Frequency`, sort by frequency and calculate a proportional amount.
 
 ```js
-import { frequencyMutable } from "https://unpkg.com/ixfx/collections.js"
+// repl-pad
+import { frequencyMutable } from "https://unpkg.com/ixfx/dist/temporal.js"
 
 const freq = frequencyMutable();
+const text = 'This is a test';
 
 // Loop through all characters
-for (let i = 0; i < this.text.length; i++) {
-  const letter = this.text.toLocaleUpperCase().charAt(i);
+for (let i = 0; i < text.length; i++) {
+  const letter = text.toLocaleUpperCase().charAt(i);
   if (letter === ` `) continue; // Skip spaces;
   freq.add(letter); // Add letter
 }
@@ -141,7 +176,7 @@ for (let i = 0; i < this.text.length; i++) {
 // Sort with most frequent at position 0 of the array
 const sorted = freq.entriesSorted(`valueReverse`);
 // Grab just the top three
-const top = sorted.slice(0, Math.min(sorted.length, 3));
+const topThree = sorted.slice(0, Math.min(sorted.length, 3));
 
 // Calculate the min, max and avg over all frequencies
 const mma = freq.minMaxAvg();
@@ -149,7 +184,8 @@ const mma = freq.minMaxAvg();
 // Calculate percentage for a given letter
 const percent = (kv) => Math.round(kv[1] / mma.total * 100);
 
-console.log(`Letter ${top[0]} appears ${percent(top[0])}% of the time.`);
+const top = topThree[0];
+console.log(`Letter ${top[0]} appears ${percent(top)}% of the time.`);
 ```
 
 <freq-letters client:load />

@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,13 @@
 
 
 
-<script type="module" src="../../../assets/queue.da233988.js"></script>
+<script type="module" src="../../../assets/queue.b709d4df.js"></script>
+
+
+
+
+<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/normalising.59d29e0a.css">
+
 
 
 </head>
@@ -115,8 +108,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -145,7 +138,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -242,7 +235,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -251,18 +244,12 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="Z2lX9JN"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#basics">Basics</a></li><li class="header-link depth-2"><a href="#iterating">Iterating</a></li><li class="header-link depth-2"><a href="#additional-properties">Additional properties</a></li><li class="header-link depth-2"><a href="#capacity-limiting">Capacity limiting</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Collections.Queues.html">API Docs: Queues</a></p><p>A queue stores items like a queue at a bakery. Items added are put at the <em>back</em> of the queue, and if you want to grab an item, you can only see, and grab from the <em>front</em> of the queue. This is useful if you want to process items in the same order as they are added to the queue</p><p>In other words, it is FIFO (first in, first out). If you want last-in first out, see <a href="./stack">Stack</a>.</p><p>The default implementation in ixfx is immutable, meaning that every operation that changes the queue returns a <em>new</em> queue. A queue instance itself never changes.</p><script type="module" src="../../../assets/ArrayVisElement.21733268.js"></script>
-<script type="module" src="../../../assets/QueueVis.9eeae2b9.js"></script>
-<div class="centered toolbar">
+		<p><a href="https://clinth.github.io/ixfx/modules/Collections.Queues.html">API Docs: Queues</a></p><p>A queue stores items like a queue at a bakery. Items added are put at the <em>back</em> of the queue, and if you want to grab an item, you can only see, and grab from the <em>front</em> of the queue. This is useful if you want to process items in the same order as they are added to the queue</p><p>In other words, it is FIFO (first in, first out). If you want last-in first out, see <a href="./stack">Stack</a>.</p><p>The default implementation in ixfx is immutable, meaning that every operation that changes the queue returns a <em>new</em> queue. A queue instance itself never changes.</p><div class="centered toolbar">
   <button id="btnEnqueue">Enqueue</button>
   <button id="btnDequeue">Dequeue</button>
-</div>
-<div class="centered toolbar">
+</div><div class="centered toolbar">
   <div id="peek"></div>
-</div>
-<div id="vis"></div>
-
-<h2 id="basics">Basics</h2><p><code data-astro-raw="">enqueue</code> and <code data-astro-raw="">dequeue</code> are the main means of interacting with a dequeue.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Queues<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/collections.js"</span>
+</div><div id="vis"></div><h2 id="basics">Basics</h2><p><code>enqueue</code> and <code>dequeue</code> are the main means of interacting with a dequeue.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Queues<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/collections.js"</span>
 
 <span class="token comment">// Initialise</span>
 <span class="token keyword">let</span> q <span class="token operator">=</span> Queues<span class="token punctuation">.</span><span class="token function">queue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -275,7 +262,7 @@ q <span class="token operator">=</span> q<span class="token punctuation">.</span
 q<span class="token punctuation">.</span>peek<span class="token punctuation">;</span>
 
 <span class="token comment">// Return a new queue with front-most item removed</span>
-q <span class="token operator">=</span> q<span class="token punctuation">.</span><span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="iterating">Iterating</h2><p>For the most part, you’re meant to just access the front-most item of a queue. If you find yourself needing to dig through a queue, it may not be the right data structure.</p><p>That said, there are ways of iterating:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Iterate from back-to-front of queue</span>
+q <span class="token operator">=</span> q<span class="token punctuation">.</span><span class="token function">dequeue</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="iterating">Iterating</h2><p>For the most part, you're meant to just access the front-most item of a queue. If you find yourself needing to dig through a queue, it may not be the right data structure.</p><p>That said, there are ways of iterating:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Iterate from back-to-front of queue</span>
 q<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with item</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -283,7 +270,7 @@ q<span class="token punctuation">.</span><span class="token function">forEach</s
 <span class="token comment">// Iterate from front-to-back of queue</span>
 q<span class="token punctuation">.</span><span class="token function">forEachFromFront</span><span class="token punctuation">(</span><span class="token parameter">item</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with item</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="additional-properties">Additional properties</h2><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// True if queue is empty</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="additional-properties">Additional properties</h2><pre class="language-js"><code class="language-js"><span class="token comment">// True if queue is empty</span>
 q<span class="token punctuation">.</span>isEmpty<span class="token punctuation">;</span>
 
 <span class="token comment">// How many items in queue</span>
@@ -292,14 +279,11 @@ q<span class="token punctuation">.</span>length<span class="token punctuation">;
 <span class="token comment">// Returns the underlying array</span>
 <span class="token comment">// used by the stack. Be careful not to</span>
 <span class="token comment">// modify or it may break the stack semantics</span>
-q<span class="token punctuation">.</span>data<span class="token punctuation">;</span></code></pre><h2 id="capacity-limiting">Capacity limiting</h2><p>When creating the queue, it’s possible to set a capacity limit. This can be useful to avoid a <em>backlog</em> of data. For example, if you’re processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don’t really care about older things any longer.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">let</span> q <span class="token operator">=</span> Queues<span class="token punctuation">.</span><span class="token function">queue</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">discardPolicy</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">newer</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The <code data-astro-raw="">capacity</code> naturally sets the total number of items the queue will store. The <code data-astro-raw="">discardPolicy</code> determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is <em>enqueued</em>.</p><p>Values for <code data-astro-raw="">discardPolicy</code> are:</p><ul>
-<li><code data-astro-raw="">older</code>: Removes existing items from the front of the queue to make room for additions. Ie. the oldest items are thrown away</li>
-<li><code data-astro-raw="">newer</code>: Removes existing items from the back of the queue to make room for additions. Ie. the newest items are thrown away</li>
-<li><code data-astro-raw="">additions</code>: Does not change the existing items, but rather throws away items that are being <em>enqueued</em>.</li>
-</ul><script type="module" src="../../../assets/ArrayVisElement.21733268.js"></script>
-<script type="module" src="../../../assets/QueueDiscardVis.ae7a85c6.js"></script>
-
-<div class="centered toolbar">
+q<span class="token punctuation">.</span>data<span class="token punctuation">;</span></code></pre><h2 id="capacity-limiting">Capacity limiting</h2><p>When creating the queue, it's possible to set a capacity limit. This can be useful to avoid a <em>backlog</em> of data. For example, if you're processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don't really care about older things any longer.</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> q <span class="token operator">=</span> Queues<span class="token punctuation">.</span><span class="token function">queue</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">discardPolicy</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">newer</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The <code>capacity</code> naturally sets the total number of items the queue will store. The <code>discardPolicy</code> determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is <em>enqueued</em>.</p><p>Values for <code>discardPolicy</code> are:</p><ul>
+<li><code>older</code>: Removes existing items from the front of the queue to make room for additions. Ie. the oldest items are thrown away</li>
+<li><code>newer</code>: Removes existing items from the back of the queue to make room for additions. Ie. the newest items are thrown away</li>
+<li><code>additions</code>: Does not change the existing items, but rather throws away items that are being <em>enqueued</em>.</li>
+</ul><div class="centered toolbar">
   <button id="btnEnqueueDiscard">Enqueue</button>
   <button id="btnDequeueDiscard">Dequeue</button>
   <label for="selDiscard" style="align-self: center">Capacity 3.<br> Discard policy</label>
@@ -308,13 +292,9 @@ q<span class="token punctuation">.</span>data<span class="token punctuation">;</
     <option value="newer">newer</option>
     <option value="additions">additions</option>
   </select>
-</div>
-<div class="centered toolbar">
+</div><div class="centered toolbar">
   <div id="peekDiscard"></div>
-</div>
-<div id="visDiscard"></div>
-
-
+</div><div id="visDiscard"></div>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -336,7 +316,7 @@ q<span class="token punctuation">.</span>data<span class="token punctuation">;</
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

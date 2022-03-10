@@ -1,16 +1,20 @@
 // Full Astro Configuration API Documentation:
 // https://docs.astro.build/reference/configuration-reference
-import {fileURLToPath} from 'url';
-import {resolve, dirname} from 'path';
-import tsconfigPaths from 'vite-tsconfig-paths';
 import {nodeResolve} from '@rollup/plugin-node-resolve';
-import alias from '@rollup/plugin-alias';
 
 // @ts-check
 export default /** @type {import('astro').AstroUserConfig} */ ({
   dist: './docs/',
   buildOptions: {
     site: `https://clinth.github.io/ixfx-docs/`
+  },
+  markdownOptions: {
+    render: [
+      `@astrojs/markdown-remark`,
+      {
+        remarkPlugins: [[`remark-gfm`, {behavior: `prepend`}]]
+      }
+    ]
   },
   renderers: [
     `@astrojs/renderer-preact`,
@@ -25,22 +29,7 @@ export default /** @type {import('astro').AstroUserConfig} */ ({
         ]
       }
     },
-    // resolve: {
-    //   alias: {
-    //     '~': () => {
-    //       const base = resolve(dirname(fileURLToPath(import.meta.url)), `../src/`);
-    //       console.log(base);
-    //       return base;
-    //     }
-    //   }
-    // },
     plugins: [
-      //tsconfigPaths({root: `../`}),
-      // alias({
-      //   entries: [
-      //     {find: `~/`, replacement: resolve(dirname(fileURLToPath(import.meta.url)), `../src/`)}
-      //   ]
-      // }),
       nodeResolve({
         extensions: [`.js`, `.ts`]
       })

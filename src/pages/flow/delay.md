@@ -21,7 +21,7 @@ If you want to trigger the same timeout at different points in your code, it soo
 ixfx's `timeout` makes this a bit simpler. Once setup, calling `start()` resets the timeout if it's already started. To cancel a started timeout, use `cancel()`.
 
 ```js
-import { timeout } from "https://unpkg.com/ixfx/flow.js"
+import { timeout } from "https://unpkg.com/ixfx/dist/flow.js"
 
 // Set up once
 const fadeOut = timeout(doFadeOut, 30*1000);
@@ -52,7 +52,7 @@ timeout(elapsedMs => console.log(`Timeout after ${elapsedMs}`), 30*1000).start()
 Using JS's _await_ feature, you can essentially pause execution of your code using `sleep`:
 
 ```js
-import { sleep } from "https://unpkg.com/ixfx/flow.js"
+import { sleep } from "https://unpkg.com/ixfx/dist/flow.js"
 console.log(`Hello`);
 await sleep(1000);
 console.log(`There`); // Print one second after
@@ -77,7 +77,7 @@ something();
 To run a function after a delay, you can use [timeout](#timeout), or the asynchronous `delay`:
 
 ```js
-import { delay } from "https://unpkg.com/ixfx/flow.js"
+import { delay } from "https://unpkg.com/ixfx/dist/flow.js"
 
 console.log(`Hello`);
 delay(async () => console.log(`There`), 1000);
@@ -123,7 +123,7 @@ Note that execution blocks until data is fetched, so there may be cases where po
 _Debounce_ reduces a series of function calls that happen within a duration to a single call. It allows you to ignore all events until there is a break in the flow of the given `timeoutMs`.
 
 ```js
-import { debounce } from "https://unpkg.com/ixfx/flow.js"
+import { debounce } from "https://unpkg.com/ixfx/dist/flow.js"
 // Signature:
 // debounce(
 //  callback:(elapsedMs?:number, ...args:unknown[])=> void, 
@@ -154,7 +154,7 @@ _Throttle_ reduces a fast interval of function calls to a maximum rate. It allow
 This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with _throttle_ and an appropriate `intervalMs`, you might avoid this.
 
 ```js
-import { throttle } from "https://unpkg.com/ixfx/flow.js"
+import { throttle } from "https://unpkg.com/ixfx/dist/flow.js"
 // Signature:
 // throttle(
 //  callback:(elapsedMs?:number, ...args:unknown[])=> void, 
@@ -165,7 +165,7 @@ import { throttle } from "https://unpkg.com/ixfx/flow.js"
 In this scenario, the event handler will run at maximum rate of 500ms.
 
 ```js
-const resizeThrottled = debounce((elapsedMs, ...evtArgs) => {
+const resizeThrottled = throttle((elapsedMs, ...evtArgs) => {
    // Handle event
 
    // Use original event data if we need to
@@ -199,7 +199,7 @@ resetThrottled();
 Let us say you have an array of items you want to process with some interval:
 
 ```js
-import { continuously } from "https://unpkg.com/ixfx/flow.js"
+import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
 const items = [/* some array of things */]
 
 continuously(() => {

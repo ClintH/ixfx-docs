@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,11 @@
 
 
 
-<script type="module" src="../../assets/colour.a202220a.js"></script>
+<script type="module" src="../../assets/colour.f29b31c0.js"></script>
+
+
+
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/normalising.59d29e0a.css">
 
 
 
@@ -116,8 +107,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +137,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -243,7 +234,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -252,28 +243,28 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="ZeRXJ8"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#interpolating">Interpolating</a></li><li class="header-link depth-2"><a href="#scale">Scale</a></li><li class="header-link depth-2"><a href="#parsing">Parsing</a></li><li class="header-link depth-2"><a href="#variations">Variations</a></li><li class="header-link depth-2"><a href="#credits">Credits</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Visual.Colour.html">API Docs: Colour module</a></p><script type="module" src="../../assets/ColourScaleElement.5e53a599.js"></script><script type="module" src="../../assets/loader.650af1c5.js"></script><h2 id="interpolating">Interpolating</h2><p>Colours can be <em>interpolated</em>, eg. getting the colour that is 50% between red and blue.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/visuals.js"</span>
+		<p><a href="https://clinth.github.io/ixfx/modules/Visual.Colour.html">API Docs: Colour module</a></p><h2 id="interpolating">Interpolating</h2><p>Colours can be <em>interpolated</em>, eg. getting the colour that is 50% between red and blue.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/visuals.js"</span>
 
 <span class="token comment">// Returns  `rgb(128, 0, 128)`</span>
-Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">red</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Regular CSS colour definitions can also be used:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns `rgb(0, 85, 128))`</span>
-Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(200, 100%, 50%)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(90, 100%, 50%</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>By default colours are mixed in the RGB colour space. Options include: rgb, hsb, hcl, lch and lab.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Mix in HCL colour space. Returns `rgb(0, 170, 255))`</span>
+Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">red</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Regular CSS colour definitions can also be used:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns `rgb(0, 85, 128))`</span>
+Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(200, 100%, 50%)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(90, 100%, 50%</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>By default colours are mixed in the RGB colour space. Options include: rgb, hsb, hcl, lch and lab.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Mix in HCL colour space. Returns `rgb(0, 170, 255))`</span>
 Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(200, 100%, 50%)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(90, 100%, 50%</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hcl</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// ..or object options can be used. Here we also add the `long` parameter</span>
 <span class="token comment">// to make interpolation go the long way around the circle</span>
-Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(200, 100%, 50%)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(90, 100%, 50%</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">space</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hcl</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token literal-property property">long</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The colour space you choose can have a large impact on what colour is generated. Colour spaces are different with regard to perceptual brightness, uniformity and saturation. See example below for <code data-astro-raw="">scale</code>.</p><h2 id="scale">Scale</h2><p>You can generate a series of colours with a specified number of steps with <code data-astro-raw="">scale</code>. The start and end colours are included appear as first and last step respectively.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/visuals.js"</span>
+Colour<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(200, 100%, 50%)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(90, 100%, 50%</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">space</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hcl</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token literal-property property">long</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span> <span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The colour space you choose can have a large impact on what colour is generated. Colour spaces are different with regard to perceptual brightness, uniformity and saturation. See example below for <code>scale</code>.</p><h2 id="scale">Scale</h2><p>You can generate a series of colours with a specified number of steps with <code>scale</code>. The start and end colours are included appear as first and last step respectively.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/visuals.js"</span>
 
 <span class="token comment">// Mixes in HCL space, returns an array of 10 string rgb() values, spaced between red and blue.</span>
-Colour<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hcl</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">red</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The demo below shows <code data-astro-raw="">scale</code> in action, as well how different interpolations can be between colour spaces.</p><div id="colourScale"></div><script type="module">
+Colour<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hcl</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">red</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The demo below shows <code>scale</code> in action, as well how different interpolations can be between colour spaces.</p><div id="colourScale"></div><script type="module">
 importEl(
   `colourScale`, 
   `colourscale-element`, {});
-</script><p>By default, a scale will be made in the shortest distance between the colours. If you purposefully want to include more colour variations, use the <code data-astro-raw="">long</code> option. This only applies to hsl, hcl and cubehelix colour spaces.</p><pre class="language-js"><code data-astro-raw="" class="language-js">Colour<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">space</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hcl</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token literal-property property">long</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">red</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="parsing">Parsing</h2><p>If you need to parse a colour string into its components:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/visuals.js"</span>
+</script><p>By default, a scale will be made in the shortest distance between the colours. If you purposefully want to include more colour variations, use the <code>long</code> option. This only applies to hsl, hcl and cubehelix colour spaces.</p><pre class="language-js"><code class="language-js">Colour<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">space</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hcl</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token literal-property property">long</span><span class="token operator">:</span> <span class="token boolean">true</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">red</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">blue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="parsing">Parsing</h2><p>If you need to parse a colour string into its components:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/visuals.js"</span>
 
 <span class="token comment">// Returns { h: 10.47, s: 1, l: 0.875 }</span>
 Colour<span class="token punctuation">.</span><span class="token function">toHsl</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">pink</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// Returns { r: 255, g: 192, b: 203 }</span>
-Colour<span class="token punctuation">.</span><span class="token function">toRgb</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">pink</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="variations">Variations</h2><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/visuals.js"</span>
+Colour<span class="token punctuation">.</span><span class="token function">toRgb</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">pink</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="variations">Variations</h2><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Colour <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/visuals.js"</span>
 
 <span class="token comment">// Returns a colour string for blue at 50% opacity</span>
 <span class="token comment">// `rgba(0, 0, 255, 0.5)`</span>
@@ -281,7 +272,7 @@ Colour<span class="token punctuation">.</span><span class="token function">toRgb
 
 <span class="token comment">// If a colour already has opacity, it is multiplied</span>
 <span class="token comment">// `rgba(0, 0, 255, 0.25)`</span>
-<span class="token keyword">const</span> quarterBlue <span class="token operator">=</span> Colour<span class="token punctuation">.</span><span class="token function">opacity</span><span class="token punctuation">(</span>halfBlue<span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="credits">Credits</h2><p>Most of the functionality of the colour module is via Mike Bostock’s <a href="https://github.com/d3/d3-color">d3-color</a> and <a href="https://github.com/d3/d3-interpolate">d3-interpolate</a>.</p>
+<span class="token keyword">const</span> quarterBlue <span class="token operator">=</span> Colour<span class="token punctuation">.</span><span class="token function">opacity</span><span class="token punctuation">(</span>halfBlue<span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="credits">Credits</h2><p>Most of the functionality of the colour module is via Mike Bostock's <a href="https://github.com/d3/d3-color">d3-color</a> and <a href="https://github.com/d3/d3-interpolate">d3-interpolate</a>.</p>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -303,7 +294,7 @@ Colour<span class="token punctuation">.</span><span class="token function">toRgb
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

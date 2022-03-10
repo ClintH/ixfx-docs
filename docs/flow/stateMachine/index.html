@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/stateMachine.0a2ad101.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -81,7 +68,8 @@
 
 
 
-<script type="module" src="../../assets/stateMachine.30370aaa.js"></script>
+<script type="module" src="../../assets/stateMachine.8656d982.js"></script>
+
 
 
 </head>
@@ -116,8 +104,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +134,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="page" class="astro-NO4JLDNO">
@@ -243,7 +231,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -252,14 +240,14 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="1c0P95"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#machine-definition">Machine definition</a></li><li class="header-link depth-2"><a href="#why">Why?</a></li><li class="header-link depth-2"><a href="#playground">Playground</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#changing-state">Changing state</a></li><li class="header-link depth-3"><a href="#status">Status</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Flow.StateMachine.html">API docs</a></p><p>A <em>state machine</em> allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It’s up to you to ‘drive’ the machine, telling it when to transition.</p><p>State machines can be defined using a plain object, with keys the list of possible states, and the values state(s) that are possible to change to, or null if no further changes are possible.</p><h2 id="machine-definition">Machine definition</h2><p>A simple state machine is a light switch, it has two states: <em>on</em> and <em>off</em>. When the light is <em>on</em>, the only other state is <em>off</em>. And vice-versa:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token punctuation">{</span>
+		<p><a href="https://clinth.github.io/ixfx/modules/Flow.StateMachine.html">API docs</a></p><p>A <em>state machine</em> allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It's up to you to 'drive' the machine, telling it when to transition.</p><p>State machines can be defined using a plain object, with keys the list of possible states, and the values state(s) that are possible to change to, or null if no further changes are possible.</p><h2 id="machine-definition">Machine definition</h2><p>A simple state machine is a light switch, it has two states: <em>on</em> and <em>off</em>. When the light is <em>on</em>, the only other state is <em>off</em>. And vice-versa:</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
   <span class="token string-property property">"on"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span>
   <span class="token string-property property">"off"</span><span class="token operator">:</span> <span class="token string">"on"</span>
-<span class="token punctuation">}</span></code></pre><p>With this machine definition, it would be illegal to have a state <code data-astro-raw="">dimmed</code>, or to turn it <code data-astro-raw="">off</code> when it is already <code data-astro-raw="">off</code>. In this case, the machine never reaches a final state, it can always oscillate between <code data-astro-raw="">on/off</code>. Note too that we can safely automatically advance the state of the machine, because it knows what the next state will always be.</p><p>It’s possible to have several possible next states by using a string array:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre><p>With this machine definition, it would be illegal to have a state <code>dimmed</code>, or to turn it <code>off</code> when it is already <code>off</code>. In this case, the machine never reaches a final state, it can always oscillate between <code>on/off</code>. Note too that we can safely automatically advance the state of the machine, because it knows what the next state will always be.</p><p>It's possible to have several possible next states by using a string array:</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
   <span class="token string-property property">"on"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"off"</span><span class="token punctuation">,</span> <span class="token string">"half-bright"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token string-property property">"half-bright"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"on"</span><span class="token punctuation">,</span> <span class="token string">"off"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token string-property property">"off"</span><span class="token operator">:</span> <span class="token string">"on"</span>
-<span class="token punctuation">}</span></code></pre><p>The example below starts with <code data-astro-raw="">plain</code> bread and there are many subsequent states for the bread to be in. Some states can be reached from different prior states, and there are two possible final states (<code data-astro-raw="">sprinkled-on-soup</code> and <code data-astro-raw="">eaten</code>). Once a machine is in its final state, it cannot change to another state without being <em>reset</em>.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre><p>The example below starts with <code>plain</code> bread and there are many subsequent states for the bread to be in. Some states can be reached from different prior states, and there are two possible final states (<code>sprinkled-on-soup</code> and <code>eaten</code>). Once a machine is in its final state, it cannot change to another state without being <em>reset</em>.</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
   <span class="token string-property property">"plain"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"toasted"</span><span class="token punctuation">,</span> <span class="token string">"buttered"</span><span class="token punctuation">,</span> <span class="token string">"eaten"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token string-property property">"toasted"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"buttered"</span><span class="token punctuation">,</span> <span class="token string">"eaten"</span><span class="token punctuation">,</span> <span class="token string">"diced"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
   <span class="token string-property property">"buttered"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"eaten"</span><span class="token punctuation">,</span> <span class="token string">"marmaladed"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -267,57 +255,58 @@
   <span class="token string-property property">"diced"</span><span class="token operator">:</span> <span class="token string">"sprinkled-on-soup"</span><span class="token punctuation">,</span>
   <span class="token string-property property">"sprinkled-on-soup"</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
   <span class="token string-property property">"eaten"</span><span class="token operator">:</span> <span class="token keyword">null</span>
-<span class="token punctuation">}</span></code></pre><h2 id="why">Why?</h2><p>Behaving according to a current state is a common pattern in programming interactivity. This is often solved by using different variables track state. The downside is that you have to be mindful what variables contribute to state, when and where to enforce rules about state changes. It can also be hard to keep track of all possible states.</p><p>A state machine therefore can help you catch errors and makes coding simpler when you know there are a fixed number of well-defined states to handle.</p><h2 id="playground">Playground</h2><p>Try out some state machines in this playground. Edit the description or load a demo, click <em>Use description</em> to load it and check for errors. If successful, you can see available states and change state under <em>Control</em>.</p><!-- <link rel="stylesheet" href={Astro.resolve('../../styles/demos.css')} /> --><script type="module" src="../../assets/stateMachine.6473cd8a.js"></script>
+<span class="token punctuation">}</span></code></pre><h2 id="why">Why?</h2><p>Behaving according to a current state is a common pattern in programming interactivity. This is often solved by using different variables track state. The downside is that you have to be mindful what variables contribute to state, when and where to enforce rules about state changes. It can also be hard to keep track of all possible states.</p><p>A state machine therefore can help you catch errors and makes coding simpler when you know there are a fixed number of well-defined states to handle.</p><h2 id="playground">Playground</h2><p>Try out some state machines in this playground. Edit the description or load a demo, click <em>Use description</em> to load it and check for errors. If successful, you can see available states and change state under <em>Control</em>.</p>
+
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/stateMachine.d18188b8.css">
 
 
 
-<div class="sxs astro-3AKA5S4G">
-  <section id="dataDescr" class="dividerRight astro-3AKA5S4G">
-    <section class="astro-3AKA5S4G">
-      <div class="toolbar centered astro-3AKA5S4G">
-        <label for="selDemoMachines" class="astro-3AKA5S4G">Load demo:</label>
-        <select id="selDemoMachines" class="astro-3AKA5S4G">
-          <option class="astro-3AKA5S4G">one</option>
+<div class="sxs astro-UG7TMPBL">
+  <section id="dataDescr" class="dividerRight astro-UG7TMPBL">
+    <section class="astro-UG7TMPBL">
+      <div class="toolbar centered astro-UG7TMPBL">
+        <label for="selDemoMachines" class="astro-UG7TMPBL">Load demo:</label>
+        <select id="selDemoMachines" class="astro-UG7TMPBL">
+          <option class="astro-UG7TMPBL">one</option>
         </select>
       </div>
     </section>
-    <section class="astro-3AKA5S4G">
-      <h2 class="astro-3AKA5S4G">Machine description</h2>
-      <pre class="editable astro-3AKA5S4G" contenteditable="" id="jsonDescr">      </pre>
-      <div id="descrValidate" class="astro-3AKA5S4G"></div>
+    <section class="astro-UG7TMPBL">
+      <h2 class="astro-UG7TMPBL">Machine description</h2>
+      <pre class="editable astro-UG7TMPBL" contenteditable="" id="jsonDescr">      </pre>
+      <div id="descrValidate" class="astro-UG7TMPBL"></div>
 
-      <label class="astro-3AKA5S4G">
+      <label class="astro-UG7TMPBL">
         Initial state:
-        <select id="selDescrInitial" class="astro-3AKA5S4G">
-          <option class="astro-3AKA5S4G"></option>
+        <select id="selDescrInitial" class="astro-UG7TMPBL">
+          <option class="astro-UG7TMPBL"></option>
         </select>
       </label>
-      <div class="toolbar centered astro-3AKA5S4G">
-        <button id="btnSetDescr" class="astro-3AKA5S4G">1. Use description</button>
+      <div class="toolbar centered astro-UG7TMPBL">
+        <button id="btnSetDescr" class="astro-UG7TMPBL">1. Use description</button>
       </div>
     </section>
 
   </section>
-  <section class="astro-3AKA5S4G">
-    <section class="astro-3AKA5S4G">
-      <h2 class="astro-3AKA5S4G">Control</h2>
-      <select disabled="" size="3" id="selPossibleNext" class="astro-3AKA5S4G">
-        <option class="astro-3AKA5S4G"></option>
+  <section class="astro-UG7TMPBL">
+    <section class="astro-UG7TMPBL">
+      <h2 class="astro-UG7TMPBL">Control</h2>
+      <select disabled="" size="3" id="selPossibleNext" class="astro-UG7TMPBL">
+        <option class="astro-UG7TMPBL"></option>
       </select>
-      <div class="toolbar astro-3AKA5S4G">
-        <button disabled="" id="btnChangeState" class="astro-3AKA5S4G">2. Change state</button>
+      <div class="toolbar astro-UG7TMPBL">
+        <button disabled="" id="btnChangeState" class="astro-UG7TMPBL">2. Change state</button>
       </div>
    
-      <div id="currentState" class="astro-3AKA5S4G"></div>
+      <div id="currentState" class="astro-UG7TMPBL"></div>
 
     </section>
-    <section class="dividerTop astro-3AKA5S4G">
-      <div id="dataStream" class="astro-3AKA5S4G"></div>
+    <section class="dividerTop astro-UG7TMPBL">
+      <div id="dataStream" class="astro-UG7TMPBL"></div>
     </section>
   </section>
-  
 </div>
-<h2 id="usage">Usage</h2><p><a href="https://clinth.github.io/ixfx/modules/Flow.StateMachine.html">API docs</a></p><p>Create the machine with the an initial state and its <em>description</em>:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> machine <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StateMachine</span><span class="token punctuation">(</span>initialState<span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The machine description is a simple object that 1) lists all possible states (as its top-level properties), and 2) for each state, what other state(s) can be transitioned to, or <code data-astro-raw="">null</code> if it is a final state.</p><p>The following example has four possible states (<code data-astro-raw="">wakeup, sleep, coffee, breakfast, bike</code>). <code data-astro-raw="">sleep</code> can only transition to the <code data-astro-raw="">wakeup</code> state, while <code data-astro-raw="">wakeup</code> can transition to either <code data-astro-raw="">coffee</code> or <code data-astro-raw="">breakfast</code>.</p><p>Use <code data-astro-raw="">null</code> to signify the final state. Multiple states can terminate the machine if desired.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> StateMachine <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/flow.js"</span>
+<h2 id="usage">Usage</h2><p><a href="https://clinth.github.io/ixfx/modules/Flow.StateMachine.html">API docs</a></p><p>Create the machine with the an initial state and its <em>description</em>:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> machine <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StateMachine</span><span class="token punctuation">(</span>initialState<span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The machine description is a simple object that 1) lists all possible states (as its top-level properties), and 2) for each state, what other state(s) can be transitioned to, or <code>null</code> if it is a final state.</p><p>The following example has four possible states (<code>wakeup, sleep, coffee, breakfast, bike</code>). <code>sleep</code> can only transition to the <code>wakeup</code> state, while <code>wakeup</code> can transition to either <code>coffee</code> or <code>breakfast</code>.</p><p>Use <code>null</code> to signify the final state. Multiple states can terminate the machine if desired.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> StateMachine <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 
 <span class="token keyword">const</span> description <span class="token operator">=</span> <span class="token punctuation">{</span> 
  <span class="token literal-property property">sleep</span><span class="token operator">:</span> <span class="token string">'wakeup'</span><span class="token punctuation">,</span>
@@ -326,8 +315,8 @@
  <span class="token literal-property property">breakfast</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bike</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span>
  <span class="token literal-property property">bike</span><span class="token operator">:</span> <span class="token keyword">null</span>
 <span class="token punctuation">}</span>
-<span class="token keyword">const</span> machine <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StateMachine</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">sleep</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="changing-state">Changing state</h3><p>Change the state by name:</p><pre class="language-js"><code data-astro-raw="" class="language-js">machine<span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">wakeup</span><span class="token template-punctuation string">`</span></span></code></pre><p>Or request an automatic transition (will use first state if there are several options)</p><pre class="language-js"><code data-astro-raw="" class="language-js">machine<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Reset the machine back to its initial state:</p><pre class="language-js"><code data-astro-raw="" class="language-js">machine<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="status">Status</h3><p>Check status</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>machine<span class="token punctuation">.</span>state <span class="token operator">===</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">coffee</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token operator">...</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>machine<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token operator">...</span></code></pre><p>The <code data-astro-raw="">change</code> event is fired whenever state changes, and <code data-astro-raw="">stop</code> when the machine reaches an end.</p><pre class="language-js"><code data-astro-raw="" class="language-js">machine<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">change</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+<span class="token keyword">const</span> machine <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">StateMachine</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">sleep</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="changing-state">Changing state</h3><p>Change the state by name:</p><pre class="language-js"><code class="language-js">machine<span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">wakeup</span><span class="token template-punctuation string">`</span></span></code></pre><p>Or request an automatic transition (will use first state if there are several options)</p><pre class="language-js"><code class="language-js">machine<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Reset the machine back to its initial state:</p><pre class="language-js"><code class="language-js">machine<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="status">Status</h3><p>Check status</p><pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>machine<span class="token punctuation">.</span>state <span class="token operator">===</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">coffee</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token operator">...</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>machine<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token operator">...</span></code></pre><p>The <code>change</code> event is fired whenever state changes, and <code>stop</code> when the machine reaches an end.</p><pre class="language-js"><code class="language-js">machine<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">change</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">State change from </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>evt<span class="token punctuation">.</span>priorState<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -&gt; </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>evt<span class="token punctuation">.</span>newState<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 machine<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">stop</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -354,7 +343,7 @@ machine<span class="token punctuation">.</span><span class="token function">addE
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

@@ -1,13 +1,15 @@
 ---
 title: Arc
+layout: ../../../layouts/MainLayout.astro
 setup: |
-  import {Markdown} from 'astro/components';
-  import Layout from '../../../layouts/MainLayout.astro';
-  import ArcEditor from './ArcEditor';
-  import AnglesElement from './AnglesElement';
+  import ArcEditor from '/src/components/geometry/ArcEditor';
+  import AnglesElement from '/src/components/geometry/AnglesElement';
 
 ---
-<script type="module" src={Astro.resolve('./arc.ts')}></script>
+
+<script type="module" hoist>
+import '/src/components/types/geometry/arc';
+</script>
 <style>
 input.code {
   font-family: var(--font-mono);
@@ -64,6 +66,8 @@ Angles are set with _radians_, not the more familiar _degrees_. See [Units](unit
 Create an arc from degrees:
 
 ```js
+import { Arcs } from "https://unpkg.com/ixfx/dist/geometry.js"
+
 // fromDegrees(radius:number, startDegrees:number, endDegrees:number, origin?:Point)
 // returns Arc {radius, startRadian, endRadian}
 const a = Arcs.fromDegrees(10, 0, 90);

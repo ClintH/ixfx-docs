@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,11 @@
 
 
 
-<script type="module" src="../../assets/oscillator.b81a0a8c.js"></script>
+<script type="module" src="../../assets/oscillator.10fdf61a.js"></script>
+
+
+
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/normalising.59d29e0a.css">
 
 
 
@@ -116,8 +107,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +137,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -243,7 +234,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -252,7 +243,7 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="w5UmR"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#sampling">Sampling</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-2"><a href="#amplitude-modulation">Amplitude modulation</a></li><li class="header-link depth-2"><a href="#starter">Starter</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html">API Docs: Modulation.Oscillators module</a></p><script type="module" src="../../assets/OscElement.3c0ee458.js"></script><script type="module" src="../../assets/loader.650af1c5.js"></script><p><em>Oscillators</em> are generators that produce value according to a wave shape. Common shapes include <em>sine</em>, <em>sawtooth</em> (or <em>ramp</em>), <em>square</em> and <em>triangle</em>.</p><p>In the below example, each oscillator runs for one <em>cycle</em> over two seconds. That means the <em>frequency</em> is 0.5 - half a cycle every second.</p><div id="waveIntro"></div><script type="module">
+		<p><a href="https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html">API Docs: Modulation.Oscillators module</a></p><p><em>Oscillators</em> are generators that produce value according to a wave shape. Common shapes include <em>sine</em>, <em>sawtooth</em> (or <em>ramp</em>), <em>square</em> and <em>triangle</em>.</p><p>In the below example, each oscillator runs for one <em>cycle</em> over two seconds. That means the <em>frequency</em> is 0.5 - half a cycle every second.</p><div id="waveIntro"></div><script type="module">
 importEl(
   `waveIntro`, 
   `oscillator-element`, {
@@ -262,7 +253,7 @@ importEl(
   sampleDurationMs: 1000,
   height: 150
 });
-</script><p>Oscillators are normalised to generate values in the range of <code data-astro-raw="">0</code> to <code data-astro-raw="">1</code>. Inverse waves can be calculated by taking the value from one.</p><h2 id="sampling">Sampling</h2><p>How often to sample the oscillator depends on how you’re using the value, and the oscillator frequency. If the sample rate is proportionally much slower than the oscillator, you’ll miss the shape of the wave - sort of like seeing someone dance under a strobe light.</p><div id="waveSampling"></div><script type="module">
+</script><p>Oscillators are normalised to generate values in the range of <code>0</code> to <code>1</code>. Inverse waves can be calculated by taking the value from one.</p><h2 id="sampling">Sampling</h2><p>How often to sample the oscillator depends on how you're using the value, and the oscillator frequency. If the sample rate is proportionally much slower than the oscillator, you'll miss the shape of the wave - sort of like seeing someone dance under a strobe light.</p><div id="waveSampling"></div><script type="module">
 importEl(
   `waveSampling`, 
   `oscillator-element`, {
@@ -272,8 +263,8 @@ importEl(
   sampleDurationMs: 60*1000,
   height: 250
 });
-</script><h2 id="usage">Usage</h2><p>Initialisation</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> frequencyTimerSource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ixfx/lib/flow'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> Oscillators <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'ixfx/lib/modulation'</span><span class="token punctuation">;</span>
+</script><h2 id="usage">Usage</h2><p>Initialisation</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> frequencyTimerSource <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/flow.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Oscillators <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Create a timer for 10Hz (10 cycles per second)</span>
 <span class="token keyword">const</span> freq <span class="token operator">=</span> <span class="token function">frequencyTimerSource</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -282,7 +273,7 @@ importEl(
 <span class="token keyword">const</span> osc <span class="token operator">=</span> Oscillators<span class="token punctuation">.</span><span class="token function">sine</span><span class="token punctuation">(</span>freq<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Instead of .sine one could choose:</span>
-<span class="token comment">//  sineBipolar, saw, triangle, square</span></code></pre><p>Oscillators are number <a href="../data/generator">generators</a>, which means we have to ‘pull’ values out of it. To <em>sample</em> the current value of the oscillator:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> v <span class="token operator">=</span> osc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span></code></pre><p>To get the inverse, eg converting the upwards ramp of the saw to a downwards ramp:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> v <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> osc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span></code></pre><p>Typically you want to sample the oscillator’s value over time. This might be every time your sketch updates its state, in a drawing loop, or based on a timer.</p><p>Below, we update <code data-astro-raw="">state.oscValue</code> with the oscillator value every 500 milliseconds:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+<span class="token comment">//  sineBipolar, saw, triangle, square</span></code></pre><p>Oscillators are number <a href="../data/generator">generators</a>, which means we have to 'pull' values out of it. To <em>sample</em> the current value of the oscillator:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> v <span class="token operator">=</span> osc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span></code></pre><p>To get the inverse, eg converting the upwards ramp of the saw to a downwards ramp:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> v <span class="token operator">=</span> <span class="token number">1</span> <span class="token operator">-</span> osc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span></code></pre><p>Typically you want to sample the oscillator's value over time. This might be every time your sketch updates its state, in a drawing loop, or based on a timer.</p><p>Below, we update <code>state.oscValue</code> with the oscillator value every 500 milliseconds:</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token literal-property property">oscValue</span><span class="token operator">:</span> <span class="token number">0</span>
 <span class="token punctuation">}</span>
 <span class="token function">setInterval</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -303,12 +294,15 @@ importEl(
   height: 250
 });
 </script><p>Example expressions:</p><ul>
-<li><code data-astro-raw="">source * mod</code>: Dampens output. ie. if modulator is at 50%, signal is reduced by 50%. Try a triangle wave with frequency of 1.</li>
-<li><code data-astro-raw="">source * Math.sqrt(mod)</code>: Reduces the influence of modulator by squaring its value first. If you set a triangle wave and frequency around 41, note how modulation bites in more when sine is at its higher values</li>
-<li><code data-astro-raw="">source * Math.pow(mod, 2)</code>: Increases influence of modulator by raising to the second power. As a result, it seems the sine is the modulator, not the modulator.</li>
-</ul><p>See the <a href="https://clinth.github.io/ixfx-demos/modulation/">modulation demos</a> for an example of how to do frequency modulation.</p><h2 id="starter">Starter</h2><p>Below is a skeleton for a sketch that defines settings, state and an update/apply loop. The oscillator is sampled on every loop.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Define settings</span>
+<li><code>source * mod</code>: Dampens output. ie. if modulator is at 50%, signal is reduced by 50%. Try a triangle wave with frequency of 1.</li>
+<li><code>source * Math.sqrt(mod)</code>: Reduces the influence of modulator by squaring its value first. If you set a triangle wave and frequency around 41, note how modulation bites in more when sine is at its higher values</li>
+<li><code>source * Math.pow(mod, 2)</code>: Increases influence of modulator by raising to the second power. As a result, it seems the sine is the modulator, not the modulator.</li>
+</ul><p>See the <a href="https://clinth.github.io/ixfx-demos/modulation/">modulation demos</a> for an example of how to do frequency modulation.</p><h2 id="starter">Starter</h2><p>Below is a skeleton for a sketch that defines settings, state and an update/apply loop. The oscillator is sampled on every loop.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> frequencyTimer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/flow.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Oscillators <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Define settings</span>
 <span class="token keyword">const</span> settings <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">osc</span><span class="token operator">:</span> Oscillators<span class="token punctuation">.</span><span class="token function">sine</span><span class="token punctuation">(</span><span class="token function">frequencyCycleSource</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token literal-property property">osc</span><span class="token operator">:</span> Oscillators<span class="token punctuation">.</span><span class="token function">sine</span><span class="token punctuation">(</span><span class="token function">frequencyTimer</span><span class="token punctuation">(</span><span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 <span class="token punctuation">}</span>
 
 <span class="token comment">// Initialise state</span>
@@ -318,6 +312,7 @@ importEl(
 
 <span class="token comment">// Update state</span>
 <span class="token keyword">const</span> <span class="token function-variable function">updateState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span>osc<span class="token punctuation">}</span> <span class="token operator">=</span> settings<span class="token punctuation">;</span>
   state <span class="token operator">=</span> <span class="token punctuation">{</span>
     <span class="token operator">...</span>state<span class="token punctuation">,</span>                  <span class="token comment">// Copy any other values in state</span>
     <span class="token literal-property property">oscValue</span><span class="token operator">:</span> osc<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value <span class="token comment">// Sample oscillator</span>
@@ -327,7 +322,9 @@ importEl(
 <span class="token comment">// Apply state</span>
 <span class="token keyword">const</span> <span class="token function-variable function">applyState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token punctuation">{</span> oscValue <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">;</span>
+  
   <span class="token comment">// Use oscValue somehow...</span>
+  document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">oscValue</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span>innerText <span class="token operator">=</span> oscValue<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">loop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> <span class="token punctuation">{</span>
@@ -335,7 +332,7 @@ importEl(
   <span class="token function">applyState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Starter skeleton on <a href="https://glitch.com/~ixfx-starter-oscillators">Glitch</a>, <a href="https://github.com/ClintH/ixfx-demos/tree/main/modulation/oscillator-skeleton">Github</a></p>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -357,7 +354,7 @@ window<span class="token punctuation">.</span><span class="token function">reque
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

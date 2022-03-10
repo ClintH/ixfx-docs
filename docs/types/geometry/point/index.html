@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,10 @@
 
 
 
-<script type="module" src="../../../assets/point.ef0fa868.js"></script>
+<script type="module" src="../../../assets/point.c4c12188.js"></script>
+
+
+<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/normalising.59d29e0a.css">
 
 
 
@@ -116,8 +106,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +136,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -243,7 +233,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -252,36 +242,36 @@
 		<nav class="block sm:hidden astro-EDKM2WF4">
 				<astro-root uid="Z19X4YY"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#distance-and-geometry">Distance and geometry</a></li><li class="header-link depth-2"><a href="#conversions">Conversions</a></li><li class="header-link depth-2"><a href="#helper-functions">Helper functions</a></li><li class="header-link depth-3"><a href="#math">Math</a></li></ul></astro-root>
 			</nav>
-		<p>A point is an <code data-astro-raw="">x</code> and <code data-astro-raw="">y</code> <a href="./units#cartesian">Cartesian coordinate</a>; the basic building block for lines, <a href="./arc">arcs</a>, rectangles and paths.</p><ul>
+		<p>A point is an <code>x</code> and <code>y</code> <a href="./units#cartesian">Cartesian coordinate</a>; the basic building block for lines, <a href="./arc">arcs</a>, rectangles and paths.</p><ul>
 <li><a href="https://clinth.github.io/ixfx-demos/geometry/">Online geometry demos</a></li>
 <li><a href="./units">Units</a>: Cartesian space</li>
 <li><a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html">API Docs: Geometry.Points module</a></li>
-</ul><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// A point at (100, 200)</span>
-<span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>There’s no defined unit for <code data-astro-raw="">x</code> and <code data-astro-raw="">y</code>, but pixel coordinates are typical.</p><h2 id="distance-and-geometry">Distance and geometry</h2><p>Calculate distance between two points</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/geometry.js"</span>
+</ul><pre class="language-js"><code class="language-js"><span class="token comment">// A point at (100, 200)</span>
+<span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>There's no defined unit for <code>x</code> and <code>y</code>, but pixel coordinates are typical.</p><h2 id="distance-and-geometry">Distance and geometry</h2><p>Calculate distance between two points</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
 
 <span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Calculates distance between point a and b</span>
-<span class="token keyword">const</span> distance <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">distance</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns a number</span></code></pre><p>Calculate an in-between point with <code data-astro-raw="">interpolate</code></p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Calculate a Point between `a` and `b` using a relative </span>
+<span class="token keyword">const</span> distance <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">distance</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns a number</span></code></pre><p>Calculate an in-between point with <code>interpolate</code></p><pre class="language-js"><code class="language-js"><span class="token comment">// Calculate a Point between `a` and `b` using a relative </span>
 <span class="token comment">// progress amount (0 -&gt; 1). 0 = a, 0.5 = halfway between</span>
 <span class="token comment">// the two, 1 = b, and so on.</span>
-<span class="token keyword">const</span> p <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns {x,y}</span></code></pre><p>Calculates a rectangle which encompasses all the provided points</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> rect <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token operator">...</span>points<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// returns {x,y,width,height}</span></code></pre><h2 id="conversions">Conversions</h2><p>Converting a Point <em>to</em> some other shape of data</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/geometry.js"</span>
+<span class="token keyword">const</span> p <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns {x,y}</span></code></pre><p>Calculates a rectangle which encompasses all the provided points</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">[</span>a<span class="token punctuation">,</span> b<span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> rect <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token operator">...</span>points<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// returns {x,y,width,height}</span></code></pre><h2 id="conversions">Conversions</h2><p>Converting a Point <em>to</em> some other shape of data</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
 <span class="token keyword">const</span> p <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// To an array [x, y]</span>
 Points<span class="token punctuation">.</span><span class="token function">toArray</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [5, 10]</span>
 
 <span class="token comment">// Human-readable representation:</span>
-Points<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "(5, 5)"</span></code></pre><p>Converting <em>from</em> some other shape of data to Point</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Convert from two numeric parameters</span>
+Points<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span>p<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// "(5, 5)"</span></code></pre><p>Converting <em>from</em> some other shape of data to Point</p><pre class="language-js"><code class="language-js"><span class="token comment">// Convert from two numeric parameters</span>
 Points<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// { x: 10, y: 15}</span>
 
 <span class="token comment">// Convert from an array</span>
 Points<span class="token punctuation">.</span><span class="token function">from</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// {x: 10, y: 15}</span>
 
 <span class="token comment">// Convert an array of arrays</span>
-Points<span class="token punctuation">.</span><span class="token function">fromNumbers</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [{x:10, y:15}, {x:5, y:5}]</span></code></pre><h2 id="helper-functions">Helper functions</h2><p><code data-astro-raw="">findMinimum</code> allows you to compare an array of points, keeping the one which satisfies the provided comparer function over all others.</p><p>Example:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/geometry.js"</span>
+Points<span class="token punctuation">.</span><span class="token function">fromNumbers</span><span class="token punctuation">(</span><span class="token punctuation">[</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">15</span><span class="token punctuation">]</span><span class="token punctuation">,</span> <span class="token punctuation">[</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token number">5</span><span class="token punctuation">]</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// [{x:10, y:15}, {x:5, y:5}]</span></code></pre><h2 id="helper-functions">Helper functions</h2><p><code>findMinimum</code> allows you to compare an array of points, keeping the one which satisfies the provided comparer function over all others.</p><p>Example:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Points <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
 
 <span class="token comment">// Find the point closest to the {x:100, y:100}</span>
 <span class="token keyword">const</span> points <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token comment">/* ... points ... */</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
@@ -295,7 +285,7 @@ Points<span class="token punctuation">.</span><span class="token function">fromN
   <span class="token comment">// Returns `a` if its distance is less than `b`</span>
   <span class="token comment">//  or otherwise returns `b`</span>
   <span class="token keyword">return</span> <span class="token punctuation">(</span>aDistance <span class="token operator">&lt;</span> bDistance<span class="token punctuation">)</span> <span class="token operator">?</span> a <span class="token operator">:</span> b<span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">,</span> points<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="math">Math</h3><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns {x,y} of a * b</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> points<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="math">Math</h3><pre class="language-js"><code class="language-js"><span class="token comment">// Returns {x,y} of a * b</span>
 Points<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Returns {x,y} of a, with a.x * 2 and a.y * 0.5</span>
@@ -327,7 +317,7 @@ Points<span class="token punctuation">.</span><span class="token function">subtr
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

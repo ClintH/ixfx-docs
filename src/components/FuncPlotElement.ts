@@ -3,12 +3,12 @@ import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {Colour, Drawing, Palette, Plot} from 'ixfx/lib/visual';
+import {Colour, Drawing, Plot} from 'ixfx/lib/visual';
 import {Generators} from 'ixfx';
 import {Flow} from 'ixfx';
 import {elStyles} from './styles.js';
 
-export const tagName = `funcplot-element`;
+export const tagName = `func-plot-element`;
 
 export type EditableFunc = {
   text: string,
@@ -84,7 +84,7 @@ export class FuncPlotElement extends LitElement {
 
   showWarning(text: string) {
     if (text.length > 0) console.warn(text);
-    if (this.shadowRoot === null) return;
+    if (this.shadowRoot === undefined || this.shadowRoot === null) return;
     const el = this.shadowRoot.getElementById(`parseMsg`);
     if (el === null) return;
     el.innerText = text;
@@ -104,7 +104,8 @@ export class FuncPlotElement extends LitElement {
       };
       this.showWarning(``);
     } catch (ex) {
-      this.showWarning(ex);
+      console.warn(ex);
+      //this.showWarning(ex);
     }
   }
 
@@ -242,7 +243,7 @@ export class FuncPlotElement extends LitElement {
 
       ctx.font = `${v}px serif`;
       ctx.fillStyle = fillStyle;
-      Drawing.textBlockCentered(ctx, [`RELAX`], {bounds: b});
+      Drawing.textBlockAligned(ctx, [`RELAX`], {bounds: b, horiz: `center`, vert: `center`})
       return !rangeNext.done;
     })
   }

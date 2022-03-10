@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,13 @@
 
 
 
-<script type="module" src="../../assets/easing.7d245e1d.js"></script>
+<script type="module" src="../../assets/easing.bd4fcc77.js"></script>
+
+
+
+
+
+<link rel="stylesheet" href="../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../assets/normalising.59d29e0a.css">
 
 
 
@@ -116,8 +109,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +139,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -243,19 +236,19 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
 	<section class="main-section astro-EDKM2WF4">
 		<h1 class="content-title astro-EDKM2WF4" id="overview">Easing</h1>
 		<nav class="block sm:hidden astro-EDKM2WF4">
-				<astro-root uid="Z2auHHv"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#time-based">Time-based</a></li><li class="header-link depth-3"><a href="#tick-based">Tick-based</a></li><li class="header-link depth-2"><a href="#its-a-function">It’s a function</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li><li class="header-link depth-2"><a href="#defined-easings">Defined easings</a></li><li class="header-link depth-2"><a href="#credits">Credits</a></li></ul></astro-root>
+				<astro-root uid="2t9B5B"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#time-based">Time-based</a></li><li class="header-link depth-3"><a href="#tick-based">Tick-based</a></li><li class="header-link depth-2"><a href="#its-a-function">It's a function</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li><li class="header-link depth-2"><a href="#defined-easings">Defined easings</a></li><li class="header-link depth-2"><a href="#credits">Credits</a></li></ul></astro-root>
 			</nav>
-		<script type="module" src="../../assets/EasingGalleryElement.65831a8a.js"></script><script type="module" src="../../assets/loader.650af1c5.js"></script><ul>
+		<ul>
 <li>API Docs: <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time">Easings.time</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Online modulation demos</a></li>
-</ul><p>Easing functions help to give a <em>dynamic</em> to transition. In <a href="/ixfx-docs/geometry/units#cartesian">Cartesian</a> terms, they give a <em>y</em> value for <em>x</em> (where x is 0 .. 1). Or in temporal terms, you can think of them as giving a value at time <em>t</em> (where <em>t</em> is 0 .. 1).</p><p>Normally, a way of getting from 0 to 1 would be count upwards by some fixed amount. And if that’s all you need, ixfx’s <a href="../data/generator#count">count</a> and <a href="../data/generator#numeric-range">numericRange</a> functions might do the job.</p><p>For example, count by 0.1 from 0 to 1:</p><div data-easing="true" id="demo0" title="Linear function" fn="x"></div><p>This is a <em>linear</em> function, with the same ‘speed’ throughout the progression towards the end point.</p><p>In contrast, easing functions give some dynamics to the journey. For example, maybe it starts slowly, but gets faster as it nears the end, as in this <code data-astro-raw="">cubicIn</code> function:</p><div data-easing="true" id="demo1" title="cubicIn" easing="cubicIn"></div><p>Or perhaps gathering speed quickly, but then slowing down toward the end (<code data-astro-raw="">cubicOut</code>):</p><div data-easing="true" id="demo1" title="cubicOut" easing="cubicOut"></div><p>Jump to the <a href="#defined-easings">Defined Easings</a> to see a list of pre-defined easing functions.</p><h2 id="usage">Usage</h2><p>Easings can be driven by time or <em>ticks</em>, created by <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time">Easings.time</a> or <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#tick">Easings.tick</a>, respectively. Each of these returns an <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#Easing">Easings.Easing</a>:</p><pre class="language-typescript"><code data-astro-raw="" class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Easing</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+</ul><p>Easing functions help to give a <em>dynamic</em> to transition. In <a href="/ixfx-docs/geometry/units#cartesian">Cartesian</a> terms, they give a <em>y</em> value for <em>x</em> (where x is 0 .. 1). Or in temporal terms, you can think of them as giving a value at time <em>t</em> (where <em>t</em> is 0 .. 1).</p><p>Normally, a way of getting from 0 to 1 would be count upwards by some fixed amount. And if that's all you need, ixfx's <a href="../data/generator#count">count</a> and <a href="../data/generator#numeric-range">numericRange</a> functions might do the job.</p><p>For example, count by 0.1 from 0 to 1:</p><div data-easing="true" id="demo0" title="Linear function" fn="x"></div><p>This is a <em>linear</em> function, with the same 'speed' throughout the progression towards the end point.</p><p>In contrast, easing functions give some dynamics to the journey. For example, maybe it starts slowly, but gets faster as it nears the end, as in this <code>cubicIn</code> function:</p><div data-easing="true" id="demo1" title="cubicIn" easing="cubicIn"></div><p>Or perhaps gathering speed quickly, but then slowing down toward the end (<code>cubicOut</code>):</p><div data-easing="true" id="demo1" title="cubicOut" easing="cubicOut"></div><p>Jump to the <a href="#defined-easings">Defined Easings</a> to see a list of pre-defined easing functions.</p><h2 id="usage">Usage</h2><p>Easings can be driven by time or <em>ticks</em>, created by <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time">Easings.time</a> or <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#tick">Easings.tick</a>, respectively. Each of these returns an <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#Easing">Easings.Easing</a>:</p><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Easing</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment">// Returns value at this point</span>
   <span class="token comment">// Usually 0-1, but some functions can overshoot</span>
   <span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">number</span>
@@ -263,7 +256,7 @@
   <span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token keyword">void</span>
   <span class="token comment">// Returns true if easing is finished</span>
   <span class="token keyword">get</span> <span class="token function">isDone</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">:</span><span class="token builtin">boolean</span>
-<span class="token punctuation">}</span></code></pre><h3 id="time-based">Time-based</h3><p>Example: <code data-astro-raw="">sineIn</code> easing that takes one second to complete:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Easings<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/modulation.js"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre><h3 id="time-based">Time-based</h3><p>Example: <code>sineIn</code> easing that takes one second to complete:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Easings<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/modulation.js"</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Set up</span>
 <span class="token keyword">const</span> e <span class="token operator">=</span> Easings<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">sineIn</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -274,8 +267,8 @@
 <span class="token comment">// ..call t.compute() whenever the 'latest' value is needed</span>
 
 <span class="token comment">// Can check if easing has completed</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token operator">...</span></code></pre><p>You’ll probably call <code data-astro-raw="">compute()</code> inside an existing draw/update loop that is running. If you don’t have a loop already, here is a snippet that returns an easing over time:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Generators<span class="token punctuation">,</span> Flow<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/bundle.js"</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>Easings<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/modulation.js"</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token operator">...</span></code></pre><p>You'll probably call <code>compute()</code> inside an existing draw/update loop that is running. If you don't have a loop already, here is a snippet that returns an easing over time:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Generators<span class="token punctuation">,</span> Flow<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/bundle.js"</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>Easings<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/modulation.js"</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Define an easing that takes 1 second to reach end</span>
 <span class="token keyword">const</span> e <span class="token operator">=</span> Easings<span class="token punctuation">.</span><span class="token function">time</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">sineIn</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -285,7 +278,7 @@
 <span class="token comment">// Iterate over range at 100ms intervals</span>
 <span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> v <span class="token keyword">of</span> Flow<span class="token punctuation">.</span><span class="token function">interval</span><span class="token punctuation">(</span>range<span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>t<span class="token punctuation">.</span><span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><h3 id="tick-based">Tick-based</h3><p>Example: a <code data-astro-raw="">sineOut</code> easing that takes 100 ticks to complete:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Easings<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/modulation.js"</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre><h3 id="tick-based">Tick-based</h3><p>Example: a <code>sineOut</code> easing that takes 100 ticks to complete:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Easings<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/modulation.js"</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Set up</span>
 <span class="token keyword">const</span> e <span class="token operator">=</span> Easings<span class="token punctuation">.</span><span class="token function">tick</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">sineOut</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -297,17 +290,17 @@
 <span class="token comment">// the function will be done.</span>
 
 <span class="token comment">// Can check if easing has completed</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token operator">...</span></code></pre><p><code data-astro-raw="">compute</code> typically returns value between 0..1, but some functions purposefully overshoot this range (such as the <code data-astro-raw="">back</code> series of easings, shown <a href="#defined-easings">below</a>).</p><p>Once you have this value, it can be applied as necessary. For example, positioning an element:</p><pre class="language-js"><code data-astro-raw="" class="language-js">el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>t<span class="token punctuation">.</span><span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> width<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px, 0px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></code></pre><p>See the source of the demos below for more ideas.</p><h2 id="its-a-function">It’s a function</h2><p>It’s good to remember that easing functions are not magic. They just return a number based on an input within the range of 0..1.</p><p>An example is exponential function:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">fn</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>t<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token operator">...</span></code></pre><p><code>compute</code> typically returns value between 0..1, but some functions purposefully overshoot this range (such as the <code>back</code> series of easings, shown <a href="#defined-easings">below</a>).</p><p>Once you have this value, it can be applied as necessary. For example, positioning an element:</p><pre class="language-js"><code class="language-js">el<span class="token punctuation">.</span>style<span class="token punctuation">.</span>transform <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">translate(</span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>t<span class="token punctuation">.</span><span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">*</span> width<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">px, 0px)</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">;</span></code></pre><p>See the source of the demos below for more ideas.</p><h2 id="its-a-function">It's a function</h2><p>It's good to remember that easing functions are not magic. They just return a number based on an input within the range of 0..1.</p><p>An example is exponential function:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">fn</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">x</span><span class="token punctuation">)</span> <span class="token operator">=&gt;</span> Math<span class="token punctuation">.</span><span class="token function">pow</span><span class="token punctuation">(</span>x<span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 0</span>
 <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 0.25</span>
 <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">0.75</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.5625</span>
 <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// 1</span></code></pre><p>You can see this in action:</p><div editable="" data-easing="true" id="demo2" fn="Math.pow(x,2)"></div><p>Try the following functions:</p><ul>
-<li><code data-astro-raw="">x</code>: Linear, returns the same input value</li>
-<li><code data-astro-raw="">x/2</code>: Halves input value</li>
-<li><code data-astro-raw="">Math.sqrt(x)</code>: Square root of value</li>
-<li><code data-astro-raw="">Math.random() * x</code>: Reduces value by some random amount</li>
-<li><code data-astro-raw="">x + (0.1 - Math.random()* 0.2)</code>: Jitters value by up to 10%</li>
-</ul><p>Pre-defined easing functions can be used directly to avoid the time/tick mechanism:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Get the function</span>
+<li><code>x</code>: Linear, returns the same input value</li>
+<li><code>x/2</code>: Halves input value</li>
+<li><code>Math.sqrt(x)</code>: Square root of value</li>
+<li><code>Math.random() * x</code>: Reduces value by some random amount</li>
+<li><code>x + (0.1 - Math.random()* 0.2)</code>: Jitters value by up to 10%</li>
+</ul><p>Pre-defined easing functions can be used directly to avoid the time/tick mechanism:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Get the function</span>
 <span class="token keyword">const</span> fn <span class="token operator">=</span> Easings<span class="token punctuation">.</span>functions<span class="token punctuation">.</span>cubicIn<span class="token punctuation">;</span>
 <span class="token comment">// Use it to transform an input value (0..1)</span>
 <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="demos">Demos</h2><p>Here, the easing function advances on each call (tapping the circle), rather than by time.</p><demo-element><template shadowroot="open"><style>
@@ -421,6 +414,12 @@
   button:hover {
     color: var(--fg-contrast);
     transition: color 0.3s ease-in;
+  }
+
+  button[disabled], button[disabled]:hover {
+    opacity: 0.6;
+    background-color: var(--theme-code-inline-bg);
+    cursor: default;
   }
 
   .toolbar {
@@ -710,6 +709,12 @@
     transition: color 0.3s ease-in;
   }
 
+  button[disabled], button[disabled]:hover {
+    opacity: 0.6;
+    background-color: var(--theme-code-inline-bg);
+    cursor: default;
+  }
+
   .toolbar {
     display: flex;
     margin: 0.5em;
@@ -884,14 +889,7 @@
 
         <iframe src="https://clinth.github.io/ixfx-demos/modulation/easing-timer/"><!--lit-node 7--></iframe>
       </div>
-		<!--/lit-part--></template></demo-element><script type="module" src="../../assets/FuncPlotElement.ed8ee89e.js"></script>
-<script type="module" src="../../assets/EasingFunc.188f3bbc.js"></script>
-
-<h2 id="defined-easings">Defined easings</h2><p>There are several well known easing functions that can be used in CSS, in animation software and so on.</p><div id="easingGallery"></div><script type="module">
-importEl(
-  `easingGallery`, 
-  `easinggallery-element`, {});
-</script><h2 id="credits">Credits</h2><p>Easing functions by <a href="https://easings.net/">Andrey Sitnik and Ivan Solovev</a></p>
+		<!--/lit-part--></template></demo-element><h2 id="defined-easings">Defined easings</h2><p>There are several well known easing functions that can be used in CSS, in animation software and so on.</p><div id="easingGallery"></div><h2 id="credits">Credits</h2><p>Easing functions by <a href="https://easings.net/">Andrey Sitnik and Ivan Solovev</a></p>
 	</section>
 	<nav class="block sm:hidden astro-EDKM2WF4">
 		
@@ -913,12 +911,12 @@ importEl(
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-LR56V2JR">
-		<astro-root uid="Z2auHHv"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#time-based">Time-based</a></li><li class="header-link depth-3"><a href="#tick-based">Tick-based</a></li><li class="header-link depth-2"><a href="#its-a-function">It’s a function</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li><li class="header-link depth-2"><a href="#defined-easings">Defined easings</a></li><li class="header-link depth-2"><a href="#credits">Credits</a></li></ul></astro-root>
+		<astro-root uid="2t9B5B"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#time-based">Time-based</a></li><li class="header-link depth-3"><a href="#tick-based">Tick-based</a></li><li class="header-link depth-2"><a href="#its-a-function">It's a function</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li><li class="header-link depth-2"><a href="#defined-easings">Defined easings</a></li><li class="header-link depth-2"><a href="#credits">Credits</a></li></ul></astro-root>
 		
 
 

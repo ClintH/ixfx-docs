@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,10 @@
 
 
 
-<script type="module" src="../../../assets/line.187d0bc3.js"></script>
+<script type="module" src="../../../assets/line.17e8934d.js"></script>
+
+
+<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/normalising.59d29e0a.css">
 
 
 
@@ -116,8 +106,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +136,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -243,7 +233,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -256,7 +246,7 @@
 <li><a href="https://clinth.github.io/ixfx-demos/geometry/">Online geometry demos</a></li>
 <li><a href="./units">Units</a>: Cartesian space</li>
 <li><a href="https://clinth.github.io/ixfx/modules/Geometry.Lines.html">API Docs: Geometry.Lines module</a></li>
-</ul><pre class="language-typescript"><code data-astro-raw="" class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Line</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+</ul><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Line</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   a<span class="token operator">:</span> Point<span class="token punctuation">,</span>
   b<span class="token operator">:</span> Point
 <span class="token punctuation">}</span>
@@ -265,7 +255,7 @@
 <span class="token keyword">const</span> line <span class="token operator">=</span> <span class="token punctuation">{</span>
   a<span class="token operator">:</span> <span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>   y<span class="token operator">:</span><span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">,</span>
   b<span class="token operator">:</span> <span class="token punctuation">{</span>x<span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span> y<span class="token operator">:</span><span class="token number">200</span> <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><h2 id="initialising">Initialising</h2><p>Lines can be defined with both <code data-astro-raw="">a</code> and <code data-astro-raw="">b</code> fields as shown above. Alternatively, functions can initialise a line for you:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Lines <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/geometry.js"</span>
+<span class="token punctuation">}</span></code></pre><h2 id="initialising">Initialising</h2><p>Lines can be defined with both <code>a</code> and <code>b</code> fields as shown above. Alternatively, functions can initialise a line for you:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Lines <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
 
 <span class="token comment">// fromArray([x1,y1,x2,y])</span>
 <span class="token keyword">const</span> l <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">fromArray</span><span class="token punctuation">(</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">]</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -274,24 +264,24 @@
 <span class="token keyword">const</span> l <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">fromNumbers</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// fromPoints(a:Point, a:Point)</span>
-<span class="token keyword">const</span> l <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">fromPoints</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="length--distances">Length &amp; distances</h2><p>Length of line</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Lines <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/geometry.js"</span>
+<span class="token keyword">const</span> l <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">fromPoints</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="length--distances">Length &amp; distances</h2><p>Length of line</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Lines <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
 <span class="token keyword">const</span> line <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">fromNumbers</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">,</span><span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> length <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns number</span></code></pre><p>Relation of line to a point</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Closest distance of point to anywhere on a line</span>
+<span class="token keyword">const</span> length <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Returns number</span></code></pre><p>Relation of line to a point</p><pre class="language-js"><code class="language-js"><span class="token comment">// Closest distance of point to anywhere on a line</span>
 <span class="token comment">// returns number</span>
 Lines<span class="token punctuation">.</span><span class="token function">distance</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Get the closest position on a line to some other point</span>
 <span class="token comment">// returns {x,y}</span>
-Lines<span class="token punctuation">.</span><span class="token function">nearest</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Is a point within range of line?</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// True if 150,150 is within 100 distance of line</span>
-Lines<span class="token punctuation">.</span><span class="token function">withinRange</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Calculate an in-between point with <code data-astro-raw="">interpolate</code></p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Calculate a Point between `a` and `b` using a relative </span>
+Lines<span class="token punctuation">.</span><span class="token function">nearest</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">200</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Is a point within range of line?</p><pre class="language-js"><code class="language-js"><span class="token comment">// True if 150,150 is within 100 distance of line</span>
+Lines<span class="token punctuation">.</span><span class="token function">withinRange</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">150</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Calculate an in-between point with <code>interpolate</code></p><pre class="language-js"><code class="language-js"><span class="token comment">// Calculate a Point between `a` and `b` using a relative </span>
 <span class="token comment">// progress amount (0 -&gt; 1). 0 = a, 0.5 = halfway between</span>
 <span class="token comment">// the two, 1 = b, and so on.</span>
 <span class="token comment">// returns Point {x,y}</span>
-<span class="token keyword">const</span> p <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Calculates a rectangle that encompasses line</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns Rectangle {x,y,width,height}</span>
-<span class="token keyword">const</span> rect <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="angles">Angles</h2><p>Slope (gradient) of line.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns number</span>
+<span class="token keyword">const</span> p <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Calculates a rectangle that encompasses line</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns Rectangle {x,y,width,height}</span>
+<span class="token keyword">const</span> rect <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="angles">Angles</h2><p>Slope (gradient) of line.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns number</span>
 Lines<span class="token punctuation">.</span><span class="token function">slope</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
-Lines<span class="token punctuation">.</span><span class="token function">slope</span><span class="token punctuation">(</span>pointA<span class="token punctuation">,</span> pointB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Provide two points intead</span></code></pre><p>Angle in radians of line</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns number</span>
-Lines<span class="token punctuation">.</span><span class="token function">angleRadian</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> referencePoint<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="conversions">Conversions</h2><p>Converting <em>from</em> some other shape. These all return a Line (ie. <code data-astro-raw="">{a:{x,y}, b:{x,y}}</code>)</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns Line {a:{x,y}, b:}</span>
+Lines<span class="token punctuation">.</span><span class="token function">slope</span><span class="token punctuation">(</span>pointA<span class="token punctuation">,</span> pointB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Provide two points intead</span></code></pre><p>Angle in radians of line</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns number</span>
+Lines<span class="token punctuation">.</span><span class="token function">angleRadian</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> referencePoint<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="conversions">Conversions</h2><p>Converting <em>from</em> some other shape. These all return a Line (ie. <code>{a:{x,y}, b:{x,y}}</code>)</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns Line {a:{x,y}, b:}</span>
 Lines<span class="token punctuation">.</span><span class="token function">fromPoints</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Convert from an array</span>
@@ -300,15 +290,15 @@ Lines<span class="token punctuation">.</span><span class="token function">fromAr
 
 <span class="token comment">// Convert from positions</span>
 <span class="token comment">// ie. x1,y1,x2,y2</span>
-Lines<span class="token punctuation">.</span><span class="token function">fromNumbers</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Converting <em>to</em> some other shape</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Yields [a.x,a.y,b.x,b.y]</span>
-Lines<span class="token punctuation">.</span><span class="token function">toFlatArray</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>a<span class="token punctuation">,</span> line<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Return a <a href="path">Path</a> instance, which wraps up some functions together with the line:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> p <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">toPath</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+Lines<span class="token punctuation">.</span><span class="token function">fromNumbers</span><span class="token punctuation">(</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">0</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Converting <em>to</em> some other shape</p><pre class="language-js"><code class="language-js"><span class="token comment">// Yields [a.x,a.y,b.x,b.y]</span>
+Lines<span class="token punctuation">.</span><span class="token function">toFlatArray</span><span class="token punctuation">(</span>line<span class="token punctuation">.</span>a<span class="token punctuation">,</span> line<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Return a <a href="path">Path</a> instance, which wraps up some functions together with the line:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> p <span class="token operator">=</span> Lines<span class="token punctuation">.</span><span class="token function">toPath</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
 p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// Length (numer)</span>
 p<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>               <span class="token comment">// Get bounding box as rect {x,y,width,height}</span>
 p<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span>amount<span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// Get position at relative. Returns point {x,y}</span>
 p<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// Human-readable string</span>
 p<span class="token punctuation">.</span><span class="token function">toFlatArray</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// Returns [x1,y1,x2,y2]</span>
-p<span class="token punctuation">.</span><span class="token function">toPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// Returns [ptA, ptB]</span></code></pre><h2 id="helper-functions">Helper functions</h2><p>Compare lines by value:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns _true_ if lines have same value</span>
-Lines<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>lineA<span class="token punctuation">,</span> lineB<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Extend the length of the line from its start position</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Lines.extendFromStart(line:Line, distance:number): Line</span>
+p<span class="token punctuation">.</span><span class="token function">toPoints</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// Returns [ptA, ptB]</span></code></pre><h2 id="helper-functions">Helper functions</h2><p>Compare lines by value:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns _true_ if lines have same value</span>
+Lines<span class="token punctuation">.</span><span class="token function">equals</span><span class="token punctuation">(</span>lineA<span class="token punctuation">,</span> lineB<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Extend the length of the line from its start position</p><pre class="language-js"><code class="language-js"><span class="token comment">// Lines.extendFromStart(line:Line, distance:number): Line</span>
 <span class="token comment">// Returns a new Line, ie { a:{x,y}, b:{x,y} }</span>
 Lines<span class="token punctuation">.</span><span class="token function">extendFromStart</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
 	</section>
@@ -332,7 +322,7 @@ Lines<span class="token punctuation">.</span><span class="token function">extend
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

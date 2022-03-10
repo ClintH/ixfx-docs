@@ -1,5 +1,6 @@
-<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-MYKBY3F7"><head>
-		<!-- Global Metadata -->
+<!DOCTYPE html><html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX"><head>
+		
+<!-- Global Metadata -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width">
 
@@ -7,11 +8,6 @@
 <link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
 
 <link rel="sitemap" href="/sitemap.xml">
-
-<!-- Global CSS -->
-<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/geometry.c65f92ad.css">
-
-
 
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,15 +27,6 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->
 
 		
 
@@ -80,7 +67,10 @@
 
 
 
-<script type="module" src="../../../assets/circle.ada99998.js"></script>
+<script type="module" src="../../../assets/circle.54382d4f.js"></script>
+
+
+<link rel="stylesheet" href="../../../assets/index.4ebbe857.css"><link rel="stylesheet" href="../../../assets/ThemeToggleButton.a9b87a86.css"><link rel="stylesheet" href="../../../assets/normalising.59d29e0a.css">
 
 
 
@@ -116,8 +106,8 @@
 
 
 
-		<main class="layout astro-MYKBY3F7">
-			<aside id="grid-left" class="grid-sidebar astro-MYKBY3F7" title="Site Navigation">
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
 				
 
 <nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
@@ -146,7 +136,7 @@
 				</div>
 			</li><li class="astro-NO4JLDNO">
 				<div class="nav-group astro-NO4JLDNO">
-					<h2 class="nav-group-title astro-NO4JLDNO">Flow &amp; Logic</h2>
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
 					<ul class="astro-NO4JLDNO">
 						<li class="nav-link astro-NO4JLDNO">
 								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
@@ -243,7 +233,7 @@
 
 
 			</aside>
-			<div id="grid-main" class="astro-MYKBY3F7">
+			<div id="grid-main" class="astro-N6NSMEGX">
 				
 
 <article id="article" class="content astro-EDKM2WF4">
@@ -255,25 +245,28 @@
 		<p>A circle.</p><ul>
 <li><a href="https://clinth.github.io/ixfx-demos/geometry/">Online geometry demos</a>,</li>
 <li><a href="https://clinth.github.io/ixfx/modules/Geometry.Circles.html">API Docs: Geometry.Circles</a></li>
-</ul><h2 id="type">Type</h2><pre class="language-typescript"><code data-astro-raw="" class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Circle</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
+</ul><h2 id="type">Type</h2><pre class="language-typescript"><code class="language-typescript"><span class="token keyword">type</span> <span class="token class-name">Circle</span> <span class="token operator">=</span> <span class="token punctuation">{</span>
   radius<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">{</span> radius<span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p><code data-astro-raw="">CirclePositioned</code> also includes <code data-astro-raw="">x</code> and <code data-astro-raw="">y</code> fields.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">radius</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h2 id="geometry">Geometry</h2><p>Get the <a href="./point">points</a> of intersection between a line and circle.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> circle <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">radius</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">{</span> radius<span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p><code>CirclePositioned</code> also includes <code>x</code> and <code>y</code> fields.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">radius</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><h2 id="geometry">Geometry</h2><p>Get the <a href="./point">points</a> of intersection between a line and circle.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Circles <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
+<span class="token keyword">const</span> circle <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">radius</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> line <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 <span class="token comment">// returns [ {x,y} ... ]</span>
 <span class="token comment">//  - could be empty for no intersections</span>
 <span class="token comment">//  - or 1 to 2 points</span>
-<span class="token keyword">const</span> pts <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">intersectionLine</span><span class="token punctuation">(</span>circle<span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Get the points of intersection between two circles.</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> pts <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">intersections</span><span class="token punctuation">(</span>circleA<span class="token punctuation">,</span> circleB<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> pts <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">intersectionLine</span><span class="token punctuation">(</span>circle<span class="token punctuation">,</span> line<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Get the points of intersection between two circles.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> pts <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">intersections</span><span class="token punctuation">(</span>circleA<span class="token punctuation">,</span> circleB<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// pts will be empty if there are no intersections</span>
-<span class="token comment">//  this can also be the case if circles are identical, or one completely encloses the other</span></code></pre><p>Check whether <code data-astro-raw="">circleB</code> is completely contained by <code data-astro-raw="">circleA</code>:</p><pre class="language-js"><code data-astro-raw="" class="language-js">Circles<span class="token punctuation">.</span><span class="token function">isContainedBy</span><span class="token punctuation">(</span>circleA<span class="token punctuation">,</span> circleB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// boolean</span></code></pre><h2 id="conversions">Conversions</h2><p>Return a <a href="path">Path</a> instance, which wraps up some functions together with the circle:</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token keyword">const</span> p <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">toPath</span><span class="token punctuation">(</span>circle<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">//  this can also be the case if circles are identical, or one completely encloses the other</span></code></pre><p>Check whether <code>circleB</code> is completely contained by <code>circleA</code>:</p><pre class="language-js"><code class="language-js">Circles<span class="token punctuation">.</span><span class="token function">isContainedBy</span><span class="token punctuation">(</span>circleA<span class="token punctuation">,</span> circleB<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// boolean</span></code></pre><h2 id="conversions">Conversions</h2><p>Return a <a href="path">Path</a> instance, which wraps up some functions together with the circle:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Circles <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
+
+<span class="token keyword">const</span> p <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">toPath</span><span class="token punctuation">(</span>circle<span class="token punctuation">)</span><span class="token punctuation">;</span>
 p<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>           <span class="token comment">// Perimeter of cicle (number)</span>
 p<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>             <span class="token comment">// Bounding box of circle as Rectangle {x,y,width,height}</span>
 p<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Point on circle as {x,y}</span>
-p<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// String representation of circle</span></code></pre><h2 id="other-functions">Other functions</h2><p>Get the x,y coordinate of a point at specified angle</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Circles.point(circle, angleRadian, origin?):Point</span>
-<span class="token keyword">const</span> p <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">point</span><span class="token punctuation">(</span>arc<span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {x,y}</span></code></pre><p>Get the x,y coordinate at a relative distance along circle</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Get x,y at 50% along circle</span>
-<span class="token keyword">const</span> p <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span>circle<span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {x,y}</span></code></pre><p>Equality</p><pre class="language-js"><code data-astro-raw="" class="language-js"><span class="token comment">// Returns true if `a` and `b` circles have the same value</span>
-Circles<span class="token punctuation">.</span><span class="token function">isEqual</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Dimensions/distances</p><pre class="language-js"><code data-astro-raw="" class="language-js">Circles<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Get a rectangle that encompasses circle {x,y,width,height}</span>
+p<span class="token punctuation">.</span><span class="token function">toString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>         <span class="token comment">// String representation of circle</span></code></pre><h2 id="other-functions">Other functions</h2><p>Get the x,y coordinate of a point at specified angle</p><pre class="language-js"><code class="language-js"><span class="token comment">// Circles.point(circle, angleRadian, origin?):Point</span>
+<span class="token keyword">const</span> p <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">point</span><span class="token punctuation">(</span>arc<span class="token punctuation">,</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {x,y}</span></code></pre><p>Get the x,y coordinate at a relative distance along circle</p><pre class="language-js"><code class="language-js"><span class="token comment">// Get x,y at 50% along circle</span>
+<span class="token keyword">const</span> p <span class="token operator">=</span> Circles<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span>circle<span class="token punctuation">,</span> <span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// {x,y}</span></code></pre><p>Equality</p><pre class="language-js"><code class="language-js"><span class="token comment">// Returns true if `a` and `b` circles have the same value</span>
+Circles<span class="token punctuation">.</span><span class="token function">isEqual</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Dimensions/distances</p><pre class="language-js"><code class="language-js">Circles<span class="token punctuation">.</span><span class="token function">bbox</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// Get a rectangle that encompasses circle {x,y,width,height}</span>
 Circles<span class="token punctuation">.</span><span class="token function">length</span><span class="token punctuation">(</span>arc<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Get the perimeter of circle (number)</span>
 Circles<span class="token punctuation">.</span><span class="token function">distanceCenter</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Distance between the centers of two circle (number) </span></code></pre>
 	</section>
@@ -297,7 +290,7 @@ Circles<span class="token punctuation">.</span><span class="token function">dist
 
 
 			</div>
-			<aside id="grid-right" class="grid-sidebar astro-MYKBY3F7" title="Table of Contents">
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				
 
 <nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">

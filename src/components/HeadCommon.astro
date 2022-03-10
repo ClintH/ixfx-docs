@@ -1,3 +1,8 @@
+---
+import '../styles/theme.css';
+import '../styles/code.css';
+import '../styles/index.css';
+---
 <!-- Global Metadata -->
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width" />
@@ -7,11 +12,6 @@
 
 <link rel="sitemap" href="/sitemap.xml" />
 
-<!-- Global CSS -->
-<link rel="stylesheet" href={Astro.resolve('../styles/theme.css')} />
-<link rel="stylesheet" href={Astro.resolve('../styles/code.css')} />
-<link rel="stylesheet" href={Astro.resolve('../styles/index.css')} />
-
 <!-- Preload Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,9 +19,6 @@
 
 <!-- Scrollable a11y code helper -->
 <script type="module" src="/make-scrollable-code-focusable.js"></script>
-
-<script type="module" src="/repl-pad.js"></script>
-
 
 <!-- This is intentionally inlined to avoid FOUC -->
 <script>
@@ -33,12 +30,3 @@
 		root.classList.remove('theme-dark');
 	}
 </script>
-
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-TEL60V1WM9"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-TEL60V1WM9');
-</script> -->

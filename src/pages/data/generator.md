@@ -3,6 +3,10 @@ title: Generators
 layout: ../../layouts/MainLayout.astro
 ---
 
+<script type="module" hoist>
+  import '/src/components/ReplPad';
+</script>
+
 [API Docs: Generators module](https://clinth.github.io/ixfx/modules/Generators.html)
 
 Generators are a [language feature of Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators) that essentially allows a function to output multiple values, potentially asynchronously.
@@ -24,7 +28,7 @@ Importing tips:
 // Import as a module, meaning you have to prefix functions with Generators.
 import * as Generators from 'ixfx/lib/generators.js';
 // Or, import as a module from the web directly
-import * as Generators from "https://unpkg.com/ixfx/generators.js"
+import * as Generators from "https://unpkg.com/ixfx/dist/generators.js"
 // Or, import a single function, eg interval
 import { interval } from 'ixfx/lib/generators.js';
 ```
@@ -110,21 +114,25 @@ What's interesting about iterables is that they aren't an actual collection or s
 [interval](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
 
 ```js
-import { interval } from "https://unpkg.com/ixfx/flow.js"
+// repl-pad
+import { interval } from "https://unpkg.com/ixfx/dist/flow.js";
 
 // interval(callback, intervalMs)
-const randomGenerator = interval(() => Math.random, 1000);
+const randomGenerator = interval(() => Math.random(), 1000);
 for await (const r of randomGenerator) {
   // Prints a new random number every second
   console.log(r);
 }
-// This will not run unless there is a `break` in the for await loop
+// Will never run unless there is a `break` in the for await loop
 console.log(`Done.`); 
 ```
 
 You can also step through a generator's return values using `interval`:
 
 ```js
+// repl-pad
+import { count } from "https://unpkg.com/ixfx/dist/generators.js";
+import { interval } from "https://unpkg.com/ixfx/dist/flow.js";
 // Make a generator that counts to 5
 const counter = count(5);
 // Use iterval to loop over counter with 1000ms delay
@@ -142,7 +150,8 @@ As the examples show, `count` can be a useful way of running a chunk of code _x_
 
 
 ```js
-import * as Generators from "https://unpkg.com/ixfx/generators.js"
+// repl-pad
+import * as Generators from "https://unpkg.com/ixfx/dist/generators.js"
 
 // count(amount:number, offset:number = 0);
 
@@ -151,6 +160,7 @@ const a = [...Generators.count(5)];
 
 for (let i of Generators.count(5)) {
   // Loop runs five times, with i being 0, 1, 2, 3 and then 4
+  console.log(i);
 }
 ```
 
