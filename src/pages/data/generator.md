@@ -37,7 +37,7 @@ import { interval } from 'ixfx/lib/generators.js';
 
 Generators are a form of _iterator_, an object that allows you to traverse - that is, to step through - some other data. Objects are _iterable_ if they provide an iterator on request, that is, the give the possibility for stepping through their contents in some manner. The familiar [collections](./collections/) - arrays, maps and so on - are all iterables.
 
-`for .. of` allows you to use iterator. In this case, we're iterating over an array (which is _iterable_):
+`for .. of` is the usual way of working with an iterator. In this case, we're iterating over an array (which is _iterable_):
 
 ```js
 for (const v of someArray) {
@@ -96,7 +96,7 @@ const iterInterval = setInterval(() => {
 }, 60*1000); // 60 seconds 
 ```
 
-ixfx's [interval](../flow/loops#interval) makes iterating with delay easy.
+TIP: ixfx's [interval](../flow/loops#interval) makes iterating with delay easy.
 
 Iterables can be converted into an array:
 
@@ -151,14 +151,13 @@ As the examples show, `count` can be a useful way of running a chunk of code _x_
 
 ```js
 // repl-pad
-import * as Generators from "https://unpkg.com/ixfx/dist/generators.js"
+import {count} from "https://unpkg.com/ixfx/dist/generators.js"
 
 // count(amount:number, offset:number = 0);
-
 // Yields the array: [0,1,2,3,4]
-const a = [...Generators.count(5)];
+const a = [...count(5)];
 
-for (let i of Generators.count(5)) {
+for (let i of count(5)) {
   // Loop runs five times, with i being 0, 1, 2, 3 and then 4
   console.log(i);
 }
@@ -168,7 +167,7 @@ A negative `amount` counts backwards from zero:
 
 ```js
 // Prints Hi! 0, Hi! -1 ... Hi! -4
-[...Generators.count(-5)].forEach(i => {
+[...count(-5)].forEach(i => {
   console.log(`Hi! ${i}`);
 });
 ```
@@ -177,31 +176,33 @@ If an offset is supplied, it is added to the result:
 
 ```js
 // Yields [1,2,3,4,5]
-const a = [...Generators.count(5,1)];
+const a = [...count(5,1)];
 ```
 
-For more complicated counting, consider `numericRange`, which allows you to set the counting interval, and whether counting resets.
+For more complicated counting, consider [numericRange](#numeric-range), which allows you to set the counting interval, and whether counting resets.
 
 <a name="numericRange"></a>
 
 ## Numeric range
 
-[numericRange](https://clinth.github.io/ixfx/modules/Generators.html#numericRange) yields a series of numbers from `start` to `end`, with a specified `interval`. Unlike `count`, it can increment by and return fractional values.
+[numericRange](https://clinth.github.io/ixfx/modules/Generators.html#numericRange) yields a series of numbers from `start` to `end`, with a specified `interval`. Unlike [count](#count), it can increment by and return fractional values.
 
 ```js
+import {numericRange} from "https://unpkg.com/ixfx/dist/generators.js"
+
 // numericRange(interval, start, end, repeating)
 
 // Counts from 0-100, by 1
-for (const v of Generators.numericRange(1, 0, 100)) { }
+for (const v of numericRange(1, 0, 100)) { }
 
 // Counts in twos from 0-100, and repeats from 0 again after 100
-for (const v of Generators.numericRange(2, 0, 100, true)) { 
+for (const v of numericRange(2, 0, 100, true)) { 
   // Caution: this generator never ends by itself, so you need
   // a `break` statement somewhere in the for loop
 }
 
 // Don't forget generators can be used manually as well...
-const range = Generators.numericRange(1, 0, 100);
+const range = numericRange(1, 0, 100);
 range.next().value;
 ```
 
@@ -210,6 +211,8 @@ If you just want to simply count from 0 to some number, consider using `count` i
 To constrain the range to the percentage scale (0-1), use `rangePercent`:
 
 ```js
+import {rangePercent} from "https://unpkg.com/ixfx/dist/generators.js"
+
 // rangePercent(interval, repeating, start, end)
 
 // Counts from 0 to 1 by 10%
@@ -235,10 +238,12 @@ const angle = Math.PI*2*r.next().value;
 [pingPong](https://clinth.github.io/ixfx/modules/Generators.html#pingPong) is like a repeating `numericRange` but it counts up and back down again when looping, rather than resetting to the start.
 
 ```js
+import {pingPong} from "https://unpkg.com/ixfx/dist/generators.js"
+
 // pingPong(interval, start, end, offset)
 
 // Counts up and down to 100 in 10s
-for (const v of Generators.pingPong(10, 0, 100)) {
+for (const v of pingPong(10, 0, 100)) {
   // 0, 10, 20 ... 100, 90, 80 ...0, 10, 20 ...
   // Warning: infinite generator, make sure you `break` at some point
 }
@@ -247,6 +252,8 @@ for (const v of Generators.pingPong(10, 0, 100)) {
 [pingPongPercent](https://clinth.github.io/ixfx/modules/Generators.html#pingPongPercent) is a variation of `pingPong`, but it locks everything to a scale of 0-1.
 
 ```js
+import {pingPongPercent} from "https://unpkg.com/ixfx/dist/generators.js"
+
 for (const v of pingPongPercent(0.01)) {
   // Up and down from 0->1 by 1%
   // Warning: infinite generator, make sure you `break` at some point

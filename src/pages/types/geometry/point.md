@@ -5,6 +5,10 @@
     import Layout from '../../../layouts/MainLayout.astro';
 ---
 
+<script type="module" hoist>
+import '/src/components/ReplPad';
+</script>
+
 A point is an `x` and `y` [Cartesian coordinate](./units#cartesian); the basic building block for lines, [arcs](./arc), rectangles and paths.
 
 * [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/)
@@ -23,6 +27,7 @@ There's no defined unit for `x` and `y`, but pixel coordinates are typical.
 Calculate distance between two points
 
 ```js
+// repl-pad#1
 import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
 
 const a = {x: 10, y: 10};
@@ -35,6 +40,7 @@ const distance = Points.distance(a, b); // Returns a number
 Calculate an in-between point with `interpolate`
 
 ```js
+// repl-pad#1
 // Calculate a Point between `a` and `b` using a relative 
 // progress amount (0 -> 1). 0 = a, 0.5 = halfway between
 // the two, 1 = b, and so on.
@@ -43,6 +49,7 @@ const p = Points.interpolate(0.5, a, b); // Returns {x,y}
 
 Calculates a rectangle which encompasses all the provided points
 ```js
+// repl-pad#1
 const points = [a, b];
 const rect = Points.bbox(...points);  // returns {x,y,width,height}
 ```
@@ -52,6 +59,7 @@ const rect = Points.bbox(...points);  // returns {x,y,width,height}
 Converting a Point _to_ some other shape of data
 
 ```js
+// repl-pad
 import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
 const p = {x: 5, y: 10};
 
@@ -59,12 +67,14 @@ const p = {x: 5, y: 10};
 Points.toArray(p); // [5, 10]
 
 // Human-readable representation:
-Points.toString(p); // "(5, 5)"
+Points.toString(p); // "(5, 10)"
 ```
 
 Converting _from_ some other shape of data to Point
 
 ```js
+// repl-pad
+import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
 // Convert from two numeric parameters
 Points.from(10, 15);    // { x: 10, y: 15}
 

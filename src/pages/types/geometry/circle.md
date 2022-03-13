@@ -5,6 +5,10 @@ setup: |
   import Layout from '../../../layouts/MainLayout.astro';
 ---
 
+<script type="module" hoist>
+import '/src/components/ReplPad';
+</script>
+
 A circle.
 
 * [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/), 
@@ -31,6 +35,7 @@ const c = { radius: 100, x: 50, y: 50 };
 Get the [points](./point) of intersection between a line and circle. 
 
 ```js
+// repl-pad
 import { Circles } from "https://unpkg.com/ixfx/dist/geometry.js"
 const circle = { radius: 10, x: 100, y: 100};
 const line = {a: {x: 0, y: 0}, b: { x: 100, y: 100 } };
@@ -59,7 +64,9 @@ Circles.isContainedBy(circleA, circleB); // boolean
 Return a [Path](path) instance, which wraps up some functions together with the circle:
 
 ```js
+// repl-pad#1
 import { Circles } from "https://unpkg.com/ixfx/dist/geometry.js"
+const circle = { radius: 10, x: 100, y: 100};
 
 const p = Circles.toPath(circle);
 p.length();           // Perimeter of cicle (number)
@@ -68,20 +75,22 @@ p.interpolate(0.5);   // Point on circle as {x,y}
 p.toString();         // String representation of circle
 ```
 
-## Other functions
+## Helper functions
 
 Get the x,y coordinate of a point at specified angle
 
 ```js
+// repl-pad#1
 // Circles.point(circle, angleRadian, origin?):Point
-const p = Circles.point(arc, Math.PI); // {x,y}
+const ptA = Circles.point(circle, Math.PI); // {x,y}
 ```
 
 Get the x,y coordinate at a relative distance along circle
 
 ```js
+// repl-pad#1
 // Get x,y at 50% along circle
-const p = Circles.interpolate(circle, 0.5); // {x,y}
+const ptB = Circles.interpolate(circle, 0.75); // {x,y}
 ```
 
 Equality
@@ -94,7 +103,9 @@ Circles.isEqual(a, b);
 Dimensions/distances
 
 ```js
-Circles.bbox(arc);   // Get a rectangle that encompasses circle {x,y,width,height}
-Circles.length(arc); // Get the perimeter of circle (number)
-Circles.distanceCenter(a, b); // Distance between the centers of two circle (number) 
+// repl-pad#1
+Circles.bbox(circle);   // Get a rectangle that encompasses circle {x,y,width,height}
+Circles.length(circle); // Get the perimeter of circle (number)
+
+Circles.distanceCenter(circle, {x: 50, y: 50}); // Distance between the centers of two circle (number) 
 ```

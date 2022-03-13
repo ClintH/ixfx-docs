@@ -12,14 +12,14 @@ Read on for how to import ixfx with a URL import. Advanced users might want to i
 
 ## Modules
 
-You'll mostly want to import functions as _modules_: `import { NameOfModule } from "https://unpkg.com/ixfx/bundle.js"`
+You'll mostly want to import functions as _modules_: `import { NameOfModule } from "https://unpkg.com/ixfx/dist/bundle.js"`
 
 The names of predefined modules are given in the list above. All of these can be imported from the main bundle.
 
 For example, to import _Timers_:
 
 ```js
-import { Timers } from "https://unpkg.com/ixfx/bundle.js"
+import { Timers } from "https://unpkg.com/ixfx/dist/bundle.js"
 Timers.continuously(...);
 ```
 
@@ -34,13 +34,13 @@ To import a function: `import { nameOfFunction } from "https://unpkg.com/ixfx/bu
 For example, to import `clamp`:
 
 ```js
-import { clamp } from "https://unpkg.com/ixfx/bundle.js"
+import { clamp } from "https://unpkg.com/ixfx/dist/bundle.js"
 ```
 
 You can also import functions from within a module:
 
 ```js
-import { continuously } from "https://unpkg.com/ixfx/flow.js"
+import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
 continuously(...)
 ```
 

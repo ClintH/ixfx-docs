@@ -7,7 +7,8 @@ setup: |
 
 ---
 
-[API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
+* [API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
+* Skeleton: Simple code to get up and running with a state machine. [Online demo](https://clinth.github.io/ixfx-demos/flow/statemachine-skeleton/), [Github](https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-skeleton), [Glitch](https://glitch.com/edit/#!/ixfx-starter-statemachine)
 
 A _state machine_ allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It's up to you to 'drive' the machine, telling it when to transition. 
 
@@ -64,7 +65,8 @@ Try out some state machines in this playground. Edit the description or load a d
 
 ## Usage
 
-[API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
+* [API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
+* [State Machine skeleton](https://clinth.github.io/ixfx-demos/flow/statemachine-skeleton/): Simple code to get up and running with a state machine
 
 Create the machine with the an initial state and its _description_:
 

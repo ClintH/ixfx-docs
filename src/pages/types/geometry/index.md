@@ -9,7 +9,9 @@ The [Geometry module](https://clinth.github.io/ixfx/modules/Geometry.html) conta
 * [Line](./line): Consisting of two points
 * [Arc](./arc): A segment of circle perimeter
 * [Circle](./circle): A circle
- 
+* [Rect](./rect): A rectangle
+
+
 Explainer
 * [Units](./units): An overview of angles and coordinate spaces
 

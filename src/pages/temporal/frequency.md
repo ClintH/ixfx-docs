@@ -2,7 +2,7 @@
 title: Frequency
 layout: ../../layouts/MainLayout.astro
 setup: |
-  import FreqLettersElement from './FreqLettersElement.ts';
+  import FreqLettersElement from '../../components/temporal/FreqLettersElement.ts';
 ---
 
 <script type="module" hoist>
@@ -35,7 +35,7 @@ import '/src/components/temporal/freqWeighted';
   <button id="btnClear">Clear</button>
 </div>
 <div class="sxs">
-  <div class="dataLog" id="dataStream"></div>
+  <div class="dataLog" id="dataStream" style="max-height: 5em"></div>
   <div>
     <histogram-vis id="dataPlot"></histogram-vis>
   </div>

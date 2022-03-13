@@ -20,19 +20,21 @@ export const SIDEBAR =
 
     {text: `Flow and Logic`, header: true},
     {text: `State Machine`, link: `flow/stateMachine`},
-    {text: `Timed Intervals`, link: `flow/loops`},
+    {text: `Loops and Intervals`, link: `flow/loops`},
     {text: `Delay`, link: `flow/delay`},
 
     {text: `Modulation`, header: true},
     {text: `Envelope`, link: `modulation/envelope`},
     {text: `Oscillator`, link: `modulation/oscillator`},
     {text: `Easing`, link: `modulation/easing`},
+    {text: `Random`, link: `modulation/random`},
 
     {text: `Temporal processing`, header: true},
     {text: `Normalising`, link: `temporal/normalising`},
     {text: `Frequency`, link: `temporal/frequency`},
 
     {text: `Data`, header: true},
+    {text: `Clean up`, link: `data/cleanup`},
     {text: `Generators`, link: `data/generator`},
     {text: `Collections`, link: `data/collections/`},
 

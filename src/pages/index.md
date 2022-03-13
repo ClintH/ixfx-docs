@@ -11,6 +11,28 @@ First steps:
 * [import ixfx into your own sketch](./importing), or
 * Use a starter kit: [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0), Codepen, StackBlitz
 
+## Features
+
+ixfx offers:
+
+**Flow**:
+* [state machine](./flow/stateMachine), [timeouts](./flow/delay#debounce), [loops and intervals](./flow/loops), [debounce](./flow/delay#debounce), [throttling](./flow/delay#throttle)
+
+**Modulation**
+* [ADSR envelope](./modulation/envelope), [oscillators](./modulation/oscillator), [easing functions](./modulation/easing), [randomisation and jitter](./modulation/random).
+
+**Temporal Processing**
+* [Normalising](./temporal/normalising), [frequency tracking](./temporal/frequency)
+
+
+**Data**
+* [data cleaning](./data/cleanup), [generators](./data/generator), [stack](./data/collections/stack) and [queue](./data/collections/queue) collections
+
+**Types**:
+* Geometry [primitives for Cartesian & polar coordinates](./types/geometry/units), [points](./types/geometry/point), [lines](./types/geometry/line), [arcs](./types/geometry/arc), [circles](./types/geometry/circle), [rectangle](./types/geometry/rect) and [grid layouts](./types/geometry/grid).
+* [Colour](./types/colour): interpolating, scales and variations
+
+
 
 ## Why ixfx?
 
@@ -27,13 +49,7 @@ Some design principles of ixfx are:
 * Plain, immutable data over rich objects
 * Favour functional approaches over OOP
 
-## Features
 
-ixfx offers:
-* Flow: state machine, time-based delay/intervals, debounce, throttling
-* Modulation: ADSR envelope, oscillators, easing functions
-* Data: generators, frequency-tracking, stack and queue collections, colour functions
-* Geometry: primitives for Cartesian & polar coordinates, points, lines, arcs, circles and grid layouts.
   
 See the sidebar to the left (or the drop-down menu if you're on mobile) and start exploring.
 

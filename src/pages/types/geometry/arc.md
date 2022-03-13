@@ -9,6 +9,7 @@ setup: |
 
 <script type="module" hoist>
 import '/src/components/types/geometry/arc';
+import '/src/components/ReplPad';
 </script>
 <style>
 input.code {
@@ -66,6 +67,7 @@ Angles are set with _radians_, not the more familiar _degrees_. See [Units](unit
 Create an arc from degrees:
 
 ```js
+// repl-pad
 import { Arcs } from "https://unpkg.com/ixfx/dist/geometry.js"
 
 // fromDegrees(radius:number, startDegrees:number, endDegrees:number, origin?:Point)
@@ -77,28 +79,33 @@ const b = Arcs.fromDegrees(10, 0, 90, {x: 100, y: 100});
 Return a [Path](path) instance, which wraps up some functions together with the arc:
 
 ```js
+// repl-pad#1
+import { Arcs } from "https://unpkg.com/ixfx/dist/geometry.js";
+const arc = Arcs.fromDegrees(10, 0, 90, {x: 100, y: 100});
 const p = Arcs.toPath(arc);
 p.length();             // Length as a number
 p.bbox();               // Get bounding rectangle, ie. {x,y,width,height}
-p.interpolate(amount);  // Get point at relative position, returns {x,y} 
+p.interpolate(0.5);  // Get point at relative position, returns {x,y} 
 p.toString();           // Human-readable string
 ```
 
 Get a [Line](line) connecting the start and end point of the arc:
 
 ```js
+// repl-pad#1
 // Returns {a: {x,y}, b:{x,y} }
 const line = Arcs.toLine(arc);
 ```
 
-## Other functions
+## Helper functions
 
 Get the `x,y` coordinate of a point at specified angle
 
 ```js
+// repl-pad#1
 // Arcs.point(arc:Arc, angleRadian:number, origin?:Point):Point
 // returns {x,y}
-const p = Arcs.point(arc, Math.PI);
+const pt = Arcs.point(arc, 0);
 ```
 
 Equality
@@ -111,15 +118,17 @@ Arcs.isEqual(a, b);
 Dimensions/distances
 
 ```js
+// repl-pad#1
 Arcs.bbox(arc);   // Get a rectangle that encompasses arc: {x,y,width,height}
 Arcs.length(arc); // Get the length of arc as a number
-Arcs.distanceCenter(a, b); // Distance between the centers of two arcs, as a number 
+Arcs.distanceCenter(arc, Arcs.fromDegrees(10, 0, 90, {x: 50, y: 50})); // Distance between the centers of two arcs, as a number 
 ```
 
 Compute position on arc
 ```js
+// repl-pad#1
 // Returns point at relative place on arc
 // ie. 0.5 = halfway along arc
 // returns {x,y}
-Arcs.interpolate(arc, amount);
+Arcs.interpolate(0.5, arc);
 ```

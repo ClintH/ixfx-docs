@@ -98,7 +98,31 @@ const onJobReset = (ticks, elapsedMs) => {
 const jobLoop = continuously(job, 1000, onJobReset).start();
 ```
 
-<a name="interval"></a>
+## Repeat
+
+[repeat](https://clinth.github.io/ixfx/modules/Flow.html#repeat) runs a function a certain number of times, accumulating the results into an array.
+
+```js
+// repl-pad
+import { repeat } from "https://unpkg.com/ixfx/dist/flow.js"
+
+// Five random numbers in an array
+const results = repeat(5, () => Math.random());
+```
+
+If you don't care about the return value of the function, consider using [count](../data/generator#count).
+
+If a function is provided instead of a number, repeat will continue until the function returns _false_.
+
+```js
+// repl-pad
+import { repeat } from "https://unpkg.com/ixfx/dist/flow.js"
+
+// Keep repeating until 10 values have been generated
+const results = repeat(
+  (repeats, valuesProduced) => valuesProduced < 10,
+  () => Math.random());
+```
 
 ## Interval
 

@@ -91,7 +91,7 @@ import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
 const e = Easings.tick(`sineOut`, 100);
 
 // Get the value of the easing function at this point
-const v = t.compute();
+const v = e.compute();
 // ...each call to compute() will 'advance' the easing
 // function by one tick. So after 100 calls to compute()
 // the function will be done.
@@ -155,7 +155,7 @@ Below is the common usage of time-based easing
 
 <script type="module" hoist>
 import '/src/components/FuncPlotElement';
-import {Easings} from 'ixfx/lib/modulation';
+import {Easings} from '/node_modules/ixfx/dist/modulation.js';
 const run = () => {
   document.querySelectorAll(`[data-easing]`).forEach(el => {
     const plot = document.createElement(`func-plot-element`);// importEl(el, `func-plot-element`);
@@ -187,15 +187,31 @@ const run = () => {
 setTimeout(() => run(), 10);
 </script>
 
+## Custom curves
+
+### Simple cubic beziers
+
+You can make your own easing curve using a simplified _cubic bezier_. See [this curve, for example](https://cubic-bezier.com/#0,1.24,1,-1.15). It's defined by points `0, 1.24, 1, -1.15`. The key points we need here are `1.24` (point b), and `-1.15` (point d).
+
+This can be used as follows:
+
+```js
+import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
+const e = Easings.time(Easings.fromCubicBezier(1.24, -1.15), 1000);
+e.compute();
+```
+
+Use the [cubic bezier editor](https://cubic-bezier.com/#0,1.24,1,-1.15) to shape a curve, but make sure the first point remains 0 and the third point remains 1.
+
+
 ## Defined easings
 
-There are several well known easing functions that can be used in CSS, in animation software and so on.
+There are several well known easing functions which are pre-defined in ixfx.
 
 <!-- Astro bug. Either we get two lit elements, or an exception -->
 <!-- <easing-gallery-element client:only="lit" /> -->
 
- <div id="easingGallery"></div>
-
+<div id="easingGallery"></div>
 <script type="module" hoist>
 import '/src/loader';
 import '/src/components/modulation/EasingGalleryElement';
@@ -204,7 +220,6 @@ importEl(
   `easing-gallery-element`, {});
 </script>
 
-
 ## Credits
 
-Easing functions by [Andrey Sitnik and Ivan Solovev](https://easings.net/) 
+Most easing functions by [Andrey Sitnik and Ivan Solovev](https://easings.net/) 

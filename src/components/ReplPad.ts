@@ -39,7 +39,8 @@ type Group = {
  * @returns 
  */
 export const preBlocks = (): void => {
-  const baseUri = window.location.hostname === `localhost` ? '/pad/index.html' : '/ixfx-docs/pad/index.html';
+  const localhost = window.location.hostname === `localhost` || window.location.hostname === `127.0.0.1`;
+  const baseUri = localhost ? '/pad/index.html' : '/ixfx-docs/pad/index.html';
   const els = document.querySelectorAll(`pre>code`);
   const marker = '// repl-pad';
   const blocks: Block[] = [];

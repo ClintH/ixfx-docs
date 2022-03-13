@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us" class="initial astro-N6NSMEGX">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="sitemap" href="/sitemap.xml">
+
+<!-- Preload Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Scrollable a11y code helper -->
+<script type="module" src="/make-scrollable-code-focusable.js"></script>
+
+<!-- This is intentionally inlined to avoid FOUC -->
+<script>
+	const root = document.documentElement;
+	const theme = localStorage.getItem('theme');
+	if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		root.classList.add('theme-dark');
+	} else {
+		root.classList.remove('theme-dark');
+	}
+</script>
+
+		<!-- Page Metadata --><link rel="canonical" href="https://clinth.github.io/ixfx-docs/modulation/random/">
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content="Random - ixfx docs">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinth.github.io/ixfx-docs/modulation/random/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/clinth/ixfx/blob/main/assets/social/banner.jpg?raw=true">
+<meta property="og:image:alt" content="ixfx">
+<meta name="description" property="og:description" content="ixfx documentation">
+<meta property="og:site_name" content="ixfx docs">
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site">
+<meta name="twitter:title" content="Random - ixfx docs">
+<meta name="twitter:description" content="ixfx documentation">
+<meta name="twitter:image" content="https://github.com/clinth/ixfx/blob/main/assets/social/banner.jpg?raw=true">
+<meta name="twitter:image:alt" content="ixfx">
+
+<!--
+  TODO: Add json+ld data, maybe https://schema.org/APIReference makes sense?
+  Docs: https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
+  https://www.npmjs.com/package/schema-dts seems like a great resource for implementing this.
+  Even better, there's a React component that integrates with `schema-dts`: https://github.com/google/react-schemaorg
+-->
+
+		<title>Random - ixfx docs</title>
+		
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.4f03f3a9.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.86014f5c.js" astro-script="/modulation/random/script-0"></script>
+<script type="module" hoist="true" astro-script="/modulation/random/script-1">import '/src/components/ReplPad';
+  import '/src/loader';
+  import '/src/components/DensityPlotElement';
+  import {weightedInteger, weighted, gaussian} from '/node_modules/ixfx/dist/random.js';
+  import {jitter, Easings} from '/node_modules/ixfx/dist/modulation.js';
+  window.weightedInteger = weightedInteger;
+  window.weighted = weighted;
+  window.jitter = jitter;
+  window.Easings = Easings;
+  window.gaussian = gaussian;
+  importEl(
+    `plot1`, 
+    `density-plot-element`, {
+      fn: "Math.random()"
+  });
+  importEl(
+    `plot2`, 
+    `density-plot-element`, {
+      fn: "weighted('quadIn')",
+      editable: true
+  });
+  importEl(
+  `plot3`, 
+  `density-plot-element`, {
+    fn: "jitter(0.5, 0.2)",
+    scaleMin: 0,
+    scaleMax: 1,
+    editable: true
+  });
+  importEl(
+    `plot4`, 
+    `density-plot-element`, {
+      fn: "jitter(0.5, 0.2, {}, gaussian)",
+      scaleMin: 0,
+      scaleMax: 1,
+      editable: true
+  });
+
+    importEl(
+    `plot-gaussian`, 
+    `density-plot-element`, {
+      fn: "gaussian()",
+      scaleMin: 0,
+      scaleMax: 1,
+      editable: true
+  });</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/random/script-2">import setup from '../../idle.04f12634.js';
+setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.c1936d68.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"class":"astro-LPHCP5C4"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/random/script-3">import setup from '../../media.57d8586c.js';
+setup("1SG1ld", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"random-number-generation","text":"Random number generation"},{"depth":3,"slug":"weighted-distribution","text":"Weighted distribution"},{"depth":3,"slug":"gaussian-distribution","text":"Gaussian distribution"},{"depth":2,"slug":"jitter","text":"Jitter"},{"depth":2,"slug":"with-arrays","text":"With arrays"}],"class":"astro-LR56V2JR"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/random/script-4">import setup from '../../visible.e1f6ae0f.js';
+setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.2e9e674b.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"class":"astro-64IQMT5R"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/random/script-5">import setup from '../../media.57d8586c.js';
+setup("1SG1ld", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"random-number-generation","text":"Random number generation"},{"depth":3,"slug":"weighted-distribution","text":"Weighted distribution"},{"depth":3,"slug":"gaussian-distribution","text":"Gaussian distribution"},{"depth":2,"slug":"jitter","text":"Jitter"},{"depth":2,"slug":"with-arrays","text":"With arrays"}],"class":"astro-EDKM2WF4"}, children);
+
+});
+</script>
+</head>
+
+	<body>
+		<header class="astro-LPHCP5C4">
+	<a href="#article" class="sr-only skiplink astro-PWNYJVJP"><span class="astro-PWNYJVJP">Skip to Content</span></a>
+
+
+
+	<nav class="nav-wrapper astro-LPHCP5C4" title="Top Navigation">
+		<div class="menu-toggle astro-LPHCP5C4">
+			<astro-root uid="Z12Vj7s"><button type="button" aria-pressed="false" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="sr-only">Toggle sidebar</span></button></astro-root>
+		</div>
+		<div class="logo flex astro-LPHCP5C4">
+			<!-- <AstroLogo size={40} /> -->
+			<a href="/ixfx-docs/" class="astro-LPHCP5C4">
+				<h1 class="astro-LPHCP5C4">ixfx docs</h1>
+			</a>
+		</div>
+		<div style="flex-grow: 1;" class="astro-LPHCP5C4"></div>
+		<!-- {KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />} -->
+		<!-- {CONFIG.ALGOLIA && (
+			<div class="search-item">
+				<Search client:idle />
+			</div>
+		)} -->
+	</nav>
+</header>
+
+
+
+		<main class="layout astro-N6NSMEGX">
+			<aside id="grid-left" class="grid-sidebar astro-N6NSMEGX" title="Site Navigation">
+				<nav aria-labelledby="grid-left" class="astro-NO4JLDNO">
+	<ul class="nav-groups astro-NO4JLDNO">
+		<li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO"></h2>
+					<ul class="astro-NO4JLDNO">
+						
+					</ul>
+				</div>
+			</li><li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO">Getting Started</h2>
+					<ul class="astro-NO4JLDNO">
+						<li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/./" aria-current="false" class="astro-NO4JLDNO">
+									Introduction
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/./importing" aria-current="false" class="astro-NO4JLDNO">
+									Importing
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO">Flow and Logic</h2>
+					<ul class="astro-NO4JLDNO">
+						<li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/stateMachine" aria-current="false" class="astro-NO4JLDNO">
+									State Machine
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/loops" aria-current="false" class="astro-NO4JLDNO">
+									Loops and Intervals
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/flow/delay" aria-current="false" class="astro-NO4JLDNO">
+									Delay
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO">Modulation</h2>
+					<ul class="astro-NO4JLDNO">
+						<li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/envelope" aria-current="false" class="astro-NO4JLDNO">
+									Envelope
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/oscillator" aria-current="false" class="astro-NO4JLDNO">
+									Oscillator
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/easing" aria-current="false" class="astro-NO4JLDNO">
+									Easing
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/modulation/random" aria-current="page" class="astro-NO4JLDNO">
+									Random
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO">Temporal processing</h2>
+					<ul class="astro-NO4JLDNO">
+						<li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/temporal/normalising" aria-current="false" class="astro-NO4JLDNO">
+									Normalising
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/temporal/frequency" aria-current="false" class="astro-NO4JLDNO">
+									Frequency
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO">Data</h2>
+					<ul class="astro-NO4JLDNO">
+						<li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/cleanup" aria-current="false" class="astro-NO4JLDNO">
+									Clean up
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/generator" aria-current="false" class="astro-NO4JLDNO">
+									Generators
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-NO4JLDNO">
+									Collections
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-NO4JLDNO">
+				<div class="nav-group astro-NO4JLDNO">
+					<h2 class="nav-group-title astro-NO4JLDNO">Types</h2>
+					<ul class="astro-NO4JLDNO">
+						<li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/types/geometry/" aria-current="false" class="astro-NO4JLDNO">
+									Geometry
+								</a>
+							</li><li class="nav-link astro-NO4JLDNO">
+								<a href="/ixfx-docs/types/colour/" aria-current="false" class="astro-NO4JLDNO">
+									Colour
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+	</ul>
+</nav>
+
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+		var target = document.querySelector('[aria-current="page"]');
+		if (target && target.offsetTop > window.innerHeight - 100) {
+			document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+		}
+	});
+</script>
+
+
+
+			</aside>
+			<div id="grid-main" class="astro-N6NSMEGX">
+				<article id="article" class="content astro-EDKM2WF4">
+	<section class="main-section astro-EDKM2WF4">
+		<h1 class="content-title astro-EDKM2WF4" id="overview">Random</h1>
+		<nav class="block sm:hidden astro-EDKM2WF4">
+				<astro-root uid="1SG1ld"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#random-number-generation">Random number generation</a></li><li class="header-link depth-3"><a href="#weighted-distribution">Weighted distribution</a></li><li class="header-link depth-3"><a href="#gaussian-distribution">Gaussian distribution</a></li><li class="header-link depth-2"><a href="#jitter">Jitter</a></li><li class="header-link depth-2"><a href="#with-arrays">With arrays</a></li></ul></astro-root>
+			</nav>
+		<ul>
+<li>API Docs: <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time">Easings.time</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/modulation/">Online modulation demos</a></li>
+</ul><h2 id="random-number-generation">Random number generation</h2><p>JavaScript's go-to way of generating a random number is <code>Math.random</code>. It returns a number between 0-1 with a roughly even distribution.</p><p>The plot below shows <code>Math.random</code>, with the horizontal axis shows values from 0 on the left to 1 on the right. Note how the plot mostly fills out evenly along the horizontal axis.</p><div id="plot1"></div><h3 id="weighted-distribution">Weighted distribution</h3><p>To make some numbers more likely than others, you may want some form of <em>weighted distribution</em>.</p><p>ixfx's <a href="https://clinth.github.io/ixfx/modules/Random.html#weighted"><code>Random.weighted</code></a> uses an <a href="../modulation/easing">easing function</a> to shape random numbers.</p><p>When using the <em>quadIn</em> easing (the default for <code>weighted</code>), note how the density of random values skews toward 0.</p><div id="plot2"></div><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>weighted<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/random.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields 0-1 (inclusive) random number</span>
+<span class="token function">weighted</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">quadIn</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token function">weighted</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">quadOut</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Random integers (ie. whole numbers) can be produced with <a href="https://clinth.github.io/ixfx/modules/Random.html#weightedInteger"><code>Random.weightedInteger</code></a>. This is useful for producing random array indexes.</p><p>A range is provided to the function, with the return value always below the maximum (ie, it is <em>exclusive</em>). The minimum, 0 by default, might be returned (ie, it is <em>inclusive</em>).</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>weightedInteger<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/random.js'</span><span class="token punctuation">;</span>
+<span class="token function">weightedInteger</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">)</span><span class="token punctuation">;</span>      <span class="token comment">// 0-9</span>
+<span class="token function">weightedInteger</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 10-19</span>
+<span class="token function">weightedInteger</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">quadIn</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>       <span class="token comment">// 0-99, specifying the easing function</span>
+<span class="token function">weightedInteger</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">quadOut</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 100-199, specifying the easing function</span></code></pre><p>To use for accessing an array randomly:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> list <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">mango</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">kiwi</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">grape</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields random item from list</span>
+list<span class="token punctuation">[</span><span class="token function">weightedInteger</span><span class="token punctuation">(</span>list<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre><h3 id="gaussian-distribution">Gaussian distribution</h3><p>Gaussian distribution has a 'bell curve' shape, centred around the middle.</p><div id="plot-gaussian"></div><p>In ixfx, <a href="https://clinth.github.io/ixfx/modules/Random.html#gaussian"><code>Random.gaussian</code></a> to produce a random number with a gaussian distribution. That means you'd expect to get more random numbers around 0.5 than around 0 or 1.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#2</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>gaussian<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/random.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields a random number between 0..1</span>
+<span class="token function">gaussian</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The function takes a <em>skew</em> parameter which shifts the centre of the curve.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#2</span>
+<span class="token comment">// Shifts distribution to right, closer to 1</span>
+<span class="token function">gaussian</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Shifts distribution to the left, closer to 0</span>
+<span class="token function">gaussian</span><span class="token punctuation">(</span><span class="token number">6</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="jitter">Jitter</h2><p><em>Jitter</em> is the random modulation of a value. It is usually <em>bi-polar</em>, meaning that it might shift a value upwards or downwards.</p><p>On a <a href="../temporal/normalising">normalised</a> scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>clamp<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/bundle.js'</span><span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">jitter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> jitter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// Double jitter in order to +- and apply random</span>
+  <span class="token keyword">const</span> j <span class="token operator">=</span> jitter <span class="token operator">*</span> <span class="token number">2</span> <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">random</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token comment">// Offset value, add j and clamp to 0-1</span>
+  <span class="token keyword">return</span> <span class="token function">clamp</span><span class="token punctuation">(</span>value <span class="token operator">-</span> jitter <span class="token operator">+</span> j<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// Jitter a value of 50% by 10%</span>
+<span class="token comment">// Yields a range of 0.4-0.6</span>
+<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Another option is to jitter by a relative amount, with respect to the input value. In that case, jittering 0.5 by 10% yields a range of 0.45 - 0.55, because 10% of 0.5 is 0.05. Thus for a given jitter amount, a larger input value will jitter more wildly than a smaller value, creating a sense of instability.</p><p>ixfx provides both of these approaches with <a href="https://clinth.github.io/ixfx/modules/Modulation.html#jitter"><code>jitter</code></a>.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>jitter<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// jitter(value:number, jitterAmt:number, opts?:JitterOpts, rand?:()=>number)</span>
+
+<span class="token comment">// Absolute jitter 0.5 by 10%</span>
+<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number 0.4-0.6</span>
+
+<span class="token comment">// Relative jitter 0.5 by 10%</span>
+<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">rel</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number 0.45-0.55</span></code></pre><div id="plot3"></div><p>By default <code>jitter</code> uses <code>Math.random</code>, but you could just as well plug in a <a href="https://clinth.github.io/ixfx/modules/Random.html#weighted"><code>weighted</code></a>, or <a href="https://clinth.github.io/ixfx/modules/Random.html#gaussian">gaussian</a> random number generator.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>jitter<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>gaussian<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/random.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// Note we pass in as a function, so no () after gaussian</span>
+<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">,</span> gaussian<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>In the below plot, note that jitter is more likely to be closer than further away from the original value of 0.5. It gives a nice 'feathering' at the edges, somewhat more organic.</p><div id="plot4"></div><h2 id="with-arrays">With arrays</h2><p><a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html#randomElement"><code>randomElement</code></a> returns a random element from an array, <a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html#randomIndex"><code>randomIndex</code></a> returns a random index.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>randomElement<span class="token punctuation">,</span> randomIndex<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/arrays.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">apples</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">oranges</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">melons</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bananas</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token function">randomElement</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// eg. `melons`</span>
+<span class="token function">randomIndex</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>   <span class="token comment">// eg. 3</span></code></pre><p>Tip: <code>weightedInteger</code>, described above, can be used for skewing the distributing of random elements:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>weightedInteger<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/random.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">apples</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">oranges</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">melons</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bananas</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+a<span class="token punctuation">[</span><span class="token function">weightedInteger</span><span class="token punctuation">(</span>a<span class="token punctuation">.</span>length<span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span></code></pre><p><a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html#randomPluck"><code>randomPluck</code></a> picks a random element from an array and an array of all the other elements.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>randomPluck<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/arrays.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">apples</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">oranges</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">melons</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bananas</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> <span class="token punctuation">{</span>value<span class="token punctuation">,</span>array<span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token function">randomPluck</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+value<span class="token punctuation">;</span> <span class="token comment">// a random element</span>
+array<span class="token punctuation">;</span> <span class="token comment">// an array of remaining elements</span></code></pre><p><a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html#shuffle"><code>shuffle</code></a> randomises the ordering of an array.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span>shuffle<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/arrays.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> a <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">apples</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">oranges</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">melons</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">bananas</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields a randomly ordered version, eg: [`melons`,`apples`,`bananas`,`oranges`];</span>
+<span class="token keyword">const</span> b <span class="token operator">=</span> <span class="token function">shuffle</span><span class="token punctuation">(</span>a<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Once shuffled, you can then iterate over the array as normal:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+<span class="token keyword">const</span> c <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">1</span><span class="token punctuation">,</span><span class="token number">2</span><span class="token punctuation">,</span><span class="token number">3</span><span class="token punctuation">,</span><span class="token number">4</span><span class="token punctuation">,</span><span class="token number">5</span><span class="token punctuation">,</span><span class="token number">6</span><span class="token punctuation">,</span><span class="token number">7</span><span class="token punctuation">,</span><span class="token number">8</span><span class="token punctuation">,</span><span class="token number">9</span><span class="token punctuation">,</span><span class="token number">10</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token comment">// Prints items from array in random order</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> i <span class="token keyword">of</span> <span class="token function">shuffle</span><span class="token punctuation">(</span>c<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre><p>Tip: <code>weighted</code>, <code>weightedInteger</code>, <code>randomPluck</code> and <code>shuffle</code> can all take a custom random number generator as a parameter. This allows you to skew the results. See the API docs for the respective function.</p>
+	</section>
+	<nav class="block sm:hidden astro-EDKM2WF4">
+		
+<ul class="astro-64IQMT5R">
+</ul>
+<div style="margin: 2rem 0; text-align: center;" class="astro-64IQMT5R">
+	<astro-root uid="1Gmxo9"><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-root>
+</div>
+
+
+
+	</nav>
+</article>
+
+
+
+			</div>
+			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
+				<nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">
+	<div class="sidebar-nav-inner astro-LR56V2JR">
+		<astro-root uid="1SG1ld"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#random-number-generation">Random number generation</a></li><li class="header-link depth-3"><a href="#weighted-distribution">Weighted distribution</a></li><li class="header-link depth-3"><a href="#gaussian-distribution">Gaussian distribution</a></li><li class="header-link depth-2"><a href="#jitter">Jitter</a></li><li class="header-link depth-2"><a href="#with-arrays">With arrays</a></li></ul></astro-root>
+		
+<ul class="astro-64IQMT5R">
+</ul>
+<div style="margin: 2rem 0; text-align: center;" class="astro-64IQMT5R">
+	<astro-root uid="1Gmxo9"><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-root>
+</div>
+
+
+
+	</div>
+</nav>
+
+
+
+			</aside>
+		</main>
+	</body>
+</html>

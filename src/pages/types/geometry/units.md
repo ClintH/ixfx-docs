@@ -7,6 +7,9 @@ setup: |
   import {PolarCoordsElement} from '/src/components/geometry/PolarCoordsElement';
 ---
 
+<script type="module" hoist>
+import '/src/components/ReplPad';
+</script>
 <style>
 radians-editor {
   --label-color: var(--theme-text-light);
@@ -40,18 +43,15 @@ const degreeToRadian = (angleInDegrees) => (angleInDegrees - 90) * (Math.PI / 18
 const radianToDegree = (angleInRadians) => angleInRadians * 180 / Math.PI;
 ```
 
-Both of these functions are in the [Geometry](https://clinth.github.io/ixfx/modules/Geometry.html) module and can be imported:
-
-```js
-import {degreeToRadian, radianToDegree} from 'https://unpkg.com/ixfx/dist/geometry.js'
-```
+Both of these functions are in the [Geometry](https://clinth.github.io/ixfx/modules/Geometry.html) module.
 
 Example usage:
 ```js
-let r = degreeToRadian(180);        // π
+// repl-pad
+import {degreeToRadian, radianToDegree} from 'https://unpkg.com/ixfx/dist/geometry.js'
+let r = degreeToRadian(180);        // Pi
 let d = radianToDegree(Math.PI*2);  // 360
 ```
-
 
 ## Coordinates
 
