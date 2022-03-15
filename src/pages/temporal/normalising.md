@@ -155,5 +155,55 @@ If the input range is a percentage, [scalePercentages](https://clinth.github.io/
 scalePercentages(0.5, 0, 0.10) // 0.05 (5%)
 ```
 
+## Geometry
 
+Working with normalised geometric references can be useful for the same reason as normalised plain numbers. For example, perhaps you have a stream of [points](../types/geometry/point) from a computer vision library for the location of a detected nose. This position might be in _camera coordinates_, meaning that 0,0 represents the top-left corner of a frame from the camera. The max width and height will be determined by the resolution setting of the camera/library.
 
+You don't want to have to think about the scale of camera coordinates throughout the code, and importantly, it may change if you opt for a different camera resolution. Normalising to 0,0 - 1,1 may be the answer:
+
+```js
+const cameraBounds = {width: 1024, height: 768};
+const pt = {x:500, 300};
+
+const normalised = {
+  x: pt.x / cameraBounds.width,
+  y: pt.y / cameraBounds.height
+};
+```
+
+You might also want to verify the points don't exceed 0..1:
+
+```js
+import {clamp} from 'https://unpkg.com/ixfx/dist/bundle.js';
+const normalisedClamped = {
+  x: clamp(pt.x / cameraBounds.width),
+  y: clamp(pt.y / cameraBounds.height
+};
+```
+
+With ixfx, normalising points is possible using `Points.divide` and `Points.clamp`. 
+
+```js
+import {Points} from 'https://unpkg.com/ixfx/dist/geometry.js';
+const cameraBounds = {width: 1024, height: 768};
+const pt = {x:500, 300};
+
+// Convert point to 0..1 scale, based on camera frame
+const normalised = Points.divide(pt, cameraBounds.width, cameraBounds.height);
+
+// Or to normalise and clamp:
+const normalisedClamped = Points.clamp(Points.divide(pt, cameraBounds.width, cameraBounds.height));
+```
+
+If you have a normalised point, at some point you may need to map it to some coordinate space. Eg to the viewport. `Points.multiply` can be used for this:
+
+```js
+import {Points} from 'https://unpkg.com/ixfx/dist/geometry.js';
+const bounds = {height: window.innerHeight, width: window.innerWidth};
+
+// 1,1 is normalised, meaning {x:100%, y:100%}
+const pt = {x:1,y:1};
+
+// Now it's in absolute screen coordinates
+const screenPt = Points.multiply(pt, bounds.width, bounds.height);
+```

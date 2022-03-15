@@ -85,6 +85,28 @@ Points.from([10, 15]);  // {x: 10, y: 15}
 Points.fromNumbers([ [10, 15], [5, 5]]); // [{x:10, y:15}, {x:5, y:5}]
 ```
 
+## Normalised points
+
+It's often useful to work with [normalised](../../temporal/normalising) points. Thus a point of `{x:0.5, y:0.5}` would mean 50% x, and 50% y. See the discussion on [normalising points](../../temporal/normalising#geometry) for more on this.
+
+In short, you can normalise point using `Points.divide`:
+
+```js
+// Normalise `pt` by viewport size,
+// yielding a point on 0..1 scale.
+Points.divide(pt, window.innerWidth, window.innerHeight);
+
+// In principle it might exceed 0..1 range, so it may need to be clamped, too:
+Points.clamp(Points.divide(pt, window.innerWidth, window.innerHeight));
+```
+
+To apply a normalised point to some destination range, use `Points.multiply`
+
+```js
+// Maps a relative point to viewport size
+Points.multiply(pt, window.innerWidth, window.innerHeight);
+```
+
 ## Helper functions
 
 `findMinimum` allows you to compare an array of points, keeping the one which satisfies the provided comparer function over all others.
@@ -99,7 +121,7 @@ const points = [/* ... points ... */];
 const center = {x: 100, y: 100};
 
 // closestToCenter will be a Point {x,y}
-const closestToCenter = findMinimum((a, b) => {
+const closestToCenter = Points.findMinimum((a, b) => {
   const aDist = distance(a, center);
   const bDist = distance(b, center);
 
@@ -109,7 +131,13 @@ const closestToCenter = findMinimum((a, b) => {
 }, points);
 ```
 
-### Math
+`clamp` locks x,y to a minimum and maximum, by default 0..1:
+```js
+Points.clamp({x:2,y:2});      // {x:1.0, y:1.0}
+Points.clamp({x:0.5, y:0.5}); // {x:0.5, y:0.5}
+```
+
+### Math operations
 
 ```js
 // Returns {x,y} of a * b
@@ -117,6 +145,12 @@ Points.multiply(a, b);
 
 // Returns {x,y} of a, with a.x * 2 and a.y * 0.5
 Points.multiply(a, 2, 0.5);
+
+// Returns {x,y} of a / b
+Points.divide(a, b);
+
+// Returns {x,y} of a, with a.x / 2 and a.y / 0.5
+Points.divide(a, 2, 0.5);
 
 // Returns {x,y} of a + b
 Points.sum(a, b);

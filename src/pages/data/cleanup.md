@@ -86,33 +86,44 @@ clamp(30, 50, 100); // 50
 
 ### Wrap
 
-[wrap](https://clinth.github.io/ixfx/modules.html#wrap) wraps a number around a range, by default 0-360 (ie. degrees). These kinds of ranges logically wrap around continuously. Stepping past 359 degrees takes us to back to 0. And stepping -10 from 0 shouldn't yield -10, but 350.
+[`wrapInteger`](https://clinth.github.io/ixfx/modules.html#wrapInteger) wraps an integer (ie. whole) number around a range, by default 0-360 (ie. degrees). These kinds of ranges logically wrap around continuously. Stepping past 359 degrees takes us to back to 0. And stepping -10 from 0 shouldn't yield -10, but 350.
 
 `wrap` does this arithmetic for you.
 
 ```js
 // repl-pad#1
-import {wrap} from 'https://unpkg.com/ixfx/dist/bundle.js';
-wrap(200); // 200 - fine, within range
-wrap(400); // 40 - wraps past 360 to 40
+import {wrapInteger} from 'https://unpkg.com/ixfx/dist/bundle.js';
+wrapInteger(200); // 200 - fine, within range
+wrapInteger(400); // 40 - wraps past 360 to 40
 ```
 
 Numbers below the range are likewise wrapped:
 
 ```js
 // repl-pad#1
-wrap(-90); // 270
+wrapInteger(-90); // 270
 ```
 
-A custom range can be provided for wrapping: `wrap(value:number, min:number, max:number):number`. The minimum is inclusive, the maximum is exclusive.
+A custom range can be provided for wrapping: `wrapInteger(value:number, min:number, max:number):number`. The minimum is inclusive, the maximum is exclusive.
 
 ```js
 // repl-pad#1
-wrap(5, 20, 30); // 25
+wrapInteger(5, 20, 30); // 25
 
 // Max value is exlusive, so it wraps to min:
-wrap(30, 20, 30); // 20
+wrapInteger(30, 20, 30); // 20
 ```
+
+
+[`wrap`](https://clinth.github.io/ixfx/modules.html#wrap) is the same, but doesn't enforce any integer limitations.
+
+```js
+// repl-pad
+import {wrap} from 'https://unpkg.com/ixfx/dist/bundle.js';
+wrap(10.5,0,10); // 0.5;
+wrap(-0.5,0,10); // 9.5
+```
+
 
 ## Objects
 
