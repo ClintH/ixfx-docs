@@ -1,8 +1,8 @@
 ---
   title: Point
+  layout: ../../../layouts/MainLayout.astro
   setup: |
-    import {Markdown} from 'astro/components';
-    import Layout from '../../../layouts/MainLayout.astro';
+    import { DemoElement } from '../../../components/DemoElement.ts';
 ---
 
 <script type="module" hoist>
@@ -28,16 +28,26 @@ Calculate distance between two points
 
 ```js
 // repl-pad#1
-import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
+import { Points, radianToDegree} from "https://unpkg.com/ixfx/dist/geometry.js"
 
 const a = {x: 10, y: 10};
 const b = {x: 20, y: 20};
 
 // Calculates distance between point a and b
 const distance = Points.distance(a, b); // Returns a number
+
+// Calculate angle between point a and b
+const angle = Points.angle(a, b); // Returns angle in radians
+const angleDeg = radianToDegree(angle);
 ```
 
-Calculate an in-between point with `interpolate`
+In the example below, [normalised](#normalised-points) points are used for the distance calculation, so a distance value of 0.5 means 50% of the screen width/height away from the middle.
+
+<demo-element title="Point math" src="/geometry/point-math/" />
+
+Calculate an in-between point with `interpolate`. Interpolate can be useful for smoothly moving to a destination, as seen in the demo below.
+
+<demo-element title="Point interpolation" src="/geometry/point-interpolate/" />
 
 ```js
 // repl-pad#1

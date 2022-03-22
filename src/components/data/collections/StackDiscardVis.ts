@@ -21,7 +21,6 @@ const updateVis = () => {
 }
 const add = () => {
   const discard = discardEl.value;
-
   stack = Stacks.stack({capacity: 3, discardPolicy: discard as DiscardPolicy}, ...stack.data);
   stack = stack.push(fruit());
   updateVis();

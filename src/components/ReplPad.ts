@@ -106,7 +106,7 @@ export const preBlocks = (): void => {
       b.uri = fromText(b.src.trim(), baseUri);
     }
 
-    b.markerEl.innerHTML = `// <a style="color: unset" href="${b.uri}">repl-pad</a>`;
+    b.markerEl.innerHTML = `<a style="color: var(--yellow)">//</span> <a title="Open in repl-pad" style="font-weight:bold; color: var(--yellow)" href="${b.uri}">repl-pad</a>`;
   }
 }
 
