@@ -1,14 +1,17 @@
 ---
 title: State Machine
+layout: ../../layouts/MainLayout.astro
 setup: |
-  import { Markdown } from 'astro/components';
-  import Layout from '../../layouts/MainLayout.astro';
   import StateMachinePlay from './StateMachinePlay.astro';
 
 ---
 
+<script type="module" hoist>
+import '/src/components/ReplPad';
+</script>
+
 * [API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
-* Skeleton: Simple code to get up and running with a state machine. [Online demo](https://clinth.github.io/ixfx-demos/flow/statemachine-skeleton/), [Github](https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-skeleton), [Glitch](https://glitch.com/edit/#!/ixfx-starter-statemachine)
+* Starter: Simple code to get up and running with a state machine. [Online demo](https://clinth.github.io/ixfx-demos/flow/statemachine-starter/), [Github](https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter), [Glitch](https://glitch.com/edit/#!/ixfx-starter-statemachine)
 
 A _state machine_ allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It's up to you to 'drive' the machine, telling it when to transition. 
 
@@ -66,12 +69,12 @@ Try out some state machines in this playground. Edit the description or load a d
 ## Usage
 
 * [API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
-* [State Machine skeleton](https://clinth.github.io/ixfx-demos/flow/statemachine-skeleton/): Simple code to get up and running with a state machine
+* [State Machine starter](https://clinth.github.io/ixfx-demos/flow/statemachine-starter/): Simple code to get up and running with a state machine
 
 Create the machine with the an initial state and its _description_:
 
 ```js
-const machine = new StateMachine(initialState, description);
+const machine = StateMachine.create(initialState, description);
 ```
 
 The machine description is a simple object that 1) lists all possible states (as its top-level properties), and 2) for each state, what other state(s) can be transitioned to, or `null` if it is a final state.
@@ -81,6 +84,7 @@ The following example has four possible states (`wakeup, sleep, coffee, breakfas
 Use `null` to signify the final state. Multiple states can terminate the machine if desired.
 
 ```js
+// repl-pad#1
 import { StateMachine } from "https://unpkg.com/ixfx/dist/flow.js"
 
 const description = { 
@@ -90,7 +94,7 @@ const description = {
  breakfast: `bike`,
  bike: null
 }
-const machine = new StateMachine(`sleep`, description);
+const machine = StateMachine.create(`sleep`, description);
 ```
 
 ### Changing state
@@ -98,18 +102,21 @@ const machine = new StateMachine(`sleep`, description);
 Change the state by name:
 
 ```js
+// repl-pad#1
 machine.state = `wakeup`
 ```
 
 Or request an automatic transition (will use first state if there are several options)
 
 ```js
+// repl-pad#1
 machine.next();
 ```
 
 Reset the machine back to its initial state:
 
 ```js
+// repl-pad#1
 machine.reset();
 ```
 

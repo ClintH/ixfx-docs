@@ -54,11 +54,8 @@ const c = Lines.fromPoints({x:0,y:0}, {x:200,y:200});
 Length of the line can be calculated with [`length`](https://clinth.github.io/ixfx/modules/Geometry.Lines.html#length).
 
 ```js
-// repl-pad#1
-const line = {
-  a: {x: 0,   y:0 },
-  b: {x: 200, y:200 }
-}
+// repl-pad#2
+import { Lines } from "https://unpkg.com/ixfx/dist/geometry.js"
 const line = Lines.fromNumbers(0,0,200,200);
 const length = Lines.length(line); // Returns number
 ```
@@ -66,7 +63,7 @@ const length = Lines.length(line); // Returns number
 Relation of line to a point: [`distance`](https://clinth.github.io/ixfx/modules/Geometry.Lines.html#distance) and [`nearest`](https://clinth.github.io/ixfx/modules/Geometry.Lines.html#nearest)
 
 ```js
-// repl-pad#1
+// repl-pad#2
 // Closest distance of point to anywhere on a line
 // returns number
 Lines.distance(line, {x:150, y:200});
@@ -82,7 +79,7 @@ Lines.nearest(line, {x:150, y:200});
 Is a point within range of line?
 
 ```js
-// repl-pad#1
+// repl-pad#2
 // True if 150,150 is within 100 distance of line
 Lines.withinRange(line, {x:150,y:150}, 100);
 ```
@@ -90,7 +87,7 @@ Lines.withinRange(line, {x:150,y:150}, 100);
 Calculate an in-between point with [`interpolate`](https://clinth.github.io/ixfx/modules/Geometry.Lines.html#interpolate)
 
 ```js
-// repl-pad#1
+// repl-pad#2
 // Calculate a Point between points `a` and `b` using a relative 
 // progress amount (0 -> 1). 0 = a, 0.5 = halfway between
 // the two, 1 = b, and so on.
@@ -223,7 +220,7 @@ Lines.equals(lineA, lineB);
 Multiple both start and end points by given x & y:
 
 ```js
-// repl-pad#2
+// repl-pad#4
 import { Lines } from "https://unpkg.com/ixfx/dist/geometry.js";
 // Line 1,1 -> 10,10
 const line = Lines.fromNumbers(1,1,10,10);
@@ -234,7 +231,7 @@ const ll = Lines.multiply(line, {x:2, y:3});
 Apply a function to start and end points of line:
 
 ```js
-// repl-pad#2
+// repl-pad#4
 // A function that applies randomisation to x & y
 const r = (p) => ({
   x: p.x * Math.random(),

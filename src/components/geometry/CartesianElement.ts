@@ -60,15 +60,13 @@ export class CartesianElement extends LitElement {
     const poleColour = this.palette.get(`fgDim`, `black`);
 
     const svg = Svg.makeHelper(
-      this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`, strokeWidth: 3}
-    );
+      this.shadowRoot.querySelector(`svg`));
 
     svg.clear();
     const w = svg.width;
     const h = svg.height - 40;
 
-    Svg.Elements.grid(svg.parent, origin, 25, w, h);
+    Svg.Elements.grid(svg.parent, origin, 25, w, h, {strokeWidth: 2});
 
     // Pole
     svg.circle({radius: 5, ...origin}, {fillStyle: poleColour, strokeStyle: `none`})
@@ -77,15 +75,24 @@ export class CartesianElement extends LitElement {
     // Pole axis
     const triangleMarker = {
       id: `triangle`,
-      fillStyle: poleColour
+      fillStyle: poleColour,
+      strokeWidth: 2
     }
     const labelOffset = 20;
     const poleAxisLineX = Lines.fromNumbers(origin.x, origin.y, origin.x + w - labelOffset, origin.y);
-    svg.line(poleAxisLineX, {fillStyle: `none`, markerEnd: triangleMarker, strokeStyle: poleColour});
+    svg.line(poleAxisLineX, {
+      fillStyle: `none`, markerEnd: triangleMarker,
+      strokeWidth: 3,
+      strokeStyle: poleColour
+    });
     svg.text(`X`, {x: origin.x + w - 45, y: origin.y + labelOffset}, {strokeStyle: `none`, fillStyle: poleColour});
 
     const poleAxisLineY = Lines.fromNumbers(origin.x, origin.y, origin.x, h);
-    svg.line(poleAxisLineY, {fillStyle: `none`, markerEnd: triangleMarker, strokeStyle: poleColour});
+    svg.line(poleAxisLineY, {
+      fillStyle: `none`, markerEnd: triangleMarker,
+      strokeWidth: 3,
+      strokeStyle: poleColour
+    });
     svg.text(`Y`, {x: origin.x + 10, y: origin.y + h - labelOffset - 10}, {strokeStyle: `none`, fillStyle: poleColour});
 
   }

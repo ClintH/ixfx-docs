@@ -1,7 +1,7 @@
 /* eslint-disable */
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
-import {Circles, Arcs, Lines, Points, Polar, radianToDegree} from 'ixfx/lib/geometry';
+import {Arcs, Lines, Points, Polar, radianToDegree} from 'ixfx/lib/geometry';
 import {themeChangeObservable} from 'ixfx/lib/dom';
 import {Palette} from 'ixfx/lib/visual';
 import * as Svg from 'ixfx/lib/svg';
@@ -72,7 +72,7 @@ export class PolarCoordsElement extends LitElement {
     const poleColour = this.palette.get(`fgDim`, `black`);
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`, strokeWidth: 3}
+      {fillStyle: `transparent`}
     );
 
     svg.clear();
@@ -95,7 +95,7 @@ export class PolarCoordsElement extends LitElement {
     }
 
     const poleAxisLine = Lines.fromNumbers(center.x, center.y, center.x + minWh - 10, center.y);
-    svg.line(poleAxisLine, {fillStyle: `none`, markerEnd: triangleMarker, strokeStyle: poleColour});
+    svg.line(poleAxisLine, {fillStyle: `none`, markerEnd: triangleMarker, strokeWidth: 3, strokeStyle: poleColour});
     svg.text(`A`, {x: center.x + minWh - 35, y: center.y + 20}, {strokeStyle: `none`, fillStyle: poleColour});
   }
 
@@ -122,7 +122,8 @@ export class PolarCoordsElement extends LitElement {
     const lineToCursor = Lines.fromPoints(center, ptr);
     svg.line(lineToCursor, {
       strokeDash: `5`,
-      strokeStyle: targetColour
+      strokeStyle: targetColour,
+      strokeWidth: 3
     }, `#pointerRay`);
     const lineToCursorDistance = Lines.length(lineToCursor);
 
@@ -137,7 +138,7 @@ export class PolarCoordsElement extends LitElement {
     const polarAngleDeg = radianToDegree(polar.angleRadian);
 
     // Draw arc
-    const rad = Math.PI * 2 - polar.angleRadian;
+    const rad = polar.angleRadian;// Math.PI * 2 - polar.angleRadian;
     let arc: Arcs.ArcPositioned = {
       endRadian: rad,
       startRadian: 0,
@@ -146,9 +147,13 @@ export class PolarCoordsElement extends LitElement {
     }
     let arcSvgOpts = {
       sweep: true,
-      largeArc: rad > Math.PI ? false : true
+      largeArc: rad < 0 ? false : true
     }
-    if (Math.round(polarAngleDeg) !== 0) svg.path(Arcs.toSvg(arc, arcSvgOpts), {strokeStyle: angleColour}, `#arc`);
+
+    if (Math.round(polarAngleDeg) !== 0) svg.path(Arcs.toSvg(arc, arcSvgOpts), {
+      strokeWidth: 3,
+      strokeStyle: angleColour
+    }, `#arc`);
 
     // Update angle labels
     const labelStyle: Svg.TextDrawingOpts = {

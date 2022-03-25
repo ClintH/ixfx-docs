@@ -73,7 +73,7 @@ export class AnglesElement extends LitElement {
   renderSvg() {
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`, strokeStyle: `red`, strokeWidth: 3}
+      {fillStyle: `transparent`}
     );
 
     svg.clear();
@@ -82,7 +82,10 @@ export class AnglesElement extends LitElement {
 
     let radius = svg.height * 0.30;
     let center = {x: w / 2, y: h / 2};
-    const traceStyle = {strokeStyle: this.palette.get(`axis-color`, `orange`)};
+    const traceStyle = {
+      strokeStyle: this.palette.get(`axis-color`, `orange`),
+      strokeWidth: 3
+    };
     const labelStyle: Svg.TextDrawingOpts = {
       strokeStyle: `transparent`,
       fillStyle: this.palette.get(`fgDim`, `orange`),
@@ -139,7 +142,10 @@ export class AnglesElement extends LitElement {
 
     // Draw ray to intersection point
     const ray = Lines.extendFromStart(Lines.fromPoints(c, inter), 10);
-    let svgLine = svg.line(ray, {strokeStyle: this.palette.get(`accent-bold`, `yellow`)}, `#pointerRay`);
+    svg.line(ray, {
+      strokeWidth: 3,
+      strokeStyle: this.palette.get(`accent-bold`, `yellow`)
+    }, `#pointerRay`);
 
     // Compute radians
     const lineRad = Lines.angleRadian(ray) * -1;
@@ -180,8 +186,8 @@ export class AnglesElement extends LitElement {
       fillStyle: this.palette.get(`fgDim`, `black`),
       anchor: `middle`
     }
-    let radiansLabel = svg.text(`Radians: ${radStr}`, {x: c.x, y: c.y}, labelStyle, `#radiansLabel`);
-    let degreesLabel = svg.text(`Degrees: ${degStr}`, {x: c.x, y: c.y + 20}, labelStyle, `#degreesLabel`);
+    svg.text(`Radians: ${radStr}`, {x: c.x, y: c.y}, labelStyle, `#radiansLabel`);
+    svg.text(`Degrees: ${degStr}`, {x: c.x, y: c.y + 20}, labelStyle, `#degreesLabel`);
   }
 
   render() {

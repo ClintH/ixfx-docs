@@ -103,7 +103,7 @@ const polarToCartesian = (distance, angleRadians, originX, originY) => ({
   });
 ```
 
-In ixfx, [toCartesian](https://clinth.github.io/ixfx/modules/Geometry.Polar.html#toCartesian) function is provided and can be used as:
+In ixfx, [`toCartesian`](https://clinth.github.io/ixfx/modules/Geometry.Polar.html#toCartesian) function is provided and can be used as:
 
 ```js
 import { Polar } from 'https://unpkg.com/ixfx/dist/geometry.js';

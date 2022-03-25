@@ -4,35 +4,32 @@ description: Docs intro
 layout: ../layouts/MainLayout.astro
 ---
 
-ixfx is a tookit for programming interactivity.
+ixfx is a tookit for programming interactivity. A quick overview of the provided functionality:
 
-First steps:
-* [Download and tinker with the provided demos](https://github.com/clinth/ixfx-demos/), or
-* [import ixfx into your own sketch](./importing), or
+**Flow**: [state machine](./flow/stateMachine), [timeouts](./flow/delay#debounce), [loops and intervals](./flow/loops), [debounce](./flow/delay#debounce), [throttling](./flow/delay#throttle)
+
+**Modulation**: [ADSR envelope](./modulation/envelope), [oscillators](./modulation/oscillator), [easing functions](./modulation/easing), [randomisation and jitter](./modulation/random).
+
+**Temporal Processing**: [Normalising](./temporal/normalising), [frequency tracking](./temporal/frequency)
+
+**Data**: [data cleaning](./data/cleanup), [generators](./data/generator), [stack](./data/collections/stack) and [queue](./data/collections/queue) collections
+
+**Types**: Geometry [primitives for Cartesian & polar coordinates](./types/geometry/units), [points](./types/geometry/point), [lines](./types/geometry/line), [arcs](./types/geometry/arc), [circles](./types/geometry/circle), [rectangle](./types/geometry/rect) and [grid layouts](./types/geometry/grid). [Colour](./types/colour) interpolating, scales and variations
+
+## This documentation
+
+Throughout this documentation there are lots of interactive controls to try functions out.
+
+You may also notice gold <code style="color: var(--yellow)">// repl-pad</code> text at the top of code snippets. Tap this to open a live-editable copy of the code.
+
+Embedded demos are also scattered around, in their toolbars, you can open the demo source on Github or view in a separate tab.
+
+## Get started
+
+Choose your starting point:
+* [Download and tinker with the provided demos](https://github.com/clinth/ixfx-demos/)
+* [import ixfx into your own sketch](./importing)
 * Use a starter kit: [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0), Codepen, StackBlitz
-
-## Features
-
-ixfx offers:
-
-**Flow**:
-* [state machine](./flow/stateMachine), [timeouts](./flow/delay#debounce), [loops and intervals](./flow/loops), [debounce](./flow/delay#debounce), [throttling](./flow/delay#throttle)
-
-**Modulation**
-* [ADSR envelope](./modulation/envelope), [oscillators](./modulation/oscillator), [easing functions](./modulation/easing), [randomisation and jitter](./modulation/random).
-
-**Temporal Processing**
-* [Normalising](./temporal/normalising), [frequency tracking](./temporal/frequency)
-
-
-**Data**
-* [data cleaning](./data/cleanup), [generators](./data/generator), [stack](./data/collections/stack) and [queue](./data/collections/queue) collections
-
-**Types**:
-* Geometry [primitives for Cartesian & polar coordinates](./types/geometry/units), [points](./types/geometry/point), [lines](./types/geometry/line), [arcs](./types/geometry/arc), [circles](./types/geometry/circle), [rectangle](./types/geometry/rect) and [grid layouts](./types/geometry/grid).
-* [Colour](./types/colour): interpolating, scales and variations
-
-
 
 ## Why ixfx?
 
