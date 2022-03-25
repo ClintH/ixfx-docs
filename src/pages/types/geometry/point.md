@@ -22,12 +22,12 @@ const p = {x: 100, y: 200};
 
 There's no defined unit for `x` and `y`, but pixel coordinates are typical.
 
-## Distance and geometry
+## Distance and angles
 
-Calculate distance between two points
+Calculate distance between two points with [`distance`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#distance).
 
 ```js
-// repl-pad#1
+// repl-pad
 import { Points, radianToDegree} from "https://unpkg.com/ixfx/dist/geometry.js"
 
 const a = {x: 10, y: 10};
@@ -36,33 +36,57 @@ const b = {x: 20, y: 20};
 // Calculates distance between point a and b
 const distance = Points.distance(a, b); // Returns a number
 
-// Calculate angle between point a and b
-const angle = Points.angle(a, b); // Returns angle in radians
-const angleDeg = radianToDegree(angle);
+// Calculate angle in radians between points a and b
+const angleRad = Points.angleBetween(a, b);
+const angleDeg = radianToDegree(angleRad);
 ```
 
 In the example below, [normalised](#normalised-points) points are used for the distance calculation, so a distance value of 0.5 means 50% of the screen width/height away from the middle.
 
 <demo-element title="Point math" src="/geometry/point-math/" />
 
-Calculate an in-between point with `interpolate`. Interpolate can be useful for smoothly moving to a destination, as seen in the demo below.
+## Interpolation
+
+Calculate an in-between point with [`interpolate`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#interpolate). Interpolate can be useful for smoothly moving to a destination, as seen in the demo below.
 
 <demo-element title="Point interpolation" src="/geometry/point-interpolate/" />
 
 ```js
 // repl-pad#1
+import { Points, radianToDegree} from "https://unpkg.com/ixfx/dist/geometry.js"
+const a = {x: 10, y: 10};
+const b = {x: 20, y: 20};
+
 // Calculate a Point between `a` and `b` using a relative 
 // progress amount (0 -> 1). 0 = a, 0.5 = halfway between
 // the two, 1 = b, and so on.
 const p = Points.interpolate(0.5, a, b); // Returns {x,y}
 ```
 
-Calculates a rectangle which encompasses all the provided points
+## More geometry
+
+Calculates a rectangle which encompasses all the provided points with [`bbox`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#bbox)
+
 ```js
 // repl-pad#1
 const points = [a, b];
 const rect = Points.bbox(...points);  // returns {x,y,width,height}
 ```
+
+Rotate a point around a given point with [`rotate`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#rotate)
+
+```js
+// repl-pad
+import { Points, degreeToRadian } from "https://unpkg.com/ixfx/dist/geometry.js"
+
+// Rotate 10,10 by Math.PI/2 radians around the origin of 0,0
+const p = Points.rotate({x:10,y:10}, Math.PI/2, {x:0, y:0});
+
+// Rotate 10,10 by 15 degrees around the origin of 0,0
+const pp = Points.rotate({x:10,y:10}, degreeToRadian(15), {x:0, y:0});
+```
+
+
 
 ## Conversions
 
@@ -119,7 +143,7 @@ Points.multiply(pt, window.innerWidth, window.innerHeight);
 
 ## Helper functions
 
-`findMinimum` allows you to compare an array of points, keeping the one which satisfies the provided comparer function over all others.
+[`findMinimum`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#findMinimum) allows you to compare an array of points, keeping the one which satisfies the provided comparer function over all others.
 
 Example:
 
@@ -147,9 +171,28 @@ Points.clamp({x:2,y:2});      // {x:1.0, y:1.0}
 Points.clamp({x:0.5, y:0.5}); // {x:0.5, y:0.5}
 ```
 
+[`apply`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#apply) returns a point with a given function applied to both `x` and `y` fields:
+
+```js
+// repl-pad
+import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
+const p = {x:100.1234, y:100.1234};
+
+// Adds 10 to both x and y
+Points.apply(p, v => v + 10);
+
+// Rounds the fields
+Points.apply(p, Math.round);
+```
+
 ### Math operations
 
 ```js
+// repl-pad
+import { Points } from "https://unpkg.com/ixfx/dist/geometry.js"
+const a = {x: 10, y: 10};
+const b = {x: 20, y: 20};
+
 // Returns {x,y} of a * b
 Points.multiply(a, b);
 
