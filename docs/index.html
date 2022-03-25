@@ -65,9 +65,9 @@ setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="//script-1">import setup from './media.57d8586c.js';
-setup("19BWBH", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+setup("Z1UP4iR", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("./TableOfContents.237e654c.js"), import("./client.a7c2389a.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"features","text":"Features"},{"depth":2,"slug":"why-ixfx","text":"Why ixfx?"}],"class":"astro-LR56V2JR"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"this-documentation","text":"This documentation"},{"depth":2,"slug":"get-started","text":"Get started"},{"depth":2,"slug":"why-ixfx","text":"Why ixfx?"}],"class":"astro-LR56V2JR"}, children);
 
 });
 </script>
@@ -79,9 +79,9 @@ setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="//script-3">import setup from './media.57d8586c.js';
-setup("19BWBH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+setup("Z1UP4iR", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("./TableOfContents.237e654c.js"), import("./client.a7c2389a.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"features","text":"Features"},{"depth":2,"slug":"why-ixfx","text":"Why ixfx?"}],"class":"astro-EDKM2WF4"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"this-documentation","text":"This documentation"},{"depth":2,"slug":"get-started","text":"Get started"},{"depth":2,"slug":"why-ixfx","text":"Why ixfx?"}],"class":"astro-EDKM2WF4"}, children);
 
 });
 </script>
@@ -253,23 +253,18 @@ setup("19BWBH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 	<section class="main-section astro-EDKM2WF4">
 		<h1 class="content-title astro-EDKM2WF4" id="overview">ixfx</h1>
 		<nav class="block sm:hidden astro-EDKM2WF4">
-				<astro-root uid="19BWBH"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#features">Features</a></li><li class="header-link depth-2"><a href="#why-ixfx">Why ixfx?</a></li></ul></astro-root>
+				<astro-root uid="Z1UP4iR"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#this-documentation">This documentation</a></li><li class="header-link depth-2"><a href="#get-started">Get started</a></li><li class="header-link depth-2"><a href="#why-ixfx">Why ixfx?</a></li></ul></astro-root>
 			</nav>
-		<p>ixfx is a tookit for programming interactivity.</p><p>First steps:</p><ul>
-<li><a href="https://github.com/clinth/ixfx-demos/">Download and tinker with the provided demos</a>, or</li>
-<li><a href="./importing">import ixfx into your own sketch</a>, or</li>
+		<p>ixfx is a tookit for programming interactivity. A quick overview of the provided functionality:</p><p><strong>Flow</strong>: <a href="./flow/stateMachine">state machine</a>, <a href="./flow/delay#debounce">timeouts</a>, <a href="./flow/loops">loops and intervals</a>, <a href="./flow/delay#debounce">debounce</a>, <a href="./flow/delay#throttle">throttling</a></p><p><strong>Modulation</strong>: <a href="./modulation/envelope">ADSR envelope</a>, <a href="./modulation/oscillator">oscillators</a>, <a href="./modulation/easing">easing functions</a>, <a href="./modulation/random">randomisation and jitter</a>.</p><p><strong>Temporal Processing</strong>: <a href="./temporal/normalising">Normalising</a>, <a href="./temporal/frequency">frequency tracking</a></p><p><strong>Data</strong>: <a href="./data/cleanup">data cleaning</a>, <a href="./data/generator">generators</a>, <a href="./data/collections/stack">stack</a> and <a href="./data/collections/queue">queue</a> collections</p><p><strong>Types</strong>: Geometry <a href="./types/geometry/units">primitives for Cartesian &#x26; polar coordinates</a>, <a href="./types/geometry/point">points</a>, <a href="./types/geometry/line">lines</a>, <a href="./types/geometry/arc">arcs</a>, <a href="./types/geometry/circle">circles</a>, <a href="./types/geometry/rect">rectangle</a> and <a href="./types/geometry/grid">grid layouts</a>. <a href="./types/colour">Colour</a> interpolating, scales and variations</p><h2 id="this-documentation">This documentation</h2><p>Throughout this documentation there are lots of interactive controls to try functions out.</p>
+You may also notice gold 
+<code style="color: var(--yellow)">
+// repl-pad
+</code>
+ text at the top of code snippets. Tap this to open a live-editable copy of the code.
+<p>Embedded demos are also scattered around, in their toolbars, you can open the demo source on Github or view in a separate tab.</p><h2 id="get-started">Get started</h2><p>Choose your starting point:</p><ul>
+<li><a href="https://github.com/clinth/ixfx-demos/">Download and tinker with the provided demos</a></li>
+<li><a href="./importing">import ixfx into your own sketch</a></li>
 <li>Use a starter kit: <a href="https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0">Glitch</a>, Codepen, StackBlitz</li>
-</ul><h2 id="features">Features</h2><p>ixfx offers:</p><p><strong>Flow</strong>:</p><ul>
-<li><a href="./flow/stateMachine">state machine</a>, <a href="./flow/delay#debounce">timeouts</a>, <a href="./flow/loops">loops and intervals</a>, <a href="./flow/delay#debounce">debounce</a>, <a href="./flow/delay#throttle">throttling</a></li>
-</ul><p><strong>Modulation</strong></p><ul>
-<li><a href="./modulation/envelope">ADSR envelope</a>, <a href="./modulation/oscillator">oscillators</a>, <a href="./modulation/easing">easing functions</a>, <a href="./modulation/random">randomisation and jitter</a>.</li>
-</ul><p><strong>Temporal Processing</strong></p><ul>
-<li><a href="./temporal/normalising">Normalising</a>, <a href="./temporal/frequency">frequency tracking</a></li>
-</ul><p><strong>Data</strong></p><ul>
-<li><a href="./data/cleanup">data cleaning</a>, <a href="./data/generator">generators</a>, <a href="./data/collections/stack">stack</a> and <a href="./data/collections/queue">queue</a> collections</li>
-</ul><p><strong>Types</strong>:</p><ul>
-<li>Geometry <a href="./types/geometry/units">primitives for Cartesian &#x26; polar coordinates</a>, <a href="./types/geometry/point">points</a>, <a href="./types/geometry/line">lines</a>, <a href="./types/geometry/arc">arcs</a>, <a href="./types/geometry/circle">circles</a>, <a href="./types/geometry/rect">rectangle</a> and <a href="./types/geometry/grid">grid layouts</a>.</li>
-<li><a href="./types/colour">Colour</a>: interpolating, scales and variations</li>
 </ul><h2 id="why-ixfx">Why ixfx?</h2><p>There are many 'front-end' frameworks, but these are typically meant for regular GUIs or document-based apps. They usually have idiosyncratic ways of structuring code, custom syntax, and elaborate build processes. Great though if you're doing that kind of thing often.</p><p>There are also several 'creative coding' sandboxes. These are better suited than front-end frameworks for experimentation in interactivity, but again tend to be their own little ecosystem removed from the web platform. They favour Canvas-based visuals, and seem largely ignorant of the wider web platform or modern coding practices.</p><p>In both cases one spends a lot of time learning the particular framework and its way of doing things rather than the web platform itself. Learning Javascript as a language also gets lost in this. Having to ask "how do I do <em>x</em> in React?" or "how do I do <em>x</em> in P5.js?" is a sign the framework has eaten you.</p><p>Some design principles of ixfx are:</p><ul>
 <li>
 <p>No build process required</p>
@@ -311,7 +306,7 @@ setup("19BWBH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 			<aside id="grid-right" class="grid-sidebar astro-N6NSMEGX" title="Table of Contents">
 				<nav class="sidebar-nav astro-LR56V2JR" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-LR56V2JR">
-		<astro-root uid="19BWBH"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#features">Features</a></li><li class="header-link depth-2"><a href="#why-ixfx">Why ixfx?</a></li></ul></astro-root>
+		<astro-root uid="Z1UP4iR"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#this-documentation">This documentation</a></li><li class="header-link depth-2"><a href="#get-started">Get started</a></li><li class="header-link depth-2"><a href="#why-ixfx">Why ixfx?</a></li></ul></astro-root>
 		
 <ul class="astro-64IQMT5R">
 </ul>
