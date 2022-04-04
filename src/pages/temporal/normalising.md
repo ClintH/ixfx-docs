@@ -131,11 +131,11 @@ import {scale} from 'https://unpkg.com/ixfx/dist/bundle.js'
 // Scales 10 on the range of 0-100, 
 // with an output range of 0-1.
 // Yields 0.10
-scale(10, 0, 100);
+scale(10, 0, 100); // 0.1
 
 // Scales 20 on a range of 20-40
 // Yields 0
-scale(20, 20, 40);
+scale(20, 20, 40); // 0
 ```
 
 `scale` can also map to an output range other than the default of 0..1:
@@ -144,13 +144,26 @@ scale(20, 20, 40);
 // repl-pad#1
 // Maps the value 30 from an input range of 20-40 (thus 30 = 0.5 or 50%)
 // to an output range of 100-200, yielding 150 (50% of the range 100-200)
-scale(30, 20, 40, 100, 200);
+scale(30, 20, 40, 100, 200); // 150
+```
+
+Note that if the input value is outside of the specified input range, the output value will likewise be outside of the output range. Use [`clamp`](../data/cleanup/#clamping) to ensure the output range is respected:
+
+```js
+import {scale, clamp} from 'https://unpkg.com/ixfx/dist/bundle.js'
+// 11 is beyond input range of 0-10, so we get
+// an output beyond expected range of 0..1:
+scale(11, 0, 10); // 1.1
+
+// Clamp solves that:
+clamp(scale(11, 0, 10)); // 1
 ```
 
 If the input range is a percentage, [scalePercentages](https://clinth.github.io/ixfx/modules.html#scalePercentages) adapts to a new output percentage range. While `scale` can be used for this, it's useful because it sanity-checks values to make sure everything stays within the percentage range.
 
 ```js
 // repl-pad
+import {scalePercentages} from 'https://unpkg.com/ixfx/dist/bundle.js'
 // Scale 0.5 to be on a 0.0-0.10 range
 scalePercentages(0.5, 0, 0.10) // 0.05 (5%)
 ```

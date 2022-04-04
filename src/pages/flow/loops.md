@@ -158,14 +158,15 @@ for await (const v of interval(counter, 1000)) {
 [Generators](../data/generator) can looped over with `forEach`
 
 ```js
-import { forEach, count } from "https://unpkg.com/ixfx/dist/generators.js"
+import { count } from "https://unpkg.com/ixfx/dist/generators.js"
+import { forEach } from "https://unpkg.com/ixfx/dist/flow.js"
 
 forEach(count(5), () => {
   // This will run five times
 })
 ```
 
-If you know the generator is finite, an alternative is to convert to an array:
+If you know the generator is finite, an alternative is to convert to an array, and utilise JS's inbuilt `forEach`:
 
 ```js
 import { count } from "https://unpkg.com/ixfx/dist/generators.js"

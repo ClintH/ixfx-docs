@@ -166,6 +166,9 @@ for (let i of count(5)) {
 A negative `amount` counts backwards from zero:
 
 ```js
+import {count} from "https://unpkg.com/ixfx/dist/generators.js"
+import {forEach} from "https://unpkg.com/ixfx/dist/flow.js"
+
 // Prints Hi! 0, Hi! -1 ... Hi! -4
 [...count(-5)].forEach(i => {
   console.log(`Hi! ${i}`);
@@ -208,26 +211,26 @@ range.next().value;
 
 If you just want to simply count from 0 to some number, consider using `count` instead.
 
-To constrain the range to the percentage scale (0-1), use `rangePercent`:
+To constrain the range to the percentage scale (0-1), use `numericPercent`:
 
 ```js
-import {rangePercent} from "https://unpkg.com/ixfx/dist/generators.js"
+import {numericPercent} from "https://unpkg.com/ixfx/dist/generators.js"
 
-// rangePercent(interval, repeating, start, end)
+// numericPercent(interval, repeating, start, end)
 
 // Counts from 0 to 1 by 10%
-for (const v of rangePercent(0.1)) { 
+for (const v of numericPercent(0.1)) { 
   // 0, 0.1, 0.2 ...
 }
 
 // Counts from 0 to 1 by 10%, looping from 0
-for (const v of rangePercent(0.1, true)) { 
+for (const v of numericPercent(0.1, true)) { 
   // 0, 0.1, 0.2 ... 1.0, 0.0, 0.1, 0.2 ...  
   // Warning: infinite generator, make sure you `break` at some point
 }
 
 // Constant rotation
-const r = rangePercent(0.1); // Setup once
+const r = numericPercent(0.1); // Setup once
 // Per animation loop, calculate new rotation
 const angle = Math.PI*2*r.next().value; 
 ```

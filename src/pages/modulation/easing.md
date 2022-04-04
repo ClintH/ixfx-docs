@@ -74,7 +74,7 @@ import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
 const e = Easings.time(`sineIn`, 1000);
 
 // Increment by 10% from 0 to 1
-const range = Generators.rangePercent(0.1); 
+const range = Generators.numericPercent(0.1); 
 // Iterate over range at 100ms intervals
 for await (const v of Flow.interval(range, 100)) {
   console.log(t.compute());

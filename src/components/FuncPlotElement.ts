@@ -160,7 +160,7 @@ export class FuncPlotElement extends LitElement {
       p.clear();
     }
 
-    const range = Generators.rangePercent(this.xResolution);
+    const range = Generators.numericPercent(this.xResolution);
 
     if (animatedDraw) {
       for await (const v of Flow.interval(range, 100)) {
@@ -184,7 +184,7 @@ export class FuncPlotElement extends LitElement {
 
   demoOpacity() {
     if (this.collapsed) return;
-    const range = Generators.rangePercent(0.01);
+    const range = Generators.numericPercent(0.01);
 
     this.demoInit((bounds, ctx): boolean => {
 
@@ -203,7 +203,7 @@ export class FuncPlotElement extends LitElement {
     if (this.collapsed) return;
     const totalLoops = 100;
 
-    const range = Generators.rangePercent(1 / totalLoops);
+    const range = Generators.numericPercent(1 / totalLoops);
     let x = 0;
     this.demoInit((bounds, ctx, loops): boolean => {
       const xPerLoop = Math.floor(bounds.width / totalLoops);
@@ -223,7 +223,7 @@ export class FuncPlotElement extends LitElement {
   demoSize() {
     if (this.collapsed) return;
 
-    const range = Generators.rangePercent(0.01);
+    const range = Generators.numericPercent(0.01);
     const fillStyle = Colour.getCssVariable(`yellow`, `yellow`);
 
     this.demoInit((bounds, ctx): boolean => {
@@ -252,7 +252,7 @@ export class FuncPlotElement extends LitElement {
     if (this.collapsed) return;
 
     const fillStyle = Colour.getCssVariable(`yellow`, `yellow`);
-    const range = Generators.rangePercent(0.01);
+    const range = Generators.numericPercent(0.01);
     const size = 10;
 
     this.demoInit((bounds, ctx): boolean => {
