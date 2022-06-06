@@ -9,11 +9,11 @@
 import '/src/components/ReplPad';
 </script>
 
-A point is an `x` and `y` [Cartesian coordinate](./units#cartesian); the basic building block for lines, [arcs](./arc), rectangles and paths.
+A point is an `x` and `y` [Cartesian coordinate](../units/#cartesian); the basic building block for lines, [arcs](../arc/), [rectangles](../rect/) and paths.
 
 * [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/)
 * [Units](../units/): Cartesian space
-* [API Docs: Geometry.Points module](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
+* API Reference [Geometry.Points module](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
 
 ```js
 // A point at (100, 200)
