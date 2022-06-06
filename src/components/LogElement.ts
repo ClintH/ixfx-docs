@@ -19,7 +19,7 @@ export class LogElement extends LitElement {
       display: flex;
     }
     #stream {
-      overflow-y: auto;
+      // overflow-y: auto;
       flex-grow: 1;
       max-height: 15em;
     }

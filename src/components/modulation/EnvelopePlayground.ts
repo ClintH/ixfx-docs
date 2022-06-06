@@ -14,6 +14,7 @@ const envDataLog = document.getElementById(`envDataLog`) as LogElement;
 
 const envData = Plot.plot(`#envData`, {
   capacity: 300,
+  defaultSeriesVariable: `accent`,
   x: {
     ...Plot.defaultAxis(`x`),
     showLine: false

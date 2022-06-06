@@ -7,7 +7,7 @@ layout: ../../../layouts/MainLayout.astro
 
 A stack stores items like a stack of plates. Items added get put on the top, and if you want to grab an item, you can only see, and grab from the top. This is useful if newer things have priority.
 
-In other words, it is LIFO (last in, first out). If you want first-in first out, see [Queue](./queue).
+In other words, it is LIFO (last in, first out). If you want first-in first out, see [Queue](../queue/).
 
 The default implementation in ixfx is immutable, meaning that every operation that changes the stack returns a _new_ stack. A stack instance itself never changes.
 

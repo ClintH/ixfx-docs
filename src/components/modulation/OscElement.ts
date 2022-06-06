@@ -103,6 +103,7 @@ export class OscElement extends LitElement {
       capacity: capacity,
       lineWidth: 1,
       digitsPrecision: 1,
+      defaultSeriesVariable: `accent`,
       y: {
         ...Plot.defaultAxis(`y`),
         scaleRange: [0, 1],
@@ -111,6 +112,7 @@ export class OscElement extends LitElement {
       },
       x: {
         ...Plot.defaultAxis(`x`),
+        colour: Colour.getCssVariable(`accent`, `pink`),
         showLine: false
       },
       style: (this.mode == `am` || this.mode === `fm`) ? `connected` : `dots`

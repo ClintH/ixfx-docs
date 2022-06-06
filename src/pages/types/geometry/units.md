@@ -59,7 +59,7 @@ let d = radianToDegree(Math.PI*2);  // 360
 
 ### Cartesian
 
-The most common coordinate system for screen-based interaction is the _Cartesian_ system. It consists of `x` (horizontal) and `y` (vertical) expressed as a [point `(x, y)`](./point). Mostly the _origin_ or `(0,0)` is the top-left corner of a rectangle. 
+The most common coordinate system for screen-based interaction is the _Cartesian_ system. It consists of `x` (horizontal) and `y` (vertical) expressed as a [point `(x, y)`](../point/). Mostly the _origin_ or `(0,0)` is the top-left corner of a rectangle. 
 
 This means that `x` increases from left-to-right, and `y` increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:
 
@@ -79,7 +79,7 @@ ctx.restore(); // Undo translation
 ```
 
 Read more:
-* [Point](./point)
+* [Point](../point/)
 * [API Docs: Points module](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
 
 <a name="polar"></a>

@@ -10,7 +10,7 @@ layout: ../../layouts/MainLayout.astro
 Data often needs to be refined at some point. This can also have the role of 'sanity checking', making sure data is within a range or 'shape' that later processes expect.
 
 See also
-* [scale](../temporal/normalising#scale) - scale numbers from one range to another
+* [scale](../../temporal/normalising/#scale) - scale numbers from one range to another
 
 
 ## Numeric data
@@ -48,7 +48,7 @@ Math.min(10, 100); // 10
 
 ### Clamping
 
-[clamp](https://clinth.github.io/ixfx/modules.html#clamp) guarantees the return value is within the provided range.
+[`clamp`](https://clinth.github.io/ixfx/modules.html#clamp) guarantees the return value is within the provided range.
 
 For example, maybe you're computing a relative value based on some sensor input, assuming that 500 is the maximum. We want a percentage scale from 0..1:
 
@@ -56,7 +56,7 @@ For example, maybe you're computing a relative value based on some sensor input,
 const v = sensorValue / 500;
 ```
 
-But if `sensorValue` rises above 500 unexpectedly, `v` will be greater than 1 (ie. more than 100%). Other parts of our code might purposefully be able to handle this, but there are times where exceeding 100% cannot be permitted. Likewise, we might not want `v` being computed to be less than 0% because of assumptions made in other parts of our code.
+But if `sensorValue` rises above 500 unexpectedly, `v` will be greater than 1 (ie. more than 100%). Other parts of our code might purposefully be able to handle this, but there are times where exceeding 100% cannot be permitted. Likewise, we might not want `v` to be less than 0% because of assumptions made in other parts of our code.
 
 To do this manually, we might write:
 
@@ -67,7 +67,7 @@ if (v < 0) v = 0;
 // Now v is guaranteed to be between 0..1, inclusive
 ```
 
-This is all that `clamp` does. By default it uses a minimum of 0, a maximum of 1:
+That is all that `clamp` does. By default it uses a minimum of 0, a maximum of 1:
 
 ```js
 // repl-pad
@@ -75,6 +75,17 @@ import {clamp} from 'https://unpkg.com/ixfx/dist/bundle.js';
 clamp(0.5);   // 0.5
 clamp(2);     // 1.0
 clamp(-0.2);  // 0.0
+```
+
+Revisiting the earlier example, we can scale a sensor value which we expect to be on the range of 0..500 and clamp it to be sure we're always within 0..1:
+
+```js
+// repl-pad
+import {clamp, scale} from 'https://unpkg.com/ixfx/dist/bundle.js';
+clamp(scale(250, 0, 500)); // 0.5
+clamp(scale(500, 0, 500)); // 1.0
+clamp(scale(505, 0, 500)); // 1.0 - although out of expected range
+clamp(scale(-1, 0, 500));  // 0.0 - although out of expected range
 ```
 
 A custom output range can be used as well:

@@ -9,9 +9,9 @@ setup: |
 * API Docs: [Easings.time](https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time)
 * [Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
 
-Easing functions help to give a *dynamic* to transition. In [Cartesian](/ixfx-docs/geometry/units#cartesian) terms, they give a _y_ value for _x_ (where x is 0 .. 1). Or in temporal terms, you can think of them as giving a value at time _t_ (where _t_ is 0 .. 1).
+Easing functions help to give a *dynamic* to transition. In [Cartesian](../../types/geometry/units/#cartesian) terms, they give a _y_ value for _x_ (where x is 0 .. 1). Or in temporal terms, you can think of them as giving a value at time _t_ (where _t_ is 0 .. 1).
 
-Normally, a way of getting from 0 to 1 would be count upwards by some fixed amount. And if that's all you need, ixfx's [count](../data/generator#count) and [numericRange](../data/generator#numeric-range) functions might do the job.
+Normally, a way of getting from 0 to 1 would be count upwards by some fixed amount. And if that's all you need, ixfx's [count](../../data/generator/#count) and [numericRange](../../data/generator/#numeric-range) functions might do the job.
 
 For example, count by 0.1 from 0 to 1:
 

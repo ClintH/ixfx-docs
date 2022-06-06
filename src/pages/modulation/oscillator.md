@@ -65,7 +65,7 @@ const osc = Oscillators.sine(freq);
 //  sineBipolar, saw, triangle, square
 ```
 
-Oscillators are number [generators](../data/generator), which means we have to 'pull' values out of it. To _sample_ the current value of the oscillator:
+Oscillators are number [generators](../../data/generator/), which means we have to 'pull' values out of it. To _sample_ the current value of the oscillator:
 
 ```js
 const v = osc.next().value;

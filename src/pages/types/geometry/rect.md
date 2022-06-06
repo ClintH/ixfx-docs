@@ -65,7 +65,7 @@ const r3 = Rects.fromTopLeft({x:10,y:0}, 100, 200);
 
 ## Spatial
 
-Compute the center [Point](./point) of a rectangle with [getCenter](https://clinth.github.io/ixfx/modules/Geometry.Rects.html#getCenter).
+Compute the center [Point](../point/) of a rectangle with [getCenter](https://clinth.github.io/ixfx/modules/Geometry.Rects.html#getCenter).
 
 ```js
 // repl-pad#2
@@ -91,7 +91,7 @@ const rect = {x:0, y:0, width: 100, height: 100};
 const pts = Rects.getCorners(rect);
 ```
 
-[Get the lines that make up the rect](https://clinth.github.io/ixfx/modules/Geometry.Rects.html#getLines). Returns an array of [Lines](./line)
+[Get the lines that make up the rect](https://clinth.github.io/ixfx/modules/Geometry.Rects.html#getLines). Returns an array of [Lines](../line/)
 
 ```js
 // repl-pad#3

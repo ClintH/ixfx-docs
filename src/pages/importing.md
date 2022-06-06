@@ -5,14 +5,18 @@ layout: ../layouts/MainLayout.astro
 setup: |
   import ModuleList from './ModuleList.astro';
 ---
-<!-- 
-<ModuleList /> -->
 
-Read on for how to import ixfx with a URL import. Advanced users might want to install ixfx [via NPM](./import-npm) or a [downloaded ZIP](./import-zip).
+<!-- <ModuleList /> -->
+
+Read on for how to import ixfx with a URL import. Advanced users might want to install ixfx [via NPM](../import-npm/) or a [downloaded ZIP](../import-zip/).
 
 ## Modules
 
-You'll mostly want to import functions as _modules_: `import { NameOfModule } from "https://unpkg.com/ixfx/dist/bundle.js"`
+You'll mostly want to import functions as _modules_: 
+
+```js
+import { NameOfModule } from "https://unpkg.com/ixfx/dist/bundle.js"
+```
 
 The names of predefined modules are given in the list above. All of these can be imported from the main bundle.
 
@@ -29,7 +33,11 @@ Note the module name is capitalised, while the names in the URL are not. Also no
 
 Some functions ([listed here](https://clinth.github.io/ixfx/modules.html)) don't live in a module at all. Or other times you just want to import a single function from within a module.
 
-To import a function: `import { nameOfFunction } from "https://unpkg.com/ixfx/bundle.js`
+To import a function: 
+
+```js
+import { nameOfFunction } from "https://unpkg.com/ixfx/bundle.js
+```
 
 For example, to import `clamp`:
 

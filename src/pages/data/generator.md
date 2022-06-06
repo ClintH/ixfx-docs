@@ -19,7 +19,7 @@ ixfx includes:
 
 Uses:
 
-* [interval](../flow/loops#interval): an _asynchronous_ generator, `interval` calls and returns a result at a specified interval.
+* [interval](../../flow/loops/#interval): an _asynchronous_ generator, `interval` calls and returns a result at a specified interval.
 
 
 Importing tips:
@@ -35,7 +35,7 @@ import { interval } from 'ixfx/lib/generators.js';
 
 ## Background
 
-Generators are a form of _iterator_, an object that allows you to traverse - that is, to step through - some other data. Objects are _iterable_ if they provide an iterator on request, that is, the give the possibility for stepping through their contents in some manner. The familiar [collections](./collections/) - arrays, maps and so on - are all iterables.
+Generators are a form of _iterator_, an object that allows you to traverse - that is, to step through - some other data. Objects are _iterable_ if they provide an iterator on request, that is, the give the possibility for stepping through their contents in some manner. The familiar [collections](../../data/collections/) - arrays, maps and so on - are all iterables.
 
 `for .. of` is the usual way of working with an iterator. In this case, we're iterating over an array (which is _iterable_):
 
@@ -96,7 +96,7 @@ const iterInterval = setInterval(() => {
 }, 60*1000); // 60 seconds 
 ```
 
-TIP: ixfx's [interval](../flow/loops#interval) makes iterating with delay easy.
+ixfx's [interval](../../flow/loops/#interval) makes iterating with delay easy.
 
 Iterables can be converted into an array:
 
@@ -109,42 +109,9 @@ const asArray =[...iterable];
 
 What's interesting about iterables is that they aren't an actual collection or set of things, but rather return values on-demand. This means it's possible to have an iterable that never ends.
 
-## Interval
-
-[interval](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
-
-```js
-// repl-pad
-import { interval } from "https://unpkg.com/ixfx/dist/flow.js";
-
-// interval(callback, intervalMs)
-const randomGenerator = interval(() => Math.random(), 1000);
-for await (const r of randomGenerator) {
-  // Prints a new random number every second
-  console.log(r);
-}
-// Will never run unless there is a `break` in the for await loop
-console.log(`Done.`); 
-```
-
-You can also step through a generator's return values using `interval`:
-
-```js
-// repl-pad
-import { count } from "https://unpkg.com/ixfx/dist/generators.js";
-import { interval } from "https://unpkg.com/ixfx/dist/flow.js";
-// Make a generator that counts to 5
-const counter = count(5);
-// Use iterval to loop over counter with 1000ms delay
-for await (const v of interval(counter, 1000)) {
-  // Counts from 0...4, with a delay of 1s between each
-  console.log(v);
-}
-```
-
 ## Count
 
-[count](https://clinth.github.io/ixfx/modules/Generators.html#count) yields a series of integers, counting by one: `0 1 2 3 ... `
+[`count`](https://clinth.github.io/ixfx/modules/Generators.html#count) yields a series of integers, counting by one: `0 1 2 3 ... `
 
 As the examples show, `count` can be a useful way of running a chunk of code _x_ number of times. It might be more readable and robust than a typical `do`/`while` or `for` loop because there's only one thing you need to express: the amount of times to loop.
 
@@ -182,21 +149,21 @@ If an offset is supplied, it is added to the result:
 const a = [...count(5,1)];
 ```
 
-For more complicated counting, consider [numericRange](#numeric-range), which allows you to set the counting interval, and whether counting resets.
+For more complicated counting, consider [`numericRange`](#numeric-range), which allows you to set the counting interval, and whether counting resets.
 
 <a name="numericRange"></a>
 
 ## Numeric range
 
-[numericRange](https://clinth.github.io/ixfx/modules/Generators.html#numericRange) yields a series of numbers from `start` to `end`, with a specified `interval`. Unlike [count](#count), it can increment by and return fractional values.
+[numericRange](https://clinth.github.io/ixfx/modules/Generators.html#numericRange) yields a series of numbers from `start` to `end`, with a specified `interval`. Unlike [`count`](#count), it can increment by and return fractional values.
 
 ```js
 import {numericRange} from "https://unpkg.com/ixfx/dist/generators.js"
 
 // numericRange(interval, start, end, repeating)
 
-// Counts from 0-100, by 1
-for (const v of numericRange(1, 0, 100)) { }
+// Counts from 0-100, by 0.1
+for (const v of numericRange(0.1, 0, 100)) { }
 
 // Counts in twos from 0-100, and repeats from 0 again after 100
 for (const v of numericRange(2, 0, 100, true)) { 
@@ -204,7 +171,7 @@ for (const v of numericRange(2, 0, 100, true)) {
   // a `break` statement somewhere in the for loop
 }
 
-// Don't forget generators can be used manually as well...
+// Generators can be used manually as well...
 const range = numericRange(1, 0, 100);
 range.next().value;
 ```
@@ -238,7 +205,7 @@ const angle = Math.PI*2*r.next().value;
 
 ## Ping pong
 
-[pingPong](https://clinth.github.io/ixfx/modules/Generators.html#pingPong) is like a repeating `numericRange` but it counts up and back down again when looping, rather than resetting to the start.
+[`pingPong`](https://clinth.github.io/ixfx/modules/Generators.html#pingPong) is like a repeating `numericRange` but it counts up and back down again when looping, rather than resetting to the start.
 
 ```js
 import {pingPong} from "https://unpkg.com/ixfx/dist/generators.js"
@@ -252,7 +219,7 @@ for (const v of pingPong(10, 0, 100)) {
 }
 ```
 
-[pingPongPercent](https://clinth.github.io/ixfx/modules/Generators.html#pingPongPercent) is a variation of `pingPong`, but it locks everything to a scale of 0-1.
+[`pingPongPercent`](https://clinth.github.io/ixfx/modules/Generators.html#pingPongPercent) is a variation of `pingPong`, but it locks everything to a scale of 0-1.
 
 ```js
 import {pingPongPercent} from "https://unpkg.com/ixfx/dist/generators.js"

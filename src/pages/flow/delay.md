@@ -5,7 +5,8 @@ setup: |
   import { DemoElement } from '../../components/DemoElement.ts';
 ---
 
-[API Docs: Flow module](https://clinth.github.io/ixfx/modules/Flow.html)
+* [API Docs: Flow module](https://clinth.github.io/ixfx/modules/Flow.html)
+* [Online demos](https://clinth.github.io/ixfx-demos/flow/)
 
 ## Timeout
 
@@ -24,13 +25,13 @@ ixfx's `timeout` makes this a bit simpler. Once setup, calling `start()` resets 
 import { timeout } from "https://unpkg.com/ixfx/dist/flow.js"
 
 // Set up once
-const fadeOut = timeout(doFadeOut, 30*1000);
+const fadeOut = timeout((elapsedMs, args) => {
+  // do something
+}, 30*1000);
 
-document.getElementById(`btnStart`).addEventListener(`click`, () => {
-  // Trigger if there's a button press.
-  // Multiple calls to .start() simply reset timeout
-  fadeOut.start();
-});
+// Trigger if there's a button press.
+// Multiple calls to .start() simply reset timeout 
+document.getElementById(`btnStart`).addEventListener(`click`, fadeOut.start());
 ```
 
 When calling `start`, you can override its default delay:
@@ -39,17 +40,15 @@ When calling `start`, you can override its default delay:
 fadeOut.start(20*1000); // Run after 20s this time
 ```
 
-Your callback function can use the elapsed time, if you like:
+Your callback function can use the elapsed time, if needed:
 
 ```js
 timeout(elapsedMs => console.log(`Timeout after ${elapsedMs}`), 30*1000).start();
 ```
 
-## Asynchronous execution
+## Sleep
 
-### Sleep
-
-Using JS's _await_ feature, you can essentially pause execution of your code using `sleep`:
+Using JS's _await_ feature, you can essentially pause execution of your code using [`sleep`](https://clinth.github.io/ixfx/modules/Flow.html#sleep):
 
 ```js
 import { sleep } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -72,9 +71,11 @@ something();
 // Execution will continue immediately, but execution within `something` will pause as expected.
 ```
 
-### Delay
+Instead of blocking code execution, if you want to essentially schedule a function to run after a given delay, use [delay](#delay).
 
-To run a function after a delay, you can use [timeout](#timeout), or the asynchronous `delay`:
+## Delay
+
+To run a function after a delay, you can use [timeout](#timeout), or the asynchronous [`delay`](https://clinth.github.io/ixfx/modules/Flow.html#delay):
 
 ```js
 import { delay } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -88,39 +89,22 @@ console.log(`!`);
 // There [after one second]
 ```
 
-### Update when required
-
-Let's say you want to fetch live JSON data. It would be rude to the site operator to fetch the data continually, so we want to reduce how often the data is fetched. Polling is one option, but it might that we can't really know what the optimum polling rate should be.  
-
-[updateOutdated](https://clinth.github.io/ixfx/modules/Flow.html#updateOutdated) addresses this dilemma. It only calls a function if it hasn't been called for a while, or never called. If, however, it has recently been called, the last result is returned. It is a similar outcome as [throttle](#throttle) - lots of calls get reduced to an occasional call.
-
-Initialisation takes an async function to run, and a interval.
+[`delayLoop`](https://clinth.github.io/ixfx/modules/Flow.html#delayLoop) is an async generator which runs indefinitely. 
 
 ```js
-// Set up one time.
-// Here we're invoking `fetch`, and have a min interval of 5 minutes 
-const fetcher = updateOutdated(async () => {
-    const r = await fetch(`https://jsonplaceholder.typicode.com/todos/1`);
-    return await r.json();
-  }, 5 * 60 * 1000);
+import { delayLoop } from "https://unpkg.com/ixfx/dist/flow.js"
+const loop = delayLoop(1000);
+for await (const o of loop) {
+  // Do something every second
+  // Warning: loops forever
+}
 ```
 
-Somewhere else in your code, when you need the data, _await_ the fetcher. If it hasn't run yet, the callback will run (in this case, fetching JSON data). But if it has run within the last 5 minutes, the cached result will be returned rather than a network request being made again.
-
-```js
-// Returns the JSON data from the fetch request (or a cached copy)
-const json = await fetcher();
-```
-
-[Online demo](https://clinth.github.io/ixfx-demos/flow/fetch-outdated/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-outdated))
-
-What is useful about this pattern is that when you need the data (ie. `await fetcher()`) you can be ignorant to when or how the data is fetched. 
-
-Note that execution blocks until data is fetched, so there may be cases where polling might be more appropriate.
+If you don't have a function you want to call after the delay, consider using [sleep](#sleep) instead.
 
 ## Debounce
 
-_Debounce_ reduces a series of function calls that happen within a duration to a single call. It allows you to ignore all events until there is a break in the flow of the given `timeoutMs`.
+[`debounce`](https://clinth.github.io/ixfx/modules/Flow.html#debounce) reduces a series of function calls that happen within a duration to a single call. It allows you to ignore all events until there is a break in the flow of the given `timeoutMs`.
 
 ```js
 import { debounce } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -145,11 +129,11 @@ window.addEventListener(`resize`, resizeDebounced);
 
 <demo-element title="Debounce pointermove event" src="/flow/debounce/" />
 
-Note in the demo that lots of events (ie. movement) produce no debounced result until the events stop. If you want to have a continual stream of events, albeit at a slower rate, consider `throttle`.
+Note in the demo that lots of events (ie. movement) produce no debounced result until the events stop. If you want to have a continual stream of events, albeit at a slower rate, consider [throttle](#throttle).
 
 ## Throttle
 
-_Throttle_ reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.
+[`throttle`](https://clinth.github.io/ixfx/modules/Flow.html#throttle) reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.
 
 This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with _throttle_ and an appropriate `intervalMs`, you might avoid this.
 
@@ -191,7 +175,7 @@ const resetThrottled = throttle(reset, 200);
 // as often as you like. `reset` will only be invoked every 200ms
 resetThrottled();
 ```
-  
+
 ## Patterns
 
 ### Process a set of items
@@ -212,3 +196,33 @@ continuously(() => {
 ```
 
 Example: [a stack of tasks](../data/collections/#jobQueue)
+
+### Update when required
+
+Let's say you want to fetch live JSON data. It would be rude to the site operator to fetch the data continually, so we want to reduce how often the data is fetched. Polling is one option, but it might that we can't really know what the optimum polling rate should be.  
+
+[`updateOutdated`](https://clinth.github.io/ixfx/modules/Flow.html#updateOutdated) addresses this dilemma. It only calls a function if it hasn't been called for a while, or never called. If, however, it has recently been called, the last result is returned. It is a similar outcome as [throttle](#throttle) - lots of calls get reduced to an occasional call.
+
+Initialisation takes an async function to run, and a interval.
+
+```js
+// Set up one time.
+// Here we're invoking `fetch`, and have a min interval of 5 minutes 
+const fetcher = updateOutdated(async () => {
+    const r = await fetch(`https://jsonplaceholder.typicode.com/todos/1`);
+    return await r.json();
+  }, 5 * 60 * 1000);
+```
+
+Somewhere else in your code, when you need the data, _await_ the fetcher. If it hasn't run yet, the callback will run (in this case, fetching JSON data). But if it has run within the last 5 minutes, the cached result will be returned rather than a network request being made again.
+
+```js
+// Returns the JSON data from the fetch request (or a cached copy)
+const json = await fetcher();
+```
+
+[Online demo](https://clinth.github.io/ixfx-demos/flow/fetch-outdated/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-outdated))
+
+What is useful about this pattern is that when you need the data (ie. `await fetcher()`) you can be ignorant to when or how the data is fetched. 
+
+Note that execution blocks until data is fetched, so there may be cases where polling might be more appropriate.

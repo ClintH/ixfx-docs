@@ -5,8 +5,9 @@ setup: |
   import { DemoElement } from '../../components/DemoElement.ts';
 ---
 
-[API Docs: Flow module](https://clinth.github.io/ixfx/modules/Flow.html)
-
+* [API Docs: Flow module](https://clinth.github.io/ixfx/modules/Flow.html)
+* [Online demos](https://clinth.github.io/ixfx-demos/flow/)
+  
 ## Continuously
 
 A common pattern in animation is a 'draw loop':
@@ -27,7 +28,7 @@ window.setInterval(doSomething, 60*1000);
 
 But what if you want to the loop to run for a certain period and then stop? Or need to trigger the loop at different points of your code? It's easy to accidently have multiple loops running.
 
-`continuously` is an ixfx function to simplify this pattern:
+[`continuously`](https://clinth.github.io/ixfx/modules/Flow.html#continuously) is an ixfx function to simplify this pattern:
 
 ```js
 import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -56,8 +57,11 @@ const fetchData = async () => {
 continuously(fetchData, 60*1000).start();
 ```
 
-[See an example of polling API data](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-poll)
-
+In action:
+* [Poll data from an API](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-poll)
+* [Animate a gradient](https://github.com/ClintH/ixfx-demos/tree/main/dom/gradient-rotate)
+* [Process a list of things](https://github.com/ClintH/ixfx-demos/tree/main/flow/list-async)
+  
 ### Control
 
 Note the use of `start` to start the loop. This allows you setup the loop once, and trigger it from different places. If `start` is called while already running, the timer is reset. `cancel` stops a loop that is scheduled to run.
@@ -100,7 +104,7 @@ const jobLoop = continuously(job, 1000, onJobReset).start();
 
 ## Repeat
 
-[repeat](https://clinth.github.io/ixfx/modules/Flow.html#repeat) runs a function a certain number of times, accumulating the results into an array.
+[`repeat`](https://clinth.github.io/ixfx/modules/Flow.html#repeat) runs a function a certain number of times, accumulating the results into an array.
 
 ```js
 // repl-pad
@@ -110,7 +114,7 @@ import { repeat } from "https://unpkg.com/ixfx/dist/flow.js"
 const results = repeat(5, () => Math.random());
 ```
 
-If you don't care about the return value of the function, consider using [count](../data/generator#count).
+If you don't care about the return value of the function, consider using [`count`](../../data/generator/#count).
 
 If a function is provided instead of a number, repeat will continue until the function returns _false_.
 
@@ -124,9 +128,10 @@ const results = repeat(
   () => Math.random());
 ```
 
+
 ## Interval
 
-[interval](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
+[`interval`](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
 
 ```js
 import { interval } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -144,6 +149,9 @@ console.log(`Done.`);
 You can also step through a generator's return values using `interval`:
 
 ```js
+import { count } from "https://unpkg.com/ixfx/dist/generators.js";
+import { interval } from "https://unpkg.com/ixfx/dist/flow.js";
+
 // Make a generator that counts to 5
 const counter = count(5);
 // Use iterval to loop over counter with 1000ms delay
@@ -153,9 +161,19 @@ for await (const v of interval(counter, 1000)) {
 }
 ```
 
+Or alternatively, using the `.next().value` style of accessing a generator:
+
+```js
+const counter = count(5);
+const counterInterval = interval(counter, 1000);
+// Pauses until interval is up
+const v = await counterInterval.next().value;
+// Execution continues after interval period...
+```
+
 ## With generators
 
-[Generators](../data/generator) can looped over with `forEach`
+[Generators](../../data/generator/) can looped over with [`forEach`](https://clinth.github.io/ixfx/modules/Flow.html#forEach)
 
 ```js
 import { count } from "https://unpkg.com/ixfx/dist/generators.js"
@@ -184,4 +202,39 @@ for (const i of count(5)) {
 }
 ```
 
-Which to use? the ixfx `forEach` is concise and readable. It has the advantage of not needing to declare a parameter, unlike `for ... of`. Converting to an array avoids having to declare a variable too, but it's not possible to use infinite generators (such as [pingPong](../../data/generator#ping-pong)).
+Which to use? the ixfx `forEach` is concise and readable. It has the advantage of not needing to declare a parameter, unlike `for ... of`. Converting to an array avoids having to declare a variable too, but it's not possible to use infinite generators (such as [pingPong](../../data/generator/#ping-pong)).
+
+[`forEachAsync`](https://clinth.github.io/ixfx/modules/Flow.html#forEachAsync) can be used if you want to iterate using an asynchronous callback. See the next section for an example.
+
+## Retrying
+
+When a function may succeed after some attempts, you might need a _retry_ logic - keep trying the function until it succeeds, or after a certain number of attempts. You want some kind of waiting period between each attempt, eg to wait for a network connection.
+
+This can be achieved using `forEachAsync`. In the example, we will try up to five times to run the async function `doSomething`, with 5 seconds between each attempt:
+
+```js
+import { forEachAsync } from "https://unpkg.com/ixfx/dist/flow.js"
+await forEachAsync(count(5), i=> {
+  try {
+    // Wait for something asynchronous
+    await doSomething();
+    return false; // Succeeded, stop loop early
+  } catch (ex) {
+    console.log(ex);
+    return true; // Keep trying
+  }
+}, 5000);
+```
+
+Alternatively, use the [`retry`](https://clinth.github.io/ixfx/modules/Flow.html#retry) function. `retry` assumes that if the called function doesn't throw an error, it has succeeded. It takes a number of attempts and timeout as parameters.
+
+In the below example, `doSomething` is attempted up to five times with 5 seconds between each attempt:
+
+```js
+import { retry } from "https://unpkg.com/ixfx/dist/flow.js"
+await retry(async () => {
+  // Wait for something asynchronous
+  await doSomething();
+  // If it didn't throw an error, assume it worked
+}, 5, 5000);
+```

@@ -5,8 +5,8 @@ layout: ../../../layouts/MainLayout.astro
 
 [API Docs: Collections module](https://clinth.github.io/ixfx/modules/Collections.html)
 
-* [Stack](./stack) - Keep track of items like a stack of plates. Most recent gets added to the top, and you can only take the most recent from the top.
-* [Queue](./queue) - Keep track of items like a bakery queue. Most recent is added to the back of the queue, and you can only take from the front of the queue (ie the oldest)
+* [Stack](./stack/) - Keep track of items like a stack of plates. Most recent gets added to the top, and you can only take the most recent from the top.
+* [Queue](./queue/) - Keep track of items like a bakery queue. Most recent is added to the back of the queue, and you can only take from the front of the queue (ie the oldest)
 
 ## Arrays
 
@@ -149,7 +149,7 @@ averageWeighted([1,2,3], Easings.gaussian());
 
 ### 
 
-`weight` applies a function (probably an [easing function](../../modulation/easing)) to some data.
+`weight` applies a function (probably an [easing function](../../modulation/easing/)) to some data.
 
 ```js
 // repl-pad
@@ -170,7 +170,7 @@ weight([1,1,1,1,1,1], Easings.gaussian());
 
 ### Process a queue or stack of items
 
-Use a [Queue](./queue) or [Stack](./stack) data structure to enforce ordering:
+Use a [Queue](./queue/) or [Stack](./stack/) data structure to enforce ordering:
 
 ```js
 import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"

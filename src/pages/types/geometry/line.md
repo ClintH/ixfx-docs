@@ -10,10 +10,10 @@ import '/src/components/ReplPad';
 </script>
 
 * [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/)
-* [Units](./units): Cartesian space
+* [Units](../units/): Cartesian space
 * [API Docs: Geometry.Lines module](https://clinth.github.io/ixfx/modules/Geometry.Lines.html)
 
-A line is defined by two [Points](./point)
+A line is defined by two [Points](../point/)
 
 ```typescript
 type Line = {
@@ -189,7 +189,7 @@ Converting _to_ some other data shape
 Lines.toFlatArray(line.a, line.b);
 ```
 
-Return a [Path](path) instance, which wraps up some functions together with the line:
+Return a [Path](../path/) instance, which wraps up some functions together with the line:
 
 ```js
 // repl-pad

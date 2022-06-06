@@ -32,7 +32,7 @@ const c = { radius: 100, x: 50, y: 50 };
 
 ## Geometry
 
-Get the [points](./point) of intersection between a line and circle. 
+Get the [points](../point/) of intersection between a line and circle. 
 
 ```js
 // repl-pad
@@ -61,7 +61,7 @@ Circles.isContainedBy(circleA, circleB); // boolean
 
 ## Conversions
 
-Return a [Path](path) instance, which wraps up some functions together with the circle:
+Return a [Path](../path/) instance, which wraps up some functions together with the circle:
 
 ```js
 // repl-pad#1

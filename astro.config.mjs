@@ -6,7 +6,10 @@ import {nodeResolve} from '@rollup/plugin-node-resolve';
 export default /** @type {import('astro').AstroUserConfig} */ ({
   dist: './docs/',
   buildOptions: {
-    site: `https://clinth.github.io/ixfx-docs/`
+    site: `https://clinth.github.io/ixfx-docs/`,
+  },
+  devOptions: {
+    trailingSlash: 'always'
   },
   markdownOptions: {
     render: [

@@ -141,6 +141,7 @@ export class FuncPlotElement extends LitElement {
         capacity: 0,
         autoSizeCanvas: false,
         digitsPrecision: 1,
+        defaultSeriesVariable: `accent`,
         y: {
           ...Plot.defaultAxis(`y`),
           scaleRange: [-.3, 1.3],

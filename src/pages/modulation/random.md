@@ -135,7 +135,7 @@ gaussian(6);
 
 _Jitter_ is the random modulation of a value. It is usually _bi-polar_, meaning that it might shift a value upwards or downwards. 
 
-On a [normalised](../temporal/normalising) scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:
+On a [normalised](../../temporal/normalising/) scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:
 
 ```js
 // repl-pad
@@ -170,7 +170,7 @@ jitter(0.5, 0.1, {type:`rel`}); // number 0.45-0.55
 
 <div id="plot3"></div>
 
-By default `jitter` uses `Math.random`, but you could just as well plug in a [`weighted`](https://clinth.github.io/ixfx/modules/Random.html#weighted), or [gaussian](https://clinth.github.io/ixfx/modules/Random.html#gaussian) random number generator.
+By default `jitter` uses `Math.random`, but you could just as well plug in a [`weighted`](https://clinth.github.io/ixfx/modules/Random.html#weighted), or [`gaussian`](https://clinth.github.io/ixfx/modules/Random.html#gaussian) random number generator.
 
 ```js
 import {jitter} from 'https://unpkg.com/ixfx/dist/modulation.js';

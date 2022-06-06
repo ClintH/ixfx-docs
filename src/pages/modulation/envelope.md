@@ -11,7 +11,7 @@ setup: |
 
 The notion of an _envelope_ is borrowed from [sound synthesis](https://en.wikipedia.org/wiki/Envelope_(music)). They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.
 
-Envelopes have some similarity with _easing_ functions, as they describe a shape over time.
+Envelopes have some similarity with [easing functions](../easing/), as they describe a shape over time.
 
 [Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
 
@@ -65,8 +65,10 @@ Trigger and release
 env.trigger();
 
 // Trigger and hold at sustain
-env.trigger(true); 
-env.release(); // Release a held envelope
+env.trigger(true);
+
+// Release a held envelope
+env.release();
 ```
 
 Get value from envelope
@@ -83,6 +85,7 @@ Other functions:
 ```js
 // Reset envelope
 env.reset();
+
 // True if envelope is finished
 env.isDone;
 ```
@@ -129,7 +132,7 @@ const opts = {
 }
 ```
 
-`retrigger` means a retriggered envelope continues its value from it is at the point of retrigger. By default, as retrigger is _false_, always start `0` (or whatever `initialLevel` is set to).
+`retrigger` means a retriggered envelope continues its value from what it is at the point of retrigger. By default, as retrigger is _false_, envelope always start `0` (or whatever `initialLevel` is set to).
 
 ```js
 const opts = {

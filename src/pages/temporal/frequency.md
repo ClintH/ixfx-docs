@@ -15,7 +15,7 @@ The `Frequency` class keeps track of the number of times a certain value is 'see
 
 In some scenarios it can be useful to aggregate data over time, rather than looking at a single event or snapshot-in-time. It allows you to do some fuzzy logic, for example using the value that _mostly_ occurs.
 
-In the demo below, a weighted distribution of random numbers is produced. In this case, lower numbers will occur more often than higher numbers. A `Frequency` instance is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
+In the demo below, a weighted distribution of random numbers is produced, with lower numbers occuring more often than higher numbers. A `Frequency` instance is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
 
 <script type="module" hoist>
 import '/src/components/temporal/freqWeighted';
@@ -27,6 +27,7 @@ import '/src/components/temporal/freqWeighted';
   #dataStream {
     flex-grow: unset;
     max-height: 5em;
+    scoll-o
   }
 </style>
 <div class="toolbar centered">

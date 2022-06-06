@@ -1,24 +1,27 @@
 <script type="module" hoist>
   import '/src/components/modulation/EnvelopeEditor';
   import '/src/components/LogElement';
-  import '/src/components/modulation/envelope';
+  import '/src/components/modulation/EnvelopePlayground';
 </script>
 <style>
   .sxs {
     display: flex;
   }
+
   .sxs>div {
     height: 300px;
     flex-grow: 1;
   }
 
   .stacked {
-    display:flex;
+    display: flex;
   }
+
   .stacked label {
     width: 5em;
     border: 1px solid yellow;
   }
+
   #envDataStream:not(.expanded) {
     max-height: 3em;
     flex-grow: 1;
@@ -27,10 +30,12 @@
   #envDataStream.expanded {
     max-height: 10em;
     flex-grow: 1;
-  }  
+  }
+
   #envDataLog {
     flex-grow: 1;
   }
+
   #envData {
     height: 25vh;
   }
@@ -53,10 +58,10 @@
     <label for="selectShow">
       Show
     </label>
-     <select id="selectShow">
-        <option value="scaled">Scaled</option>
-        <option value="raw">Raw</option>
-      </select>
+    <select id="selectShow">
+      <option value="scaled">Scaled</option>
+      <option value="raw">Raw</option>
+    </select>
   </section>
 </div>
 <div class="stackVertical">

@@ -12,7 +12,7 @@ import '/src/components/ReplPad';
 A point is an `x` and `y` [Cartesian coordinate](./units#cartesian); the basic building block for lines, [arcs](./arc), rectangles and paths.
 
 * [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/)
-* [Units](./units): Cartesian space
+* [Units](../units/): Cartesian space
 * [API Docs: Geometry.Points module](https://clinth.github.io/ixfx/modules/Geometry.Points.html)
 
 ```js
@@ -86,8 +86,6 @@ const p = Points.rotate({x:10,y:10}, Math.PI/2, {x:0, y:0});
 const pp = Points.rotate({x:10,y:10}, degreeToRadian(15), {x:0, y:0});
 ```
 
-
-
 ## Conversions
 
 Converting a Point _to_ some other shape of data
@@ -121,7 +119,7 @@ Points.fromNumbers([ [10, 15], [5, 5]]); // [{x:10, y:15}, {x:5, y:5}]
 
 ## Normalised points
 
-It's often useful to work with [normalised](../../temporal/normalising) points. Thus a point of `{x:0.5, y:0.5}` would mean 50% x, and 50% y. See the discussion on [normalising points](../../temporal/normalising#geometry) for more on this.
+It's often useful to work with [normalised](../../temporal/normalising/) points. Thus a point of `{x:0.5, y:0.5}` would mean 50% x, and 50% y. See the discussion on [normalising points](../../temporal/normalising/#geometry) for more on this.
 
 In short, you can normalise point using `Points.divide`:
 

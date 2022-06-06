@@ -28,16 +28,16 @@ The basic steps then are:
 1. Receive data from an event, sensor, stream etc
 2. Normalise on 0..1 scale, discarding original value
 3. Do additional processing on normalised value as needed, applying to state
-4. Map relative state values to output domains, eg pixels, sound level, pulse-width modulation... (see also [scalePercent](https://clinth.github.io/ixfx/modules.html#scalePercent))
+4. Map relative state values to output domains, eg pixels, sound level, pulse-width modulation... (see also [`scalePercent`](https://clinth.github.io/ixfx/modules.html#scalePercent))
 
 For simple normalisation, some sense of the _input_ range of values is needed: a minimum and maximum. For example, although an analog input value might theoretically be in the range of 0..1023, perhaps we've empirically discovered that the usable range is actually 0..400. This would constitute the range of the value.
 
 See also
-* [Data clean up](../data/cleanup)
+* [Data clean up](../../data/cleanup/)
 
 ## Arrays
 
-An array of numbers can be normalised, using the smallest and largest value as the range.
+If you have all the data in advance, it's easy enough to 'perfectly' normalise, because the smallest and largest value can be determined. `Normalise.array(source)` returns a normalised copy of `source`, such that the smallest value becomes 0 and the largest value 1. A range can be forced by passing in a min and max: `Normalise.array(source, min, max)`.
 
 ```js
 // repl-pad
@@ -53,7 +53,7 @@ Normalise.array([100,20,0,50]);
 Normalise.array([100,20,0,50], 0, 50); // Range 0-50
 ```
 
-[minMaxAvg](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#minMaxAvg) might also be a useful when working with arrays. It returns the minimum, maximum, average and total.
+[`minMaxAvg`](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#minMaxAvg) might also be a useful when working with arrays. It returns the minimum, maximum, average and total.
 
 ```js
 // repl-pad
@@ -65,11 +65,11 @@ const mma = Arrays.minMaxAvg([100,20,0,50]);
 
 ## Individual values
 
-It's not always feasible to normalise knowing in advance all the possible values, or even knowing the range.
+It's not always feasible to normalise knowing in advance all the possible values, or even knowing the range. `Normalise.stream` remembers the range of values, producing an adaptive normalisation. `scale` can also be used for normalisation, but you must provide the expected min and max value.
 
 ### Stream
 
-`stream` creates a normalise function which automatically adapts as values are processed.
+[`stream`](https://clinth.github.io/ixfx/modules/Temporal.Normalise.html#stream) creates a normalise function which automatically adapts as values are processed.
 
 ```js
 // repl-pad
@@ -114,7 +114,7 @@ n(11);
 
 ### Scale
 
-In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/modules.html#scale) keeps no record of the current minimum or maximum, but normalises based on the provided range. Use this when you know what the range will be.
+In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/modules.html#scale) keeps no record of the current minimum or maximum, but normalises based on the provided range. Use this when you know what the range will be. By default it outputs to a 0..1 scale.
 
 Signature:
 
@@ -147,7 +147,7 @@ scale(20, 20, 40); // 0
 scale(30, 20, 40, 100, 200); // 150
 ```
 
-Note that if the input value is outside of the specified input range, the output value will likewise be outside of the output range. Use [`clamp`](../data/cleanup/#clamping) to ensure the output range is respected:
+If the input value is outside of the specified input range, the output value will likewise be outside of the output range. Use [`clamp`](../data/cleanup/#clamping) to ensure the output range is respected:
 
 ```js
 import {scale, clamp} from 'https://unpkg.com/ixfx/dist/bundle.js'
@@ -159,7 +159,7 @@ scale(11, 0, 10); // 1.1
 clamp(scale(11, 0, 10)); // 1
 ```
 
-If the input range is a percentage, [scalePercentages](https://clinth.github.io/ixfx/modules.html#scalePercentages) adapts to a new output percentage range. While `scale` can be used for this, it's useful because it sanity-checks values to make sure everything stays within the percentage range.
+If the input range is a percentage, [`scalePercentages`](https://clinth.github.io/ixfx/modules.html#scalePercentages) adapts to a new output percentage range. While `scale` can be used for this, it's useful because it sanity-checks values to make sure everything stays within the percentage range.
 
 ```js
 // repl-pad
@@ -170,7 +170,7 @@ scalePercentages(0.5, 0, 0.10) // 0.05 (5%)
 
 ## Geometry
 
-Working with normalised geometric references can be useful for the same reason as normalised plain numbers. For example, perhaps you have a stream of [points](../types/geometry/point) from a computer vision library for the location of a detected nose. This position might be in _camera coordinates_, meaning that 0,0 represents the top-left corner of a frame from the camera. The max width and height will be determined by the resolution setting of the camera/library.
+Working with normalised geometric references can be useful for the same reason as normalised plain numbers. For example, perhaps you have a stream of [points](../../types/geometry/point/) from a computer vision library for the location of a detected nose. This position might be in _camera coordinates_, meaning that 0,0 represents the top-left corner of a frame from the camera. The max width and height will be determined by the resolution setting of the camera/library.
 
 You don't want to have to think about the scale of camera coordinates throughout the code, and importantly, it may change if you opt for a different camera resolution. Normalising to 0,0 - 1,1 may be the answer:
 

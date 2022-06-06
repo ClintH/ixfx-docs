@@ -25,7 +25,7 @@ radians-editor {
 
 </style>
 
-An arc describes a segment of a [circle](./circle). It is defined by its radius as well as the start and end radian.
+An arc describes a segment of a [circle](../circle/). It is defined by its radius as well as the start and end radian.
 
 * [Online geometry demos](https://clinth.github.io/ixfx-demos/geometry/)
 * [API Docs: Geometry.Arcs module](https://clinth.github.io/ixfx/modules/Geometry.Arcs.html)
@@ -58,7 +58,7 @@ Try editing this example:
 <input style="width: 40em" class="code arc" type="text" id="arc1Txt" value="{ radius: 20, startRadian: 0, endRadian: Math.PI }">
 <arc-editor id="arc1" client:visible  />
 
-Angles are set with _radians_, not the more familiar _degrees_. See [Units](units) for more info.
+Angles are set with _radians_, not the more familiar _degrees_. See [Units](../units/) for more info.
 
 <angles-element width="500" height="300" client:visible />
 
@@ -76,7 +76,7 @@ const a = Arcs.fromDegrees(10, 0, 90);
 const b = Arcs.fromDegrees(10, 0, 90, {x: 100, y: 100});
 ```
 
-Return a [Path](path) instance, which wraps up some functions together with the arc:
+Return a [Path](../path/) instance, which wraps up some functions together with the arc:
 
 ```js
 // repl-pad#1
@@ -89,7 +89,7 @@ p.interpolate(0.5);  // Get point at relative position, returns {x,y}
 p.toString();           // Human-readable string
 ```
 
-Get a [Line](line) connecting the start and end point of the arc:
+Get a [Line](../line/) connecting the start and end point of the arc:
 
 ```js
 // repl-pad#1

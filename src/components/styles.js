@@ -35,6 +35,7 @@ export const elStyles = css`
     --light-blue: hsl(217, 38%, 55%);
     --light-green: hsl(85, 40%, 54%);
 
+    --yellow: red;
     --radius: 1em;
     --padding: 0.3em;
     --padding-text: 0.8em;
