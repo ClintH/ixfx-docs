@@ -176,53 +176,8 @@ const resetThrottled = throttle(reset, 200);
 resetThrottled();
 ```
 
-## Patterns
+## Related patterns
 
-### Process a set of items
+* [Process a set of items with a delay between each](../../data/process-set/)
+* [Fetch new data if it becomes outdated](./update-when-required/)
 
-Let us say you have an array of items you want to process with some interval:
-
-```js
-import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
-const items = [/* some array of things */]
-
-continuously(() => {
-  if (items.length == 0) return false; // all done
-  const item = items.pop();
-
-  // Do something with item
-  return true; // Keep loop running
-}, 1000).start();
-```
-
-Example: [a stack of tasks](../data/collections/#jobQueue)
-
-### Update when required
-
-Let's say you want to fetch live JSON data. It would be rude to the site operator to fetch the data continually, so we want to reduce how often the data is fetched. Polling is one option, but it might that we can't really know what the optimum polling rate should be.  
-
-[`updateOutdated`](https://clinth.github.io/ixfx/modules/Flow.html#updateOutdated) addresses this dilemma. It only calls a function if it hasn't been called for a while, or never called. If, however, it has recently been called, the last result is returned. It is a similar outcome as [throttle](#throttle) - lots of calls get reduced to an occasional call.
-
-Initialisation takes an async function to run, and a interval.
-
-```js
-// Set up one time.
-// Here we're invoking `fetch`, and have a min interval of 5 minutes 
-const fetcher = updateOutdated(async () => {
-    const r = await fetch(`https://jsonplaceholder.typicode.com/todos/1`);
-    return await r.json();
-  }, 5 * 60 * 1000);
-```
-
-Somewhere else in your code, when you need the data, _await_ the fetcher. If it hasn't run yet, the callback will run (in this case, fetching JSON data). But if it has run within the last 5 minutes, the cached result will be returned rather than a network request being made again.
-
-```js
-// Returns the JSON data from the fetch request (or a cached copy)
-const json = await fetcher();
-```
-
-[Online demo](https://clinth.github.io/ixfx-demos/flow/fetch-outdated/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-outdated))
-
-What is useful about this pattern is that when you need the data (ie. `await fetcher()`) you can be ignorant to when or how the data is fetched. 
-
-Note that execution blocks until data is fetched, so there may be cases where polling might be more appropriate.

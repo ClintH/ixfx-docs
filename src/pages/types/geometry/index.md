@@ -13,7 +13,7 @@ The [Geometry module](https://clinth.github.io/ixfx/modules/Geometry.html) conta
 
 
 Explainer
-* [Units](./units): An overview of angles and coordinate spaces
+* [Units](./units/): An overview of angles and coordinate spaces
 
 Layout
-* [Grid layout](./grid): Spatial logic of a grid
+* [Grid layout](./grid/): Spatial logic of a grid

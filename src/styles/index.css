@@ -36,6 +36,24 @@ nav ul {
 	padding: 0;
 }
 
+ul.list {
+	list-style: none;
+	padding: 0;
+	display: inline;
+}
+
+ul.list li {
+	display: inline;
+}
+
+ul.list li::after {
+	content: ", ";
+}
+
+ul.list li:last-child::after {
+	content: "";
+}
+
 .content>section>*+* {
 	margin-top: 1.25rem;
 }
@@ -99,6 +117,8 @@ p {
 .content ul {
 	line-height: 1.1em;
 }
+
+
 
 /* 
 p,
@@ -318,6 +338,35 @@ img {
 	display: flex;
 	align-items: center;
 }
+
+.wrappedBoxContainer {
+	display: flex;
+	gap: 1.5em;
+	flex-wrap: wrap;
+}
+
+.wrappedBoxContainer>div {
+	width: 25vw;
+
+}
+
+.wrappedBoxContainer.mini h1 {
+	font-size: 1.3em;
+	text-transform: uppercase;
+	margin: 0;
+	margin-bottom: -0.4em;
+	color: unset;
+}
+
+.wrappedBoxContainer.mini h2 {
+	font-size: 1.7em;
+	font-weight: 200;
+	margin: 0;
+	color: unset;
+	margin-top: 0.5em;
+	margin-bottom: 0.2em;
+}
+
 
 xbutton {
 	display: flex;

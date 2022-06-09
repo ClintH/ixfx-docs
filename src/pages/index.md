@@ -4,33 +4,68 @@ description: Docs intro
 layout: ../layouts/MainLayout.astro
 ---
 
-ixfx is a tookit for programming interactivity. A quick overview of the provided functionality:
+ixfx is a tookit for programming interactivity. The major modules are:
 
-**Flow**: [state machine](./flow/stateMachine), [timeouts](./flow/delay#debounce), [loops and intervals](./flow/loops), [debounce](./flow/delay#debounce), [throttling](./flow/delay#throttle)
 
-**Modulation**: [ADSR envelope](./modulation/envelope), [oscillators](./modulation/oscillator), [easing functions](./modulation/easing), [randomisation and jitter](./modulation/random).
+<div class="wrappedBoxContainer mini">
+  <div>
+    <h1>Flow</h1>
+    <h2>Controlling how & when code runs</h2>
+    <ul class="list">
+      <li><a href="./flow/stateMachine/">state machine</a></li>
+      <li><a href="./flow/loops/">loops and intervals</a></li>
+      <li><a href="./flow/delay/#timeout">timeouts</a></li>
+      <li><a href="./flow/delay/#debounce">debounce</a></li>
+      <li><a href="./flow/delay/#throttle">throttling</a></li>
+    </ul>
+  </div>
+  <div>
+    <h1>Modulation</h1>
+    <h2>Influencing & shaping values</h2>
 
-**Temporal Processing**: [Normalising](./temporal/normalising), [frequency tracking](./temporal/frequency)
+[ADSR envelope](./modulation/envelope/), [oscillators](./modulation/oscillator/), [easing functions](./modulation/easing/), .
+  </div>
 
-**Data**: [data cleaning](./data/cleanup), [generators](./data/generator), [stack](./data/collections/stack) and [queue](./data/collections/queue) collections
+ <div>
+  <h1>Generation</h1>
+  <h2>Producing values</h2>
 
-**Types**: Geometry [primitives for Cartesian & polar coordinates](./types/geometry/units), [points](./types/geometry/point), [lines](./types/geometry/line), [arcs](./types/geometry/arc), [circles](./types/geometry/circle), [rectangle](./types/geometry/rect) and [grid layouts](./types/geometry/grid). [Colour](./types/colour) interpolating, scales and variations
+[randomisation & jitter](./gen/random/), [generators](./gen/generator/)
+ </div>
+  <div>
+    <h1>Data</h1>
+    <h2>Cleaning & organising data</h2>
 
-## This documentation
+[Normalising](./data/normalising/), [data cleaning](./data/cleanup/)
+[frequency tracking](./data/frequency/)
 
-Throughout this documentation there are lots of interactive controls to try functions out.
+[stack](./data/collections/stack/) and [queue](./data/collections/queue/) collections
+  </div>
+  <div>
+    <h1>Types</h1>
+    <h2>Geometry</h2>
 
-You may also notice gold <code style="color: var(--yellow)">// repl-pad</code> text at the top of code snippets. Tap this to open a live-editable copy of the code.
+[Cartesian & polar coordinates](./types/geometry/units/), [points](./types/geometry/point/), [lines](./types/geometry/line/), [arcs](./types/geometry/arc/), [circles](./types/geometry/circle/), [rectangle](./types/geometry/rect/) and [grid layouts](./types/geometry/grid/). 
+  <h2>Colour</h2>
 
-Embedded demos are also scattered around, in their toolbars, you can open the demo source on Github or view in a separate tab.
+[interpolating, scales and variations](./types/colour/)
+  </div>
+</div>
+
 
 ## Get started
 
 Choose your starting point:
 * [Download and tinker with the provided demos](https://github.com/clinth/ixfx-demos/)
 * [import ixfx into your own sketch](./importing)
-* Use a starter kit: [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0), Codepen, StackBlitz
+* Use a starter kit: [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0), Codepen, StackBlitz, [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos), [Glitch](https://glitch.com/edit/#!/ixfx-demos)
 
+See the sidebar to the left (or the drop-down menu if you're on mobile) and start exploring.
+
+* [Source code on Github](https://github.com/ClintH/ixfx)
+* [Try demos online](https://clinth.github.io/ixfx-demos/) ([source on GitHub](https://github.com/clinth/ixfx-demos/))
+* [Browse API documentation](https://clinth.github.io/ixfx/)
+  
 ## Why ixfx?
 
 There are many 'front-end' frameworks, but these are typically meant for regular GUIs or document-based apps. They usually have idiosyncratic ways of structuring code, custom syntax, and elaborate build processes. Great though if you're doing that kind of thing often.
@@ -46,10 +81,10 @@ Some design principles of ixfx are:
 * Plain, immutable data over rich objects
 * Favour functional approaches over OOP
 
+## This documentation
 
-  
-See the sidebar to the left (or the drop-down menu if you're on mobile) and start exploring.
+Throughout this documentation there are lots of interactive controls to try functions out.
 
-* [Source code on Github](https://github.com/ClintH/ixfx)
-* [Try demos online](https://clinth.github.io/ixfx-demos/) ([source on GitHub](https://github.com/clinth/ixfx-demos/))
-* [Browse API documentation](https://clinth.github.io/ixfx/)
+You may also notice gold <code style="color: var(--yellow)">// repl-pad</code> text at the top of code snippets. Tap this to open a live-editable copy of the code.
+
+Embedded demos are also scattered around, in their toolbars, you can open the demo source on Github or view in a separate tab.
