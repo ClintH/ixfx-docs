@@ -58,7 +58,7 @@ class DemoElement extends LitElement {
     const src = this.src;
     const title = this.title;
     const demoBase = import.meta.env.DEV ?
-      `http://127.0.0.1:5500` :
+      `http://127.0.0.1:5555` :
       `https://clinth.github.io/ixfx-demos`
     const editBase = `https://github.com/ClintH/ixfx-demos/tree/main/`
 

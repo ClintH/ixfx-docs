@@ -23,7 +23,7 @@ ixfx is a tookit for programming interactivity. The major modules are:
     <h1>Modulation</h1>
     <h2>Influencing & shaping values</h2>
 
-[ADSR envelope](./modulation/envelope/), [oscillators](./modulation/oscillator/), [easing functions](./modulation/easing/), .
+[ADSR envelope](./modulation/envelope/), [oscillators](./modulation/oscillator/), [easing functions](./modulation/easing/), [forces](./modulation/forces/).
   </div>
 
  <div>

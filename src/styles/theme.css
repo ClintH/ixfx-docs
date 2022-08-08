@@ -13,7 +13,7 @@
 
 	--theme-hit-color-light: hsl(350, 70%, 83%);
 	--theme-hit-color: hsl(350, 100%, 83%);
-	
+
 	--color-base-white: 0, 0%;
 	--color-base-black: 240, 100%;
 	--color-base-gray: 215, 14%;
@@ -46,19 +46,24 @@
 	--color-yellow: var(--color-base-yellow), 59%;
 }
 
+div.tip {
+	border: 1px solid var(--accent);
+	background-color: var(--bg-contrast);
+	color: var(--fg-contrast);
+	padding: var(--padding-text);
+	border-radius: 0.3em;
+	display: inline-block;
+}
+
 :root {
 	color-scheme: light;
 	--accent: hsl(217, 48%, 55%);
-	--accent-text:hsl(217, 38%, 45%);
-	--accent-bold:hsl(217, 38%, 45%);
-
+	--accent-text: hsl(217, 38%, 45%);
+	--accent-bold: hsl(217, 38%, 45%);
 	--divider: hsl(193, 10%, 84%);
-
 	--bg: hsl(229, 40%, 97%);
 	--bg-dim: hsl(194, 16%, 94%);
-
 	--fg-dim-slight: hsl(229, 5%, 65%);
-
 	--fg: hsl(200, 16%, 42%);
 	--fg-for-dim-bg: hsl(194, 16%, 60%);
 	--fg-dim: hsl(200, 16%, 32%);
@@ -105,19 +110,19 @@ body {
 :root.theme-dark {
 	color-scheme: dark;
 	--accent: hsl(217, 48%, 75%);
-	--accent-text:hsl(217, 78%, 75%);
-	--accent-bold:hsl(217, 78%, 75%);
+	--accent-text: hsl(217, 78%, 75%);
+	--accent-bold: hsl(217, 78%, 75%);
 
 	--divider: hsl(229, 30%, 30%);
 
 	--bg: hsl(229, 20%, 20%);
 	--bg-dim: hsl(231, 21%, 9%);
-	
+
 	--fg-dim-slight: hsl(229, 20%, 45%);
-	
+
 	--fg: hsl(231, 28%, 73%);
 	--fg-bright: hsl(231, 28%, 82%);
-	
+
 	--bg-contrast: hsl(229, 16%, 32%);
 	--fg-contrast: hsl(229, 16%, 82%);
 	--fg-contrast-dim: hsl(229, 16%, 62%);

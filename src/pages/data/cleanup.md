@@ -10,7 +10,7 @@ layout: ../../layouts/MainLayout.astro
 Data often needs to be refined at some point. This can also have the role of 'sanity checking', making sure data is within a range or 'shape' that later processes expect.
 
 See also
-* [scale](../../temporal/normalising/#scale) - scale numbers from one range to another
+* [scale](../../data/normalising/#scale) - scale numbers from one range to another
 
 
 ## Numeric data

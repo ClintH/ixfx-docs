@@ -41,7 +41,7 @@ If you have all the data in advance, it's easy enough to 'perfectly' normalise, 
 
 ```js
 // repl-pad
-import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
+import {Normalise} from 'https://unpkg.com/ixfx/dist/data.js';
 
 // Normalise with the largest value being 100%, the smallest 0%
 // Yields: [1, 0.2, 0, 0.5]
@@ -69,11 +69,11 @@ It's not always feasible to normalise knowing in advance all the possible values
 
 ### Stream
 
-[`stream`](https://clinth.github.io/ixfx/modules/Temporal.Normalise.html#stream) creates a normalise function which automatically adapts as values are processed.
+[`stream`](https://clinth.github.io/ixfx/modules/Data.Normalise.html#stream) creates a normalise function which automatically adapts as values are processed.
 
 ```js
 // repl-pad
-import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
+import {Normalise} from 'https://unpkg.com/ixfx/dist/data.js';
 
 // Initialise a streaming normaliser
 const n = Normalise.stream();
@@ -100,7 +100,7 @@ It's possible to 'prime' the normalisation if you know in advance what range of 
 
 ```js
 // repl-pad
-import {Normalise} from 'https://unpkg.com/ixfx/dist/temporal.js';
+import {Normalise} from 'https://unpkg.com/ixfx/dist/data.js';
 
 // Initialise normaliser, assuming range of 0-10 
 const n = Normalise.stream(0, 10);

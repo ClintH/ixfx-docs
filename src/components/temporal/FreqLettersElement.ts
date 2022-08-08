@@ -2,7 +2,7 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 
-import {frequencyMutable} from 'ixfx/lib/temporal';
+import {frequencyMutable} from 'ixfx/lib/data';
 import {KeyValues} from 'ixfx';
 import {elStyles} from '../styles.js';
 

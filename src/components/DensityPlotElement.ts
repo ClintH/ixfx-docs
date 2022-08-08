@@ -8,7 +8,7 @@ import {Ellipses} from 'ixfx/lib/geometry';
 
 import {Continuously, continuously, debounce, repeat} from 'ixfx/lib/flow';
 import {elStyles} from './styles.js';
-import {Normalise} from 'ixfx/lib/temporal';
+import {Normalise} from 'ixfx/lib/data';
 
 export const tagName = `density-plot-element`;
 

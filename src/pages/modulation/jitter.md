@@ -37,7 +37,7 @@ setup: |
 
 _Jitter_ is the random modulation of a value. It is usually _bipolar_, meaning that it might shift a value upwards or downwards. 
 
-On a [normalised](../../temporal/normalising/) scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:
+On a [normalised](../../data/normalising/) scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:
 
 ```js
 // repl-pad

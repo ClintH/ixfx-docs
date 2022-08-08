@@ -1,5 +1,5 @@
 /* eslint-disable */
-import {frequencyMutable} from 'ixfx/lib/temporal';
+import {frequencyMutable} from 'ixfx/lib/data';
 import {log} from 'ixfx/lib/dom';
 import {HistogramVis, FrequencyHistogramPlot} from 'ixfx/lib/components';
 import {Random} from 'ixfx';

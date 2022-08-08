@@ -2,14 +2,14 @@
 title: Frequency
 layout: ../../layouts/MainLayout.astro
 setup: |
-  import FreqLettersElement from '../../components/temporal/FreqLettersElement.ts';
+  import FreqLettersElement from '../../components/data/FreqLettersElement.ts';
 ---
 
 <script type="module" hoist>
   import '/src/components/ReplPad';
 </script>
 
-[API Docs: Frequency class](https://clinth.github.io/ixfx/classes/Temporal.FrequencyMutable.html)
+[API Docs: Frequency class](https://clinth.github.io/ixfx/classes/Data.FrequencyMutable.html)
 
 The `Frequency` class keeps track of the number of times a certain value is 'seen'.
 
@@ -18,7 +18,7 @@ In some scenarios it can be useful to aggregate data over time, rather than look
 In the demo below, a weighted distribution of random numbers is produced, with lower numbers occuring more often than higher numbers. A `Frequency` instance is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
 
 <script type="module" hoist>
-import '/src/components/temporal/freqWeighted';
+import '/src/components/data/freqWeighted';
 </script>
 <style>
   #dataStream {
@@ -45,7 +45,7 @@ import '/src/components/temporal/freqWeighted';
 
 ## Usage
 
-[API docs](https://clinth.github.io/ixfx/classes/Temporal.FrequencyMutable.html)
+[API docs](https://clinth.github.io/ixfx/classes/Data.FrequencyMutable.html)
 
 The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
 
@@ -54,7 +54,7 @@ The provided frequency histogram is _mutable_, meaning that the object reference
 
 ```js
 // repl-pad#1
-import { frequencyMutable } from "https://unpkg.com/ixfx/dist/temporal.js"
+import { frequencyMutable } from "https://unpkg.com/ixfx/dist/data.js"
 
 // Create an instance
 const freq = frequencyMutable();
@@ -125,7 +125,7 @@ In the below example, cars are grouped by their make:
 
 ```js
 // repl-pad
-import { frequencyMutable } from "https://unpkg.com/ixfx/dist/temporal.js"
+import { frequencyMutable } from "https://unpkg.com/ixfx/dist/data.js"
 
 // Two cars
 const cars = [
@@ -162,7 +162,7 @@ The below example calculates frequency distribution of letters in a string. It d
 
 ```js
 // repl-pad
-import { frequencyMutable } from "https://unpkg.com/ixfx/dist/temporal.js"
+import { frequencyMutable } from "https://unpkg.com/ixfx/dist/data.js"
 
 const freq = frequencyMutable();
 const text = 'This is a test';
