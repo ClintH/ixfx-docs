@@ -114,9 +114,9 @@ const rect = Points.bbox(line);
 Extend the length of the line from its start position:
 
 ```js
-// Lines.extendFromStart(line:Line, distance:number): Line
+// Lines.extendFromA(line:Line, distance:number): Line
 // Returns a new Line, ie { a:{x,y}, b:{x,y} }
-Lines.extendFromStart(line, 20);
+Lines.extendFromA(line, 20);
 ```
 
 ## Angles & rotation

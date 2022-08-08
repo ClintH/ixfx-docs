@@ -132,7 +132,7 @@ export class AnglesElement extends LitElement {
     if (c === undefined) return;
 
     const lineToCursor = Lines.fromPoints(c, ptr);
-    const lineExtended = Lines.extendFromStart(lineToCursor, 200);
+    const lineExtended = Lines.extendFromA(lineToCursor, 200);
 
     // Get intersections
     const intersections = Circles.intersectionLine(c, lineExtended);
@@ -141,7 +141,7 @@ export class AnglesElement extends LitElement {
     const inter = intersections[0];
 
     // Draw ray to intersection point
-    const ray = Lines.extendFromStart(Lines.fromPoints(c, inter), 10);
+    const ray = Lines.extendFromA(Lines.fromPoints(c, inter), 10);
     svg.line(ray, {
       strokeWidth: 3,
       strokeStyle: this.palette.get(`accent-bold`, `yellow`)
