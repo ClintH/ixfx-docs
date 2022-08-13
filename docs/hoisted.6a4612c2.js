@@ -1,4 +1,4 @@
-import"./chunks/loader.c806e4ef.js";import{b as d,r as m,$ as c,a as p}from"./client-shim.cda72367.js";import{e as v}from"./chunks/styles.b4645976.js";import{C as h}from"./chunks/chunk-CWNWYEFL.2e02d266.js";import"./chunks/chunk-IP2OCIJK.bdd1e666.js";var f=Object.defineProperty,C=Object.getOwnPropertyDescriptor,a=(u,t,o,s)=>{for(var e=s>1?void 0:s?C(t,o):t,i=u.length-1,r;i>=0;i--)(r=u[i])&&(e=(s?r(t,o,e):r(e))||e);return s&&e&&f(t,o,e),e};const b="colourscale-element";class l extends d{static styles=[v,m`
+import"./chunks/loader.c806e4ef.js";import{b as d,r as m,$ as c,a as p}from"./client-shim.cda72367.js";import{e as v}from"./chunks/styles.b4645976.js";import{C as h}from"./chunks/chunk-VMFDTDO4.003de47f.js";import"./chunks/chunk-IP2OCIJK.bdd1e666.js";var f=Object.defineProperty,C=Object.getOwnPropertyDescriptor,a=(u,t,o,s)=>{for(var e=s>1?void 0:s?C(t,o):t,i=u.length-1,r;i>=0;i--)(r=u[i])&&(e=(s?r(t,o,e):r(e))||e);return s&&e&&f(t,o,e),e};const b="colourscale-element";class l extends d{static styles=[v,m`
     .stop {
       width: 5em;
       height: 5em;

@@ -1,4 +1,4 @@
-import"./chunks/loader.c806e4ef.js";import{b,r as x,$ as h,o as P,a as p}from"./client-shim.cda72367.js";import{e as E}from"./chunks/styles.b4645976.js";import{P as y,C as m,G as g,h as R,D as $,E as v}from"./chunks/chunk-CWNWYEFL.2e02d266.js";import"./chunks/chunk-IP2OCIJK.bdd1e666.js";var A=Object.defineProperty,C=Object.getOwnPropertyDescriptor,f=(r,t,e,i)=>{for(var n=i>1?void 0:i?C(t,e):t,o=r.length-1,s;o>=0;o--)(s=r[o])&&(n=(i?s(t,e,n):s(n))||n);return i&&n&&A(t,e,n),n};const w="func-plot-element";class d extends b{static styles=[E,x`
+import"./chunks/loader.c806e4ef.js";import{b,r as x,$ as h,o as P,a as p}from"./client-shim.cda72367.js";import{e as E}from"./chunks/styles.b4645976.js";import{P as y,C as m,G as g,h as R,D as $,E as v}from"./chunks/chunk-VMFDTDO4.003de47f.js";import"./chunks/chunk-IP2OCIJK.bdd1e666.js";var A=Object.defineProperty,C=Object.getOwnPropertyDescriptor,f=(r,t,e,i)=>{for(var n=i>1?void 0:i?C(t,e):t,o=r.length-1,s;o>=0;o--)(s=r[o])&&(n=(i?s(t,e,n):s(n))||n);return i&&n&&A(t,e,n),n};const w="func-plot-element";class d extends b{static styles=[E,x`
       #container {
         display: flex;
       }

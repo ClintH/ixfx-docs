@@ -87,4 +87,4 @@ Throughout this documentation there are lots of interactive controls to try func
 
 You may also notice gold <code style="color: var(--yellow)">// repl-pad</code> text at the top of code snippets. Tap this to open a live-editable copy of the code.
 
-Embedded demos are also scattered around, in their toolbars, you can open the demo source on Github or view in a separate tab.
+Embedded demos are also scattered around. In their toolbars, you can open the demo source on Github or view in a separate tab.

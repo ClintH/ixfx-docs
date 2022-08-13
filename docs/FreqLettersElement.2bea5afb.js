@@ -1,4 +1,4 @@
-import{b as c,r as d,$ as p,a as u}from"./client-shim.cda72367.js";import{M as f,R as v}from"./chunks/chunk-CWNWYEFL.2e02d266.js";import"./chunks/chunk-IP2OCIJK.bdd1e666.js";import{e as h}from"./chunks/styles.b4645976.js";var g=Object.defineProperty,x=Object.getOwnPropertyDescriptor,_=(a,t,n,s)=>{for(var e=s>1?void 0:s?x(t,n):t,o=a.length-1,i;o>=0;o--)(i=a[o])&&(e=(s?i(t,n,e):i(e))||e);return s&&e&&g(t,n,e),e};const b="freq-letters";class m extends c{static styles=[h,d`
+import{b as c,r as d,$ as p,a as u}from"./client-shim.cda72367.js";import{M as f,R as v}from"./chunks/chunk-VMFDTDO4.003de47f.js";import"./chunks/chunk-IP2OCIJK.bdd1e666.js";import{e as h}from"./chunks/styles.b4645976.js";var g=Object.defineProperty,x=Object.getOwnPropertyDescriptor,_=(a,t,n,s)=>{for(var e=s>1?void 0:s?x(t,n):t,o=a.length-1,i;o>=0;o--)(i=a[o])&&(e=(s?i(t,n,e):i(e))||e);return s&&e&&g(t,n,e),e};const b="freq-letters";class m extends c{static styles=[h,d`
   .container {
     display: flex;
     align-items: center;

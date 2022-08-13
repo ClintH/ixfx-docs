@@ -17,8 +17,6 @@ import '/src/components/ReplPad';
 
 A point is an `x` and `y` [Cartesian coordinate](../units/#cartesian); the basic building block for [lines](../line/), [arcs](../arc/), [rectangles](../rect/) and paths.
 
-
-
 ```js
 // A point at (100, 200)
 const p = {x: 100, y: 200};
@@ -57,10 +55,11 @@ Call `relation` to initialise the tracker, giving the reference point:
 
 ```js
 import { Points } from "https://unpkg.com/ixfx/dist/geometry.js";
-const tracker = Points.tracker({ x: 100, y:100 });
+const tracker = Points.relation({ x: 100, y:100 });
 ```
 
-After that, call the returned `tracker()` function to compute the relation of any other point to the reference point:
+After that, call the returned function (here assigned to `tracker`) to compute the relation of any other point to the reference point:
+
 ```js
 // Compare 50,50 to 100,100
 const result = tracker({ x: 50, y: 50 });
@@ -71,30 +70,32 @@ The result contains the properties _angle_ (in radians), _distance_, _centroid_ 
 ```js
 import { Points } from "https://unpkg.com/ixfx/dist/geometry.js";
 
-let t = null;
+let tracker = null;
 
 // Start tracking on pointer down
 document.addEventListener(`pointerdown`, evt => {
-  t = Points.relation(evt);
+  tracker = Points.relation(evt);
 });
 
 // Use tracker when a move happens
 document.addEventListener(`pointermove`, evt => {
   if (!t) return; // Didn't start tracking
 
-  const { angle, distance, centroid, average } = t(evt);
-  console.log(`Distance from start: ${distance}`);
+  // Compare to the point recorded in `pointerdown`
+  const r = tracker(evt);
+  console.log(`Distance from start: ${r.distance}`);
 });
 
 // Forget about tracker when pointer is up
 document.addEventListener(`pointerup`, evt => {
-  t = null;
+  tracker = null;
 });
 ```
 
 <demo-element title="Point relation" src="/geometry/point-relation/" />
 
 ### See also
+
 * [`distanceToExterior`](https://clinth.github.io/ixfx/functions/Geometry.Points.distanceToExterior.html): distance to the exterior of a basic shape
 * [`distanceToCenter`](https://clinth.github.io/ixfx/functions/Geometry.Points.distanceToCenter.html): distance to the center of a basic shape
 
@@ -151,7 +152,7 @@ const c = Points.centroid(...pts);
 
 [`leftmost`](https://clinth.github.io/ixfx/functions/Geometry.Points.leftmost.html)/[`rightmost`](https://clinth.github.io/ixfx/functions/Geometry.Points.rightmost.html) returns the most left/right point of a set of points.
 
-## Translation
+## Rotation & Translation
 
 Rotate a point around a given point with [`rotate`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#rotate)
 
@@ -211,7 +212,7 @@ Points.from([10, 15]);  // {x: 10, y: 15}
 Points.fromNumbers([ [10, 15], [5, 5]]); // [{x:10, y:15}, {x:5, y:5}]
 ```
 
-## Normalised points
+## Normalise
 
 It's often useful to work with [normalised](../../data/normalising/) points. Thus a point of `{x:0.5, y:0.5}` would mean 50% x, and 50% y. See the discussion on [normalising points](../../data/normalising/#geometry) for more on this.
 
@@ -247,7 +248,7 @@ Points.clamp({ x:2,   y:2 });      // { x:1.0, y:1.0 }
 Points.clamp({ x:0.5, y:0.5 });    // { x:0.5, y:0.5 }
 ```
 
-## Random points
+## Random
 
 [`random`](https://clinth.github.io/ixfx/functions/Geometry.Points.random.html) creates a random point, by default on a normalised 0..1 scale:
 
