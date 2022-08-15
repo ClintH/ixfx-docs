@@ -57,7 +57,7 @@
 
 		<title>Line - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c84.js" astro-script="/types/geometry/line/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c85.js" astro-script="/types/geometry/line/script-0"></script>
 <script type="module" hoist="true" astro-script="/types/geometry/line/script-1">import '/src/components/ReplPad';</script>
 <script type="module" astro-script="/types/geometry/line/script-2">import "../../../client-shim.cda72367.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/line/script-3">import setup from '../../../idle.04f12634.js';
@@ -182,6 +182,10 @@ setup("2bwa5U", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
 								</a>
 							</li>
 					</ul>
@@ -316,6 +320,7 @@ Lines<span class="token punctuation">.</span><span class="token function">slope<
 <span class="token comment">// Returns angle of line, in radians</span>
 Lines<span class="token punctuation">.</span><span class="token function">angleRadian</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Return a rotated line with <a href="https://clinth.github.io/ixfx/modules/Geometry.Lines.html#rotate"><code>rotate</code></a>.</p><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -567,6 +572,9 @@ Lines<span class="token punctuation">.</span><span class="token function">angleR
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -577,6 +585,8 @@ Lines<span class="token punctuation">.</span><span class="token function">angleR
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -595,6 +605,10 @@ Lines<span class="token punctuation">.</span><span class="token function">angleR
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">
@@ -647,6 +661,7 @@ Lines<span class="token punctuation">.</span><span class="token function">rotate
 <span class="token comment">// Rotate line by 5 degrees by its end point</span>
 Lines<span class="token punctuation">.</span><span class="token function">rotate</span><span class="token punctuation">(</span>line<span class="token punctuation">,</span> <span class="token function">degreeToRadian</span><span class="token punctuation">(</span><span class="token number">5</span><span class="token punctuation">)</span><span class="token punctuation">,</span> line<span class="token punctuation">.</span>b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -898,6 +913,9 @@ Lines<span class="token punctuation">.</span><span class="token function">rotate
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -908,6 +926,8 @@ Lines<span class="token punctuation">.</span><span class="token function">rotate
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -926,6 +946,10 @@ Lines<span class="token punctuation">.</span><span class="token function">rotate
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">

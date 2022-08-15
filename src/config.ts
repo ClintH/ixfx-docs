@@ -28,6 +28,7 @@ export const SIDEBAR =
     {text: `Oscillator`, link: `modulation/oscillator/`},
     {text: `Easing`, link: `modulation/easing/`},
     {text: `Jitter`, link: `modulation/jitter/`},
+    {text: `Forces`, link: `modulation/forces/`},
 
     {text: `Generation`, header: true},
     {text: `Random`, link: `gen/random/`},

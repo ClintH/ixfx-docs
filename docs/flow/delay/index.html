@@ -181,6 +181,10 @@ setup("1UTXP2", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -322,6 +326,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">resize</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> resizeDebounced<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -573,6 +578,9 @@ window<span class="token punctuation">.</span><span class="token function">addEv
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -583,6 +591,8 @@ window<span class="token punctuation">.</span><span class="token function">addEv
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -601,6 +611,10 @@ window<span class="token punctuation">.</span><span class="token function">addEv
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">
@@ -627,6 +641,7 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token number">500</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">resize</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> resizeThrottled<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -878,6 +893,9 @@ window<span class="token punctuation">.</span><span class="token function">addEv
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -888,6 +906,8 @@ window<span class="token punctuation">.</span><span class="token function">addEv
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -906,6 +926,10 @@ window<span class="token punctuation">.</span><span class="token function">addEv
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">

@@ -58,7 +58,7 @@
 		<title>Envelope - ixfx docs</title>
 		
 	<link rel="stylesheet" href="/ixfx-docs/assets/EnvelopePlay.4f4e2191.css"></link>
-<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.7a9196772.js" astro-script="/modulation/envelope/script-0"></script>
+<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.6ad3bad72.js" astro-script="/modulation/envelope/script-0"></script>
 <script type="module" astro-script="/modulation/envelope/script-1">import "../../client-shim.cda72367.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/envelope/script-2">import setup from '../../idle.04f12634.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
@@ -182,6 +182,10 @@ setup("Z1sBek2", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
 								</a>
 							</li>
 					</ul>
@@ -356,6 +360,7 @@ env<span class="token punctuation">.</span><span class="token function">addEvent
   <span class="token literal-property property">retrigger</span><span class="token operator">:</span> <span class="token boolean">true</span>
 <span class="token punctuation">}</span></code></pre><h2 id="demos">Demos</h2><p>In the demo below, <code>pointerdown</code> or <code>keydown</code> events triggers and holds the envelope. On the left side you see a typical binary on/off response, on the right you see a gradual effect of the envelope.</p><p>Releasing the pointer or key calls the envelope's <code>release</code> function.</p><p>This envelope has <code>retrigger</code> disabled, so pressing again while it's decaying will continue the envelope at that level, rather than resetting to zero (default behaviour).</p><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -607,6 +612,9 @@ env<span class="token punctuation">.</span><span class="token function">addEvent
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -617,6 +625,8 @@ env<span class="token punctuation">.</span><span class="token function">addEvent
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -635,6 +645,10 @@ env<span class="token punctuation">.</span><span class="token function">addEvent
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">

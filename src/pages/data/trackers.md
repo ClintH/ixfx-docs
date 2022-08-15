@@ -15,10 +15,11 @@ setup: |
 <li>Related: <a href="../frequency/">FrequencyMutable</a>: tracks 'seen' values</li>
 </div>
 
+The ixfx suite of trackers are meant for streams of data. In their simplest usage, they can keep track of the range of data. In more advanced usage, they are helpful in comparing some start value to a current value.
 
 ## Numbers
 
-[`numberTracker`](https://clinth.github.io/ixfx/functions/Data.numberTracker.html) keeps track of the minimum, maximum and average of a stream of values, without storing them.
+[`numberTracker`](https://clinth.github.io/ixfx/functions/Data.numberTracker.html) keeps track of the minimum, maximum and average of a stream of numbers, without storing them.
 
 ```js
 // repl-pad
@@ -36,6 +37,8 @@ t.min
 t.total
 ```
 
+An example usage might be to track the range of a sensor over time.
+
 See also:
 * [`numberTracker` API docs](https://clinth.github.io/ixfx/functions/Data.numberTracker.html) for more
 * The [pointer scale demo](https://clinth.github.io/ixfx-demos/io/pointer/scale/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/io/pointer/scale)) uses `numberTracker` and `pointsTracker`.
@@ -43,6 +46,8 @@ See also:
 ## Intervals
 
 [`intervalTracker`](https://clinth.github.io/ixfx/functions/Data.intervalTracker.html) tracks time intervals.
+
+This is useful when you're interested in the period or frequency of events rather than event data itself.
 
 Once initialised, call `mark` on the returned object to capture the elapsed time.
 
@@ -61,7 +66,7 @@ t.mark();
 t.avg;
 ```
 
-For example, to record the average interval between clicks:
+For example, to figure how quickly the pointer is being clicked:
 
 ```js
 // repl-pad
@@ -134,6 +139,12 @@ document.addEventListener(`pointermove`, evt => {
   
   console.log(`Angle from start: ${info.fromInitial.angle}`);
 });
+```
+
+To get the last result without adding anything:
+
+```js
+const nfo = tracker.lastResult;
 ```
 
 There are a few helper functions on the tracker:

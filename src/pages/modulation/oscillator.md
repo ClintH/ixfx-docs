@@ -3,7 +3,12 @@ title: Oscillators
 layout: ../../layouts/MainLayout.astro
 ---
 
-[API Docs: Modulation.Oscillators module](https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html">Modulation.Oscillators module</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
+</div>
+
 
 <script type="module" hoist>
 import '/src/loader';
@@ -143,6 +148,59 @@ Example expressions:
 
 See the [modulation demos](https://clinth.github.io/ixfx-demos/modulation/) for an example of how to do frequency modulation.
 
+## Springs
+
+Somewhere between the ixfx [forces](../modulation/forces/) and oscillators are springs.
+
+<demo-element style="height:40vh" title="Spring oscillator" src="/modulation/oscillator-spring/" />
+
+For a typical use of a spring, use [`Oscillators.spring`](https://clinth.github.io/ixfx/functions/Modulation.Oscillators.spring.html).
+
+Like the other oscillators, it returns a [generator](../../gen/generator/). It generally returns values between 0..1, however depending on its settings, it might over-shoot the ends, for example returning 1.1.
+
+```js
+import { Oscillators } from "https://unpkg.com/ixfx/dist/modulation.js"
+
+// Init spring
+const spring = Oscillators.spring();
+
+// Animation loop
+const loop = () => {
+  // Yields relative values ~0...~1
+  //  or undefined when spring has stopped
+  const v = spring.next().value;
+
+  window.requestAnimationFrame(loop);
+}
+loop();
+```
+
+Each time the loop function runs, `v` will have the value of the spring, or return _undefined_ if the spring has finished.
+
+The value of the spring can be applied to anything. In the demo, it is used to calculate a position for the ring.
+
+```js
+// Point where spring was sprung
+const fromPoint = { x: 0, y: 0 };
+// Destination
+const toPoint = { x: 1, y: 1 };
+
+// Interpolate to get an in-between point.
+// Since spring can overshoot 0..1, we pass in _true_ at
+// for interpolate to allow this.
+const pos = Points.interpolate(v, fromPoint, toPoint, true);
+```
+
+There are some options for `Oscillators.spring` for tweaking its behaviour.
+
+```js
+const spring = Oscillators.spring({
+ mass: 5,        // Weight of thing at end of spring
+ damping: 10,    // Energy loss as we move
+ stiffness: 100,
+ velocity: 0.1   // Multiplier for velocity
+});
+```
 ## Starter
 
 Below is a skeleton for a sketch that defines settings, state and an update/apply loop. The oscillator is sampled on every loop.

@@ -8,6 +8,9 @@ class DemoElement extends LitElement {
   static styles = [
     elStyles,
     css`
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -18,6 +21,8 @@ class DemoElement extends LitElement {
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -37,9 +42,12 @@ class DemoElement extends LitElement {
       align-items: center;
       padding-bottom: 0.5em;
     }
+
+    iframe {
+      flex-grow: 1;
+    }
     `
   ];
-
 
   @property()
   declare title: string;

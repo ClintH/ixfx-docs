@@ -27,6 +27,8 @@ Examples sources with noise and jitter:
 * Ultrasound sensor: signals might hit different angles of the same object, giving each pulse a different value
 * Pose detection via machine learning: a very jittery collection of points which shift around and snap in and out of existence
 
+<demo-element style="height:40vh" title="Moving average" src="/data/moving-average-audio/" />
+
 Even the humble physical button can exhibit jitter, where a single physical press is actually registered as several presses. In code, this is solved through a [`debounce`](https://clinth.github.io/ixfx/functions/Flow.debounce.html) function. Noise from physical sensors - particularly analog sensors - can also sometimes be reduced in the hardware domain.
 
 ## Averaging a data set
@@ -158,7 +160,7 @@ ma.compute(); // Yields current average
 ma.clear();
 ```
 
-<demo-element title="Moving average" src="/data/moving-average-audio/" />
+
 
 An alternative approach is an _exponential weighted moving average_, which can calculate an average without storing data samples. This is a common technique on microcontrollers. 
 

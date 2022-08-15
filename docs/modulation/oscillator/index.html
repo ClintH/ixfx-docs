@@ -57,34 +57,35 @@
 
 		<title>Oscillators - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.48a4b31f.js" astro-script="/modulation/oscillator/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4b0da3eb.js" astro-script="/modulation/oscillator/script-0"></script>
 <script type="module" hoist="true" astro-script="/modulation/oscillator/script-1">import '/src/loader';
 import '/src/components/modulation/OscElement';</script>
-<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-2">import setup from '../../idle.04f12634.js';
+<script type="module" astro-script="/modulation/oscillator/script-2">import "../../client-shim.cda72367.js";</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-3">import setup from '../../idle.04f12634.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.c1936d68.js"), import("../../client.a7c2389a.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-MOSAUK67"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-3">import setup from '../../media.57d8586c.js';
-setup("w5UmR", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-4">import setup from '../../media.57d8586c.js';
+setup("ZNJAft", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"sampling","text":"Sampling"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":2,"slug":"amplitude-modulation","text":"Amplitude modulation"},{"depth":2,"slug":"starter","text":"Starter"}],"class":"astro-XPZS3NBI"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"sampling","text":"Sampling"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":2,"slug":"amplitude-modulation","text":"Amplitude modulation"},{"depth":2,"slug":"springs","text":"Springs"},{"depth":2,"slug":"starter","text":"Starter"}],"class":"astro-XPZS3NBI"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-4">import setup from '../../visible.e1f6ae0f.js';
+<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-5">import setup from '../../visible.e1f6ae0f.js';
 setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.2e9e674b.js"), import("../../client.a7c2389a.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-WOEIVG5E"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-5">import setup from '../../media.57d8586c.js';
-setup("w5UmR", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+<script type="module" data-astro-component-hydration astro-script="/modulation/oscillator/script-6">import setup from '../../media.57d8586c.js';
+setup("ZNJAft", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"sampling","text":"Sampling"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":2,"slug":"amplitude-modulation","text":"Amplitude modulation"},{"depth":2,"slug":"starter","text":"Starter"}],"class":"astro-AMOJLK4X"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"sampling","text":"Sampling"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":2,"slug":"amplitude-modulation","text":"Amplitude modulation"},{"depth":2,"slug":"springs","text":"Springs"},{"depth":2,"slug":"starter","text":"Starter"}],"class":"astro-AMOJLK4X"}, children);
 
 });
 </script>
@@ -183,6 +184,10 @@ setup("w5UmR", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -272,9 +277,13 @@ setup("w5UmR", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 	<section class="main-section astro-AMOJLK4X">
 		<h1 class="content-title astro-AMOJLK4X" id="overview">Oscillators</h1>
 		<nav class="block sm:hidden astro-AMOJLK4X">
-				<astro-root uid="w5UmR"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#sampling">Sampling</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-2"><a href="#amplitude-modulation">Amplitude modulation</a></li><li class="header-link depth-2"><a href="#starter">Starter</a></li></ul></astro-root>
+				<astro-root uid="ZNJAft"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#sampling">Sampling</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-2"><a href="#amplitude-modulation">Amplitude modulation</a></li><li class="header-link depth-2"><a href="#springs">Springs</a></li><li class="header-link depth-2"><a href="#starter">Starter</a></li></ul></astro-root>
 			</nav>
-		<p><a href="https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html">API Docs: Modulation.Oscillators module</a></p><p><em>Oscillators</em> are generators that produce value according to a wave shape. Common shapes include <em>sine</em>, <em>sawtooth</em> (or <em>ramp</em>), <em>square</em> and <em>triangle</em>.</p><p>In the below example, each oscillator runs for one <em>cycle</em> over two seconds. That means the <em>frequency</em> is 0.5 - half a cycle every second.</p><div id="waveIntro"></div><script type="module">
+		<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html">Modulation.Oscillators module</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
+</ul></div><p><em>Oscillators</em> are generators that produce value according to a wave shape. Common shapes include <em>sine</em>, <em>sawtooth</em> (or <em>ramp</em>), <em>square</em> and <em>triangle</em>.</p><p>In the below example, each oscillator runs for one <em>cycle</em> over two seconds. That means the <em>frequency</em> is 0.5 - half a cycle every second.</p><div id="waveIntro"></div><script type="module">
 importEl(
   `waveIntro`, 
   `oscillator-element`, {
@@ -328,7 +337,337 @@ importEl(
 <li><code>source * mod</code>: Dampens output. ie. if modulator is at 50%, signal is reduced by 50%. Try a triangle wave with frequency of 1.</li>
 <li><code>source * Math.sqrt(mod)</code>: Reduces the influence of modulator by squaring its value first. If you set a triangle wave and frequency around 41, note how modulation bites in more when sine is at its higher values</li>
 <li><code>source * Math.pow(mod, 2)</code>: Increases influence of modulator by raising to the second power. As a result, it seems the sine is the modulator, not the modulator.</li>
-</ul><p>See the <a href="https://clinth.github.io/ixfx-demos/modulation/">modulation demos</a> for an example of how to do frequency modulation.</p><h2 id="starter">Starter</h2><p>Below is a skeleton for a sketch that defines settings, state and an update/apply loop. The oscillator is sampled on every loop.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> frequencyTimer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/flow.js'</span><span class="token punctuation">;</span>
+</ul><p>See the <a href="https://clinth.github.io/ixfx-demos/modulation/">modulation demos</a> for an example of how to do frequency modulation.</p><h2 id="springs">Springs</h2><p>Somewhere between the ixfx <a href="../modulation/forces/">forces</a> and oscillators are springs.</p><demo-element style="height:40vh"><template shadowroot="open"><style>
+  :host {
+    display: block;
+    --black: hsl(206, 11%, 12%);
+    --white: hsl(206, 11%, 82%);
+
+    --light-accent: hsl(217, 48%, 55%);
+    --light-accent-text:hsl(217, 38%, 45%);
+    --light-accent-bold:hsl(217, 100%, 45%);
+
+    --dark-accent: hsl(217, 48%, 75%);
+    --dark-accent-text:hsl(217, 78%, 75%);
+    --dark-accent-bold:hsl(217, 78%, 75%);
+
+    --dark-bg: hsl(229, 20%, 20%);
+    --dark-bg-dim: hsl(231, 21%, 29%);
+    --dark-fg: hsl(231, 28%, 73%);
+    --dark-fg-bright: hsl(231, 28%, 82%);
+    --dark-fgDim: hsl(231, 12%, 50%);
+  
+    --dark-yellow: hsl(39, 100%, 71%);
+    --dark-purple: hsl(276, 68%, 75%);
+    --dark-blue: hsl(197, 100%, 77%);
+    --dark-green: hsl(68, 55%, 60%);
+    
+    --light-bg: hsl(0, 0%, 98%);
+    --light-bg-dim: hsl(194, 16%, 94%);
+    --light-fg: hsl(200, 16%, 62%);
+    --light-fgDim: hsl(200, 16%, 32%);
+    --light-fg-bright: hsl(200, 16%, 92%);
+
+    --light-yellow: hsl(39, 100%, 59%);
+    --light-purple: hsl(256, 90%, 65%);
+    --light-blue: hsl(217, 38%, 55%);
+    --light-green: hsl(85, 40%, 54%);
+
+    --yellow: red;
+    --radius: 1em;
+    --padding: 0.3em;
+    --padding-text: 0.8em;
+
+    --divider: red;
+    --light-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAzMCAzMCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDI1Ljk4MDQ2OSAyLjk5MDIzNDQgQSAxLjAwMDEgMS4wMDAxIDAgMCAwIDI1Ljg2OTE0MSAzIEwgMjAgMyBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMjAgNSBMIDIzLjU4NTkzOCA1IEwgMTMuMjkyOTY5IDE1LjI5Mjk2OSBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMTQuNzA3MDMxIDE2LjcwNzAzMSBMIDI1IDYuNDE0MDYyNSBMIDI1IDEwIEEgMS4wMDAxIDEuMDAwMSAwIDEgMCAyNyAxMCBMIDI3IDQuMTI2OTUzMSBBIDEuMDAwMSAxLjAwMDEgMCAwIDAgMjUuOTgwNDY5IDIuOTkwMjM0NCB6IE0gNiA3IEMgNC45MDY5MzcyIDcgNCA3LjkwNjkzNzIgNCA5IEwgNCAyNCBDIDQgMjUuMDkzMDYzIDQuOTA2OTM3MiAyNiA2IDI2IEwgMjEgMjYgQyAyMi4wOTMwNjMgMjYgMjMgMjUuMDkzMDYzIDIzIDI0IEwgMjMgMTQgTCAyMyAxMS40MjE4NzUgTCAyMSAxMy40MjE4NzUgTCAyMSAxNiBMIDIxIDI0IEwgNiAyNCBMIDYgOSBMIDE0IDkgTCAxNiA5IEwgMTYuNTc4MTI1IDkgTCAxOC41NzgxMjUgNyBMIDE2IDcgTCAxNCA3IEwgNiA3IHoiPjwvcGF0aD48L3N2Zz4=') no-repeat left top;
+    --dark-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTE0OC45NTQ2OSwxNy4xNDQwMWMtMC4yMTM2NCwwLjAwNjc1IC0wLjQyNjczLDAuMDI1NDQgLTAuNjM4MjgsMC4wNTU5OWgtMzMuNjQ5NzRjLTIuMDY3NjUsLTAuMDI5MjQgLTMuOTkwODcsMS4wNTcwOSAtNS4wMzMyMiwyLjg0M2MtMS4wNDIzNiwxLjc4NTkyIC0xLjA0MjM2LDMuOTk0NzQgMCw1Ljc4MDY2YzEuMDQyMzYsMS43ODU5MiAyLjk2NTU4LDIuODcyMjUgNS4wMzMyMiwyLjg0M2gyMC41NTkzOGwtNTkuMDEzMDIsNTkuMDEzMDJjLTEuNDk3NzgsMS40MzgwMiAtMi4xMDExMywzLjU3MzQgLTEuNTc3MzUsNS41ODI2YzAuNTIzNzgsMi4wMDkyIDIuMDkyODQsMy41NzgyNiA0LjEwMjA0LDQuMTAyMDRjMi4wMDkyLDAuNTIzNzggNC4xNDQ1OCwtMC4wNzk1NyA1LjU4MjYsLTEuNTc3MzVsNTkuMDEzMDIsLTU5LjAxMzAydjIwLjU1OTM4Yy0wLjAyOTI0LDIuMDY3NjUgMS4wNTcwOSwzLjk5MDg3IDIuODQzLDUuMDMzMjJjMS43ODU5MiwxLjA0MjM2IDMuOTk0NzQsMS4wNDIzNiA1Ljc4MDY2LDBjMS43ODU5MiwtMS4wNDIzNiAyLjg3MjI1LC0yLjk2NTU4IDIuODQzLC01LjAzMzIydi0zMy42NzIxNGMwLjIzMTExLC0xLjY3MDc2IC0wLjI4NTExLC0zLjM1ODUzIC0xLjQxMTI5LC00LjYxNDE1Yy0xLjEyNjE3LC0xLjI1NTYyIC0yLjc0ODA2LC0xLjk1MTcyIC00LjQzNDAyLC0xLjkwMzA0ek0zNC40LDQwLjEzMzMzYy02LjI2Njg5LDAgLTExLjQ2NjY3LDUuMTk5NzcgLTExLjQ2NjY3LDExLjQ2NjY3djg2YzAsNi4yNjY4OSA1LjE5OTc3LDExLjQ2NjY3IDExLjQ2NjY3LDExLjQ2NjY3aDg2YzYuMjY2ODksMCAxMS40NjY2NywtNS4xOTk3NyAxMS40NjY2NywtMTEuNDY2Njd2LTU3LjMzMzMzdi0xNC43ODEyNWwtMTEuNDY2NjcsMTEuNDY2Njd2MTQuNzgxMjV2NDUuODY2NjdoLTg2di04Nmg0NS44NjY2N2gxMS40NjY2N2gzLjMxNDU4bDExLjQ2NjY3LC0xMS40NjY2N2gtMTQuNzgxMjVoLTExLjQ2NjY3eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+') no-repeat left top;
+  }
+
+  .icon {
+    display: inline-block;
+    padding-left: 1.4em;
+    padding-right: 1.2em;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+  }
+
+  .controls.wrappable {
+    flex-wrap: wrap;
+  }
+
+  .controls .vertical {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .controls h2 {
+   
+    text-align: center;
+  }
+
+  .controls label {
+    display: flex;
+    flex-direction: column;
+    font-size: 80%;
+    user-select: none;
+  }
+
+  .icon-external-link {
+    background: var(--external-link);
+    background-size: 1.2em;
+  }
+
+  a.icon:link {
+    text-decoration: none;
+  }
+  a.icon:visited, a.icon:link {
+    color: var(--fg);
+  }
+
+  iframe {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  button, .toolbar .radios label {
+    border: 0;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    align-items: center;
+    gap: 0.25em;
+    border-radius: 99em;
+    color: var(--fg-contrast-dim);
+    background-color: var(--bg-contrast);
+    transition: color 0.3s ease-out;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  button:hover {
+    color: var(--fg-contrast);
+    transition: color 0.3s ease-in;
+  }
+
+  button[disabled], button[disabled]:hover {
+    opacity: 0.6;
+    background-color: var(--theme-code-inline-bg);
+    cursor: default;
+  }
+
+  .toolbar {
+    display: flex;
+    margin: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  .toolbar.rightJustify {
+    justify-content: flex-end;
+   
+  }
+
+  .toolbar.centered {
+    justify-content: center;
+  }
+  .toolbar.vertical {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .toolbar input {
+    min-width: 3em;
+    margin-right: 1vw;
+    margin-left: 1vw;
+  }
+  .vertical input {
+    margin-left: 0;
+  }
+  .toolbar.mini, .toolbar.mini>button {
+    font-size: 80%;
+  }
+  .toolbar > * {
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+  }
+
+  .toolbar.vertical > * {
+    margin-top: var(--padding);
+    margin-bottom: var(--padding);
+  }
+
+  .radios input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  .radios label {
+    display: inline-block;
+    opacity: 0.5;
+    font-size: 80% !important;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios label:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .radios input[type="radio"]:checked + label {
+    background-color: var(--bg-contrast);
+    font-size: 100%;
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios input[type="radio"]:focus + label {
+    border: 1px solid var(--fg);
+  }
+  
+  .icon {
+    opacity: 0.6;
+    transition: opacity 0.5s ease-out;
+  }
+  .icon:hover {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+  }
+
+
+  @media (prefers-color-scheme: dark) {
+    :host {
+      --bg-mono: var(--black);
+      --bg: var(--dark-bg);
+      --bg-dim: var(--dark-bg-dim);
+
+      --divider: hsl(229, 30%, 30%);
+
+      --accent: var(--dark-accent);
+      --accent-text: var(--dark-accent-text);
+      --accent-bold: var(--dark-accent-bold);
+
+      --fg: var(--dark-fg);
+      --fg-mono: var(--dark-fgDim);
+      --fgDim: var(--dark-fgDim);
+      --fg-bright: var(--dark-fg-bright);
+      
+      --purple: var(--dark-purple);
+      --green: var(--dark-green);
+      --blue: var(--dark-blue);
+
+      --external-link: var(--dark-external-link);
+    }
+  }
+
+  
+  @media (prefers-color-scheme: light) {
+    :host {
+    --bg-mono: var(--white);
+    --bg: var(--light-bg);
+    --bg-dim: var(--light-bg-dim);
+    
+    --divider: hsl(193, 10%, 84%);
+
+    --accent: var(--light-accent);
+    --accent-bold: var(--light-accent-bold);
+    --accent-text: var(--light-accent-text);
+
+    --fg: var(--light-fg);
+    --fg-mono: var(--light-fgDim);
+    --fgDim: var(--light-fgDim);
+    --fg-bright: var(--light-fg-bright);
+    --purple: var(--light-purple);
+    --green: var(--light-green);
+    --blue: var(--light-blue);
+
+    --bg-contrast: hsl(200, 16%, 92%);
+    --fg-contrast: hsl(200, 16%, 22%);
+    --fg-contrast-dim: hsl(200, 16%, 62%);
+
+    --external-link: var(--light-external-link);
+    }
+  }
+
+    :host {
+      display: block;
+    }
+    .container {
+      border: 1px solid black;
+      padding: 0.5em;
+      border-radius: 3px;
+      background-color: var(--bg-mono);
+      color: var(--fg-mono);
+      display:flex;
+      margin-top: 1em;
+      margin-bottom: 1em;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+    .toolbar a.icon:visited, .toolbar a.icon:link {
+      color: var(--fg-mono);
+    }
+
+    .toolbar {
+      opacity: 0.3;
+      transition: opacity 1s ease-out;
+    }
+    .titleBar:hover .toolbar {
+      opacity: 1.0;
+      transition: opacity 0.3s ease-in;
+    }
+    .titleBar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
+    }
+    </style><!--lit-part mxuE/Nd/lSk=-->
+			<div class="container">
+        <div class="titleBar">
+          <div><!--lit-part-->Spring oscillator<!--/lit-part--></div>
+          <div class="toolbar">
+            <a class="icon icon-external-link" title="Edit code" target="_blank" href="https://github.com/ClintH/ixfx-demos/tree/main//modulation/oscillator-spring/"><!--lit-node 5-->Edit</a> 
+            <a class="icon icon-external-link" title="Open demo in new window" target="_blank" href="https://clinth.github.io/ixfx-demos/modulation/oscillator-spring/"><!--lit-node 6-->Open</a> 
+          </div>
+        </div>
+
+        <iframe src="https://clinth.github.io/ixfx-demos/modulation/oscillator-spring/"><!--lit-node 7--></iframe>
+      </div>
+		<!--/lit-part--></template></demo-element><p>For a typical use of a spring, use <a href="https://clinth.github.io/ixfx/functions/Modulation.Oscillators.spring.html"><code>Oscillators.spring</code></a>.</p><p>Like the other oscillators, it returns a <a href="../../gen/generator/">generator</a>. It generally returns values between 0..1, however depending on its settings, it might over-shoot the ends, for example returning 1.1.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Oscillators <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/modulation.js"</span>
+
+<span class="token comment">// Init spring</span>
+<span class="token keyword">const</span> spring <span class="token operator">=</span> Oscillators<span class="token punctuation">.</span><span class="token function">spring</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Animation loop</span>
+<span class="token keyword">const</span> <span class="token function-variable function">loop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// Yields relative values ~0...~1</span>
+  <span class="token comment">//  or undefined when spring has stopped</span>
+  <span class="token keyword">const</span> v <span class="token operator">=</span> spring<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+
+  window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Each time the loop function runs, <code>v</code> will have the value of the spring, or return <em>undefined</em> if the spring has finished.</p><p>The value of the spring can be applied to anything. In the demo, it is used to calculate a position for the ring.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Point where spring was sprung</span>
+<span class="token keyword">const</span> fromPoint <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token comment">// Destination</span>
+<span class="token keyword">const</span> toPoint <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Interpolate to get an in-between point.</span>
+<span class="token comment">// Since spring can overshoot 0..1, we pass in _true_ at</span>
+<span class="token comment">// for interpolate to allow this.</span>
+<span class="token keyword">const</span> pos <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span>v<span class="token punctuation">,</span> fromPoint<span class="token punctuation">,</span> toPoint<span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>There are some options for <code>Oscillators.spring</code> for tweaking its behaviour.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> spring <span class="token operator">=</span> Oscillators<span class="token punctuation">.</span><span class="token function">spring</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+ <span class="token literal-property property">mass</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span>        <span class="token comment">// Weight of thing at end of spring</span>
+ <span class="token literal-property property">damping</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>    <span class="token comment">// Energy loss as we move</span>
+ <span class="token literal-property property">stiffness</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span>
+ <span class="token literal-property property">velocity</span><span class="token operator">:</span> <span class="token number">0.1</span>   <span class="token comment">// Multiplier for velocity</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="starter">Starter</h2><p>Below is a skeleton for a sketch that defines settings, state and an update/apply loop. The oscillator is sampled on every loop.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> frequencyTimer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/flow.js'</span><span class="token punctuation">;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Oscillators <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Define settings</span>
@@ -384,7 +723,7 @@ window<span class="token punctuation">.</span><span class="token function">reque
 			<aside id="grid-right" class="grid-sidebar astro-VOYEGVQR" title="Table of Contents">
 				<nav class="sidebar-nav astro-XPZS3NBI" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-XPZS3NBI">
-		<astro-root uid="w5UmR"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#sampling">Sampling</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-2"><a href="#amplitude-modulation">Amplitude modulation</a></li><li class="header-link depth-2"><a href="#starter">Starter</a></li></ul></astro-root>
+		<astro-root uid="ZNJAft"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#sampling">Sampling</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-2"><a href="#amplitude-modulation">Amplitude modulation</a></li><li class="header-link depth-2"><a href="#springs">Springs</a></li><li class="header-link depth-2"><a href="#starter">Starter</a></li></ul></astro-root>
 		
 <ul class="astro-WOEIVG5E">
 </ul>

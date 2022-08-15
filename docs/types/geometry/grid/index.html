@@ -57,32 +57,32 @@
 
 		<title>Grid - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.fc917995.js" astro-script="/types/geometry/grid/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2adaf4f2.js" astro-script="/types/geometry/grid/script-0"></script>
 <script type="module" hoist="true" astro-script="/types/geometry/grid/script-1">import '/src/components/geometry/GridEditor';</script>
 <script type="module" astro-script="/types/geometry/grid/script-2">import "../../../client-shim.cda72367.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/grid/script-3">import setup from '../../../visible.e1f6ae0f.js';
-setup("Z2eBcXG", {name:"grid-visitor-element",value: true}, async () => {
+setup("1pDjWg", {name:"grid-visitor-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../GridVisitorElement.2b3f0eb3.js");
+await import("../../../GridVisitorElement.74c7113b.js");
   return () => {};
 
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/grid/script-4">import setup from '../../../visible.e1f6ae0f.js';
-setup("Z1BG2bs", {name:"grid-offset-element",value: true}, async () => {
+setup("hKx8r", {name:"grid-offset-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../GridOffsetElement.e519a408.js");
+await import("../../../GridOffsetElement.c1be6dec.js");
   return () => {};
 
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/grid/script-5">import setup from '../../../load.bdf3fc70.js';
-setup("1Ibqd9", {name:"grid-colour-element",value: true}, async () => {
+setup("ZtJje9", {name:"grid-colour-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../GridColourElement.dfdf4780.js");
+await import("../../../GridColourElement.c8751cea.js");
   return () => {};
 
 });
@@ -210,6 +210,10 @@ setup("ZjaDmj", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -316,8 +320,9 @@ setup("ZjaDmj", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
   x<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">,</span>
   y<span class="token operator">:</span> <span class="token builtin">number</span>
 <span class="token punctuation">}</span></code></pre><p>In action, this looks like:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> shape <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">rows</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">cols</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it's possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p><astro-root uid="Z2eBcXG"><grid-visitor-element><template shadowroot="open"><style>
+<span class="token keyword">const</span> cell <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>If a grid is going to be mapped to pixels (more on that below) it also need a <em>size</em> field.</p><h2 id="visiting">Visiting</h2><p>For a given starting cell, it's possible to <em>visit</em> all cells once and only once with movement following a spatial logic.</p><astro-root uid="1pDjWg"><grid-visitor-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -630,8 +635,9 @@ setup("ZjaDmj", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
   <span class="token comment">// Do something if cell has been visited...</span>
 <span class="token punctuation">}</span></code></pre><p>In the interactive demo above, this technique is used to colour cells differently depending on whether they've been visited.</p><p>To get a cell <em>x</em> steps away from a position, use <a href="https://clinth.github.io/ixfx/modules/Geometry.Grids.html#visitFor">visitFor</a></p><h2 id="iterating-cells">Iterating cells</h2><p>The <code>cells</code> iterator is a simple alternative to the <em>visitor</em> technique if you don't care about how the grid is traversed. It has a lower overhead than the visitor because it does not need to keep track of every cell it has visited.</p><pre class="language-js"><code class="language-js"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">let</span> cell <span class="token keyword">of</span> Grids<span class="token punctuation">.</span><span class="token function">cells</span><span class="token punctuation">(</span>shape<span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with cell (defined as {x,y})</span>
-<span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2><astro-root uid="Z1BG2bs"><grid-offset-element><template shadowroot="open"><style>
+<span class="token punctuation">}</span></code></pre><h2 id="offsets">Offsets</h2><astro-root uid="hKx8r"><grid-offset-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -955,8 +961,9 @@ data<span class="token punctuation">.</span><span class="token function">set</sp
 
 <span class="token comment">// Fetch data associated with a given cell:</span>
 <span class="token keyword">const</span> val <span class="token operator">=</span> store<span class="token punctuation">.</span><span class="token function">get</span><span class="token punctuation">(</span><span class="token function">key</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">5</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre><astro-root uid="1Ibqd9"><grid-colour-element><template shadowroot="open"><style>
+<span class="token comment">// {colour: '...', funk: 0.235}</span></code></pre><astro-root uid="ZtJje9"><grid-colour-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 

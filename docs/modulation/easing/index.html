@@ -57,7 +57,7 @@
 
 		<title>Easing - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.de942034.js" astro-script="/modulation/easing/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.586b7b1c.js" astro-script="/modulation/easing/script-0"></script>
 <script type="module" hoist="true" astro-script="/modulation/easing/script-1">import '/src/loader';
 import '/src/components/modulation/EasingGalleryElement';
 importEl(
@@ -218,6 +218,10 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -369,6 +373,7 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 <span class="token comment">// Use it to transform an input value (0..1)</span>
 <span class="token function">fn</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="demos">Demos</h2><p>Here, the easing function advances on each call (tapping the circle), rather than by time.</p><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -620,6 +625,9 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -630,6 +638,8 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -648,6 +658,10 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">
@@ -663,6 +677,7 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
       </div>
 		<!--/lit-part--></template></demo-element><p>Below is the common usage of time-based easing</p><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -914,6 +929,9 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -924,6 +942,8 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -942,6 +962,10 @@ setup("Z19tYHH", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">

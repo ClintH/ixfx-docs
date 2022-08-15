@@ -58,32 +58,32 @@
 		<title>Units and Coordinates - ixfx docs</title>
 		
 	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true"></style>
-<style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c83.js" astro-script="/types/geometry/units/script-0"></script>
+<style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c84.js" astro-script="/types/geometry/units/script-0"></script>
 <script type="module" hoist="true" astro-script="/types/geometry/units/script-1">import '/src/components/ReplPad';</script>
 <script type="module" astro-script="/types/geometry/units/script-2">import "../../../client-shim.cda72367.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/units/script-3">import setup from '../../../visible.e1f6ae0f.js';
-setup("1V8jQb", {name:"angles-element",value: true}, async () => {
+setup("15NDic", {name:"angles-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../AnglesElement.d79395be.js");
+await import("../../../AnglesElement.4450e84e.js");
   return () => {};
 
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/units/script-4">import setup from '../../../visible.e1f6ae0f.js';
-setup("1VyxA1", {name:"cartesian-element",value: true}, async () => {
+setup("uGJqX", {name:"cartesian-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../CartesianElement.04294f63.js");
+await import("../../../CartesianElement.d430da16.js");
   return () => {};
 
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/units/script-5">import setup from '../../../visible.e1f6ae0f.js';
-setup("ZEvYvg", {name:"polar-coords-element",value: true}, async () => {
+setup("Z65pAa", {name:"polar-coords-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../PolarCoordsElement.a53849b9.js");
+await import("../../../PolarCoordsElement.e49cda02.js");
   return () => {};
 
 });
@@ -210,6 +210,10 @@ setup("1NB5LY", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
 								</a>
 							</li>
 					</ul>
@@ -341,8 +345,9 @@ setup("1NB5LY", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 <td class="astro-YOODPPMV">2π</td>
 </tr>
 </tbody>
-</table><astro-root uid="1V8jQb"><angles-element class="astro-YOODPPMV"><template shadowroot="open"><style>
+</table><astro-root uid="15NDic"><angles-element class="astro-YOODPPMV"><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -614,8 +619,9 @@ setup("1NB5LY", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>degreeToRadian<span class="token punctuation">,</span> radianToDegree<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/geometry.js'</span>
 <span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token function">degreeToRadian</span><span class="token punctuation">(</span><span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// Pi</span>
 <span class="token keyword">let</span> d <span class="token operator">=</span> <span class="token function">radianToDegree</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 360</span></code></pre><h2 id="coordinates" class="astro-YOODPPMV">Coordinates</h2><a name="cartesian" class="astro-YOODPPMV">
-</a><h3 id="cartesian" class="astro-YOODPPMV">Cartesian</h3><p class="astro-YOODPPMV">The most common coordinate system for screen-based interaction is the <em class="astro-YOODPPMV">Cartesian</em> system. It consists of <code class="astro-YOODPPMV">x</code> (horizontal) and <code class="astro-YOODPPMV">y</code> (vertical) expressed as a <a href="../point/" class="astro-YOODPPMV">point <code class="astro-YOODPPMV">(x, y)</code></a>. Mostly the <em class="astro-YOODPPMV">origin</em> or <code class="astro-YOODPPMV">(0,0)</code> is the top-left corner of a rectangle.</p><p class="astro-YOODPPMV">This means that <code class="astro-YOODPPMV">x</code> increases from left-to-right, and <code class="astro-YOODPPMV">y</code> increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:</p><astro-root uid="1VyxA1"><cartesian-element class="astro-YOODPPMV"><template shadowroot="open"><style>
+</a><h3 id="cartesian" class="astro-YOODPPMV">Cartesian</h3><p class="astro-YOODPPMV">The most common coordinate system for screen-based interaction is the <em class="astro-YOODPPMV">Cartesian</em> system. It consists of <code class="astro-YOODPPMV">x</code> (horizontal) and <code class="astro-YOODPPMV">y</code> (vertical) expressed as a <a href="../point/" class="astro-YOODPPMV">point <code class="astro-YOODPPMV">(x, y)</code></a>. Mostly the <em class="astro-YOODPPMV">origin</em> or <code class="astro-YOODPPMV">(0,0)</code> is the top-left corner of a rectangle.</p><p class="astro-YOODPPMV">This means that <code class="astro-YOODPPMV">x</code> increases from left-to-right, and <code class="astro-YOODPPMV">y</code> increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:</p><astro-root uid="uGJqX"><cartesian-element class="astro-YOODPPMV"><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -889,8 +895,9 @@ ctx<span class="token punctuation">.</span><span class="token function">restore<
 <li class="astro-YOODPPMV"><a href="../point/" class="astro-YOODPPMV">Point</a></li>
 <li class="astro-YOODPPMV"><a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html" class="astro-YOODPPMV">API Docs: Points module</a></li>
 </ul><a name="polar" class="astro-YOODPPMV">
-</a><h3 id="polar" class="astro-YOODPPMV">Polar</h3><p class="astro-YOODPPMV"><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" class="astro-YOODPPMV">Polar coordinates</a> are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the <em class="astro-YOODPPMV">origin</em>, coordinate are defined by their <em class="astro-YOODPPMV">distance</em> from the origin, as well as <em class="astro-YOODPPMV">angle</em> from the <em class="astro-YOODPPMV">polar axis</em>.</p><p class="astro-YOODPPMV">In the example below, the <em class="astro-YOODPPMV">origin</em> is marked with <em class="astro-YOODPPMV">O</em>, appearing in the center of the grid. The <em class="astro-YOODPPMV">polar axis</em> is marked <em class="astro-YOODPPMV">A</em>.</p><p class="astro-YOODPPMV">As you move your pointer, the polar coordinates are shown. For understandability, angle is shown here in degrees, but radians are the usual unit.</p><astro-root uid="ZEvYvg"><polar-coords-element class="astro-YOODPPMV"><template shadowroot="open"><style>
+</a><h3 id="polar" class="astro-YOODPPMV">Polar</h3><p class="astro-YOODPPMV"><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" class="astro-YOODPPMV">Polar coordinates</a> are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the <em class="astro-YOODPPMV">origin</em>, coordinate are defined by their <em class="astro-YOODPPMV">distance</em> from the origin, as well as <em class="astro-YOODPPMV">angle</em> from the <em class="astro-YOODPPMV">polar axis</em>.</p><p class="astro-YOODPPMV">In the example below, the <em class="astro-YOODPPMV">origin</em> is marked with <em class="astro-YOODPPMV">O</em>, appearing in the center of the grid. The <em class="astro-YOODPPMV">polar axis</em> is marked <em class="astro-YOODPPMV">A</em>.</p><p class="astro-YOODPPMV">As you move your pointer, the polar coordinates are shown. For understandability, angle is shown here in degrees, but radians are the usual unit.</p><astro-root uid="Z65pAa"><polar-coords-element class="astro-YOODPPMV"><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 

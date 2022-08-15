@@ -58,7 +58,7 @@
 		<title>Frequency - ixfx docs</title>
 		
 	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true"></style>
-<style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4d338148.js" astro-script="/data/frequency/script-0"></script>
+<style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.442a32a8.js" astro-script="/data/frequency/script-0"></script>
 <script type="module" hoist="true" astro-script="/data/frequency/script-1">import '/src/components/data/freqWeighted';</script>
 <script type="module" hoist="true" astro-script="/data/frequency/script-2">import '/src/components/ReplPad';</script>
 <script type="module" astro-script="/data/frequency/script-3">import "../../client-shim.cda72367.js";</script>
@@ -184,6 +184,10 @@ setup("ZDGmOb", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
 								</a>
 							</li>
 					</ul>
@@ -365,6 +369,7 @@ freq<span class="token punctuation">.</span><span class="token function">frequen
 <span class="token keyword">const</span> top <span class="token operator">=</span> topThree<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Letter </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>top<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> appears </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span><span class="token function">percent</span><span class="token punctuation">(</span>top<span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">% of the time.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><demo-element class="astro-HEYP7TON"><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -616,6 +621,9 @@ console<span class="token punctuation">.</span><span class="token function">log<
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -626,6 +634,8 @@ console<span class="token punctuation">.</span><span class="token function">log<
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -644,6 +654,10 @@ console<span class="token punctuation">.</span><span class="token function">log<
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">

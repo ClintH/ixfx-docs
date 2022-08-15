@@ -57,7 +57,7 @@
 
 		<title>Point - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c82.js" astro-script="/types/geometry/point/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c83.js" astro-script="/types/geometry/point/script-0"></script>
 <script type="module" hoist="true" astro-script="/types/geometry/point/script-1">import '/src/components/ReplPad';</script>
 <script type="module" astro-script="/types/geometry/point/script-2">import "../../../client-shim.cda72367.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/point/script-3">import setup from '../../../idle.04f12634.js';
@@ -183,6 +183,10 @@ setup("1AgOwy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
 									Jitter
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -292,6 +296,7 @@ setup("1AgOwy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 <span class="token keyword">const</span> angleRad <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">angle</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> angleDeg <span class="token operator">=</span> <span class="token function">radianToDegree</span><span class="token punctuation">(</span>angleRad<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>In the example below, <a href="#normalised-points">normalised</a> points are used for the distance calculation, so a distance value of 0.5 means 50% of the screen width/height away from the middle.</p><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -543,6 +548,9 @@ setup("1AgOwy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -553,6 +561,8 @@ setup("1AgOwy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -571,6 +581,10 @@ setup("1AgOwy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">
@@ -609,6 +623,7 @@ document<span class="token punctuation">.</span><span class="token function">add
   tracker <span class="token operator">=</span> <span class="token keyword">null</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -860,6 +875,9 @@ document<span class="token punctuation">.</span><span class="token function">add
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -870,6 +888,8 @@ document<span class="token punctuation">.</span><span class="token function">add
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -888,6 +908,10 @@ document<span class="token punctuation">.</span><span class="token function">add
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">
@@ -906,6 +930,7 @@ document<span class="token punctuation">.</span><span class="token function">add
 <li><a href="https://clinth.github.io/ixfx/functions/Geometry.Points.distanceToCenter.html"><code>distanceToCenter</code></a>: distance to the center of a basic shape</li>
 </ul><h2 id="interpolation">Interpolation</h2><p>Calculate an in-between point with <a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html#interpolate"><code>interpolate</code></a>. Interpolate can be useful for smoothly moving to a destination, as seen in the demo below.</p><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -1157,6 +1182,9 @@ document<span class="token punctuation">.</span><span class="token function">add
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -1167,6 +1195,8 @@ document<span class="token punctuation">.</span><span class="token function">add
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -1185,6 +1215,10 @@ document<span class="token punctuation">.</span><span class="token function">add
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">
@@ -1211,6 +1245,7 @@ document<span class="token punctuation">.</span><span class="token function">add
 <span class="token keyword">const</span> pts <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">convexHull</span><span class="token punctuation">(</span><span class="token operator">...</span>pointsToContain<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// pts is the outer set of points</span></code></pre><demo-element><template shadowroot="open"><style>
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
@@ -1462,6 +1497,9 @@ document<span class="token punctuation">.</span><span class="token function">add
     }
   }
 
+    :host {
+      display: block;
+    }
     .container {
       border: 1px solid black;
       padding: 0.5em;
@@ -1472,6 +1510,8 @@ document<span class="token punctuation">.</span><span class="token function">add
       margin-top: 1em;
       margin-bottom: 1em;
       flex-direction: column;
+      height: 100%;
+      width: 100%;
     }
     .toolbar a.icon:visited, .toolbar a.icon:link {
       color: var(--fg-mono);
@@ -1490,6 +1530,10 @@ document<span class="token punctuation">.</span><span class="token function">add
       justify-content: space-between;
       align-items: center;
       padding-bottom: 0.5em;
+    }
+
+    iframe {
+      flex-grow: 1;
     }
     </style><!--lit-part mxuE/Nd/lSk=-->
 			<div class="container">

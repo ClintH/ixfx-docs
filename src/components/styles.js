@@ -2,6 +2,7 @@ import {css} from 'lit';
 
 export const elStyles = css`
   :host {
+    display: block;
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
 
