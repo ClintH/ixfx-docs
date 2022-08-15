@@ -57,7 +57,7 @@
 
 		<title>Arrays - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2018ca5b8.js" astro-script="/data/arrays/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c810.js" astro-script="/data/arrays/script-0"></script>
 <script type="module" hoist="true" astro-script="/data/arrays/script-1">import '/src/components/ReplPad';</script>
 <script type="module" data-astro-component-hydration astro-script="/data/arrays/script-2">import setup from '../../idle.04f12634.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
@@ -221,8 +221,16 @@ setup("Z22F3i4", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 									Collections
 								</a>
 							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/averaging/" aria-current="false" class="astro-TIHETVVV">
+									Averaging
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/data/frequency/" aria-current="false" class="astro-TIHETVVV">
 									Frequency
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/trackers/" aria-current="false" class="astro-TIHETVVV">
+									Trackers
 								</a>
 							</li>
 					</ul>
@@ -265,7 +273,11 @@ setup("Z22F3i4", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 		<nav class="block sm:hidden astro-AMOJLK4X">
 				<astro-root uid="Z22F3i4"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#enumerating">Enumerating</a></li><li class="header-link depth-2"><a href="#accessing-items">Accessing items</a></li><li class="header-link depth-2"><a href="#finding">Finding</a></li><li class="header-link depth-2"><a href="#ordering">Ordering</a></li><li class="header-link depth-2"><a href="#filtering">Filtering</a></li><li class="header-link depth-2"><a href="#grouping">Grouping</a></li><li class="header-link depth-2"><a href="#numeric-arrays">Numeric arrays</a></li><li class="header-link depth-3"><a href="#ranges">Ranges</a></li><li class="header-link depth-3"><a href="#averages">Averages</a></li><li class="header-link depth-3"><a href="#weighting">Weighting</a></li></ul></astro-root>
 			</nav>
-		<h2 id="enumerating">Enumerating</h2><p>JS's <code>forEach</code> can be used to enumerate over items in an array:</p><pre class="language-js"><code class="language-js">someArray<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+		<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html">Collections.Arrays module</a></li>
+<li>Parent <a href="https://clinth.github.io/ixfx/modules/Collections.html">Collections module</a></li>
+</ul></div><h2 id="enumerating">Enumerating</h2><p>JS's <code>forEach</code> can be used to enumerate over items in an array:</p><pre class="language-js"><code class="language-js">someArray<span class="token punctuation">.</span><span class="token function">forEach</span><span class="token punctuation">(</span><span class="token parameter">v</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment">// do something with v...</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 

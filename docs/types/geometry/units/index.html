@@ -58,32 +58,32 @@
 		<title>Units and Coordinates - ixfx docs</title>
 		
 	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true"></style>
-<style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2018ca5b3.js" astro-script="/types/geometry/units/script-0"></script>
+<style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4231e6c83.js" astro-script="/types/geometry/units/script-0"></script>
 <script type="module" hoist="true" astro-script="/types/geometry/units/script-1">import '/src/components/ReplPad';</script>
 <script type="module" astro-script="/types/geometry/units/script-2">import "../../../client-shim.cda72367.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/units/script-3">import setup from '../../../visible.e1f6ae0f.js';
-setup("htcJT", {name:"angles-element",value: true}, async () => {
+setup("1V8jQb", {name:"angles-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../AnglesElement.bc43537d.js");
+await import("../../../AnglesElement.d79395be.js");
   return () => {};
 
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/units/script-4">import setup from '../../../visible.e1f6ae0f.js';
-setup("Z1wLnMR", {name:"cartesian-element",value: true}, async () => {
+setup("1VyxA1", {name:"cartesian-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../CartesianElement.35ebace0.js");
+await import("../../../CartesianElement.04294f63.js");
   return () => {};
 
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/types/geometry/units/script-5">import setup from '../../../visible.e1f6ae0f.js';
-setup("Zu59ND", {name:"polar-coords-element",value: true}, async () => {
+setup("ZEvYvg", {name:"polar-coords-element",value: true}, async () => {
   await Promise.all([
   import("../../../hydration-support.2745f2fe.js")]);
-await import("../../../PolarCoordsElement.c0d03088.js");
+await import("../../../PolarCoordsElement.a53849b9.js");
   return () => {};
 
 });
@@ -250,8 +250,16 @@ setup("1NB5LY", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 									Collections
 								</a>
 							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/averaging/" aria-current="false" class="astro-TIHETVVV">
+									Averaging
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/data/frequency/" aria-current="false" class="astro-TIHETVVV">
 									Frequency
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/trackers/" aria-current="false" class="astro-TIHETVVV">
+									Trackers
 								</a>
 							</li>
 					</ul>
@@ -294,42 +302,46 @@ setup("1NB5LY", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 		<nav class="block sm:hidden astro-AMOJLK4X">
 				<astro-root uid="1NB5LY"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#angles">Angles</a></li><li class="header-link depth-3"><a href="#radians--degrees">Radians &amp; Degrees</a></li><li class="header-link depth-2"><a href="#coordinates">Coordinates</a></li><li class="header-link depth-3"><a href="#cartesian">Cartesian</a></li><li class="header-link depth-3"><a href="#polar">Polar</a></li></ul></astro-root>
 			</nav>
-		<p class="astro-EBMLUEKI"><a href="https://clinth.github.io/ixfx/modules/Geometry.html" class="astro-EBMLUEKI">API Docs: Geometry module</a></p><h2 id="angles" class="astro-EBMLUEKI">Angles</h2><h3 id="radians--degrees" class="astro-EBMLUEKI">Radians &#x26; Degrees</h3><p class="astro-EBMLUEKI">In math and computer science, <a href="https://en.wikipedia.org/wiki/Radian" class="astro-EBMLUEKI">radian</a> is the usual unit for angles.</p><p class="astro-EBMLUEKI">Cheatsheet:</p><table class="astro-EBMLUEKI">
-<thead class="astro-EBMLUEKI">
-<tr class="astro-EBMLUEKI">
-<th class="astro-EBMLUEKI">Arc</th>
-<th class="astro-EBMLUEKI">%</th>
-<th class="astro-EBMLUEKI">Degrees</th>
-<th class="astro-EBMLUEKI">Radian</th>
+		<div class="tip astro-YOODPPMV">
+<ul class="astro-YOODPPMV">
+<li class="astro-YOODPPMV">Demos <a href="https://clinth.github.io/ixfx-demos/geometry/" class="astro-YOODPPMV">Geometry</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/geometry" class="astro-YOODPPMV">source</a>)</li>
+<li class="astro-YOODPPMV">API Reference <a href="https://clinth.github.io/ixfx/modules/Geometry.html" class="astro-YOODPPMV">Geometry module</a></li>
+</ul></div><h2 id="angles" class="astro-YOODPPMV">Angles</h2><h3 id="radians--degrees" class="astro-YOODPPMV">Radians &#x26; Degrees</h3><p class="astro-YOODPPMV">In math and computer science, <a href="https://en.wikipedia.org/wiki/Radian" class="astro-YOODPPMV">radian</a> is the usual unit for angles.</p><p class="astro-YOODPPMV">Cheatsheet:</p><table class="astro-YOODPPMV">
+<thead class="astro-YOODPPMV">
+<tr class="astro-YOODPPMV">
+<th class="astro-YOODPPMV">Arc</th>
+<th class="astro-YOODPPMV">%</th>
+<th class="astro-YOODPPMV">Degrees</th>
+<th class="astro-YOODPPMV">Radian</th>
 </tr>
 </thead>
-<tbody class="astro-EBMLUEKI">
-<tr class="astro-EBMLUEKI">
-<td class="astro-EBMLUEKI">Quarter</td>
-<td class="astro-EBMLUEKI">25%</td>
-<td class="astro-EBMLUEKI">90</td>
-<td class="astro-EBMLUEKI">π/2</td>
+<tbody class="astro-YOODPPMV">
+<tr class="astro-YOODPPMV">
+<td class="astro-YOODPPMV">Quarter</td>
+<td class="astro-YOODPPMV">25%</td>
+<td class="astro-YOODPPMV">90</td>
+<td class="astro-YOODPPMV">π/2</td>
 </tr>
-<tr class="astro-EBMLUEKI">
-<td class="astro-EBMLUEKI">Half</td>
-<td class="astro-EBMLUEKI">50%</td>
-<td class="astro-EBMLUEKI">180</td>
-<td class="astro-EBMLUEKI">π</td>
+<tr class="astro-YOODPPMV">
+<td class="astro-YOODPPMV">Half</td>
+<td class="astro-YOODPPMV">50%</td>
+<td class="astro-YOODPPMV">180</td>
+<td class="astro-YOODPPMV">π</td>
 </tr>
-<tr class="astro-EBMLUEKI">
-<td class="astro-EBMLUEKI">Three quarters</td>
-<td class="astro-EBMLUEKI">75%</td>
-<td class="astro-EBMLUEKI">270</td>
-<td class="astro-EBMLUEKI">3π/2</td>
+<tr class="astro-YOODPPMV">
+<td class="astro-YOODPPMV">Three quarters</td>
+<td class="astro-YOODPPMV">75%</td>
+<td class="astro-YOODPPMV">270</td>
+<td class="astro-YOODPPMV">3π/2</td>
 </tr>
-<tr class="astro-EBMLUEKI">
-<td class="astro-EBMLUEKI">One rotation</td>
-<td class="astro-EBMLUEKI">100%</td>
-<td class="astro-EBMLUEKI">360</td>
-<td class="astro-EBMLUEKI">2π</td>
+<tr class="astro-YOODPPMV">
+<td class="astro-YOODPPMV">One rotation</td>
+<td class="astro-YOODPPMV">100%</td>
+<td class="astro-YOODPPMV">360</td>
+<td class="astro-YOODPPMV">2π</td>
 </tr>
 </tbody>
-</table><astro-root uid="htcJT"><angles-element class="astro-EBMLUEKI"><template shadowroot="open"><style>
+</table><astro-root uid="1V8jQb"><angles-element class="astro-YOODPPMV"><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -597,12 +609,12 @@ setup("1NB5LY", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 			<div id="container">
         <svg  style="font-size: 1em" viewBox="0 0 500 300" width="500" height="300"><!--lit-node 1--></svg>
 			</div>
-		<!--/lit-part--></template></angles-element></astro-root><p class="astro-EBMLUEKI">Conversion functions:</p><pre class="language-js astro-EBMLUEKI"><code class="language-js astro-EBMLUEKI"><span class="token keyword">const</span> <span class="token function-variable function">degreeToRadian</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">angleInDegrees</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>angleInDegrees <span class="token operator">-</span> <span class="token number">90</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">/</span> <span class="token number">180.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> <span class="token function-variable function">radianToDegree</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">angleInRadians</span><span class="token punctuation">)</span> <span class="token operator">=></span> angleInRadians <span class="token operator">*</span> <span class="token number">180</span> <span class="token operator">/</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span></code></pre><p class="astro-EBMLUEKI">Both of these functions are in the <a href="https://clinth.github.io/ixfx/modules/Geometry.html" class="astro-EBMLUEKI">Geometry</a> module.</p><p class="astro-EBMLUEKI">Example usage:</p><pre class="language-js astro-EBMLUEKI"><code class="language-js astro-EBMLUEKI"><span class="token comment">// repl-pad</span>
+		<!--/lit-part--></template></angles-element></astro-root><p class="astro-YOODPPMV">Conversion functions:</p><pre class="language-js astro-YOODPPMV"><code class="language-js astro-YOODPPMV"><span class="token keyword">const</span> <span class="token function-variable function">degreeToRadian</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">angleInDegrees</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span>angleInDegrees <span class="token operator">-</span> <span class="token number">90</span><span class="token punctuation">)</span> <span class="token operator">*</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token operator">/</span> <span class="token number">180.0</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> <span class="token function-variable function">radianToDegree</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">angleInRadians</span><span class="token punctuation">)</span> <span class="token operator">=></span> angleInRadians <span class="token operator">*</span> <span class="token number">180</span> <span class="token operator">/</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token punctuation">;</span></code></pre><p class="astro-YOODPPMV">Both of these functions are in the <a href="https://clinth.github.io/ixfx/modules/Geometry.html" class="astro-YOODPPMV">Geometry</a> module.</p><p class="astro-YOODPPMV">Example usage:</p><pre class="language-js astro-YOODPPMV"><code class="language-js astro-YOODPPMV"><span class="token comment">// repl-pad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>degreeToRadian<span class="token punctuation">,</span> radianToDegree<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/geometry.js'</span>
 <span class="token keyword">let</span> r <span class="token operator">=</span> <span class="token function">degreeToRadian</span><span class="token punctuation">(</span><span class="token number">180</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// Pi</span>
-<span class="token keyword">let</span> d <span class="token operator">=</span> <span class="token function">radianToDegree</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 360</span></code></pre><h2 id="coordinates" class="astro-EBMLUEKI">Coordinates</h2><a name="cartesian" class="astro-EBMLUEKI">
-</a><h3 id="cartesian" class="astro-EBMLUEKI">Cartesian</h3><p class="astro-EBMLUEKI">The most common coordinate system for screen-based interaction is the <em class="astro-EBMLUEKI">Cartesian</em> system. It consists of <code class="astro-EBMLUEKI">x</code> (horizontal) and <code class="astro-EBMLUEKI">y</code> (vertical) expressed as a <a href="../point/" class="astro-EBMLUEKI">point <code class="astro-EBMLUEKI">(x, y)</code></a>. Mostly the <em class="astro-EBMLUEKI">origin</em> or <code class="astro-EBMLUEKI">(0,0)</code> is the top-left corner of a rectangle.</p><p class="astro-EBMLUEKI">This means that <code class="astro-EBMLUEKI">x</code> increases from left-to-right, and <code class="astro-EBMLUEKI">y</code> increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:</p><astro-root uid="Z1wLnMR"><cartesian-element class="astro-EBMLUEKI"><template shadowroot="open"><style>
+<span class="token keyword">let</span> d <span class="token operator">=</span> <span class="token function">radianToDegree</span><span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token constant">PI</span><span class="token operator">*</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 360</span></code></pre><h2 id="coordinates" class="astro-YOODPPMV">Coordinates</h2><a name="cartesian" class="astro-YOODPPMV">
+</a><h3 id="cartesian" class="astro-YOODPPMV">Cartesian</h3><p class="astro-YOODPPMV">The most common coordinate system for screen-based interaction is the <em class="astro-YOODPPMV">Cartesian</em> system. It consists of <code class="astro-YOODPPMV">x</code> (horizontal) and <code class="astro-YOODPPMV">y</code> (vertical) expressed as a <a href="../point/" class="astro-YOODPPMV">point <code class="astro-YOODPPMV">(x, y)</code></a>. Mostly the <em class="astro-YOODPPMV">origin</em> or <code class="astro-YOODPPMV">(0,0)</code> is the top-left corner of a rectangle.</p><p class="astro-YOODPPMV">This means that <code class="astro-YOODPPMV">x</code> increases from left-to-right, and <code class="astro-YOODPPMV">y</code> increases from top-to-bottom. In the grid below, coordinates are shown next to the cursor:</p><astro-root uid="1VyxA1"><cartesian-element class="astro-YOODPPMV"><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -870,14 +882,14 @@ setup("1NB5LY", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
       <div id="container">
       <svg  style="font-size: 1em" viewBox="0 0 200 200" width="200" height="200"><!--lit-node 1--> </svg>
         </div>
-          <!--/lit-part--></template></cartesian-element></astro-root><p class="astro-EBMLUEKI">A useful technique is to <em class="astro-EBMLUEKI">translate</em> the coordinate space, shifting the origin. For example, if you translate by <code class="astro-EBMLUEKI">(100,50)</code>, drawing a point at <code class="astro-EBMLUEKI">(0,0)</code> actually draws it at <code class="astro-EBMLUEKI">(100,50)</code>.</p><p class="astro-EBMLUEKI">Usually one would shift the point of origin to be relative to the object you are drawing/working with. For example, the middle, or the top-left. This can make it easier to define and work with coordinates, because it's all relative to the object.</p><p class="astro-EBMLUEKI">In canvas:</p><pre class="language-js astro-EBMLUEKI"><code class="language-js astro-EBMLUEKI">ctx<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Save existing translation, if any</span>
+          <!--/lit-part--></template></cartesian-element></astro-root><p class="astro-YOODPPMV">A useful technique is to <em class="astro-YOODPPMV">translate</em> the coordinate space, shifting the origin. For example, if you translate by <code class="astro-YOODPPMV">(100,50)</code>, drawing a point at <code class="astro-YOODPPMV">(0,0)</code> actually draws it at <code class="astro-YOODPPMV">(100,50)</code>.</p><p class="astro-YOODPPMV">Usually one would shift the point of origin to be relative to the object you are drawing/working with. For example, the middle, or the top-left. This can make it easier to define and work with coordinates, because it's all relative to the object.</p><p class="astro-YOODPPMV">In canvas:</p><pre class="language-js astro-YOODPPMV"><code class="language-js astro-YOODPPMV">ctx<span class="token punctuation">.</span><span class="token function">save</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Save existing translation, if any</span>
 ctx<span class="token punctuation">.</span><span class="token function">translate</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">,</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token comment">// Do drawing, with 100,100 as 0,0</span>
-ctx<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Undo translation</span></code></pre><p class="astro-EBMLUEKI">Read more:</p><ul class="astro-EBMLUEKI">
-<li class="astro-EBMLUEKI"><a href="../point/" class="astro-EBMLUEKI">Point</a></li>
-<li class="astro-EBMLUEKI"><a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html" class="astro-EBMLUEKI">API Docs: Points module</a></li>
-</ul><a name="polar" class="astro-EBMLUEKI">
-</a><h3 id="polar" class="astro-EBMLUEKI">Polar</h3><p class="astro-EBMLUEKI"><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" class="astro-EBMLUEKI">Polar coordinates</a> are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the <em class="astro-EBMLUEKI">origin</em>, coordinate are defined by their <em class="astro-EBMLUEKI">distance</em> from the origin, as well as <em class="astro-EBMLUEKI">angle</em> from the <em class="astro-EBMLUEKI">polar axis</em>.</p><p class="astro-EBMLUEKI">In the example below, the <em class="astro-EBMLUEKI">origin</em> is marked with <em class="astro-EBMLUEKI">O</em>, appearing in the center of the grid. The <em class="astro-EBMLUEKI">polar axis</em> is marked <em class="astro-EBMLUEKI">A</em>.</p><p class="astro-EBMLUEKI">As you move your pointer, the polar coordinates are shown. For understandability, angle is shown here in degrees, but radians are the usual unit.</p><astro-root uid="Zu59ND"><polar-coords-element class="astro-EBMLUEKI"><template shadowroot="open"><style>
+ctx<span class="token punctuation">.</span><span class="token function">restore</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Undo translation</span></code></pre><p class="astro-YOODPPMV">Read more:</p><ul class="astro-YOODPPMV">
+<li class="astro-YOODPPMV"><a href="../point/" class="astro-YOODPPMV">Point</a></li>
+<li class="astro-YOODPPMV"><a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html" class="astro-YOODPPMV">API Docs: Points module</a></li>
+</ul><a name="polar" class="astro-YOODPPMV">
+</a><h3 id="polar" class="astro-YOODPPMV">Polar</h3><p class="astro-YOODPPMV"><a href="https://en.wikipedia.org/wiki/Polar_coordinate_system" class="astro-YOODPPMV">Polar coordinates</a> are particularly suited for positioning on a circle, arc or spiral. Given a point of reference, the <em class="astro-YOODPPMV">origin</em>, coordinate are defined by their <em class="astro-YOODPPMV">distance</em> from the origin, as well as <em class="astro-YOODPPMV">angle</em> from the <em class="astro-YOODPPMV">polar axis</em>.</p><p class="astro-YOODPPMV">In the example below, the <em class="astro-YOODPPMV">origin</em> is marked with <em class="astro-YOODPPMV">O</em>, appearing in the center of the grid. The <em class="astro-YOODPPMV">polar axis</em> is marked <em class="astro-YOODPPMV">A</em>.</p><p class="astro-YOODPPMV">As you move your pointer, the polar coordinates are shown. For understandability, angle is shown here in degrees, but radians are the usual unit.</p><astro-root uid="ZEvYvg"><polar-coords-element class="astro-YOODPPMV"><template shadowroot="open"><style>
   :host {
     --black: hsl(206, 11%, 12%);
     --white: hsl(206, 11%, 82%);
@@ -1145,10 +1157,10 @@ ctx<span class="token punctuation">.</span><span class="token function">restore<
 			<div id="container">
         <svg  style="font-size: 1em" viewBox="0 0 400 400" width="400" height="400"><!--lit-node 1--></svg>
 			</div>
-		<!--/lit-part--></template></polar-coords-element></astro-root><p class="astro-EBMLUEKI">In code, you can convert a polar coordinate (using radian unit) to <em class="astro-EBMLUEKI">x, y</em> with:</p><pre class="language-js astro-EBMLUEKI"><code class="language-js astro-EBMLUEKI"><span class="token keyword">const</span> <span class="token function-variable function">polarToCartesian</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">distance<span class="token punctuation">,</span> angleRadians<span class="token punctuation">,</span> originX<span class="token punctuation">,</span> originY</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+		<!--/lit-part--></template></polar-coords-element></astro-root><p class="astro-YOODPPMV">In code, you can convert a polar coordinate (using radian unit) to <em class="astro-YOODPPMV">x, y</em> with:</p><pre class="language-js astro-YOODPPMV"><code class="language-js astro-YOODPPMV"><span class="token keyword">const</span> <span class="token function-variable function">polarToCartesian</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">distance<span class="token punctuation">,</span> angleRadians<span class="token punctuation">,</span> originX<span class="token punctuation">,</span> originY</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
     <span class="token literal-property property">x</span><span class="token operator">:</span> originX <span class="token operator">+</span> <span class="token punctuation">(</span>distance <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">cos</span><span class="token punctuation">(</span>angleRadians<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
     <span class="token literal-property property">y</span><span class="token operator">:</span> originY <span class="token operator">+</span> <span class="token punctuation">(</span>distance <span class="token operator">*</span> Math<span class="token punctuation">.</span><span class="token function">sin</span><span class="token punctuation">(</span>angleRadians<span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
-  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-EBMLUEKI">In ixfx, <a href="https://clinth.github.io/ixfx/modules/Geometry.Polar.html#toCartesian" class="astro-EBMLUEKI"><code class="astro-EBMLUEKI">toCartesian</code></a> function is provided and can be used as:</p><pre class="language-js astro-EBMLUEKI"><code class="language-js astro-EBMLUEKI"><span class="token keyword">import</span> <span class="token punctuation">{</span> Polar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/geometry.js'</span><span class="token punctuation">;</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-YOODPPMV">In ixfx, <a href="https://clinth.github.io/ixfx/functions/Geometry.Polar.toCartesian.html" class="astro-YOODPPMV"><code class="astro-YOODPPMV">toCartesian</code></a> function is provided and can be used as:</p><pre class="language-js astro-YOODPPMV"><code class="language-js astro-YOODPPMV"><span class="token keyword">import</span> <span class="token punctuation">{</span> Polar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/geometry.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Origin (ie. center) of polar coordinates</span>
 <span class="token keyword">const</span> origin <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
@@ -1158,15 +1170,12 @@ ctx<span class="token punctuation">.</span><span class="token function">restore<
 
 <span class="token comment">// Or if you have a Polar.Coord {distance:number, angleRadian:number}</span>
 <span class="token keyword">const</span> polar <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">distance</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">angleRadian</span><span class="token operator">:</span> Math<span class="token punctuation">.</span><span class="token constant">PI</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> point <span class="token operator">=</span> Polar<span class="token punctuation">.</span><span class="token function">toCartesian</span><span class="token punctuation">(</span>polar<span class="token punctuation">,</span> origin<span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Convert from Cartesian to polar coordinate:</span>
-<span class="token comment">// Polar.fromCartesian(point, origin): Coord;</span>
-<span class="token keyword">const</span> polar <span class="token operator">=</span> Polar<span class="token punctuation">.</span><span class="token function">fromCartesian</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">}</span><span class="token punctuation">,</span> origin<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-EBMLUEKI">Read more:</p><ul class="astro-EBMLUEKI">
-<li class="astro-EBMLUEKI"><a href="https://clinth.github.io/ixfx/modules/Geometry.Polar.html" class="astro-EBMLUEKI">API Docs: Polar modular</a></li>
-</ul><p class="astro-EBMLUEKI">Demos:</p><ul class="astro-EBMLUEKI">
-<li class="astro-EBMLUEKI"><a href="https://clinth.github.io/ixfx-demos/geometry/polar-spiral/" class="astro-EBMLUEKI">Polar spiral</a>: Uses the <a href="https://clinth.github.io/ixfx/modules/Geometry.Polar.html" class="astro-EBMLUEKI">spiral function</a> to generate a spiral, modulated by two ping-pongs.</li>
-<li class="astro-EBMLUEKI"><a href="https://clinth.github.io/ixfx-demos/geometry/polar-orbit/" class="astro-EBMLUEKI">Polar orbit</a>: Moves an element on a circular orbit using polar coordinates.</li>
+<span class="token keyword">const</span> point <span class="token operator">=</span> Polar<span class="token punctuation">.</span><span class="token function">toCartesian</span><span class="token punctuation">(</span>polar<span class="token punctuation">,</span> origin<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-YOODPPMV">Convert <em class="astro-YOODPPMV">from</em> Cartesian to polar coordinate with <a href="https://clinth.github.io/ixfx/functions/Geometry.Polar.fromCartesian.html" class="astro-YOODPPMV"><code class="astro-YOODPPMV">fromCartesian</code></a></p><pre class="language-js astro-YOODPPMV"><code class="language-js astro-YOODPPMV"><span class="token comment">// Polar.fromCartesian(point, origin): Coord;</span>
+<span class="token keyword">const</span> polar <span class="token operator">=</span> Polar<span class="token punctuation">.</span><span class="token function">fromCartesian</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">50</span><span class="token punctuation">}</span><span class="token punctuation">,</span> origin<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p class="astro-YOODPPMV">Read more:</p><ul class="astro-YOODPPMV">
+<li class="astro-YOODPPMV"><a href="https://clinth.github.io/ixfx/modules/Geometry.Polar.html" class="astro-YOODPPMV">API Docs: Polar modular</a></li>
+</ul><p class="astro-YOODPPMV">Demos:</p><ul class="astro-YOODPPMV">
+<li class="astro-YOODPPMV"><a href="https://clinth.github.io/ixfx-demos/geometry/polar-spiral/" class="astro-YOODPPMV">Polar spiral</a>: Uses the <a href="https://clinth.github.io/ixfx/modules/Geometry.Polar.html" class="astro-YOODPPMV">spiral function</a> to generate a spiral, modulated by two ping-pongs.</li>
+<li class="astro-YOODPPMV"><a href="https://clinth.github.io/ixfx-demos/geometry/polar-orbit/" class="astro-YOODPPMV">Polar orbit</a>: Moves an element on a circular orbit using polar coordinates.</li>
 </ul>
 	</section>
 	<nav class="block sm:hidden astro-AMOJLK4X">
