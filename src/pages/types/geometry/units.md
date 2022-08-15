@@ -17,7 +17,12 @@ radians-editor {
 }
 </style>
 
-[API Docs: Geometry module](https://clinth.github.io/ixfx/modules/Geometry.html)
+<div class="tip">
+<ul>
+<li>Demos <a href="https://clinth.github.io/ixfx-demos/geometry/">Geometry</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/geometry">source</a>)</li>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Geometry.html">Geometry module</a></li>
+</div>
+
 
 ## Angles
 
@@ -103,7 +108,7 @@ const polarToCartesian = (distance, angleRadians, originX, originY) => ({
   });
 ```
 
-In ixfx, [`toCartesian`](https://clinth.github.io/ixfx/modules/Geometry.Polar.html#toCartesian) function is provided and can be used as:
+In ixfx, [`toCartesian`](https://clinth.github.io/ixfx/functions/Geometry.Polar.toCartesian.html) function is provided and can be used as:
 
 ```js
 import { Polar } from 'https://unpkg.com/ixfx/dist/geometry.js';
@@ -117,8 +122,11 @@ const point = Polar.toCartesian(100, Math.PI, origin);
 // Or if you have a Polar.Coord {distance:number, angleRadian:number}
 const polar = { distance: 100, angleRadian: Math.PI };
 const point = Polar.toCartesian(polar, origin);
+```
 
-// Convert from Cartesian to polar coordinate:
+Convert _from_ Cartesian to polar coordinate with [`fromCartesian`](https://clinth.github.io/ixfx/functions/Geometry.Polar.fromCartesian.html)
+
+```js
 // Polar.fromCartesian(point, origin): Coord;
 const polar = Polar.fromCartesian({x: 50, y: 50}, origin);
 ```

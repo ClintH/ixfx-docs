@@ -3,6 +3,12 @@ title: Arrays
 layout: ../../layouts/MainLayout.astro
 ---
 
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Collections.Arrays.html">Collections.Arrays module</a></li>
+<li>Parent <a href="https://clinth.github.io/ixfx/modules/Collections.html">Collections module</a></li>
+</div>
+
 <script type="module" hoist>
   import '/src/components/ReplPad';
 </script>

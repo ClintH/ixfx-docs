@@ -9,9 +9,7 @@ layout: ../../layouts/MainLayout.astro
 
 Data often needs to be refined at some point. This can also have the role of 'sanity checking', making sure data is within a range or 'shape' that later processes expect.
 
-See also
-* [scale](../../data/normalising/#scale) - scale numbers from one range to another
-
+This goes hand-in-hand with [normalising](../../data/normalising/), which aims to convert data to a consistent scale.
 
 ## Numeric data
 
@@ -48,7 +46,7 @@ Math.min(10, 100); // 10
 
 ### Clamping
 
-[`clamp`](https://clinth.github.io/ixfx/modules.html#clamp) guarantees the return value is within the provided range.
+[`clamp`](https://clinth.github.io/ixfx/functions/Data.clamp.html) guarantees the return value is within the provided range.
 
 For example, maybe you're computing a relative value based on some sensor input, assuming that 500 is the maximum. We want a percentage scale from 0..1:
 
@@ -63,7 +61,7 @@ To do this manually, we might write:
 ```js
 let v = sensorValue / 500;
 if (v > 1) v = 1;
-if (v < 0) v = 0;
+else if (v < 0) v = 0;
 // Now v is guaranteed to be between 0..1, inclusive
 ```
 
@@ -71,7 +69,7 @@ That is all that `clamp` does. By default it uses a minimum of 0, a maximum of 1
 
 ```js
 // repl-pad
-import {clamp} from 'https://unpkg.com/ixfx/dist/bundle.js';
+import { clamp } from 'https://unpkg.com/ixfx/dist/data.js';
 clamp(0.5);   // 0.5
 clamp(2);     // 1.0
 clamp(-0.2);  // 0.0
@@ -81,7 +79,7 @@ Revisiting the earlier example, we can scale a sensor value which we expect to b
 
 ```js
 // repl-pad
-import {clamp, scale} from 'https://unpkg.com/ixfx/dist/bundle.js';
+import { clamp, scale } from 'https://unpkg.com/ixfx/dist/data.js';
 clamp(scale(250, 0, 500)); // 0.5
 clamp(scale(500, 0, 500)); // 1.0
 clamp(scale(505, 0, 500)); // 1.0 - although out of expected range
@@ -97,13 +95,13 @@ clamp(30, 50, 100); // 50
 
 ### Wrap
 
-[`wrapInteger`](https://clinth.github.io/ixfx/modules.html#wrapInteger) wraps an integer (ie. whole) number around a range, by default 0-360 (ie. degrees). These kinds of ranges logically wrap around continuously. Stepping past 359 degrees takes us to back to 0. And stepping -10 from 0 shouldn't yield -10, but 350.
+[`wrapInteger`](https://clinth.github.io/ixfx/functions/Data.wrapInteger.html) wraps an integer (ie. whole) number around a range, by default 0-360 (ie. degrees). These kinds of ranges logically wrap around continuously. Stepping past 359 degrees takes us to back to 0. And stepping -10 from 0 shouldn't yield -10, but 350.
 
 `wrap` does this arithmetic for you.
 
 ```js
 // repl-pad#1
-import {wrapInteger} from 'https://unpkg.com/ixfx/dist/bundle.js';
+import { wrapInteger } from 'https://unpkg.com/ixfx/dist/data.js';
 wrapInteger(200); // 200 - fine, within range
 wrapInteger(400); // 40 - wraps past 360 to 40
 ```
@@ -126,15 +124,43 @@ wrapInteger(30, 20, 30); // 20
 ```
 
 
-[`wrap`](https://clinth.github.io/ixfx/modules.html#wrap) is the same, but doesn't enforce any integer limitations.
+[`wrap`](https://clinth.github.io/ixfx/functions/Data.wrap.html) is the same, but doesn't enforce any integer limitations.
 
 ```js
 // repl-pad
-import {wrap} from 'https://unpkg.com/ixfx/dist/bundle.js';
+import { wrap } from 'https://unpkg.com/ixfx/dist/data.js';
 wrap(10.5,0,10); // 0.5;
 wrap(-0.5,0,10); // 9.5
 ```
 
+## Sampling
+
+ixfx's [`Arrays.sample`](https://clinth.github.io/ixfx/functions/Collections.Arrays.sample.html) makes sub-sampling of a data set. This is useful when you have a lot of data and it would be too costly in terms of execution speed to process each item. For example, perhaps a sensor is producing too much data to process in each frame of animation.
+
+Throwing away data can of course impact precision, but depending on the source of data and how you're working with it, this may not be a problem.
+
+It's possible to get a percentage of the input data if a parameter of 0..1 is passed in. In this case, 0.5:
+
+```js
+// repl-pad#2
+import { sample } from 'https://unpkg.com/ixfx/dist/arrays.js';
+
+const list = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ];
+
+// Get 50% of input data
+const sub1 = sample(list, 0.5);
+// Yields: [2, 4, 6, 8, 10]
+```
+
+Or if a whole number is provided, it will return data of very _x_ steps:
+
+```js
+// repl-pad#2
+
+// Get every third
+const sub2 = sample(list, 3);
+// Yields: [3, 6, 9]
+```
 
 ## Objects
 

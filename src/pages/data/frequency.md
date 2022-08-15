@@ -2,20 +2,24 @@
 title: Frequency
 layout: ../../layouts/MainLayout.astro
 setup: |
-  import FreqLettersElement from '../../components/data/FreqLettersElement.ts';
+  import { DemoElement } from '../../components/DemoElement.ts';
 ---
 
 <script type="module" hoist>
   import '/src/components/ReplPad';
 </script>
 
-[API Docs: Frequency class](https://clinth.github.io/ixfx/classes/Data.FrequencyMutable.html)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/classes/Data.FrequencyMutable.html">Data.FrequencyMutable class</a></li>
+<li><a href="../trackers/">Trackers</a> track data ranges</li>
+</div>
 
-The `Frequency` class keeps track of the number of times a certain value is 'seen'.
+The `FrequencyMutable` class keeps track of the number of times a certain value is 'seen'.
 
 In some scenarios it can be useful to aggregate data over time, rather than looking at a single event or snapshot-in-time. It allows you to do some fuzzy logic, for example using the value that _mostly_ occurs.
 
-In the demo below, a [weighted distribution](../../gen/random/#weighted-distribution) of random numbers is produced, with lower numbers occuring more often than higher numbers. A `Frequency` instance is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
+In the demo below, a [weighted distribution](../../gen/random/#weighted-distribution) of random numbers is produced, with lower numbers occuring more often than higher numbers. A `FrequencyMutable` instance is used to count how many times each number appears, and for visualisation purposes shown as a histogram.
 
 <script type="module" hoist>
 import '/src/components/data/freqWeighted';
@@ -45,9 +49,7 @@ import '/src/components/data/freqWeighted';
 
 ## Usage
 
-[API docs](https://clinth.github.io/ixfx/classes/Data.FrequencyMutable.html)
-
-The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
+[`frequencyMutable`](https://clinth.github.io/ixfx/functions/Data.frequencyMutable.html) creates a new instance. The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
 
 
 ### Adding and clearing
@@ -189,4 +191,4 @@ const top = topThree[0];
 console.log(`Letter ${top[0]} appears ${percent(top)}% of the time.`);
 ```
 
-<freq-letters client:load />
+<demo-element title="Frequency tracking" src="/data/frequency/" />

@@ -3,7 +3,11 @@ title: Collections
 layout: ../../../layouts/MainLayout.astro
 ---
 
-[API Docs: Collections module](https://clinth.github.io/ixfx/modules/Collections.html)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Collections.html">Collections module</a></li>
+</div>
+
 
 * [Arrays](../arrays/) - Arrays are the basic way for keeping a list of data
 * [Stack](./stack/) - Keep track of items like a stack of plates. Most recent gets added to the top, and you can only take the most recent from the top.

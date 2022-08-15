@@ -38,7 +38,9 @@ export const SIDEBAR =
     {text: `Normalising`, link: `data/normalising/`},
     {text: `Arrays`, link: `data/arrays/`},
     {text: `Collections`, link: `data/collections/`},
+    {text: `Averaging`, link: `data/averaging/`},
     {text: `Frequency`, link: `data/frequency/`},
+    {text: `Trackers`, link: `data/trackers/`},
 
     {text: `Types`, header: true},
     {text: `Geometry`, link: `types/geometry/`},
