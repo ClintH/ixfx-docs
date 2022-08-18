@@ -1,4 +1,4 @@
-import{b,r as _,$ as k,a as c}from"./client-shim.cda72367.js";import{b as C,t as D,p as g,S as P,q as R,L as y,s as M,u as O,v as $}from"./chunks/chunk-CULTGQ6X.1aa2057e.js";import"./chunks/chunk-IP2OCIJK.fba3b97b.js";import{e as A}from"./chunks/styles.3cbef228.js";var E=Object.defineProperty,q=Object.getOwnPropertyDescriptor,d=(p,e,r,o)=>{for(var t=o>1?void 0:o?q(e,r):e,i=p.length-1,s;i>=0;i--)(s=p[i])&&(t=(o?s(e,r,t):s(t))||t);return o&&t&&E(e,r,t),t};const B="polar-coords-element";class l extends b{static styles=[A,_`
+import{b,r as _,$ as k,a as c}from"./client-shim.cda72367.js";import{b as C,t as D,p as g,S as P,q as R,L as y,s as M,u as O,v as $}from"./chunks/chunk-UJLUE7LV.30d9da2f.js";import"./chunks/chunk-IP2OCIJK.fba3b97b.js";import{e as A}from"./chunks/styles.3cbef228.js";var E=Object.defineProperty,q=Object.getOwnPropertyDescriptor,d=(p,e,r,o)=>{for(var t=o>1?void 0:o?q(e,r):e,i=p.length-1,s;i>=0;i--)(s=p[i])&&(t=(o?s(e,r,t):s(t))||t);return o&&t&&E(e,r,t),t};const B="polar-coords-element";class l extends b{static styles=[A,_`
       :host {
         color: var(--label-color, green);
       }

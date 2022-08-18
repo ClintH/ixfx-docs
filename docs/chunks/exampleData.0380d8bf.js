@@ -1,4 +1,4 @@
-import{b as c,r as f,$ as a,o as u,a as p}from"../client-shim.cda72367.js";import{b as y,A as m}from"./chunk-CULTGQ6X.1aa2057e.js";import"./chunk-IP2OCIJK.fba3b97b.js";import{e as g}from"./styles.3cbef228.js";var b=Object.defineProperty,v=Object.getOwnPropertyDescriptor,d=(o,e,r,s)=>{for(var t=s>1?void 0:s?v(e,r):e,n=o.length-1,l;n>=0;n--)(l=o[n])&&(t=(s?l(e,r,t):l(t))||t);return s&&t&&b(e,r,t),t};const h="array-vis-element";class i extends c{static styles=[g,f`
+import{b as c,r as f,$ as a,o as u,a as p}from"../client-shim.cda72367.js";import{b as y,A as m}from"./chunk-UJLUE7LV.30d9da2f.js";import"./chunk-IP2OCIJK.fba3b97b.js";import{e as g}from"./styles.3cbef228.js";var b=Object.defineProperty,v=Object.getOwnPropertyDescriptor,d=(o,e,r,s)=>{for(var t=s>1?void 0:s?v(e,r):e,n=o.length-1,l;n>=0;n--)(l=o[n])&&(t=(s?l(e,r,t):l(t))||t);return s&&t&&b(e,r,t),t};const h="array-vis-element";class i extends c{static styles=[g,f`
       :host {
         --margin: 0.2em;
         --border: 3px solid;

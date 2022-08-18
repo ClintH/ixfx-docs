@@ -36,10 +36,10 @@ ixfx is a tookit for programming interactivity. The major modules are:
     <h1>Data</h1>
     <h2>Cleaning & organising data</h2>
 
-[Normalising](./data/normalising/), [data cleaning](./data/cleanup/)
-[frequency tracking](./data/frequency/)
+[averaging](./data/averaging/), [cleaning](./data/cleanup/),[normalising](./data/normalising/), 
+[frequency counting](./data/frequency/), [tracking](./data/trackers/)
 
-[stack](./data/collections/stack/) and [queue](./data/collections/queue/) collections
+[arrays](./data/arrays/), [stack](./data/collections/stack/) and [queue](./data/collections/queue/) collections
   </div>
   <div>
     <h1>Types</h1>
@@ -58,7 +58,8 @@ ixfx is a tookit for programming interactivity. The major modules are:
 Choose your starting point:
 * [Download and tinker with the provided demos](https://github.com/clinth/ixfx-demos/)
 * [import ixfx into your own sketch](./importing)
-* Use a starter kit: [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0), Codepen, StackBlitz, [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos), [Glitch](https://glitch.com/edit/#!/ixfx-demos)
+* Use a starter kit: [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0), Codepen, StackBlitz
+* Edit demos online: [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos), [Glitch](https://glitch.com/edit/#!/ixfx-demos)
 
 See the sidebar to the left (or the drop-down menu if you're on mobile) and start exploring.
 
