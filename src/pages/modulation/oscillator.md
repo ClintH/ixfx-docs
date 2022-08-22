@@ -7,6 +7,8 @@ layout: ../../layouts/MainLayout.astro
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Modulation.Oscillators.html">Modulation.Oscillators module</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgT3NjaWxsYXRvcnMgfSBmcm9tICJodHRwczovL3VucGtnLmNvbS9peGZ4L2Rpc3QvbW9kdWxhdGlvbi5qcyIKY29uc3Qgb3NjID0gT3NjaWxsYXRvcnMuc2F3KDAuMSk7CnNldEludGVydmFsKCgpID0+IHsKICBwb3N0TWVzc2FnZShvc2MubmV4dCgpLnZhbHVlKTsKfSwgNTApOwogICAg">Value Plotter</a>: useful for seeing output values</li>
+</ul>
 </div>
 
 
@@ -99,6 +101,32 @@ setInterval(() => {
 // Elsewhere, use state.oscValue ...
 ```
 
+[See a similar snippet in the plotter](https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgT3NjaWxsYXRvcnMgfSBmcm9tICJodHRwczovL3VucGtnLmNvbS9peGZ4L2Rpc3QvbW9kdWxhdGlvbi5qcyIKY29uc3Qgb3NjID0gT3NjaWxsYXRvcnMuc2F3KDAuMSk7CnNldEludGVydmFsKCgpID0+IHsKICBwb3N0TWVzc2FnZShvc2MubmV4dCgpLnZhbHVlKTsKfSwgNTApOwogICAg)
+
+Another pattern is to use ixfx's `interval` function to pull values from the oscillator at a certain rate. In the example below, reading from an oscillator can be enabled or disabled with buttons.
+
+```js
+// If true, we're reading values
+let running = false;
+// Rate to pull values from the oscillator
+const updateRateMs = 2; 
+
+document.getElementById(`btnStat`)?.addEventListener(`click`, async evt => {
+  // Oscillator to read
+  const osc = Oscillators.sine(0.1);
+  running = true;
+
+  for await (const v of interval(osc, updateRateMs)) {
+    // Do something with value from oscillator...
+    console.log(v);
+    if (!running) break; // Stop button pressed, exit for loop
+  }
+});
+
+document.getElementById(`btnStop`)?.addEventListener(`click`, evt => {
+  running = false;
+});
+```
 
 <!-- ## Frequency modulation
 
@@ -170,7 +198,7 @@ const loop = () => {
   //  or undefined when spring has stopped
   const v = spring.next().value;
 
-  window.requestAnimationFrame(loop);
+  setTimeout(loop, 1);
 }
 loop();
 ```

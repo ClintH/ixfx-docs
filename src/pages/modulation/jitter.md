@@ -34,6 +34,12 @@ setup: |
   });
 </script>
 
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/functions/Modulation.jitter.html">jitter function</a>, <a href="https://clinth.github.io/ixfx/modules/Modulation.html">Modulation module</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgaml0dGVyIH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L21vZHVsYXRpb24uanMnOwpjb25zdCB2YWx1ZSA9IDAuNTsKY29uc3Qgaml0dGVyQW10ID0gMC4xOwpzZXRJbnRlcnZhbCgoKT0+IHsKICBwb3N0TWVzc2FnZShqaXR0ZXIodmFsdWUsIGppdHRlckFtdCkpCn0sMTAwKTsKICAgIA==">Value Plotter</a>: useful for seeing output values</li>
+</ul>
+</div>
 
 _Jitter_ is the random modulation of a value. It is usually _bipolar_, meaning that it might shift a value upwards or downwards. 
 

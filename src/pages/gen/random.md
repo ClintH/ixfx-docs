@@ -34,8 +34,13 @@ setup: |
   });
 </script>
 
-* API Docs: [Easings.time](https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time)
-* [Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Random.html">Random module</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHt3ZWlnaHRlZH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L3JhbmRvbS5qcyc7CnNldEludGVydmFsKCgpPT4gewogIHBvc3RNZXNzYWdlKHdlaWdodGVkKGBxdWFkSW5gKSkKfSwxMDApOw==">Value Plotter</a>: useful for seeing output values</li>
+</ul>
+</div>
+
 
 ## Random number generation
 
@@ -49,6 +54,10 @@ The plot below shows `Math.random`, with the horizontal axis shows values from 0
 <div id="plot1"></div>
 
 ### Weighted distribution
+
+<div class="tip">
+<a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHt3ZWlnaHRlZH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L3JhbmRvbS5qcyc7CnNldEludGVydmFsKCgpPT4gewogIHBvc3RNZXNzYWdlKHdlaWdodGVkKGBxdWFkSW5gKSkKfSwxMDApOw==">Try out some of these examples in the plotter</a>
+</div><p></p>
 
 To make some numbers more likely than others, you may want some form of _weighted distribution_. 
 
@@ -87,6 +96,10 @@ list[weightedInteger(list.length)];
 ```
 
 ### Gaussian distribution
+
+<div class="tip">
+<a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHtnYXVzc2lhbn0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L3JhbmRvbS5qcyc7CnNldEludGVydmFsKCgpPT4gewogIHBvc3RNZXNzYWdlKGdhdXNzaWFuKCkpCn0sMTAwKTs=">Try out some of these examples in the plotter</a>
+</div><p></p>
 
 Gaussian distribution has a 'bell curve' shape, centred around the middle. In other words, you'd expect to get more random values around 0.5 than 0 or 1. ixfx's [`Random.gaussian`](https://clinth.github.io/ixfx/modules/Random.html#gaussian) provides this.
 

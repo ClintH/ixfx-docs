@@ -12,6 +12,7 @@ layout: ../../layouts/MainLayout.astro
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Modulation.Forces.html">Modulation.Forces module</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
 <li>Related: <a href="../oscillator/#springs">Oscillator.spring</a>: spring force</li>
+</ul>
 </div>
 
 The Forces module is a bit of an adaptation of Daniel Shiffman's [Nature of Code](https://natureofcode.com/book/) examples. If you're interested in learning the math, please see that excellent resource.

@@ -57,7 +57,7 @@
 
 		<title>Jitter - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.63b635a9.js" astro-script="/modulation/jitter/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.03555dc3.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.03b4b34a.js" astro-script="/modulation/jitter/script-0"></script>
 <script type="module" hoist="true" astro-script="/modulation/jitter/script-1">import '/src/components/ReplPad';
   import '/src/loader';
   import '/src/components/DensityPlotElement';
@@ -302,7 +302,12 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 		<nav class="block sm:hidden astro-AMOJLK4X">
 				<astro-root uid="ZIUcmN"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li></ul></astro-root>
 			</nav>
-		<p><em>Jitter</em> is the random modulation of a value. It is usually <em>bipolar</em>, meaning that it might shift a value upwards or downwards.</p><p>On a <a href="../../data/normalising/">normalised</a> scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+		<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/functions/Modulation.jitter.html">jitter function</a>, <a href="https://clinth.github.io/ixfx/modules/Modulation.html">Modulation module</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgaml0dGVyIH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L21vZHVsYXRpb24uanMnOwpjb25zdCB2YWx1ZSA9IDAuNTsKY29uc3Qgaml0dGVyQW10ID0gMC4xOwpzZXRJbnRlcnZhbCgoKT0+IHsKICBwb3N0TWVzc2FnZShqaXR0ZXIodmFsdWUsIGppdHRlckFtdCkpCn0sMTAwKTsKICAgIA==">Value Plotter</a>: useful for seeing output values</li>
+</ul>
+</div><p><em>Jitter</em> is the random modulation of a value. It is usually <em>bipolar</em>, meaning that it might shift a value upwards or downwards.</p><p>On a <a href="../../data/normalising/">normalised</a> scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span>clamp<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/bundle.js'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">jitter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> jitter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>

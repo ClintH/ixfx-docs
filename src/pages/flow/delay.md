@@ -5,8 +5,10 @@ setup: |
   import { DemoElement } from '../../components/DemoElement.ts';
 ---
 
-* [API Docs: Flow module](https://clinth.github.io/ixfx/modules/Flow.html)
-* [Online demos](https://clinth.github.io/ixfx-demos/flow/)
+<div class="tip"><ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Flow.html">Flow module</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
+</ul></div>
 
 ## Timeout
 

@@ -7,7 +7,11 @@ layout: ../../layouts/MainLayout.astro
   import '/src/components/ReplPad';
 </script>
 
-[API Docs: Generators module](https://clinth.github.io/ixfx/modules/Generators.html)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Generators.html">Generators module</a></li>
+</ul>
+</div>
 
 Generators are a [language feature of Javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Iterators_and_Generators) that essentially allows a function to output multiple values, potentially asynchronously.
 

@@ -6,8 +6,14 @@ setup: |
   import FuncPlotElement from '/src/components/FuncPlotElement.ts';
 ---
 
-* API Docs: [Easings.time](https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time)
-* [Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html">Easings module</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHtFYXNpbmdzfSBmcm9tICJodHRwczovL3VucGtnLmNvbS9peGZ4L2Rpc3QvbW9kdWxhdGlvbi5qcyI7CmNvbnN0IHN0ZXBzID0gMTAwOwpjb25zdCBlID0gRWFzaW5ncy50aWNrKGBlbGFzdGljSW5gLCBzdGVwcyk7CnBvc3RNZXNzYWdlKG51bGwpOyAvLyBjbGVhciBwbG90CmZvciAobGV0IGk9MDtpPHN0ZXBzO2krKykgewogIHBvc3RNZXNzYWdlKGUuY29tcHV0ZSgpKTsKfQ==">Value Plotter</a>: useful for seeing output values</li>
+<li><a href="https://clinth.github.io/ixfx-demos/modulation/">Online modulation demos</a></li>
+</ul>
+</div>
+
 
 Easing functions help to give a *dynamic* to transition. In [Cartesian](../../types/geometry/units/#cartesian) terms, they give a _y_ value for _x_ (where x is 0 .. 1). Or in temporal terms, you can think of them as giving a value at time _t_ (where _t_ is 0 .. 1).
 

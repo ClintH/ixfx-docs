@@ -10,8 +10,12 @@ setup: |
 import '/src/components/ReplPad';
 </script>
 
-* [API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
-* Starter: Simple code to get up and running with a state machine. [Online demo](https://clinth.github.io/ixfx-demos/flow/statemachine-starter/), [Github](https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter), [Glitch](https://glitch.com/edit/#!/ixfx-starter-statemachine)
+<div class="tip"><ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/classes/Flow.StateMachine.StateMachine.html">StateMachine</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
+<li>Starter: <a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter">GitHub</a>, <a href="https://glitch.com/edit/#!/ixfx-starter-statemachine">Glitch</a>
+</ul></div>
+
 
 A _state machine_ allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It's up to you to 'drive' the machine, telling it when to transition. 
 

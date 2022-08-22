@@ -276,10 +276,10 @@ setup("1UTXP2", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 		<nav class="block sm:hidden astro-AMOJLK4X">
 				<astro-root uid="1UTXP2"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#timeout">Timeout</a></li><li class="header-link depth-2"><a href="#sleep">Sleep</a></li><li class="header-link depth-2"><a href="#delay">Delay</a></li><li class="header-link depth-2"><a href="#debounce">Debounce</a></li><li class="header-link depth-2"><a href="#throttle">Throttle</a></li><li class="header-link depth-2"><a href="#related-patterns">Related patterns</a></li></ul></astro-root>
 			</nav>
-		<ul>
-<li><a href="https://clinth.github.io/ixfx/modules/Flow.html">API Docs: Flow module</a></li>
+		<div class="tip"><ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Flow.html">Flow module</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
-</ul><h2 id="timeout">Timeout</h2><p><code>setTimeout</code> is the usual way to call a function after some elapsed time:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Call `doSomething` once after one minute</span>
+</ul></div><h2 id="timeout">Timeout</h2><p><code>setTimeout</code> is the usual way to call a function after some elapsed time:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Call `doSomething` once after one minute</span>
 <span class="token keyword">const</span> t <span class="token operator">=</span> window<span class="token punctuation">.</span><span class="token function">setTimeout</span><span class="token punctuation">(</span>doSomething<span class="token punctuation">,</span> <span class="token number">60</span><span class="token operator">*</span><span class="token number">1000</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>If you want to trigger the same timeout at different points in your code, it soon gets messy  detecting and cancelling the existing timeout and scheduling a new one.</p><p>ixfx's <code>timeout</code> makes this a bit simpler. Once setup, calling <code>start()</code> resets the timeout if it's already started. To cancel a started timeout, use <code>cancel()</code>.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> timeout <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 
 <span class="token comment">// Set up once</span>

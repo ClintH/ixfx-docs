@@ -275,10 +275,10 @@ setup("Z2cTVbE", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 		<nav class="block sm:hidden astro-AMOJLK4X">
 				<astro-root uid="Z2cTVbE"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#continuously">Continuously</a></li><li class="header-link depth-3"><a href="#control">Control</a></li><li class="header-link depth-2"><a href="#repeat">Repeat</a></li><li class="header-link depth-2"><a href="#interval">Interval</a></li><li class="header-link depth-2"><a href="#with-generators">With generators</a></li><li class="header-link depth-2"><a href="#retrying">Retrying</a></li></ul></astro-root>
 			</nav>
-		<ul>
-<li><a href="https://clinth.github.io/ixfx/modules/Flow.html">API Docs: Flow module</a></li>
+		<div class="tip"><ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Flow.html">Flow module</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
-</ul><h2 id="continuously">Continuously</h2><p>A common pattern in animation is a 'draw loop':</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+</ul></div><h2 id="continuously">Continuously</h2><p>A common pattern in animation is a 'draw loop':</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">draw</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment">// ... do some drawing</span>
   window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>draw<span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Reschedule</span>
 <span class="token punctuation">}</span>

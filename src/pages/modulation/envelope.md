@@ -7,7 +7,13 @@ setup: |
 
 ---
 
-[API Docs: Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html">adsr function</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgYWRzciwgZGVmYXVsdEFkc3JPcHRzIH0gZnJvbSAiaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L21vZHVsYXRpb24uanMiCmltcG9ydCB7IGNvbnRpbnVvdXNseSB9IGZyb20gImh0dHBzOi8vdW5wa2cuY29tL2l4ZngvZGlzdC9mbG93LmpzIgpjb25zdCBvcHRzID0gewogIC4uLmRlZmF1bHRBZHNyT3B0cygpLAogIGF0dGFja0R1cmF0aW9uOiAxMDAwLAogIGRlY2F5RHVyYXRpb246IDIwMCwKICBzdXN0YWluRHVyYXRpb246IDEwMAp9Owpjb25zdCBlbnYgPSBhZHNyKG9wdHMpOwplbnYudHJpZ2dlcigpOwpjb250aW51b3VzbHkoKCkgPT4gewogIHBvc3RNZXNzYWdlKGVudi52YWx1ZSk7CiAgaWYgKGVudi5pc0RvbmUpIHJldHVybiBmYWxzZTsKfSkuc3RhcnQoKTs=">Value Plotter</a>: useful for seeing output values</li>
+</ul>
+</div>
 
 The notion of an _envelope_ is borrowed from [sound synthesis](https://en.wikipedia.org/wiki/Envelope_(music)). They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.
 
@@ -103,6 +109,8 @@ env.addEventListener(`complete`, () => {
   console.log(`Done.`);
 })
 ```
+
+See a [basic envelope in the value plotter](https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgYWRzciwgZGVmYXVsdEFkc3JPcHRzIH0gZnJvbSAiaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L21vZHVsYXRpb24uanMiCmltcG9ydCB7IGNvbnRpbnVvdXNseSB9IGZyb20gImh0dHBzOi8vdW5wa2cuY29tL2l4ZngvZGlzdC9mbG93LmpzIgpjb25zdCBvcHRzID0gewogIC4uLmRlZmF1bHRBZHNyT3B0cygpLAogIGF0dGFja0R1cmF0aW9uOiAxMDAwLAogIGRlY2F5RHVyYXRpb246IDIwMCwKICBzdXN0YWluRHVyYXRpb246IDEwMAp9Owpjb25zdCBlbnYgPSBhZHNyKG9wdHMpOwplbnYudHJpZ2dlcigpOwpjb250aW51b3VzbHkoKCkgPT4gewogIHBvc3RNZXNzYWdlKGVudi52YWx1ZSk7CiAgaWYgKGVudi5pc0RvbmUpIHJldHVybiBmYWxzZTsKfSkuc3RhcnQoKTs=).
 
 ### Envelope options
 
