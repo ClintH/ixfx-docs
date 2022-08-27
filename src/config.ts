@@ -46,4 +46,7 @@ export const SIDEBAR =
     {text: `Types`, header: true},
     {text: `Geometry`, link: `types/geometry/`},
     {text: `Colour`, link: `types/colour/`},
+
+    {text: `IO`, header: true},
+    {text: `Espruino`, link:`io/espruino/`}
   ];
