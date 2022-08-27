@@ -346,8 +346,7 @@ img {
 }
 
 .wrappedBoxContainer>div {
-	width: 25vw;
-
+	max-width: 20em;
 }
 
 .wrappedBoxContainer.mini h1 {
