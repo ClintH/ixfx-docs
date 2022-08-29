@@ -19,7 +19,7 @@ import '/src/components/types/colour/ColourScaleElement';
 </script>
 
 
-## Interpolating
+## Interpolation
 
 Colours can be _interpolated_, eg. getting the colour that is 50% between red and blue.
 

@@ -101,9 +101,17 @@ document.addEventListener(`pointerup`, evt => {
 
 ## Interpolation
 
-Calculate an in-between point with [`interpolate`](https://clinth.github.io/ixfx/modules/Geometry.Points.html#interpolate). Interpolate can be useful for smoothly moving to a destination, as seen in the demo below.
+Calculate an in-between point with [`interpolate`](https://clinth.github.io/ixfx/functions/Geometry.Points.interpolate.html). Interpolation can be useful for smoothly moving to a destination, as seen in the demo below.
 
 <demo-element title="Point interpolation" src="/geometry/point-interpolate/" />
+
+
+The signature of the `interpolate` is:
+
+```typescript
+interpolate(amount: number, a: Point, b: Point, allowOverflow?: boolean): Point
+```
+
 
 Interpolation is between two points, _a_ and _b_. An interpolation amount of 0 means the value of point _a_ and an amount of 1 means the value of _b_. Anywhere in between is a mix, eg 0.5 is in the middle, 0.8 is mostly close to _b_, 0.2 is mostly close to _a_ and so on.
 

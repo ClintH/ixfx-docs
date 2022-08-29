@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us" class="initial astro-VOYEGVQR">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="sitemap" href="/sitemap.xml">
+
+<!-- Preload Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Scrollable a11y code helper -->
+<script type="module" src="/make-scrollable-code-focusable.js"></script>
+
+<!-- This is intentionally inlined to avoid FOUC -->
+<script>
+	const root = document.documentElement;
+	const theme = localStorage.getItem('theme');
+	if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		root.classList.add('theme-dark');
+	} else {
+		root.classList.remove('theme-dark');
+	}
+</script>
+
+		<!-- Page Metadata --><link rel="canonical" href="https://clinth.github.io/ixfx-docs/modulation/interpolate/">
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content="Interpolation - ixfx docs">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinth.github.io/ixfx-docs/modulation/interpolate/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/clinth/ixfx/blob/main/assets/social/banner.jpg?raw=true">
+<meta property="og:image:alt" content="ixfx">
+<meta name="description" property="og:description" content="ixfx documentation">
+<meta property="og:site_name" content="ixfx docs">
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site">
+<meta name="twitter:title" content="Interpolation - ixfx docs">
+<meta name="twitter:description" content="ixfx documentation">
+<meta name="twitter:image" content="https://github.com/clinth/ixfx/blob/main/assets/social/banner.jpg?raw=true">
+<meta name="twitter:image:alt" content="ixfx">
+
+<!--
+  TODO: Add json+ld data, maybe https://schema.org/APIReference makes sense?
+  Docs: https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
+  https://www.npmjs.com/package/schema-dts seems like a great resource for implementing this.
+  Even better, there's a React component that integrates with `schema-dts`: https://github.com/google/react-schemaorg
+-->
+
+		<title>Interpolation - ixfx docs</title>
+		
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.b2a3e94c.js" astro-script="/modulation/interpolate/script-0"></script>
+<script type="module" hoist="true" astro-script="/modulation/interpolate/script-1">import '/src/components/ReplPad';</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/interpolate/script-2">import setup from '../../idle.04f12634.js';
+setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.c1936d68.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"class":"astro-MOSAUK67"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/interpolate/script-3">import setup from '../../media.57d8586c.js';
+setup("14s7iJ", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"reaching-a-target","text":"Reaching a target"}],"class":"astro-XPZS3NBI"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/interpolate/script-4">import setup from '../../visible.e1f6ae0f.js';
+setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.2e9e674b.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"class":"astro-WOEIVG5E"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/modulation/interpolate/script-5">import setup from '../../media.57d8586c.js';
+setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"reaching-a-target","text":"Reaching a target"}],"class":"astro-AMOJLK4X"}, children);
+
+});
+</script>
+</head>
+
+	<body>
+		<header class="astro-MOSAUK67">
+	<a href="#article" class="sr-only skiplink astro-RC6GWYXJ"><span class="astro-RC6GWYXJ">Skip to Content</span></a>
+
+
+
+	<nav class="nav-wrapper astro-MOSAUK67" title="Top Navigation">
+		<div class="menu-toggle astro-MOSAUK67">
+			<astro-root uid="Z12Vj7s"><button type="button" aria-pressed="false" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="sr-only">Toggle sidebar</span></button></astro-root>
+		</div>
+		<div class="logo flex astro-MOSAUK67">
+			<!-- <AstroLogo size={40} /> -->
+			<a href="/ixfx-docs/" class="astro-MOSAUK67">
+				<h1 class="astro-MOSAUK67">ixfx docs</h1>
+			</a>
+		</div>
+		<div style="flex-grow: 1;" class="astro-MOSAUK67"></div>
+		<!-- {KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />} -->
+		<!-- {CONFIG.ALGOLIA && (
+			<div class="search-item">
+				<Search client:idle />
+			</div>
+		)} -->
+	</nav>
+</header>
+
+
+
+		<main class="layout astro-VOYEGVQR">
+			<aside id="grid-left" class="grid-sidebar astro-VOYEGVQR" title="Site Navigation">
+				<nav aria-labelledby="grid-left" class="astro-TIHETVVV">
+	<ul class="nav-groups astro-TIHETVVV">
+		<li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV"></h2>
+					<ul class="astro-TIHETVVV">
+						
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Getting Started</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/./" aria-current="false" class="astro-TIHETVVV">
+									Introduction
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/./importing/" aria-current="false" class="astro-TIHETVVV">
+									Importing
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Flow and Logic</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/stateMachine/" aria-current="false" class="astro-TIHETVVV">
+									State Machine
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/loops/" aria-current="false" class="astro-TIHETVVV">
+									Loops and Intervals
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
+									Delay
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Modulation</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/easing/" aria-current="false" class="astro-TIHETVVV">
+									Easing
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/envelope/" aria-current="false" class="astro-TIHETVVV">
+									Envelope
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
+									Jitter
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/interpolate/" aria-current="false" class="astro-TIHETVVV">
+									Interpolate
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
+									Oscillator
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Generation</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/gen/random/" aria-current="false" class="astro-TIHETVVV">
+									Random
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/gen/generator/" aria-current="false" class="astro-TIHETVVV">
+									Generators
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Data</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/cleanup/" aria-current="false" class="astro-TIHETVVV">
+									Clean up
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/normalising/" aria-current="false" class="astro-TIHETVVV">
+									Normalising
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/arrays/" aria-current="false" class="astro-TIHETVVV">
+									Arrays
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-TIHETVVV">
+									Collections
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/averaging/" aria-current="false" class="astro-TIHETVVV">
+									Averaging
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/frequency/" aria-current="false" class="astro-TIHETVVV">
+									Frequency
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/trackers/" aria-current="false" class="astro-TIHETVVV">
+									Trackers
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Types</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/types/geometry/" aria-current="false" class="astro-TIHETVVV">
+									Geometry
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/types/colour/" aria-current="false" class="astro-TIHETVVV">
+									Colour
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">IO</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/io/espruino/" aria-current="false" class="astro-TIHETVVV">
+									Espruino
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+	</ul>
+</nav>
+
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+		var target = document.querySelector('[aria-current="page"]');
+		if (target && target.offsetTop > window.innerHeight - 100) {
+			document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+		}
+	});
+</script>
+
+
+
+			</aside>
+			<div id="grid-main" class="astro-VOYEGVQR">
+				<article id="article" class="content astro-AMOJLK4X">
+	<section class="main-section astro-AMOJLK4X">
+		<h1 class="content-title astro-AMOJLK4X" id="overview">Interpolation</h1>
+		<nav class="block sm:hidden astro-AMOJLK4X">
+				<astro-root uid="14s7iJ"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#reaching-a-target">Reaching a target</a></li></ul></astro-root>
+			</nav>
+		<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Data.html">Data module</a></li>
+</ul>
+</div><p>Interpolation (also known as <em>lerping</em>) allows the blending between two values. Where it really shines is when it is used over time to progressively reach some target value.</p><p>A simple implementation looks like this:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Interpolate from a->b by amount (0..1)</span>
+<span class="token keyword">const</span> <span class="token function-variable function">interpolate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">amount<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>amount<span class="token punctuation">)</span> <span class="token operator">*</span> a <span class="token operator">+</span> amount <span class="token operator">*</span> b<span class="token punctuation">;</span></code></pre><p>In ixfx it's found in the Data module as <a href="https://clinth.github.io/ixfx/functions/Data.interpolate.html"><code>interpolate</code></a>.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> interpolate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/data.js"</span><span class="token punctuation">;</span>
+<span class="token comment">// Returns the value 50% between 200 and 400 (ie. 300)</span>
+<span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>ixfx has custom interpolation for <a href="../../types/geometry/line/#interpolation">Lines</a>, <a href="../../types/geometry/point/#interpolation">Points</a> and <a href="../../types/colour/#interpolation">Colour</a></p><h2 id="reaching-a-target">Reaching a target</h2><p>As mentioned in the introduction, interpolation is very often applied in an animation loop, slowly nudging a value to some target value. We adjust the interpolation 'amount' value to set how quickly the target should be reached.</p><p>The basic pattern can look like the following. Here we defined a property <em>saturation</em> that we want to interpolate from 0 to 1 over time, with interpolation amount of 0.01.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">saturation</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">current</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
+    <span class="token literal-property property">amount</span><span class="token operator">:</span> <span class="token number">0.01</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre><p>We make a helper function that interpolates any value of this shape - <code>{ target:number, current: number }</code>, and returns it:</p><pre class="language-js"><code class="language-js"><span class="token comment">/**
+ * Interpolates the given value.
+ * @param {{ target:number,current:number,amount:number }} v
+ * @param {number} [amount]
+ */</span>
+<span class="token keyword">const</span> <span class="token function-variable function">interpolateValue</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">v<span class="token punctuation">,</span> amount <span class="token operator">=</span> <span class="token number">0.01</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">target</span><span class="token operator">:</span> v<span class="token punctuation">.</span>target<span class="token punctuation">,</span>
+    <span class="token comment">// If v.amount doesn't exist use the amount given as an</span>
+    <span class="token comment">// argument, or default to 0.01</span>
+    <span class="token literal-property property">current</span><span class="token operator">:</span> <span class="token function">interpolate</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>amount <span class="token operator">??</span> amount<span class="token punctuation">,</span> v<span class="token punctuation">.</span>current<span class="token punctuation">,</span> v<span class="token punctuation">.</span>target<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span></code></pre><p>Now we are ready to use this function in a loop. At the moment we're only interpolating <code>saturation</code>, but we have a reusable function that could interpolate several properties independently.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">loop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// Update state with interpolated saturation</span>
+  state <span class="token operator">=</span> <span class="token punctuation">{</span>
+    <span class="token operator">...</span>state<span class="token punctuation">,</span>
+    <span class="token literal-property property">saturation</span><span class="token operator">:</span> <span class="token function">interpolateValue</span><span class="token punctuation">(</span>state<span class="token punctuation">.</span>saturation<span class="token punctuation">)</span>
+  <span class="token punctuation">}</span>
+  
+  <span class="token comment">// Loop</span>
+  window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+	</section>
+	<nav class="block sm:hidden astro-AMOJLK4X">
+		
+<ul class="astro-WOEIVG5E">
+</ul>
+<div style="margin: 2rem 0; text-align: center;" class="astro-WOEIVG5E">
+	<astro-root uid="1Gmxo9"><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-root>
+</div>
+
+
+
+	</nav>
+</article>
+
+
+
+			</div>
+			<aside id="grid-right" class="grid-sidebar astro-VOYEGVQR" title="Table of Contents">
+				<nav class="sidebar-nav astro-XPZS3NBI" aria-labelledby="grid-right">
+	<div class="sidebar-nav-inner astro-XPZS3NBI">
+		<astro-root uid="14s7iJ"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#reaching-a-target">Reaching a target</a></li></ul></astro-root>
+		
+<ul class="astro-WOEIVG5E">
+</ul>
+<div style="margin: 2rem 0; text-align: center;" class="astro-WOEIVG5E">
+	<astro-root uid="1Gmxo9"><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-root>
+</div>
+
+
+
+	</div>
+</nav>
+
+
+
+			</aside>
+		</main>
+	</body>
+</html>

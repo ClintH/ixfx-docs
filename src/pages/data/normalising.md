@@ -114,15 +114,35 @@ n(11);
 
 ### Scale
 
-In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/functions/Data.scale.html) keeps no record of the current minimum or maximum, but normalises based on the provided range. Use this when you know what the range will be. By default it outputs to a 0..1 scale.
 
-Signature:
+In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/functions/Data.scale.html) keeps no record of the current minimum or maximum, but normalises based on the provided range. Use this when you know what the range will be.
+
+A basic scale function looks like this:
+
+```js
+// repl-pad
+const scale = (v, inMin, inMax, outMin, outMax) => {
+  return (v - inMin) / (inMax - inMin) * (outMax - outMin) + outMin;
+};
+
+// Example, scale the value of 50, with an 
+// input range of 0..100 and
+// output range of 0..1:
+scale(50, 0, 100, 0, 1);
+// Yields: 0.5
+```
+
+The ixfx scale function optionally allows the scaling to be _eased_ (for non-linear scaling), and if `outMin`/`outMax` are not specified, a 0..1 range is presumed.
+
+It's function signature looks like this:
 
 ```js
 scale(v:number, 
       inMin:number, inMax:number, 
-      outMin?:number, outMax?:number):number
+      outMin?:number, outMax?:number, easing?:EasingFn):number
 ```
+
+In action it looks like this:
 
 ```js
 // repl-pad#1

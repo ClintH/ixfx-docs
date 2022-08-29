@@ -24,11 +24,12 @@ export const SIDEBAR =
     {text: `Delay`, link: `flow/delay/`},
 
     {text: `Modulation`, header: true},
-    {text: `Envelope`, link: `modulation/envelope/`},
-    {text: `Oscillator`, link: `modulation/oscillator/`},
     {text: `Easing`, link: `modulation/easing/`},
-    {text: `Jitter`, link: `modulation/jitter/`},
+    {text: `Envelope`, link: `modulation/envelope/`},
     {text: `Forces`, link: `modulation/forces/`},
+    {text: `Jitter`, link: `modulation/jitter/`},
+    {text: `Interpolate`, link: `modulation/interpolate/`},
+    {text: `Oscillator`, link: `modulation/oscillator/`},
 
     {text: `Generation`, header: true},
     {text: `Random`, link: `gen/random/`},
