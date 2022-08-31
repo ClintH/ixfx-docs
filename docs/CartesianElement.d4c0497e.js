@@ -1,4 +1,4 @@
-import{b as f,r as x,$ as m,a as y}from"./client-shim.cda72367.js";import{b as S,t as u,p as h,S as v,q as w,L as n}from"./chunks/chunk-F5UCT6DX.5ee21fa5.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";import{e as b}from"./chunks/styles.3cbef228.js";var k=Object.defineProperty,_=Object.getOwnPropertyDescriptor,g=(a,e,r,t)=>{for(var s=t>1?void 0:t?_(e,r):e,o=a.length-1,i;o>=0;o--)(i=a[o])&&(s=(t?i(e,r,s):i(s))||s);return t&&s&&k(e,r,s),s};const $="cartesian-element";class c extends f{static styles=[b,x`
+import{b as f,r as x,$ as m,a as y}from"./client-shim.cda72367.js";import{b as S,t as u,p as h,S as v,q as w,L as n}from"./chunks/chunk-QQHRFXNI.8c3933f6.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";import{e as b}from"./chunks/styles.3cbef228.js";var k=Object.defineProperty,_=Object.getOwnPropertyDescriptor,g=(a,e,r,t)=>{for(var s=t>1?void 0:t?_(e,r):e,o=a.length-1,i;o>=0;o--)(i=a[o])&&(s=(t?i(e,r,s):i(s))||s);return t&&s&&k(e,r,s),s};const $="cartesian-element";class c extends f{static styles=[b,x`
       :host {
         color: var(--label-color, green);
       }

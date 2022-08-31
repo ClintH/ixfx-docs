@@ -143,6 +143,8 @@ Try the following functions:
 Pre-defined easing functions can be used directly to avoid the time/tick mechanism:
 
 ```js
+import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
+
 // Get the function
 const fn = Easings.functions.cubicIn;
 // Use it to transform an input value (0..1)
