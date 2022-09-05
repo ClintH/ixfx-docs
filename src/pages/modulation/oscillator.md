@@ -272,7 +272,7 @@ const loop = () => {
 window.requestAnimationFrame(loop);
 ```
 
-Starter skeleton on [Glitch](https://glitch.com/~ixfx-starter-oscillators), [Github](https://github.com/ClintH/ixfx-demos/tree/main/modulation/oscillator-skeleton)
+Starter skeleton on [Glitch](https://glitch.com/~ixfx-starter-oscillators), [Github](https://github.com/ClintH/ixfx-demos/tree/main/modulation/oscillator-starter)
 
 
 
