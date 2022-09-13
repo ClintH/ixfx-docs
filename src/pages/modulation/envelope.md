@@ -64,25 +64,38 @@ const opts = {
 const env = adsr(opts);
 ```
 
-Trigger and release
+_Triggering_ an envelope kicks it off, letting it run through its stages:
 
 ```js
-// Trigger envelope
 env.trigger();
+```
 
+To have an envelope to run through attack, decay and then hold at the sustain stage, pass 'true':
+
+```js
 // Trigger and hold at sustain
 env.trigger(true);
+```
 
+And at some point call `release` to continue on to the release stage:
+
+```js
 // Release a held envelope
 env.release();
 ```
 
-Get value from envelope
+After triggering, you need to request the value of the envelope:
 
 ```js
 // Value of envelope
 const scaled = env.value;
+```
 
+But this is just the value at the time you request it. Since envelopes are tied to time, you'll want to sample the value over time.
+
+It's also possible to get additional data about the envelope with `compute`:
+
+```js
 // Get current stage (as a string), scaled value, and raw value (0 -> 1 progress within a stage)
 const r = env.compute();  // returns [stage, scaled, raw]
 ```
@@ -96,7 +109,7 @@ env.reset();
 env.isDone;
 ```
 
-Envelopes also have events:
+Envelopes have events:
 
 ```js
 // Envelope has changed stage
@@ -148,6 +161,57 @@ const opts = {
   retrigger: true
 }
 ```
+
+## Envelopes in action
+
+Here is a pattern to request the envelope value over time. After setting up the envelope, we use a loop to read the value at a given period.
+
+```js
+import { adsr, defaultAdsrOpts } from "https://unpkg.com/ixfx/dist/modulation.js"
+import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
+
+// Initialise
+const settings = Object.freeze({
+  env: adsr({
+    ...defaultAdsrOpts()
+  },
+  sampleRateMs: 100
+});
+
+let state = {
+  envSampler
+};
+
+// Run a loop, reading from envelope until done
+state.envSampler = continuously(() => {
+  const { env } = settings;
+  // If envelope is done, stop looping
+  if (env.isDone) return false; 
+
+  // Read value from envelope, do something with it...
+  const v = env.value;
+}, settings.sampleRateMs);
+
+// Trigger envelope and start reading
+settings.env.trigger();
+state.envSampler.start();
+```
+
+Or perhaps you want to start an envelope when an event happens, such as a button clicked. We can introduce a `retrigger()` function that cancels the sampler, triggers the envelope and starts the sampler again
+
+```js
+const retrigger = () => {
+  const { env } = settings;
+  const { envSampler } = state;
+
+  envSampler.cancel();
+  env.trigger();
+  envSampler.start();
+};
+
+document.getElementById(`someButton`).addEventListener(`click`, retrigger);
+```
+
 
 ## Demos
 

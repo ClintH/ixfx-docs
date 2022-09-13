@@ -56,25 +56,27 @@ type Easing = {
 Example: `sineIn` easing that takes one second to complete:
 
 ```js
-import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
+import { Easings } from "https://unpkg.com/ixfx/dist/modulation.js";
 
 // Set up
 const e = Easings.time(`sineIn`, 1000);
 
 // Returns value at this point in time.
 // Usually 0-1, but some functions overshoot bounds
-const v = t.compute();
-// ..call t.compute() whenever the 'latest' value is needed
+const v = e.compute();
+// ..call e.compute() whenever the 'latest' value is needed
 
 // Can check if easing has completed
-if (t.isDone) ...
+if (e.isDone) ...
 ```
+
+Time starts being counted from when the easing is initialised (ie. calling `Easings.time()`). For this reason, you likely want to initialise just-in-time. Calling `reset()` can also be useful for resetting the timer.
 
 You'll probably call `compute()` inside an existing draw/update loop that is running. If you don't have a loop already, here is a snippet that returns an easing over time:
 
 ```js
-import {Generators, Flow} from "https://unpkg.com/ixfx/dist/bundle.js";
-import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
+import { Generators, Flow } from "https://unpkg.com/ixfx/dist/bundle.js";
+import { Easings } from "https://unpkg.com/ixfx/dist/modulation.js";
 
 // Define an easing that takes 1 second to reach end
 const e = Easings.time(`sineIn`, 1000);
@@ -83,7 +85,7 @@ const e = Easings.time(`sineIn`, 1000);
 const range = Generators.numericPercent(0.1); 
 // Iterate over range at 100ms intervals
 for await (const v of Flow.interval(range, 100)) {
-  console.log(t.compute());
+  console.log(e.compute());
 }
 ```
 
@@ -91,7 +93,7 @@ for await (const v of Flow.interval(range, 100)) {
 Example: a `sineOut` easing that takes 100 ticks to complete:
 
 ```js
-import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
+import { Easings } from "https://unpkg.com/ixfx/dist/modulation.js";
 
 // Set up
 const e = Easings.tick(`sineOut`, 100);
@@ -103,7 +105,7 @@ const v = e.compute();
 // the function will be done.
 
 // Can check if easing has completed
-if (t.isDone) ...
+if (e.isDone) ...
 ```
 
 `compute` typically returns value between 0..1, but some functions purposefully overshoot this range (such as the `back` series of easings, shown [below](#defined-easings)).
@@ -111,7 +113,7 @@ if (t.isDone) ...
 Once you have this value, it can be applied as necessary. For example, positioning an element:
 
 ```js
-el.style.transform = `translate(${t.compute() * width}px, 0px)`;
+el.style.transform = `translate(${e.compute() * width}px, 0px)`;
 ```
 
 See the source of the demos below for more ideas.
@@ -120,7 +122,8 @@ See the source of the demos below for more ideas.
 
 It's good to remember that easing functions are not magic. They just return a number based on an input within the range of 0..1.
 
-An example is exponential function:
+An easing-function-from-scratch example is an exponential function:
+
 ```js
 const fn = (x) => Math.pow(x,2);
 fn(0);    // 0
@@ -140,15 +143,17 @@ Try the following functions:
 * `Math.random() * x`: Reduces value by some random amount
 * `x + (0.1 - Math.random()* 0.2)`: Jitters value by up to 10%
   
-Pre-defined easing functions can be used directly to avoid the time/tick mechanism:
+Pre-defined easing functions can be used directly to avoid the time/tick mechanism. In this case, you need to provide an input value on a scale of 0..1.
 
 ```js
-import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
+import { Easings } from "https://unpkg.com/ixfx/dist/modulation.js";
 
 // Get the function
 const fn = Easings.functions.cubicIn;
+
 // Use it to transform an input value (0..1)
-fn(0.5);
+// and set to variable 'v'
+const v = fn(0.5);
 ```
 
 ## Demos
@@ -160,6 +165,11 @@ Here, the easing function advances on each call (tapping the circle), rather tha
 Below is the common usage of time-based easing
 
 <demo-element title="Timer easing" src="/modulation/easing-timer/" />
+
+In this demo, a target value is reached over time by using an easing function.
+
+<demo-element title="Easing set" src="/modulation/easing-set/" />
+
 
 <script type="module" hoist>
 import '/src/components/FuncPlotElement';
@@ -204,7 +214,7 @@ You can make your own easing curve using a simplified _cubic bezier_. See [this 
 This can be used as follows:
 
 ```js
-import {Easings} from "https://unpkg.com/ixfx/dist/modulation.js";
+import { Easings } from "https://unpkg.com/ixfx/dist/modulation.js";
 const e = Easings.time(Easings.fromCubicBezier(1.24, -1.15), 1000);
 e.compute();
 ```
