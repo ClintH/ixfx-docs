@@ -58,7 +58,7 @@
 		<title>Envelope - ixfx docs</title>
 		
 	<link rel="stylesheet" href="/ixfx-docs/assets/EnvelopePlay.4f4e2191.css"></link>
-<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.f93ac3a92.js" astro-script="/modulation/envelope/script-0"></script>
+<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2d80df9c2.js" astro-script="/modulation/envelope/script-0"></script>
 <script type="module" astro-script="/modulation/envelope/script-1">import "../../client-shim.cda72367.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/envelope/script-2">import setup from '../../idle.04f12634.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
@@ -68,9 +68,9 @@ setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/envelope/script-3">import setup from '../../media.57d8586c.js';
-setup("Z1sBek2", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+setup("k5Wfa", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"anatomy-of-an-envelope","text":"Anatomy of an envelope"},{"depth":2,"slug":"playground","text":"Playground"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":3,"slug":"envelope-options","text":"Envelope options"},{"depth":2,"slug":"demos","text":"Demos"}],"class":"astro-XPZS3NBI"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"anatomy-of-an-envelope","text":"Anatomy of an envelope"},{"depth":2,"slug":"playground","text":"Playground"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":3,"slug":"envelope-options","text":"Envelope options"},{"depth":2,"slug":"envelopes-in-action","text":"Envelopes in action"},{"depth":2,"slug":"demos","text":"Demos"}],"class":"astro-XPZS3NBI"}, children);
 
 });
 </script>
@@ -82,9 +82,9 @@ setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/envelope/script-5">import setup from '../../media.57d8586c.js';
-setup("Z1sBek2", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+setup("k5Wfa", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.237e654c.js"), import("../../client.a7c2389a.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"anatomy-of-an-envelope","text":"Anatomy of an envelope"},{"depth":2,"slug":"playground","text":"Playground"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":3,"slug":"envelope-options","text":"Envelope options"},{"depth":2,"slug":"demos","text":"Demos"}],"class":"astro-AMOJLK4X"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"anatomy-of-an-envelope","text":"Anatomy of an envelope"},{"depth":2,"slug":"playground","text":"Playground"},{"depth":2,"slug":"usage","text":"Usage"},{"depth":3,"slug":"envelope-options","text":"Envelope options"},{"depth":2,"slug":"envelopes-in-action","text":"Envelopes in action"},{"depth":2,"slug":"demos","text":"Demos"}],"class":"astro-AMOJLK4X"}, children);
 
 });
 </script>
@@ -291,7 +291,7 @@ setup("Z1sBek2", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 	<section class="main-section astro-AMOJLK4X">
 		<h1 class="content-title astro-AMOJLK4X" id="overview">Envelope</h1>
 		<nav class="block sm:hidden astro-AMOJLK4X">
-				<astro-root uid="Z1sBek2"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#anatomy-of-an-envelope">Anatomy of an envelope</a></li><li class="header-link depth-2"><a href="#playground">Playground</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#envelope-options">Envelope options</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li></ul></astro-root>
+				<astro-root uid="k5Wfa"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#anatomy-of-an-envelope">Anatomy of an envelope</a></li><li class="header-link depth-2"><a href="#playground">Playground</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#envelope-options">Envelope options</a></li><li class="header-link depth-2"><a href="#envelopes-in-action">Envelopes in action</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li></ul></astro-root>
 			</nav>
 		<div class="tip">
 <ul>
@@ -343,22 +343,15 @@ setup("Z1sBek2", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
   <span class="token literal-property property">decayDuration</span><span class="token operator">:</span> <span class="token number">200</span><span class="token punctuation">,</span>
   <span class="token literal-property property">sustainDuration</span><span class="token operator">:</span> <span class="token number">100</span>
 <span class="token punctuation">}</span><span class="token punctuation">;</span>
-<span class="token keyword">const</span> env <span class="token operator">=</span> <span class="token function">adsr</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Trigger and release</p><pre class="language-js"><code class="language-js"><span class="token comment">// Trigger envelope</span>
-env<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Trigger and hold at sustain</span>
-env<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-
-<span class="token comment">// Release a held envelope</span>
-env<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Get value from envelope</p><pre class="language-js"><code class="language-js"><span class="token comment">// Value of envelope</span>
-<span class="token keyword">const</span> scaled <span class="token operator">=</span> env<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
-
-<span class="token comment">// Get current stage (as a string), scaled value, and raw value (0 -> 1 progress within a stage)</span>
+<span class="token keyword">const</span> env <span class="token operator">=</span> <span class="token function">adsr</span><span class="token punctuation">(</span>opts<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><em>Triggering</em> an envelope kicks it off, letting it run through its stages:</p><pre class="language-js"><code class="language-js">env<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>To have an envelope to run through attack, decay and then hold at the sustain stage, pass 'true':</p><pre class="language-js"><code class="language-js"><span class="token comment">// Trigger and hold at sustain</span>
+env<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>And at some point call <code>release</code> to continue on to the release stage:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Release a held envelope</span>
+env<span class="token punctuation">.</span><span class="token function">release</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>After triggering, you need to request the value of the envelope:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Value of envelope</span>
+<span class="token keyword">const</span> scaled <span class="token operator">=</span> env<span class="token punctuation">.</span>value<span class="token punctuation">;</span></code></pre><p>But this is just the value at the time you request it. Since envelopes are tied to time, you'll want to sample the value over time.</p><p>It's also possible to get additional data about the envelope with <code>compute</code>:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Get current stage (as a string), scaled value, and raw value (0 -> 1 progress within a stage)</span>
 <span class="token keyword">const</span> r <span class="token operator">=</span> env<span class="token punctuation">.</span><span class="token function">compute</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// returns [stage, scaled, raw]</span></code></pre><p>Other functions:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Reset envelope</span>
 env<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// True if envelope is finished</span>
-env<span class="token punctuation">.</span>isDone<span class="token punctuation">;</span></code></pre><p>Envelopes also have events:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Envelope has changed stage</span>
+env<span class="token punctuation">.</span>isDone<span class="token punctuation">;</span></code></pre><p>Envelopes have events:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Envelope has changed stage</span>
 env<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">change</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token parameter">ev</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Old: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>evt<span class="token punctuation">.</span>oldState<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> new: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>ev<span class="token punctuation">.</span>newState<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -379,7 +372,43 @@ env<span class="token punctuation">.</span><span class="token function">addEvent
 <span class="token punctuation">}</span></code></pre><p><code>retrigger</code> means a retriggered envelope continues its value from what it is at the point of retrigger. By default, as retrigger is <em>false</em>, envelope always start <code>0</code> (or whatever <code>initialLevel</code> is set to).</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> opts <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token operator">...</span><span class="token function">defaultAdrsOpts</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
   <span class="token literal-property property">retrigger</span><span class="token operator">:</span> <span class="token boolean">true</span>
-<span class="token punctuation">}</span></code></pre><h2 id="demos">Demos</h2><p>In the demo below, <code>pointerdown</code> or <code>keydown</code> events triggers and holds the envelope. On the left side you see a typical binary on/off response, on the right you see a gradual effect of the envelope.</p><p>Releasing the pointer or key calls the envelope's <code>release</code> function.</p><p>This envelope has <code>retrigger</code> disabled, so pressing again while it's decaying will continue the envelope at that level, rather than resetting to zero (default behaviour).</p><demo-element><template shadowroot="open"><style>
+<span class="token punctuation">}</span></code></pre><h2 id="envelopes-in-action">Envelopes in action</h2><p>Here is a pattern to request the envelope value over time. After setting up the envelope, we use a loop to read the value at a given period.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> adsr<span class="token punctuation">,</span> defaultAdsrOpts <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/modulation.js"</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
+
+<span class="token comment">// Initialise</span>
+<span class="token keyword">const</span> settings <span class="token operator">=</span> Object<span class="token punctuation">.</span><span class="token function">freeze</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+  <span class="token literal-property property">env</span><span class="token operator">:</span> <span class="token function">adsr</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+    <span class="token operator">...</span><span class="token function">defaultAdsrOpts</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">sampleRateMs</span><span class="token operator">:</span> <span class="token number">100</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword">let</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  envSampler
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Run a loop, reading from envelope until done</span>
+state<span class="token punctuation">.</span>envSampler <span class="token operator">=</span> <span class="token function">continuously</span><span class="token punctuation">(</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> env <span class="token punctuation">}</span> <span class="token operator">=</span> settings<span class="token punctuation">;</span>
+  <span class="token comment">// If envelope is done, stop looping</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>env<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span> 
+
+  <span class="token comment">// Read value from envelope, do something with it...</span>
+  <span class="token keyword">const</span> v <span class="token operator">=</span> env<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">,</span> settings<span class="token punctuation">.</span>sampleRateMs<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Trigger envelope and start reading</span>
+settings<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+state<span class="token punctuation">.</span>envSampler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Or perhaps you want to start an envelope when an event happens, such as a button clicked. We can introduce a <code>retrigger()</code> function that cancels the sampler, triggers the envelope and starts the sampler again</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">retrigger</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> env <span class="token punctuation">}</span> <span class="token operator">=</span> settings<span class="token punctuation">;</span>
+  <span class="token keyword">const</span> <span class="token punctuation">{</span> envSampler <span class="token punctuation">}</span> <span class="token operator">=</span> state<span class="token punctuation">;</span>
+
+  envSampler<span class="token punctuation">.</span><span class="token function">cancel</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  env<span class="token punctuation">.</span><span class="token function">trigger</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  envSampler<span class="token punctuation">.</span><span class="token function">start</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">someButton</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">click</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> retrigger<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="demos">Demos</h2><p>In the demo below, <code>pointerdown</code> or <code>keydown</code> events triggers and holds the envelope. On the left side you see a typical binary on/off response, on the right you see a gradual effect of the envelope.</p><p>Releasing the pointer or key calls the envelope's <code>release</code> function.</p><p>This envelope has <code>retrigger</code> disabled, so pressing again while it's decaying will continue the envelope at that level, rather than resetting to zero (default behaviour).</p><demo-element><template shadowroot="open"><style>
   :host {
     display: block;
     --black: hsl(206, 11%, 12%);
@@ -704,7 +733,7 @@ env<span class="token punctuation">.</span><span class="token function">addEvent
 			<aside id="grid-right" class="grid-sidebar astro-VOYEGVQR" title="Table of Contents">
 				<nav class="sidebar-nav astro-XPZS3NBI" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-XPZS3NBI">
-		<astro-root uid="Z1sBek2"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#anatomy-of-an-envelope">Anatomy of an envelope</a></li><li class="header-link depth-2"><a href="#playground">Playground</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#envelope-options">Envelope options</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li></ul></astro-root>
+		<astro-root uid="k5Wfa"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#anatomy-of-an-envelope">Anatomy of an envelope</a></li><li class="header-link depth-2"><a href="#playground">Playground</a></li><li class="header-link depth-2"><a href="#usage">Usage</a></li><li class="header-link depth-3"><a href="#envelope-options">Envelope options</a></li><li class="header-link depth-2"><a href="#envelopes-in-action">Envelopes in action</a></li><li class="header-link depth-2"><a href="#demos">Demos</a></li></ul></astro-root>
 		
 <ul class="astro-WOEIVG5E">
 </ul>

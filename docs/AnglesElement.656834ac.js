@@ -1,4 +1,4 @@
-import{b,r as w,$ as P,a as y}from"./client-shim.cda72367.js";import{b as M,t as _,x,L as g,y as S,u as R}from"./chunks/chunk-QQHRFXNI.8c3933f6.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";import{e as $}from"./chunks/styles.3cbef228.js";var D=Object.defineProperty,I=Object.getOwnPropertyDescriptor,m=(v,s,r,o)=>{for(var i=o>1?void 0:o?I(s,r):s,a=v.length-1,l;a>=0;a--)(l=v[a])&&(i=(o?l(s,r,i):l(i))||i);return o&&i&&D(s,r,i),i};const k="angles-element";class p extends b{static styles=[$,w`
+import{b,r as w,$ as P,a as y}from"./client-shim.cda72367.js";import{b as M,t as _,x,L as g,y as S,u as R}from"./chunks/chunk-7SZUX4RM.0001b9f5.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";import{e as $}from"./chunks/styles.3cbef228.js";var D=Object.defineProperty,I=Object.getOwnPropertyDescriptor,m=(v,s,r,o)=>{for(var i=o>1?void 0:o?I(s,r):s,a=v.length-1,l;a>=0;a--)(l=v[a])&&(i=(o?l(s,r,i):l(i))||i);return o&&i&&D(s,r,i),i};const k="angles-element";class p extends b{static styles=[$,w`
       :host {
         color: var(--label-color, green);
       }
