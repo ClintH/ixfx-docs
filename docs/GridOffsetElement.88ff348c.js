@@ -1,4 +1,4 @@
-import{b as d,r as c,$ as f}from"./client-shim.cda72367.js";import{e as p}from"./chunks/styles.3cbef228.js";import{o as i,D as h,C as g}from"./chunks/chunk-7SZUX4RM.0001b9f5.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";const u="grid-offset-element";class v extends d{static styles=[p,c`
+import{b as d,r as c,$ as f}from"./client-shim.cda72367.js";import{e as p}from"./chunks/styles.3cbef228.js";import{o as i,D as h,C as g}from"./chunks/chunk-C2USEEI2.c7cc667b.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";const u="grid-offset-element";class v extends d{static styles=[p,c`
     #offsetsGrid {
       --grid-color:var(--divider);
       --hover-color: var(--bg-contrast);

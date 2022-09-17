@@ -73,7 +73,7 @@ Try out some state machines in this playground. Edit the description or load a d
 ## Usage
 
 * [API docs](https://clinth.github.io/ixfx/modules/Flow.StateMachine.html)
-* [State Machine starter](https://clinth.github.io/ixfx-demos/flow/statemachine-starter/): Simple code to get up and running with a state machine
+* [State Machine starter](https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter) ([online demo](https://clinth.github.io/ixfx-demos/flow/statemachine-starter/)): Simple code to get up and running with a state machine
 
 Create the machine with the an initial state and its _description_:
 
@@ -133,7 +133,7 @@ if (machine.state === `coffee`) ...
 if (machine.isDone) ...
 ```
 
-The `change` event is fired whenever state changes, and `stop` when the machine reaches an end.
+The `change` event is fired whenever state changes, and `stop` when the machine reaches a final state.
 
 ```js
 machine.addEventListener(`change`, (evt) => {
