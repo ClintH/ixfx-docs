@@ -1,4 +1,4 @@
-import{b as c,r as a,$ as u,a as g}from"./client-shim.cda72367.js";import{e as m}from"./chunks/styles.3cbef228.js";import{o as s,A as p}from"./chunks/chunk-C2USEEI2.c7cc667b.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";var f=Object.defineProperty,h=Object.getOwnPropertyDescriptor,v=(n,o,l,t)=>{for(var e=t>1?void 0:t?h(o,l):o,r=n.length-1,i;r>=0;r--)(i=n[r])&&(e=(t?i(o,l,e):i(e))||e);return t&&e&&f(o,l,e),e};const y="grid-colour-element";class d extends c{static styles=[m,a`
+import{b as c,r as a,$ as u,a as g}from"./client-shim.cda72367.js";import{e as m}from"./chunks/styles.3cbef228.js";import{o as s,A as p}from"./chunks/chunk-DWMP6LVH.efb7cbcb.js";import"./chunks/chunk-ZTX6UONG.8be22e52.js";var f=Object.defineProperty,h=Object.getOwnPropertyDescriptor,v=(n,o,l,t)=>{for(var e=t>1?void 0:t?h(o,l):o,r=n.length-1,i;r>=0;r--)(i=n[r])&&(e=(t?i(o,l,e):i(e))||e);return t&&e&&f(o,l,e),e};const y="grid-colour-element";class d extends c{static styles=[m,a`
     #grid {
       --grid-color:var(--divider);
       --hover-color: var(--bg-contrast);

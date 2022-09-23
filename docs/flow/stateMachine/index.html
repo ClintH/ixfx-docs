@@ -57,8 +57,8 @@
 
 		<title>State Machine - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/StateMachinePlay.ff100639.css"></link>
-<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.67578122.js" astro-script="/flow/stateMachine/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/StateMachinePlay.d2380cf2.css"></link>
+<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.7b41125b.js" astro-script="/flow/stateMachine/script-0"></script>
 <script type="module" hoist="true" astro-script="/flow/stateMachine/script-1">import '/src/components/ReplPad';</script>
 <script type="module" data-astro-component-hydration astro-script="/flow/stateMachine/script-2">import setup from '../../idle.04f12634.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
@@ -297,72 +297,75 @@ setup("1c0P95", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 <li>API Reference <a href="https://clinth.github.io/ixfx/classes/Flow.StateMachine.StateMachine.html">StateMachine</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
 <li>Starter: <a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter">GitHub</a>, <a href="https://glitch.com/edit/#!/ixfx-starter-statemachine">Glitch</a>
-</li></ul></div><p>A <em>state machine</em> allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It's up to you to 'drive' the machine, telling it when to transition.</p><p>State machines can be defined using a plain object, with keys the list of possible states, and the values state(s) that are possible to change to, or null if no further changes are possible.</p><h2 id="machine-definition">Machine definition</h2><p>A simple state machine is a light switch, it has two states: <em>on</em> and <em>off</em>. When the light is <em>on</em>, the only other state is <em>off</em>. And vice-versa:</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
-  <span class="token string-property property">"on"</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"off"</span><span class="token operator">:</span> <span class="token string">"on"</span>
-<span class="token punctuation">}</span></code></pre><p>With this machine definition, it would be illegal to have a state <code>dimmed</code>, or to turn it <code>off</code> when it is already <code>off</code>. In this case, the machine never reaches a final state, it can always oscillate between <code>on/off</code>. Note too that we can safely automatically advance the state of the machine, because it knows what the next state will always be.</p><p>It's possible to have several possible next states by using a string array:</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
-  <span class="token string-property property">"on"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"off"</span><span class="token punctuation">,</span> <span class="token string">"half-bright"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"half-bright"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"on"</span><span class="token punctuation">,</span> <span class="token string">"off"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"off"</span><span class="token operator">:</span> <span class="token string">"on"</span>
-<span class="token punctuation">}</span></code></pre><p>The example below starts with <code>plain</code> bread and there are many subsequent states for the bread to be in. Some states can be reached from different prior states, and there are two possible final states (<code>sprinkled-on-soup</code> and <code>eaten</code>). Once a machine is in its final state, it cannot change to another state without being <em>reset</em>.</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
-  <span class="token string-property property">"plain"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"toasted"</span><span class="token punctuation">,</span> <span class="token string">"buttered"</span><span class="token punctuation">,</span> <span class="token string">"eaten"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"toasted"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"buttered"</span><span class="token punctuation">,</span> <span class="token string">"eaten"</span><span class="token punctuation">,</span> <span class="token string">"diced"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"buttered"</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"eaten"</span><span class="token punctuation">,</span> <span class="token string">"marmaladed"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"marmaladed"</span><span class="token operator">:</span> <span class="token string">"eaten"</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"diced"</span><span class="token operator">:</span> <span class="token string">"sprinkled-on-soup"</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"sprinkled-on-soup"</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
-  <span class="token string-property property">"eaten"</span><span class="token operator">:</span> <span class="token keyword">null</span>
-<span class="token punctuation">}</span></code></pre><h2 id="why">Why?</h2><p>Behaving according to a current state is a common pattern in programming interactivity. This is often solved by using different variables track state. The downside is that you have to be mindful what variables contribute to state, when and where to enforce rules about state changes. It can also be hard to keep track of all possible states.</p><p>A state machine therefore can help you catch errors and makes coding simpler when you know there are a fixed number of well-defined states to handle.</p><h2 id="playground">Playground</h2><p>Try out some state machines in this playground. Edit the description or load a demo, click <em>Use description</em> to load it and check for errors. If successful, you can see available states and change state under <em>Control</em>.</p>
+</li></ul></div><p>A <em>state machine</em> allows for a controlled change from one state to another. It sets up a well-defined set of possible states and what transitions are possible between them. It's up to you to 'drive' the machine, telling it when to transition.</p><p>State machines are defined with a plain object. Properties list of possible states, with values being what state(s) that are possible to change to, or <em>null</em> if no further changes are possible.</p><h2 id="machine-definition">Machine definition</h2><p>An example of a simple state machine is a light switch. It has two states: <em>on</em> and <em>off</em>. When the light is <em>on</em>, the only other state is <em>off</em>. And vice-versa:</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
+  <span class="token literal-property property">on</span><span class="token operator">:</span> <span class="token string">"off"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">off</span><span class="token operator">:</span> <span class="token string">"on"</span>
+<span class="token punctuation">}</span></code></pre><p>With this machine definition, it would be illegal to have a state <code>dimmed</code>, or to turn it <code>off</code> when it is already <code>off</code>. In this case, the machine never reaches a final state, it can always oscillate between <code>on</code> / <code>off</code>. Note too that we can automatically and reliably advance the state of the machine, because each state indicates what follows.</p><p>It's possible to have several possible next states by using a string array:</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
+  <span class="token literal-property property">on</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"off"</span><span class="token punctuation">,</span> <span class="token string">"half_bright"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">half_bright</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"on"</span><span class="token punctuation">,</span> <span class="token string">"off"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">off</span><span class="token operator">:</span> <span class="token string">"on"</span>
+<span class="token punctuation">}</span></code></pre><p>The example below is intended to start with <code>plain</code> bread, with a few ways of getting to the eventual final state of <code>sprinkled_on_soup</code> or <code>eaten</code>. Once a machine is in its final state, it cannot change to another state unless it is <em>reset</em>.</p><pre class="language-js"><code class="language-js"><span class="token punctuation">{</span>
+  <span class="token literal-property property">plain</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"toasted"</span><span class="token punctuation">,</span> <span class="token string">"buttered"</span><span class="token punctuation">,</span> <span class="token string">"eaten"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">toasted</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"buttered"</span><span class="token punctuation">,</span> <span class="token string">"eaten"</span><span class="token punctuation">,</span> <span class="token string">"diced"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">buttered</span><span class="token operator">:</span> <span class="token punctuation">[</span><span class="token string">"eaten"</span><span class="token punctuation">,</span> <span class="token string">"marmaladed"</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">marmaladed</span><span class="token operator">:</span> <span class="token string">"eaten"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">diced</span><span class="token operator">:</span> <span class="token string">"sprinkled_on_soup"</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">sprinkled_on_soup</span><span class="token operator">:</span> <span class="token keyword">null</span><span class="token punctuation">,</span>
+  <span class="token literal-property property">eaten</span><span class="token operator">:</span> <span class="token keyword">null</span>
+<span class="token punctuation">}</span></code></pre><h2 id="why">Why?</h2><p>Behaving according to a current state is a common pattern in programming interactivity. This is often solved by using different variables track state. A downside is that you have to be mindful what variables or conditions alter state as well as when and where to enforce rules about state changes.</p><p>A state machine therefore can help you catch errors and makes coding simpler when you know there are a fixed number of well-defined states to handle, and they are only activated according to a logic you have defined.</p><h2 id="playground">Playground</h2><p>Try out some state machines in this playground.</p><ol>
+<li>Edit the description or choose a demo</li>
+<li>Click <em>Use description</em> to load it have it checked for errors.</li>
+<li>If successful, you can see available states. Select a state and then 'Change state'</li>
+</ol><p>(Note that properties are enclosed in " marks here because it's represented as JSON)</p>
 
-<div class="sxs astro-BAJEAOFC">
-  <section id="dataDescr" class="dividerRight astro-BAJEAOFC">
-    <section class="astro-BAJEAOFC">
-      <div class="toolbar centered astro-BAJEAOFC">
-        <label for="selDemoMachines" class="astro-BAJEAOFC">Load demo:</label>
-        <select id="selDemoMachines" class="astro-BAJEAOFC">
-          <option class="astro-BAJEAOFC">one</option>
+<div class="sxs astro-WPFLWN2H">
+  <section id="dataDescr" class="dividerRight astro-WPFLWN2H">
+    <section class="astro-WPFLWN2H">
+      <div class="toolbar centered astro-WPFLWN2H">
+        <label for="selDemoMachines" class="astro-WPFLWN2H">Load demo:</label>
+        <select id="selDemoMachines" class="astro-WPFLWN2H">
+          <option class="astro-WPFLWN2H">one</option>
         </select>
       </div>
     </section>
-    <section class="astro-BAJEAOFC">
-      <h2 class="astro-BAJEAOFC">Machine description</h2>
-      <pre class="editable astro-BAJEAOFC" contenteditable id="jsonDescr">      </pre>
-      <div id="descrValidate" class="astro-BAJEAOFC"></div>
+    <section class="astro-WPFLWN2H">
+      <h2 class="astro-WPFLWN2H">1. Machine description</h2>
+      <pre class="editable astro-WPFLWN2H" contenteditable id="jsonDescr"></pre>
+      <div id="descrValidate" class="astro-WPFLWN2H"></div>
 
-      <label class="astro-BAJEAOFC">
+      <label class="astro-WPFLWN2H">
         Initial state:
-        <select id="selDescrInitial" class="astro-BAJEAOFC">
-          <option class="astro-BAJEAOFC"></option>
+        <select id="selDescrInitial" class="astro-WPFLWN2H">
+          <option class="astro-WPFLWN2H"></option>
         </select>
       </label>
-      <div class="toolbar centered astro-BAJEAOFC">
-        <button id="btnSetDescr" class="astro-BAJEAOFC">1. Use description</button>
+      <div class="toolbar centered astro-WPFLWN2H">
+        <button id="btnSetDescr" class="astro-WPFLWN2H">2. Use description</button>
       </div>
     </section>
-
   </section>
-  <section class="astro-BAJEAOFC">
-    <section class="astro-BAJEAOFC">
-      <h2 class="astro-BAJEAOFC">Control</h2>
-      <select disabled size="3" id="selPossibleNext" class="astro-BAJEAOFC">
-        <option class="astro-BAJEAOFC"></option>
+  <section class="astro-WPFLWN2H">
+    <section class="astro-WPFLWN2H">
+      <h2 class="astro-WPFLWN2H">Control</h2>
+      <select disabled size="3" id="selPossibleNext" class="astro-WPFLWN2H">
+        <option class="astro-WPFLWN2H"></option>
       </select>
-      <div class="toolbar astro-BAJEAOFC">
-        <button disabled id="btnChangeState" class="astro-BAJEAOFC">2. Change state</button>
+      <div class="toolbar astro-WPFLWN2H">
+        <button disabled id="btnChangeState" class="astro-WPFLWN2H">3. Change state</button>
       </div>
-   
-      <div id="currentState" class="astro-BAJEAOFC"></div>
 
+      <div id="currentState" class="astro-WPFLWN2H"></div>
     </section>
-    <section class="dividerTop astro-BAJEAOFC">
-      <div id="dataStream" class="astro-BAJEAOFC"></div>
+    <section class="dividerTop astro-WPFLWN2H">
+      <div id="dataStream" class="astro-WPFLWN2H"></div>
     </section>
   </section>
 </div>
-<h2 id="usage">Usage</h2><ul>
-<li><a href="https://clinth.github.io/ixfx/modules/Flow.StateMachine.html">API docs</a></li>
-<li><a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter">State Machine starter</a> (<a href="https://clinth.github.io/ixfx-demos/flow/statemachine-starter/">online demo</a>): Simple code to get up and running with a state machine</li>
-</ul><p>Create the machine with the an initial state and its <em>description</em>:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> machine <span class="token operator">=</span> StateMachine<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>initialState<span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The machine description is a simple object that 1) lists all possible states (as its top-level properties), and 2) for each state, what other state(s) can be transitioned to, or <code>null</code> if it is a final state.</p><p>The following example has four possible states (<code>wakeup, sleep, coffee, breakfast, bike</code>). <code>sleep</code> can only transition to the <code>wakeup</code> state, while <code>wakeup</code> can transition to either <code>coffee</code> or <code>breakfast</code>.</p><p>Use <code>null</code> to signify the final state. Multiple states can terminate the machine if desired.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+<h2 id="usage">Usage</h2><div class="tip"><ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/classes/Flow.StateMachine.StateMachine.html">StateMachine</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
+<li>Starter: <a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter">GitHub</a>, <a href="https://glitch.com/edit/#!/ixfx-starter-statemachine">Glitch</a>
+</li></ul></div><p>Create the machine with the an initial state and its <em>description</em>:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> machine <span class="token operator">=</span> StateMachine<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span>initialState<span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The machine description is a simple object that 1) lists all possible states (as its top-level properties), and 2) for each state, what other state(s) can be transitioned to, or <code>null</code> if it is a final state.</p><p>The following example has four possible states (<code>wakeup, sleep, coffee, breakfast, bike</code>). <code>sleep</code> can only transition to the <code>wakeup</code> state, while <code>wakeup</code> can transition to either <code>coffee</code> or <code>breakfast</code>.</p><p>Use <em>null</em> to signify the final state. Multiple states can terminate the machine if desired.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> StateMachine <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 
 <span class="token keyword">const</span> description <span class="token operator">=</span> <span class="token punctuation">{</span> 
@@ -373,12 +376,16 @@ setup("1c0P95", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
  <span class="token literal-property property">bike</span><span class="token operator">:</span> <span class="token keyword">null</span>
 <span class="token punctuation">}</span>
 <span class="token keyword">const</span> machine <span class="token operator">=</span> StateMachine<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">sleep</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> description<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="changing-state">Changing state</h3><p>Change the state by name:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
-machine<span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">wakeup</span><span class="token template-punctuation string">`</span></span></code></pre><p>Or request an automatic transition (will use first state if there are several options)</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
-machine<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Reset the machine back to its initial state:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+machine<span class="token punctuation">.</span>state <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">wakeup</span><span class="token template-punctuation string">`</span></span></code></pre><p>Or request an automatic transition. If there are several states which could be to changed to, it will always use the first.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+machine<span class="token punctuation">.</span><span class="token function">next</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Reset the machine back to its initial state with <code>reset()</code>. This is the only way to continue after reaching the final state.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
 machine<span class="token punctuation">.</span><span class="token function">reset</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h3 id="status">Status</h3><p>Check status</p><pre class="language-js"><code class="language-js"><span class="token keyword">if</span> <span class="token punctuation">(</span>machine<span class="token punctuation">.</span>state <span class="token operator">===</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">coffee</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span> <span class="token operator">...</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>machine<span class="token punctuation">.</span>isDone<span class="token punctuation">)</span> <span class="token operator">...</span></code></pre><p>The <code>change</code> event is fired whenever state changes, and <code>stop</code> when the machine reaches a final state.</p><pre class="language-js"><code class="language-js">machine<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">change</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">State change from </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>evt<span class="token punctuation">.</span>priorState<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> -> </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>evt<span class="token punctuation">.</span>newState<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+ <span class="token comment">// Prints for example:</span>
+ <span class="token comment">// State change from wakeup -> breakfast</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
 machine<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">stop</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token parameter">evt</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
  console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Machine has finished in state: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>evt<span class="token punctuation">.</span>newState<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>

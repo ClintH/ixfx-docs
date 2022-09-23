@@ -1,5 +1,5 @@
 <script type="module" hoist>
-import '/src/components/flow/stateMachine';
+  import '/src/components/flow/stateMachine';
 </script>
 <style>
   #jsonDescr {
@@ -14,7 +14,7 @@ import '/src/components/flow/stateMachine';
     font-size: 80%;
   }
   #descrValidate.error {
-    color:hsl(6,73%,50%);
+    color: hsl(6, 73%, 50%);
   }
   #currentState {
     margin: 10px;
@@ -31,9 +31,10 @@ import '/src/components/flow/stateMachine';
     flex-wrap: wrap;
   }
   @media (max-width: 40em) {
-	  .dividerRight,.dividerTop {
+    .dividerRight,
+    .dividerTop {
       border-color: var(--bg);
-	  }
+    }
   }
 </style>
 <div class="sxs">
@@ -47,9 +48,8 @@ import '/src/components/flow/stateMachine';
       </div>
     </section>
     <section>
-      <h2>Machine description</h2>
-      <pre class="editable" contenteditable id="jsonDescr">
-      </pre>
+      <h2>1. Machine description</h2>
+      <pre class="editable" contenteditable id="jsonDescr"></pre>
       <div id="descrValidate"></div>
 
       <label>
@@ -59,23 +59,21 @@ import '/src/components/flow/stateMachine';
         </select>
       </label>
       <div class="toolbar centered">
-        <button id="btnSetDescr">1. Use description</button>
+        <button id="btnSetDescr">2. Use description</button>
       </div>
     </section>
-
   </section>
-  <section >
+  <section>
     <section>
       <h2>Control</h2>
       <select disabled size="3" id="selPossibleNext">
         <option></option>
       </select>
       <div class="toolbar">
-        <button disabled id="btnChangeState">2. Change state</button>
+        <button disabled id="btnChangeState">3. Change state</button>
       </div>
-   
-      <div id="currentState"></div>
 
+      <div id="currentState"></div>
     </section>
     <section class="dividerTop">
       <div id="dataStream"></div>
