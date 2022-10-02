@@ -41,7 +41,7 @@ An example usage might be to track the range of a sensor over time.
 
 See also:
 * [`numberTracker` API docs](https://clinth.github.io/ixfx/functions/Data.numberTracker.html) for more
-* The [pointer scale demo](https://clinth.github.io/ixfx-demos/io/pointer/scale/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/io/pointer/scale)) uses `numberTracker` and `pointsTracker`.
+* The [pointer scale demo](https://clinth.github.io/ixfx-demos/pointer/scale/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/pointer/scale)) uses `numberTracker` and `pointsTracker`.
 
 ## Intervals
 
@@ -207,7 +207,7 @@ noseValue.reset();  // reset this named point
 
 See also:
 * [`pointsTracker` API docs](https://clinth.github.io/ixfx/functions/Data.pointsTracker.html) for more on the tracker, including sorting points by when they were recently updated.
-* The [pointer scale demo](https://clinth.github.io/ixfx-demos/io/pointer/scale/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/io/pointer/scale)) uses `numberTracker` and `pointsTracker`.
+* The [pointer scale demo](https://clinth.github.io/ixfx-demos/pointer/scale/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/pointer/scale)) uses `numberTracker` and `pointsTracker`.
 
 
 ## Trackers in general
