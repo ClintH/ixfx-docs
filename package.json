@@ -13,10 +13,11 @@
   },
   "dependencies": {
     "@clinth/repl-pad": "0.0.7",
+    "ixfx": "file:../ixfx",
     "json5": "^2.2.1",
-    "lit": "^2.2.1",
-    "rxjs": "^7.5.5",
-    "typescript": "^4.6.2"
+    "lit": "^2.4.0",
+    "rxjs": "^7.5.7",
+    "typescript": "^4.8.4"
   },
   "devDependencies": {
     "@astrojs/renderer-lit": "^0.4.0",
@@ -25,7 +26,7 @@
     "@rollup/plugin-node-resolve": "^13.1.3",
     "astro": "^0.24.3",
     "cross-env": "^7.0.3",
-    "fp-ts": "^2.11.9",
+    "fp-ts": "^2.12.3",
     "rimraf": "^3.0.2",
     "vite-tsconfig-paths": "^3.4.1"
   }

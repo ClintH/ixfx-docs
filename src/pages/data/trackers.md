@@ -69,7 +69,6 @@ t.avg;
 For example, to figure how quickly the pointer is being clicked:
 
 ```js
-// repl-pad
 import { intervalTracker } from 'https://unpkg.com/ixfx/dist/data.js';
 const clickInterval = intervalTracker();
 
@@ -85,29 +84,32 @@ See also:
 
 ## Point
 
-Tracking a _x, y_ [Point](../../types/geometry/point/) over time is common for working with gestures - be it touch gestures on a screen, or movements of limbs in space.
+Tracking an _x, y_ [Point](../../types/geometry/point/) over time is common for working with gestures - be it touch gestures on a screen, or movements of limbs in space.
 
 <demo-element title="Point tracking playground" src="/playgrounds/data/point-tracker/" />
 
 [`pointTracker`](https://clinth.github.io/ixfx/functions/Data.pointTracker.html) keeps track of a single point.
 
+First initialise:
+
 ```js
 import { pointTracker } from 'https://unpkg.com/ixfx/dist/data.js';
-
 const t = pointTracker();
+```
 
+And then call `seen()` whenever there is a point to track, for example, based on a pointer move event.
+
+```js
 const info = t.seen({ x: 10, y: 20 });
 ```
 
-After adding a point via `seen`, you get back a collection of useful data.
+`seen()` returns an object with useful data comparing the value you passed with the previous value and initial value. You also get a snapshot of all the stored values thus far.
 
 ```js
-{ fromInitial, fromLast, values }
+const { fromInitial, fromLast, values } = info;
 ```
 
-`values` is a set of all the recorded points.
-
-`fromInitial` and `fromLast` yield the relation between the very first seen point and the last point. For both of these, you get:
+`values` is a set of all the recorded points. `fromInitial` and `fromLast` yield the relation between the very first seen point and the last point. For both of these, you get:
 
 ```typescript
 {
@@ -118,6 +120,13 @@ After adding a point via `seen`, you get back a collection of useful data.
   centroid: Point
   distance: number
 }
+```
+
+For example:
+
+```js
+const { fromInitial, fromLast } = t.seen(pointerEvent); // Add pointer event
+console.log(`Distance from start: ${fromInitial.distance}`);
 ```
 
 In the example below, we start tracking when the pointer is down and add points when there is a pointer move event.
@@ -160,18 +169,24 @@ tracker.difference(); // { x, y }
 
 ## Points
 
-[`pointsTracker`](https://clinth.github.io/ixfx/functions/Data.pointsTracker.html) is uber-version of `pointTracker`, helping with all plumbing for keeping track of several named points. This works well for multi-touch gestures, or tracking several body parts via Tensorflow.
+If you want to keep track of several different logical points, for example different touches in a multi-touch gesture, or body parts in TensorFlow, it can be a pain to create and manage several `pointTracker` instances.
 
-Once initialised, call `seen` with the id of the point, and the point:
+[`pointsTracker`](https://clinth.github.io/ixfx/functions/Data.pointsTracker.html) to the rescue! It does all this housekeeping for you.
+
+Initalise like so:
 
 ```js
 import { pointsTracker } from 'https://unpkg.com/ixfx/dist/data.js';
-
 const t = pointsTracker();
+```
+
+And then whenever there is new data for a point, call `seen()`, giving the id of the point, and then the point (`{x: .., y: ...}`). This could be based on a pointer event, or when new predictions are made by TensorFlow, for example.
+
+```js
 t.seen(`nose`, pose[`nose`]);
 ```
 
-Eg: 
+In the example below, we track each named pointer id.
 
 ```js
 import { pointsTracker } from 'https://unpkg.com/ixfx/dist/data.js';
@@ -181,7 +196,7 @@ const t = pointsTracker();
 // Track a point by its id
 document.addEventListener(`pointermove`, e => {
  const info = await pt.seen(e.pointerId, { x: e.x, y: e.y });
-})
+});
 ```
 
 Note that `seen` is an async function, so `await` needs to be used if you want the result.

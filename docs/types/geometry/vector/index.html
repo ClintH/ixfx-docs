@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-us" class="initial astro-VOYEGVQR">
+	<head>
+		<!-- Global Metadata --><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="alternate icon" type="image/x-icon" href="/favicon.ico">
+
+<link rel="sitemap" href="/sitemap.xml">
+
+<!-- Preload Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital@0;1&display=swap" rel="stylesheet">
+
+<!-- Scrollable a11y code helper -->
+<script type="module" src="/make-scrollable-code-focusable.js"></script>
+
+<!-- This is intentionally inlined to avoid FOUC -->
+<script>
+	const root = document.documentElement;
+	const theme = localStorage.getItem('theme');
+	if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+		root.classList.add('theme-dark');
+	} else {
+		root.classList.remove('theme-dark');
+	}
+</script>
+
+		<!-- Page Metadata --><link rel="canonical" href="https://clinth.github.io/ixfx-docs/types/geometry/vector/">
+
+<!-- OpenGraph Tags -->
+<meta property="og:title" content="Vector - ixfx docs">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://clinth.github.io/ixfx-docs/types/geometry/vector/">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://github.com/clinth/ixfx/blob/main/assets/social/banner.jpg?raw=true">
+<meta property="og:image:alt" content="ixfx">
+<meta name="description" property="og:description" content="ixfx documentation">
+<meta property="og:site_name" content="ixfx docs">
+
+<!-- Twitter Tags -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site">
+<meta name="twitter:title" content="Vector - ixfx docs">
+<meta name="twitter:description" content="ixfx documentation">
+<meta name="twitter:image" content="https://github.com/clinth/ixfx/blob/main/assets/social/banner.jpg?raw=true">
+<meta name="twitter:image:alt" content="ixfx">
+
+<!--
+  TODO: Add json+ld data, maybe https://schema.org/APIReference makes sense?
+  Docs: https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data
+  https://www.npmjs.com/package/schema-dts seems like a great resource for implementing this.
+  Even better, there's a React component that integrates with `schema-dts`: https://github.com/google/react-schemaorg
+-->
+
+		<title>Vector - ixfx docs</title>
+		
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.cc5b39f6.js" astro-script="/types/geometry/vector/script-0"></script>
+<script type="module" hoist="true" astro-script="/types/geometry/vector/script-1">const e = document.getElementById(`vectorIntro`);
+  e.addEventListener(`vector-change`, evt => {
+    const { cartesian, polar } = evt.detail;
+    document.getElementById(`vector-cartesian`).innerHTML = `<code>{ x: ${Math.round(cartesian.x)}, y: ${Math.round(cartesian.y)}}</code>`;
+    document.getElementById(`vector-polar`).innerHTML = `<code>{ distance: ${Math.round(polar.distance)}, angleRadian: ${polar.angleRadian.toFixed(2)}</code>`;
+  })</script>
+<script type="module" hoist="true" astro-script="/types/geometry/vector/script-2">import '/src/components/ReplPad';</script>
+<script type="module" astro-script="/types/geometry/vector/script-3">import "../../../client-shim.d2daba34.js";</script>
+<script type="module" data-astro-component-hydration astro-script="/types/geometry/vector/script-4">import setup from '../../../visible.2c829f02.js';
+setup("2lc6TW", {name:"vector-element",value: true}, async () => {
+  await Promise.all([
+  import("../../../hydration-support.166984d1.js")]);
+await import("../../../VectorElement.4cc3dca7.js");
+  return () => {};
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/types/geometry/vector/script-5">import setup from '../../../idle.8e2aa358.js';
+setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../../SidebarToggle.d86ff476.js"), import("../../../client.f800a5fe.js")]);
+  return (el, children) => hydrate(el)(Component, {"class":"astro-MOSAUK67"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/types/geometry/vector/script-6">import setup from '../../../media.936384a1.js';
+setup("Z1nQAbK", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../../TableOfContents.bf208f54.js"), import("../../../client.f800a5fe.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"cartesian-and-polar","text":"Cartesian and Polar"},{"depth":2,"slug":"uses","text":"Uses"},{"depth":2,"slug":"computing","text":"Computing"},{"depth":1,"slug":"unit-vectors","text":"Unit vectors"}],"class":"astro-XPZS3NBI"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/types/geometry/vector/script-7">import setup from '../../../visible.2c829f02.js';
+setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../../ThemeToggleButton.66a8e5f8.js"), import("../../../client.f800a5fe.js")]);
+  return (el, children) => hydrate(el)(Component, {"class":"astro-WOEIVG5E"}, children);
+
+});
+</script>
+<script type="module" data-astro-component-hydration astro-script="/types/geometry/vector/script-8">import setup from '../../../media.936384a1.js';
+setup("Z1nQAbK", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../../TableOfContents.bf208f54.js"), import("../../../client.f800a5fe.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"cartesian-and-polar","text":"Cartesian and Polar"},{"depth":2,"slug":"uses","text":"Uses"},{"depth":2,"slug":"computing","text":"Computing"},{"depth":1,"slug":"unit-vectors","text":"Unit vectors"}],"class":"astro-AMOJLK4X"}, children);
+
+});
+</script>
+</head>
+
+	<body>
+		<header class="astro-MOSAUK67">
+	<a href="#article" class="sr-only skiplink astro-RC6GWYXJ"><span class="astro-RC6GWYXJ">Skip to Content</span></a>
+
+
+
+	<nav class="nav-wrapper astro-MOSAUK67" title="Top Navigation">
+		<div class="menu-toggle astro-MOSAUK67">
+			<astro-root uid="Z12Vj7s"><button type="button" aria-pressed="false" id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg><span class="sr-only">Toggle sidebar</span></button></astro-root>
+		</div>
+		<div class="logo flex astro-MOSAUK67">
+			<!-- <AstroLogo size={40} /> -->
+			<a href="/ixfx-docs/" class="astro-MOSAUK67">
+				<h1 class="astro-MOSAUK67">ixfx docs</h1>
+			</a>
+		</div>
+		<div style="flex-grow: 1;" class="astro-MOSAUK67"></div>
+		<!-- {KNOWN_LANGUAGE_CODES.length > 1 && <LanguageSelect lang={lang} client:idle />} -->
+		<!-- {CONFIG.ALGOLIA && (
+			<div class="search-item">
+				<Search client:idle />
+			</div>
+		)} -->
+	</nav>
+</header>
+
+
+
+		<main class="layout astro-VOYEGVQR">
+			<aside id="grid-left" class="grid-sidebar astro-VOYEGVQR" title="Site Navigation">
+				<nav aria-labelledby="grid-left" class="astro-TIHETVVV">
+	<ul class="nav-groups astro-TIHETVVV">
+		<li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV"></h2>
+					<ul class="astro-TIHETVVV">
+						
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Getting Started</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/./" aria-current="false" class="astro-TIHETVVV">
+									Introduction
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/./importing/" aria-current="false" class="astro-TIHETVVV">
+									Importing
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Flow and Logic</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/stateMachine/" aria-current="false" class="astro-TIHETVVV">
+									State Machine
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/loops/" aria-current="false" class="astro-TIHETVVV">
+									Loops and Intervals
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
+									Delay
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Modulation</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/easing/" aria-current="false" class="astro-TIHETVVV">
+									Easing
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/envelope/" aria-current="false" class="astro-TIHETVVV">
+									Envelope
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/forces/" aria-current="false" class="astro-TIHETVVV">
+									Forces
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/jitter/" aria-current="false" class="astro-TIHETVVV">
+									Jitter
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/interpolate/" aria-current="false" class="astro-TIHETVVV">
+									Interpolate
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
+									Oscillator
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Generation</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/gen/random/" aria-current="false" class="astro-TIHETVVV">
+									Random
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/gen/generator/" aria-current="false" class="astro-TIHETVVV">
+									Generators
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Data</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/cleanup/" aria-current="false" class="astro-TIHETVVV">
+									Clean up
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/normalising/" aria-current="false" class="astro-TIHETVVV">
+									Normalising
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/arrays/" aria-current="false" class="astro-TIHETVVV">
+									Arrays
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/collections/" aria-current="false" class="astro-TIHETVVV">
+									Collections
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/averaging/" aria-current="false" class="astro-TIHETVVV">
+									Averaging
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/frequency/" aria-current="false" class="astro-TIHETVVV">
+									Frequency
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/data/trackers/" aria-current="false" class="astro-TIHETVVV">
+									Trackers
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">Types</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/types/geometry/" aria-current="false" class="astro-TIHETVVV">
+									Geometry
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/types/colour/" aria-current="false" class="astro-TIHETVVV">
+									Colour
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li><li class="astro-TIHETVVV">
+				<div class="nav-group astro-TIHETVVV">
+					<h2 class="nav-group-title astro-TIHETVVV">IO</h2>
+					<ul class="astro-TIHETVVV">
+						<li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/io/espruino/" aria-current="false" class="astro-TIHETVVV">
+									Espruino
+								</a>
+							</li>
+					</ul>
+				</div>
+			</li>
+	</ul>
+</nav>
+
+<script>
+	window.addEventListener('DOMContentLoaded', (event) => {
+		var target = document.querySelector('[aria-current="page"]');
+		if (target && target.offsetTop > window.innerHeight - 100) {
+			document.querySelector('.nav-groups').scrollTop = target.offsetTop;
+		}
+	});
+</script>
+
+
+
+			</aside>
+			<div id="grid-main" class="astro-VOYEGVQR">
+				<article id="article" class="content astro-AMOJLK4X">
+	<section class="main-section astro-AMOJLK4X">
+		<h1 class="content-title astro-AMOJLK4X" id="overview">Vector</h1>
+		<nav class="block sm:hidden astro-AMOJLK4X">
+				<astro-root uid="Z1nQAbK"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#cartesian-and-polar">Cartesian and Polar</a></li><li class="header-link depth-2"><a href="#uses">Uses</a></li><li class="header-link depth-2"><a href="#computing">Computing</a></li></ul></astro-root>
+			</nav>
+		<div class="tip">
+<ul>
+<li>Demos <a href="https://clinth.github.io/ixfx-demos/geometry/">Geometry</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/geometry">source</a>)</li>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Geometry.Points.html">Geometry.Points module</a></li>
+</ul></div><p>A <em>vector</em> consists of <em>magnitude</em> (which can be thought of as length or distance) and <em>direction</em>. In essence, it describes how to go from <a href="./point">Point</a> A to B.</p><p>Read more:</p><ul>
+<li><a href="https://en.wikipedia.org/wiki/Euclidean_vector">Wikipedia</a></li>
+</ul><h2 id="cartesian-and-polar">Cartesian and Polar</h2><p>Vectors can be described with <a href="../units/#cartesian">Cartesian</a> or <a href="../units/#polar">polar</a> coordinates. In ixfx, type <code>Vector = Points.Point | Polar.Coord</code>.</p><p>Cartesian: <span id="vector-cartesian">?</span><br>
+Polar: <span id="vector-polar">?</span>
+</p><p></p><astro-root uid="2lc6TW"><vector-element id="vectorIntro"><template shadowroot="open"><style>
+  :host {
+    display: block;
+    --black: hsl(206, 11%, 12%);
+    --white: hsl(206, 11%, 82%);
+
+    --light-accent: hsl(217, 48%, 55%);
+    --light-accent-text:hsl(217, 38%, 45%);
+    --light-accent-bold:hsl(217, 100%, 45%);
+
+    --dark-accent: hsl(217, 48%, 75%);
+    --dark-accent-text:hsl(217, 78%, 75%);
+    --dark-accent-bold:hsl(217, 78%, 75%);
+
+    --dark-bg: hsl(229, 20%, 20%);
+    --dark-bg-dim: hsl(231, 21%, 29%);
+    --dark-fg: hsl(231, 28%, 73%);
+    --dark-fg-bright: hsl(231, 28%, 82%);
+    --dark-fgDim: hsl(231, 12%, 50%);
+  
+    --dark-yellow: hsl(39, 100%, 71%);
+    --dark-purple: hsl(276, 68%, 75%);
+    --dark-blue: hsl(197, 100%, 77%);
+    --dark-green: hsl(68, 55%, 60%);
+    
+    --light-bg: hsl(0, 0%, 98%);
+    --light-bg-dim: hsl(194, 16%, 94%);
+    --light-fg: hsl(200, 16%, 62%);
+    --light-fgDim: hsl(200, 16%, 32%);
+    --light-fg-bright: hsl(200, 16%, 92%);
+
+    --light-yellow: hsl(39, 100%, 59%);
+    --light-purple: hsl(256, 90%, 65%);
+    --light-blue: hsl(217, 38%, 55%);
+    --light-green: hsl(85, 40%, 54%);
+
+    --yellow: red;
+    --radius: 1em;
+    --padding: 0.3em;
+    --padding-text: 0.8em;
+
+    --divider: red;
+    --light-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAzMCAzMCIKc3R5bGU9IiBmaWxsOiMwMDAwMDA7Ij48cGF0aCBkPSJNIDI1Ljk4MDQ2OSAyLjk5MDIzNDQgQSAxLjAwMDEgMS4wMDAxIDAgMCAwIDI1Ljg2OTE0MSAzIEwgMjAgMyBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMjAgNSBMIDIzLjU4NTkzOCA1IEwgMTMuMjkyOTY5IDE1LjI5Mjk2OSBBIDEuMDAwMSAxLjAwMDEgMCAxIDAgMTQuNzA3MDMxIDE2LjcwNzAzMSBMIDI1IDYuNDE0MDYyNSBMIDI1IDEwIEEgMS4wMDAxIDEuMDAwMSAwIDEgMCAyNyAxMCBMIDI3IDQuMTI2OTUzMSBBIDEuMDAwMSAxLjAwMDEgMCAwIDAgMjUuOTgwNDY5IDIuOTkwMjM0NCB6IE0gNiA3IEMgNC45MDY5MzcyIDcgNCA3LjkwNjkzNzIgNCA5IEwgNCAyNCBDIDQgMjUuMDkzMDYzIDQuOTA2OTM3MiAyNiA2IDI2IEwgMjEgMjYgQyAyMi4wOTMwNjMgMjYgMjMgMjUuMDkzMDYzIDIzIDI0IEwgMjMgMTQgTCAyMyAxMS40MjE4NzUgTCAyMSAxMy40MjE4NzUgTCAyMSAxNiBMIDIxIDI0IEwgNiAyNCBMIDYgOSBMIDE0IDkgTCAxNiA5IEwgMTYuNTc4MTI1IDkgTCAxOC41NzgxMjUgNyBMIDE2IDcgTCAxNCA3IEwgNiA3IHoiPjwvcGF0aD48L3N2Zz4=') no-repeat left top;
+    --dark-external-link: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHg9IjBweCIgeT0iMHB4Igp3aWR0aD0iMzAiIGhlaWdodD0iMzAiCnZpZXdCb3g9IjAgMCAxNzIgMTcyIgpzdHlsZT0iIGZpbGw6IzAwMDAwMDsiPjxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0ibm9uemVybyIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIHN0cm9rZS1saW5lY2FwPSJidXR0IiBzdHJva2UtbGluZWpvaW49Im1pdGVyIiBzdHJva2UtbWl0ZXJsaW1pdD0iMTAiIHN0cm9rZS1kYXNoYXJyYXk9IiIgc3Ryb2tlLWRhc2hvZmZzZXQ9IjAiIGZvbnQtZmFtaWx5PSJub25lIiBmb250LXdlaWdodD0ibm9uZSIgZm9udC1zaXplPSJub25lIiB0ZXh0LWFuY2hvcj0ibm9uZSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOiBub3JtYWwiPjxwYXRoIGQ9Ik0wLDE3MnYtMTcyaDE3MnYxNzJ6IiBmaWxsPSJub25lIj48L3BhdGg+PGcgZmlsbD0iI2ZmZmZmZiI+PHBhdGggZD0iTTE0OC45NTQ2OSwxNy4xNDQwMWMtMC4yMTM2NCwwLjAwNjc1IC0wLjQyNjczLDAuMDI1NDQgLTAuNjM4MjgsMC4wNTU5OWgtMzMuNjQ5NzRjLTIuMDY3NjUsLTAuMDI5MjQgLTMuOTkwODcsMS4wNTcwOSAtNS4wMzMyMiwyLjg0M2MtMS4wNDIzNiwxLjc4NTkyIC0xLjA0MjM2LDMuOTk0NzQgMCw1Ljc4MDY2YzEuMDQyMzYsMS43ODU5MiAyLjk2NTU4LDIuODcyMjUgNS4wMzMyMiwyLjg0M2gyMC41NTkzOGwtNTkuMDEzMDIsNTkuMDEzMDJjLTEuNDk3NzgsMS40MzgwMiAtMi4xMDExMywzLjU3MzQgLTEuNTc3MzUsNS41ODI2YzAuNTIzNzgsMi4wMDkyIDIuMDkyODQsMy41NzgyNiA0LjEwMjA0LDQuMTAyMDRjMi4wMDkyLDAuNTIzNzggNC4xNDQ1OCwtMC4wNzk1NyA1LjU4MjYsLTEuNTc3MzVsNTkuMDEzMDIsLTU5LjAxMzAydjIwLjU1OTM4Yy0wLjAyOTI0LDIuMDY3NjUgMS4wNTcwOSwzLjk5MDg3IDIuODQzLDUuMDMzMjJjMS43ODU5MiwxLjA0MjM2IDMuOTk0NzQsMS4wNDIzNiA1Ljc4MDY2LDBjMS43ODU5MiwtMS4wNDIzNiAyLjg3MjI1LC0yLjk2NTU4IDIuODQzLC01LjAzMzIydi0zMy42NzIxNGMwLjIzMTExLC0xLjY3MDc2IC0wLjI4NTExLC0zLjM1ODUzIC0xLjQxMTI5LC00LjYxNDE1Yy0xLjEyNjE3LC0xLjI1NTYyIC0yLjc0ODA2LC0xLjk1MTcyIC00LjQzNDAyLC0xLjkwMzA0ek0zNC40LDQwLjEzMzMzYy02LjI2Njg5LDAgLTExLjQ2NjY3LDUuMTk5NzcgLTExLjQ2NjY3LDExLjQ2NjY3djg2YzAsNi4yNjY4OSA1LjE5OTc3LDExLjQ2NjY3IDExLjQ2NjY3LDExLjQ2NjY3aDg2YzYuMjY2ODksMCAxMS40NjY2NywtNS4xOTk3NyAxMS40NjY2NywtMTEuNDY2Njd2LTU3LjMzMzMzdi0xNC43ODEyNWwtMTEuNDY2NjcsMTEuNDY2Njd2MTQuNzgxMjV2NDUuODY2NjdoLTg2di04Nmg0NS44NjY2N2gxMS40NjY2N2gzLjMxNDU4bDExLjQ2NjY3LC0xMS40NjY2N2gtMTQuNzgxMjVoLTExLjQ2NjY3eiI+PC9wYXRoPjwvZz48L2c+PC9zdmc+') no-repeat left top;
+  }
+
+  .icon {
+    display: inline-block;
+    padding-left: 1.4em;
+    padding-right: 1.2em;
+  }
+
+  .controls {
+    display: flex;
+    justify-content: center;
+  }
+
+  .controls.wrappable {
+    flex-wrap: wrap;
+  }
+
+  .controls .vertical {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .controls h2 {
+   
+    text-align: center;
+  }
+
+  .controls label {
+    display: flex;
+    flex-direction: column;
+    font-size: 80%;
+    user-select: none;
+  }
+
+  .icon-external-link {
+    background: var(--external-link);
+    background-size: 1.2em;
+  }
+
+  a.icon:link {
+    text-decoration: none;
+  }
+  a.icon:visited, a.icon:link {
+    color: var(--fg);
+  }
+
+  iframe {
+    border: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  button, .toolbar .radios label {
+    border: 0;
+    padding: 0.5em 1em;
+    font-size: 1rem;
+    align-items: center;
+    gap: 0.25em;
+    border-radius: 99em;
+    color: var(--fg-contrast-dim);
+    background-color: var(--bg-contrast);
+    transition: color 0.3s ease-out;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  button:hover {
+    color: var(--fg-contrast);
+    transition: color 0.3s ease-in;
+  }
+
+  button[disabled], button[disabled]:hover {
+    opacity: 0.6;
+    background-color: var(--theme-code-inline-bg);
+    cursor: default;
+  }
+
+  .toolbar {
+    display: flex;
+    margin: 0.5em;
+    flex-wrap: wrap;
+  }
+
+  .toolbar.rightJustify {
+    justify-content: flex-end;
+   
+  }
+
+  .toolbar.centered {
+    justify-content: center;
+  }
+  .toolbar.vertical {
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .toolbar input {
+    min-width: 3em;
+    margin-right: 1vw;
+    margin-left: 1vw;
+  }
+  .vertical input {
+    margin-left: 0;
+  }
+  .toolbar.mini, .toolbar.mini>button {
+    font-size: 80%;
+  }
+  .toolbar > * {
+    margin-left: var(--padding);
+    margin-right: var(--padding);
+  }
+
+  .toolbar.vertical > * {
+    margin-top: var(--padding);
+    margin-bottom: var(--padding);
+  }
+
+  .radios input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+  }
+
+  .radios label {
+    display: inline-block;
+    opacity: 0.5;
+    font-size: 80% !important;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios label:hover {
+    opacity: 0.8;
+    transition: opacity 0.3s ease-in;
+  }
+  
+  .radios input[type="radio"]:checked + label {
+    background-color: var(--bg-contrast);
+    font-size: 100%;
+    opacity: 1;
+    transition: all 0.3s ease-in;
+  }
+
+  .radios input[type="radio"]:focus + label {
+    border: 1px solid var(--fg);
+  }
+  
+  .icon {
+    opacity: 0.6;
+    transition: opacity 0.5s ease-out;
+  }
+  .icon:hover {
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+  }
+
+
+  @media (prefers-color-scheme: dark) {
+    :host {
+      --bg-mono: var(--black);
+      --bg: var(--dark-bg);
+      --bg-dim: var(--dark-bg-dim);
+
+      --divider: hsl(229, 30%, 30%);
+
+      --accent: var(--dark-accent);
+      --accent-text: var(--dark-accent-text);
+      --accent-bold: var(--dark-accent-bold);
+
+      --fg: var(--dark-fg);
+      --fg-mono: var(--dark-fgDim);
+      --fgDim: var(--dark-fgDim);
+      --fg-bright: var(--dark-fg-bright);
+      
+      --purple: var(--dark-purple);
+      --green: var(--dark-green);
+      --blue: var(--dark-blue);
+
+      --external-link: var(--dark-external-link);
+    }
+  }
+
+  
+  @media (prefers-color-scheme: light) {
+    :host {
+    --bg-mono: var(--white);
+    --bg: var(--light-bg);
+    --bg-dim: var(--light-bg-dim);
+    
+    --divider: hsl(193, 10%, 84%);
+
+    --accent: var(--light-accent);
+    --accent-bold: var(--light-accent-bold);
+    --accent-text: var(--light-accent-text);
+
+    --fg: var(--light-fg);
+    --fg-mono: var(--light-fgDim);
+    --fgDim: var(--light-fgDim);
+    --fg-bright: var(--light-fg-bright);
+    --purple: var(--light-purple);
+    --green: var(--light-green);
+    --blue: var(--light-blue);
+
+    --bg-contrast: hsl(200, 16%, 92%);
+    --fg-contrast: hsl(200, 16%, 22%);
+    --fg-contrast-dim: hsl(200, 16%, 62%);
+
+    --external-link: var(--light-external-link);
+    }
+  }
+
+      :host {
+        color: var(--label-color, green);
+      }
+      #container {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+      }
+      #container>svg {
+        touch-action: none;
+      }
+      .drag-sel {
+        outline: 2px solid pink;
+      }
+  </style><!--lit-part JsM3dz/DIFQ=-->
+      <div id="container">
+      <svg style="font-size: 1em" viewBox="0 0 300 300" width="300" height="300"><!--lit-node 1--> </svg>
+        </div>
+          <!--/lit-part--></template></vector-element></astro-root><p>When expressed in Cartesian coordinates, it's not obvious that the vector expresses magnitude and direction. It would seem to be the <em>x</em> and <em>y</em> of a single point in space. Instead, the <em>x</em> value represents the movement along the horizontal axis from the origin, and <em>y</em> represents movement along the vertical axis from the origin.</p><p>Click on a point in the diagram above and drag it around. Note how the Cartesian vector coordinates are derived from the spatial relationship of A to B, not an actual point in space. This can easily get confusing when mixing and matching different coordinates - some vectors, some actual points.</p><p>Vectors in Polar coordinates are made up angle and magnitude. In ixfx, <code>angleRadian</code> and <code>distance</code> are used to denote these components. Polar coordinates better express the meaning of a vector, and you're less likely to muddle them up with actual points on a plane.</p><p>In ixfx, vectors can be converted back and forth:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Vectors <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
+<span class="token keyword">const</span> vectorCartesian <span class="token operator">=</span> Vectors<span class="token punctuation">.</span><span class="token function">toCartesian</span><span class="token punctuation">(</span>somePolarCoordinate<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> vectorPolar <span class="token operator">=</span> Vectors<span class="token punctuation">.</span><span class="token function">toPolar</span><span class="token punctuation">(</span>someCartesianCoordinate<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="uses">Uses</h2><p>Vectors are useful in calculating forces such as velocity and acceleration.</p><p>For example, a vector representing velocity might use the magnitude for speed, and the direction to be the angle of movement. If we want to calculate a new position based on velocity (and assuming a Cartesian velocity):</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">computePosition</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">position<span class="token punctuation">,</span> velocity</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token keyword">return</span> <span class="token punctuation">{</span>
+    <span class="token literal-property property">x</span><span class="token operator">:</span> position<span class="token punctuation">.</span>x <span class="token operator">+</span> velocity<span class="token punctuation">.</span>x<span class="token punctuation">,</span>
+    <span class="token literal-property property">y</span><span class="token operator">:</span> position<span class="token punctuation">.</span>y <span class="token operator">+</span> velocity<span class="token punctuation">.</span>y
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> thing <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> velocity <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> newPosition <span class="token operator">=</span> <span class="token function">computePosition</span><span class="token punctuation">(</span>thing<span class="token punctuation">,</span> velocity<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>To handle either kind of vector notation, we can instead use <code>Vectors.sum</code>:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> thing <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Eg. with a Cartesian vector</span>
+<span class="token keyword">const</span> velocityCartesian <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">2</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> newPosition <span class="token operator">=</span> Vectors<span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span>thing<span class="token punctuation">,</span> velocityCartesian<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Eg. with a polar vector</span>
+<span class="token keyword">const</span> velocityPolar <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">angleRadian</span><span class="token operator">:</span> <span class="token number">0.20</span><span class="token punctuation">,</span> <span class="token literal-property property">distance</span><span class="token operator">:</span> <span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> newPosition2 <span class="token operator">=</span> Vectors<span class="token punctuation">.</span><span class="token function">sum</span><span class="token punctuation">(</span>thing<span class="token punctuation">,</span> velocityPolar<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="computing">Computing</h2><p>Vectors can be computed from a line, where it is assumed that the line's <em>a</em> property is the start, and <em>b</em> is the end. This gives us direction and magnitude.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Vectors <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
+
+<span class="token comment">// repl-pad#1</span>
+<span class="token comment">// A line</span>
+<span class="token keyword">const</span> line  <span class="token punctuation">{</span> 
+  <span class="token literal-property property">a</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">10</span> <span class="token punctuation">}</span><span class="token punctuation">,</span> 
+  <span class="token literal-property property">b</span><span class="token operator">:</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span></code></pre><p>Vector in Cartesian coordinates</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+<span class="token keyword">const</span> vectorCartesian <span class="token operator">=</span> Vectors<span class="token punctuation">.</span><span class="token function">fromLineCartesian</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields: { x: ..., y: ... }</span></code></pre><p>Vector in Polar coordinates</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad#1</span>
+<span class="token keyword">const</span> vectorPolar <span class="token operator">=</span> Vectors<span class="token punctuation">.</span><span class="token function">fromLinePolar</span><span class="token punctuation">(</span>line<span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Yields: { angleRadian: ..., distance: ... }</span></code></pre><p>If you don't already have a Line instance, a vector can be created from two given points using <code>Points.subtract</code></p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> vectorCartestian <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">subtract</span><span class="token punctuation">(</span>a<span class="token punctuation">,</span> b<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><code>vectorCartesian</code> will thus be the distance and angle between <code>a</code> and <code>b</code>.</p><h1 id="unit-vectors">Unit vectors</h1><p>A <em>unit vector</em>, or <em>normalised vector</em> is a vector that maintains its direction information, but has a magnitude of 1. All it tells then is direction, nothing about how far.</p><p>It can be produced using <code>normalise</code></p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Vectors <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/geometry.js"</span>
+<span class="token keyword">const</span> unitVector <span class="token operator">=</span> Vectors<span class="token punctuation">.</span><span class="token function">normalise</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">angleRadian</span><span class="token operator">:</span> <span class="token operator">-</span><span class="token number">0.52</span><span class="token punctuation">,</span> <span class="token literal-property property">distance</span><span class="token operator">:</span> <span class="token number">50</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+	</section>
+	<nav class="block sm:hidden astro-AMOJLK4X">
+		
+<ul class="astro-WOEIVG5E">
+</ul>
+<div style="margin: 2rem 0; text-align: center;" class="astro-WOEIVG5E">
+	<astro-root uid="1Gmxo9"><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-root>
+</div>
+
+
+
+	</nav>
+</article>
+
+
+
+			</div>
+			<aside id="grid-right" class="grid-sidebar astro-VOYEGVQR" title="Table of Contents">
+				<nav class="sidebar-nav astro-XPZS3NBI" aria-labelledby="grid-right">
+	<div class="sidebar-nav-inner astro-XPZS3NBI">
+		<astro-root uid="Z1nQAbK"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#cartesian-and-polar">Cartesian and Polar</a></li><li class="header-link depth-2"><a href="#uses">Uses</a></li><li class="header-link depth-2"><a href="#computing">Computing</a></li></ul></astro-root>
+		
+<ul class="astro-WOEIVG5E">
+</ul>
+<div style="margin: 2rem 0; text-align: center;" class="astro-WOEIVG5E">
+	<astro-root uid="1Gmxo9"><div class="theme-toggle"><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd"></path></svg><input type="radio" name="theme-toggle" value="light" title="Use light theme" aria-label="Use light theme" /></label><label class><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="currentColor"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg><input type="radio" name="theme-toggle" value="dark" title="Use dark theme" aria-label="Use dark theme" /></label></div></astro-root>
+</div>
+
+
+
+	</div>
+</nav>
+
+
+
+			</aside>
+		</main>
+	</body>
+</html>

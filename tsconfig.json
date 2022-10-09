@@ -4,13 +4,7 @@
     "module": "esnext",
     "jsx": "preserve",
     "esModuleInterop": true,
-    "moduleResolution": "node12",
+    "moduleResolution": "NodeNext",
     "experimentalDecorators": true,
-    // "baseUrl": ".",
-    // "paths": {
-    //   "~/*": [
-    //     "../src/*"
-    //   ]
-    // }
   }
 }

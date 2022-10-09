@@ -52,7 +52,7 @@ ixfx is a tookit for programming interactivity. The major modules are:
     <h2>Geometry</h2>
 
 [Cartesian & polar coordinates](./types/geometry/units/),
-[points](./types/geometry/point/), [lines](./types/geometry/line/),
+[points](./types/geometry/point/), [vectors](./types/geometry/vector/), [lines](./types/geometry/line/),
 [arcs](./types/geometry/arc/), [circles](./types/geometry/circle/),
 [rectangle](./types/geometry/rect/) and [grid layouts](./types/geometry/grid/).
 

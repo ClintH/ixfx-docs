@@ -9,6 +9,7 @@ The [Geometry module](https://clinth.github.io/ixfx/modules/Geometry.html) conta
 
 Geometry primitives
 * [Point](./point/): A _x,y_ coordinate
+* [Vector](./vector/): A vector of magnitude and direction
 * [Line](./line/): Consisting of two points
 * [Arc](./arc/): A segment of circle perimeter
 * [Circle](./circle/): A circle
