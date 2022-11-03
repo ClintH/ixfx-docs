@@ -88,13 +88,18 @@ Tracking an _x, y_ [Point](../../types/geometry/point/) over time is common for 
 
 <demo-element title="Point tracking playground" src="/playgrounds/data/point-tracker/" />
 
-[`pointTracker`](https://clinth.github.io/ixfx/functions/Data.pointTracker.html) keeps track of a single point.
+[`pointTracker`](https://clinth.github.io/ixfx/functions/Data.pointTracker.html) keeps track of a single point, returning an instance of [PointTracker](https://clinth.github.io/ixfx/classes/Data.PointTracker.html).
 
 First initialise:
 
 ```js
 import { pointTracker } from 'https://unpkg.com/ixfx/dist/data.js';
 const t = pointTracker();
+
+// Or alternatively, keep track of only the last 10 samples:
+const t = pointTracker({
+  sampleLimit: 10
+})
 ```
 
 And then call `seen()` whenever there is a point to track, for example, based on a pointer move event.
