@@ -15,7 +15,7 @@ setup: |
 <li>See also: <a href="../trackers/#numbers">Number trackers</a>
 </div>
 
-# Noise
+## Noise
 
 Data can be noisy or jittery: instead of a convienent smooth line of a sensor going up and down, there might be all kinds of spikes, or perhaps the value is never static, always wavering up and down.
 
@@ -36,6 +36,7 @@ Even the humble physical button can exhibit jitter, where a single physical pres
 If you have all the values you want to average in advance, it's straightforward calculate using
 * Simple averaging: [`Arrays.average`](https://clinth.github.io/ixfx/functions/Collections.Arrays.average.html), or
 * Weighted averaging: [`Arrays.averageWeighted`](https://clinth.github.io/ixfx/functions/Collections.Arrays.averageWeighted.html)
+
 
 ### Simple
 
@@ -161,10 +162,11 @@ ma.clear();
 ```
 
 
+### Exponential weighted moving average
 
 An alternative approach is an _exponential weighted moving average_, which can calculate an average without storing data samples. This is a common technique on microcontrollers. 
 
-It's implemented as [`movingAverageLight`](https://clinth.github.io/ixfx/functions/Data.movingAverageLight.html). Instead of passing the number of samples to record, a _scale_ parameter is used. 1 means the latest value is used - that is, no averaging. Higher numbers blend in the latest value with increasingly lower priority.
+It's implemented as [`movingAverageLight`](https://clinth.github.io/ixfx/functions/Data.movingAverageLight.html). Instead of passing the number of samples to record, a _scale_ parameter is used. 1 means the latest value is used - that is, no averaging. Higher numbers blend in the latest value with increasingly lower priority. 3 is the default scaling if the parameter is not provided.
 
 ```js
 // repl-pad
@@ -176,51 +178,67 @@ ma.add(10); // 10
 ma.add(5); // 7.5
 ```
 
+### Moving average timed
+
+Consider calculating the average speed of the pointer. Pointer events are tracked, with the distance travelled and elapsed time used to calculate the speed at that instant. The speed is then averaged via `movingAverageLight()`. This is fine while the pointer is moving, but if the pointer stops, there won't be any events. Consequentially, the average won't drop down to zero speed over time because the events are no longer flowing.
+
+One solution to this is using [`Data.movingAverageTimed`](https://clinth.github.io/ixfx/functions/Data.movingAverageTimed.html). This takes in an update rate (milliseconds) and a default value that gets added to the averager. It's based on `movingAverageLight`, so the same _scale_ parameter is there too.
+
+If the interval has elapsed since the last value is added to the averager, it will automatically add the default value. In the case of calculating speed, we might want to automatically add `0`, since the speed must be zero if there are no events.
+
+```js
+import { movingAverageTimed } from 'https://unpkg.com/ixfx/dist/data.js';
+// movingAverageTimed(updateRateMs, value, scaling): MovingAverage
+
+// Init averager
+const avgSpeed = movingAverageTimed(500, 0);
+
+// Based on pointermove, calculate a speed and add to averager
+document.addEventListener(`pointermove`, evt => {
+  const speed = calcSpeed(evt);
+  avgSpeed.add(speed);
+});
+```
+
 ## Case: Averaging complex data
 
 Let us say you want to average more complex data over time, say a rectangle from a machine learning library. The rectangle has _x_, _y_, _width_ and _height_ properties, and each of these we want to average seperately.
 
 To do so, we initialise a moving average for each property, and when new data comes in, update the approprate averager. A cumulative average rectangle is kept track of as well, so elsewhere in the code we can always read the current average.
 
+ixfx's `mapObject` is used to map each property of an empty rectangle (x, y, width & height) to a new moving averager. In this way, `movingAverageRect` becomes a set of automatically-generated moving averagers.
+
 ```js
 // repl-pad
 import { movingAverage } from 'https://unpkg.com/ixfx/dist/data.js';
+import { Rects } from 'https://unpkg.com/ixfx/dist/geometry.js';
+import { mapObject } from 'https://unpkg.com/ixfx/dist/util.js';
 
 // How many samples to average over for each property
 const samples = 10;
 
-// For demo purposes, generate a random rectangle
-const generate = () => ({
-  x: Math.random(), y: Math.random(), 
-  width: Math.random(), height: Math.random()
-});
-
-// Set of averagers, one for each property we want
-// to average
-const movingAverageRect = {
-  x: movingAverage(samples),
-  y: movingAverage(samples),
-  width: movingAverage(samples),
-  height: movingAverage(samples)
-};
+// Create an average for each of the rect's properties (x, y, width, height)
+const movingAverageRect = mapObject(Rects.empty, v => movingAverage(samples));
 
 // Continually-updated average rectangle
 let averageRect = { x: 0, y: 0, width: 0, height: 0};
 
 // Add a new rectangle to be averaged
 const add = (r) => {
-  // Add each property to the appropriate averager
-  const x = movingAverageRect.x.add(r.x);
-  const y = movingAverageRect.y.add(r.y);
-  const width = movingAverageRect.width.add(r.width);
-  const height = movingAverageRect.height.add(r.height);  
+  const { x, y, width, height } = movingAverageRect;
 
-  // Set new averageRect with latest averages
-  averageRect = { x, y, width, height};
+  // Add each of the properties of the input rectangle 'r'
+  // to separate averagers. We then collect all the averages
+  // in 'averageRect'
+  averageRect = { 
+    x: x.add(r.x),
+    y: y.add(r.y),
+    width: width.add(r.width),
+    height: height.add(r.height)};
 }
 
 // Add 20 random rectangles
-for (let i=0;i<20;i++) add(generate());
+for (let i=0;i<20;i++) add(Rects.random());
 
 // This is the average after 20 random rects...
 averageRect;
