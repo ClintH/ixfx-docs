@@ -43,8 +43,10 @@ ixfx is a tookit for programming interactivity. The major modules are:
 [cleaning](./data/cleanup/),[normalising](./data/normalising/),
 [frequency counting](./data/frequency/), [tracking](./data/trackers/)
 
-[arrays](./data/arrays/), [stack](./data/collections/stack/) and
+[arrays](./data/arrays/), [stack](./data/collections/stack/), [maps](./data/collections/map/) and
 [queue](./data/collections/queue/) collections
+
+[pool](./data/pool/), [expiring map](./data/collections/expiringMap/)
 
 </div>
 <div>

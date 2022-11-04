@@ -43,11 +43,12 @@ export const SIDEBAR =
     {text: `Averaging`, link: `data/averaging/`},
     {text: `Frequency`, link: `data/frequency/`},
     {text: `Trackers`, link: `data/trackers/`},
+    {text: `Pool`, link: `data/pool/`},
 
     {text: `Types`, header: true},
     {text: `Geometry`, link: `types/geometry/`},
     {text: `Colour`, link: `types/colour/`},
 
     {text: `IO`, header: true},
-    {text: `Espruino`, link:`io/espruino/`}
+    {text: `Espruino`, link: `io/espruino/`}
   ];
