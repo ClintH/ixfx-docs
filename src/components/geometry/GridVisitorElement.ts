@@ -3,7 +3,7 @@ import {elStyles} from '../styles.js';
 import {Grids} from 'ixfx/lib/geometry';
 import {GridEditor} from './GridEditor.js';
 import {Colour, Drawing} from 'ixfx/lib/visual';
-import {setMutable} from 'ixfx/lib/collections';
+import {Sets} from 'ixfx/lib/collections';
 
 export const tagName = 'grid-visitor-element';
 
@@ -51,7 +51,7 @@ export class GridVisitorElement extends LitElement {
     const el = this.shadowRoot.getElementById(`grid`) as GridEditor;
     const delayMs = 100;
     const grid = el.getGrid();
-    const visited = setMutable<Grids.Cell>(c => Grids.cellKeyString(c));
+    const visited = Sets.mutable<Grids.Cell>(c => Grids.cellKeyString(c));
     const visitOpts = {visited};
     const lastClicked = this.lastClicked;
     let visitor;
