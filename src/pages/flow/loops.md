@@ -208,35 +208,3 @@ Which to use? the ixfx `forEach` is concise and readable. It has the advantage o
 
 [`forEachAsync`](https://clinth.github.io/ixfx/modules/Flow.html#forEachAsync) can be used if you want to iterate using an asynchronous callback. See the next section for an example.
 
-## Retrying
-
-When a function may succeed after some attempts, you might need a _retry_ logic - keep trying the function until it succeeds, or after a certain number of attempts. You want some kind of waiting period between each attempt, eg to wait for a network connection.
-
-This can be achieved using `forEachAsync`. In the example, we will try up to five times to run the async function `doSomething`, with 5 seconds between each attempt:
-
-```js
-import { forEachAsync } from "https://unpkg.com/ixfx/dist/flow.js"
-await forEachAsync(count(5), i=> {
-  try {
-    // Wait for something asynchronous
-    await doSomething();
-    return false; // Succeeded, stop loop early
-  } catch (ex) {
-    console.log(ex);
-    return true; // Keep trying
-  }
-}, 5000);
-```
-
-Alternatively, use the [`retry`](https://clinth.github.io/ixfx/modules/Flow.html#retry) function. `retry` assumes that if the called function doesn't throw an error, it has succeeded. It takes a number of attempts and timeout as parameters.
-
-In the below example, `doSomething` is attempted up to five times with 5 seconds between each attempt:
-
-```js
-import { retry } from "https://unpkg.com/ixfx/dist/flow.js"
-await retry(async () => {
-  // Wait for something asynchronous
-  await doSomething();
-  // If it didn't throw an error, assume it worked
-}, 5, 5000);
-```

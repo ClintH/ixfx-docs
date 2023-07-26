@@ -14,8 +14,8 @@ ixfx is a tookit for programming interactivity. The major modules are:
       <li><a href="./flow/stateMachine/">state machine</a></li>
       <li><a href="./flow/loops/">loops and intervals</a></li>
       <li><a href="./flow/delay/#timeout">timeouts</a></li>
-      <li><a href="./flow/delay/#debounce">debounce</a></li>
-      <li><a href="./flow/delay/#throttle">throttling</a></li>
+      <li><a href="./flow/flow/#debounce">debounce</a></li>
+      <li><a href="./flow/flow/#throttle">throttling</a></li>
     </ul>
   </div>
   <div>

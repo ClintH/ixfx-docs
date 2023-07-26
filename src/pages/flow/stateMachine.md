@@ -118,7 +118,7 @@ Change the state by name:
 machine.state = `wakeup`
 ```
 
-Or request an automatic transition. If there are several states which could be to changed to, it will always use the first.
+In some cases, you might want to ask the machine to transition to its next possible state, regardless of its current state. If multiple states are possible, it will use the first one.
 
 ```js
 // repl-pad#1
@@ -156,5 +156,97 @@ machine.addEventListener(`stop`, (evt) => {
 });
 ```
 
+## Simple machines
+
+[`StateMachine.fromList`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.fromList.html) creates a machine that steps through a series of states and then terminates.
+
+```js
+// repl-pad#2
+import { StateMachine } from "https://unpkg.com/ixfx/dist/flow.js"
+// Machine that can go: init -> one -> two -> three -> [end]
+const sm1 = StateMachine.fromList(`init`, `one`, `two`, `three`);
+```
+
+Once in the 'three' state, `sm1.isDone` will return _true_, since there is no possible transition from there.
+
+[`StateMachine.fromListBidirectional`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.fromListBidirectional.html)
+
+```js
+// repl-pad#2
+// Machine that can go: init <-> one <-> two <-> three
+const sm2 = StateMachine.fromListBidirectional(`init`,`one`, `two`, `three`);
+```
+
+In the above example, `sm2.isDone` will never return true, because it's always possible for it to transition to some state.
+
+## Driver
+
+<div class="tip"><ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/functions/Flow.StateMachine.drive.html">StateMachine.drive</a></li>
+<li><a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-regions">Example code</a>, <a href="https://clinth.github.io/ixfx-demos/flow/statemachine-regions/">Online demo</a></li>
+<li><a href="https://glitch.com/edit/#!/ixix-state-machines-driver?path=index.html%3A1%3A0">Glitch example</a></li>
+</ul></div>
 
 
+[`StateMachine.drive`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.drive.html) allows you to set up _state handlers_ for different states and guiding the machine to subsequent states.
+
+### Usage
+
+```js
+const driver = StateMachine.drive(machine, {
+  green: () => { // 'green' is a defined state
+    // State handler for the 'green' state
+    // ... do something
+    return {
+      // Instructions for machine
+    }
+  }
+}
+
+// Call this every time we want to use the driver
+driver();
+```
+
+In the above example, we've defined a state handler for a state named 'green'. No other state has a handler, so the driver will only do something when the machine is in that state. Calling `driver()` just means: run whatever state handler matches the current machine state. It's up to you how often or when to call it.
+
+Each state handler can return a result to guide the machine. If there is no explicit return (ie. the handler returns _undefined_), nothing happens.
+
+The handler can trigger a change of state by returning an object with a `state` field:
+
+```js
+...
+const driver = StateMachine.drive(machine, {
+  green: () => { 
+    // With some random chance, change to state `yellow`
+    if (Math.random() > 0.5) {
+     return { state: `yellow `};
+    }
+  },
+  yellow: () => {
+    // Do something
+  }
+}
+```
+
+A state handler could just ask the machine to transition to whatever next state is posible by returning `{ next: true }`, or reset the machine with `{ reset: true }`.
+
+Here's a simple example:
+
+```js
+// Machine that can go: init <-> one <-> two <-> three
+const machine = StateMachine.fromListBidirectional(`init`,`one`, `two`, `three`);
+
+const driver = StateMachine.drive(machine, {
+  init: () => {
+
+  },
+  one: () => {
+
+  },
+  two: () => {
+
+  }
+})
+```
+
+You can specify handlers for special cases too. Please see the docs linked at the top of this section and the demo on Glitch.

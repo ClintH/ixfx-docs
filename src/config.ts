@@ -22,6 +22,9 @@ export const SIDEBAR =
     {text: `State Machine`, link: `flow/stateMachine/`},
     {text: `Loops and Intervals`, link: `flow/loops/`},
     {text: `Delay`, link: `flow/delay/`},
+    {text: `Retrying`, link: `flow/retrying/`},
+    {text: `Flow`, link: `flow/flow/`},
+    {text: `Monitoring`, link: `flow/monitoring/`},
 
     {text: `Modulation`, header: true},
     {text: `Easing`, link: `modulation/easing/`},
