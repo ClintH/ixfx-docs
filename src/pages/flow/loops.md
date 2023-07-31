@@ -10,9 +10,49 @@ setup: |
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
 </ul></div>
 
-## Continuously
+Overview:
+* [continuously](#continuously): Useful for a 'main loop', can be controlled
+* [delayLoop](#delayed-loop): A 'for' loop with some delay between iterations
+* [interval](#interval): Calls an async function or generator with some delay, returning results as they happen
 
-A common pattern in animation is a 'draw loop':
+Without delays:
+* [repeat](#repeat): Execute a function _x_ times, collecting results
+
+
+## Running code in a timed loop
+
+Some basic loops in Javascript look like:
+
+```js
+while (hue < 100) {
+  hue++;
+}
+
+const list [ 100, 231, 90 ];
+for (const i of list) {
+  // Do something with each item of the list
+}
+```
+
+They don't have any in-built options for looping at a certain speed.
+
+Instead, we might use `setTimeout` or `setInterval`:
+```js
+setInterval(() => {
+  // do something
+}, 1000); // Code every second
+
+// OR:
+const f = () => {
+  // Reschedule 'f' in 1 second
+  // This means it will loop 
+  setTimeout(f, 1000);
+}
+// Initial schedule 'f' in one second
+setTimeout(f, 1000);
+```
+
+Or perhaps we want to run a loop really fast but not saturate the CPU:
 
 ```js
 const draw = () => {
@@ -22,23 +62,25 @@ const draw = () => {
 window.requestAnimationFrame(draw); // Schedule
 ```
 
-or using `setInterval`:
-```js
-// Call `doSomething` every minute
-window.setInterval(doSomething, 60*1000);
-```
+This might just be fine, however:
+* You have to keep track of additional timer ids
+* More plumbing required to adjust loop as it runs
+* Not particularly readable
 
-But what if you want to the loop to run for a certain period and then stop? Or need to trigger the loop at different points of your code? It's easy to accidently have multiple loops running.
+ixfx has two functions to help with timed loops:
+* [continuously](#continuously): Useful for a 'main loop', can be controlled
+* [delayLoop](#delayed-loop): A 'for' loop with some delay between iterations
+  
+### Continuously
 
-[`continuously`](https://clinth.github.io/ixfx/modules/Flow.html#continuously) is an ixfx function to simplify this pattern:
+[`continuously`](https://clinth.github.io/ixfx/modules/Flow.continuously.html) is a controllable loop.
 
 ```js
 import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
 
-const draw = () => {
-  // ... do some drawing
-}
-continuously(draw).start(); // run at animation speed
+continuously(() => {
+  // do something at animation loop speed
+}).start();
 ```
 
 If you don't want the loop to run as fast as possible, provide the number of milliseconds between loops:
@@ -56,14 +98,14 @@ const fetchData = async () => {
   }
 };
 // Runs every minute
-continuously(fetchData, 60*1000).start();
+continuously(fetchData, { mins: 1 }).start();
 ```
 
 In action:
 * [Poll data from an API](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-poll)
 * [Animate a gradient](https://github.com/ClintH/ixfx-demos/tree/main/dom/gradient-rotate)
 * [Process a list of things](https://github.com/ClintH/ixfx-demos/tree/main/flow/list-async)
-  
+
 ### Control
 
 Note the use of `start` to start the loop. This allows you setup the loop once, and trigger it from different places. If `start` is called while already running, the timer is reset. `cancel` stops a loop that is scheduled to run.
@@ -93,16 +135,34 @@ const job = (ticks, elapsedMs) => {
 const jobLoop = continuously(job, 1000).start();
 ```
 
-A callback can also be provided if the loop resets. Resets when  `start()` is called and but it's already running (ie. `isDone` returns _false_).
+A callback can be provided to handle when `start` is called. This allows you to intercept the call and decide whether the loop should continue, cancel, reset or dispose (meaning it can't be used any longer). 'reset' is the default behaviour, if there's no `onStartCalled` function.
 
 ```js
 const job = () => { ... }
-const onJobReset = (ticks, elapsedMs) => {
-  // If we've been running for a minute, don't allow restart
-  return (elapsedMs < 60*1000); 
+const onStartCalled = (ticks, elapsedMs) => {
+  // If we've been running for a minute, don't allow waiting period to be reset
+  if (elapsedMs < 60*1000) return 'continue';
+  // Could also return:
+  // 'cancel': stop loop, but allow it to potentially start again
+  // 'dispose': stop loop and prevent it from starting again
+  // 'reset': cancel existing scheduled run and start from full interval
 }
-const jobLoop = continuously(job, 1000, onJobReset).start();
+const jobLoop = continuously(job, 1000, { onStartCalled }).start();
 ```
+
+### Delayed loop
+
+If you don't need to adjust the loop or control it from other parts of your code, [`delayLoop`](https://clinth.github.io/ixfx/modules/Flow.delayLoop.html) might be what you need. It is an async generator which runs indefinitely and has a simple syntax:
+
+```js
+import { delayLoop } from "https://unpkg.com/ixfx/dist/flow.js"
+for await (const o of delayLoop(1000)) {
+  // Do something every second
+  // Warning: loops forever
+}
+```
+
+Note the use of _for await_ is important here. Use `break` when you want to exit the loop.
 
 ## Repeat
 
@@ -130,15 +190,29 @@ const results = repeat(
   () => Math.random());
 ```
 
-
 ## Interval
 
-[`interval`](https://clinth.github.io/ixfx/modules/Flow.html#interval) calls and yields the result of an _asynchronous_ function every `intervalMs`. It is an asynchronous generator, note the `for await` rather than `for`.
+[`interval`](https://clinth.github.io/ixfx/functions/Flow.interval-1.html) calls and yields the result of an synchronous or asynchronous function/generator at a given interval. It is an asynchronous generator, note the `for await` rather than `for`.
+
+The type signature looks like:
+
+```typescript
+AsyncPromiseOrGenerator<V>: (() => V | Promise<V>) | Generator<V> | AsyncGenerator<V>
+
+IntervalOpts: {
+    delay?: "before" | "after";
+    fixed?: Interval;
+    minimum?: Interval;
+    signal?: AbortSignal;
+}
+interval<V>(produce, opts?:IntervalOpts): AsyncGenerator<V>
+```
+
+This example prints a new random number every second
 
 ```js
 import { interval } from "https://unpkg.com/ixfx/dist/flow.js"
 
-// interval(callback, intervalMs)
 const randomGenerator = interval(() => Math.random, 1000);
 for await (const r of randomGenerator) {
   // Prints a new random number every second
@@ -148,17 +222,26 @@ for await (const r of randomGenerator) {
 console.log(`Done.`); 
 ```
 
-You can also step through a generator's return values using `interval`:
+Iterate through items in a list, one item per minute
+```js
+const opts = { fixed: { mins: 1 }, delay: 'before' };
+const list = [ 'thom', 'jonny', 'colin', 'ed', 'phil' ];
+for await (const i of interval(list, opts)) {
+  // do something with i
+}
+```
+
+You can step through a generator's return values using `interval`:
 
 ```js
 import { count } from "https://unpkg.com/ixfx/dist/generators.js";
 import { interval } from "https://unpkg.com/ixfx/dist/flow.js";
 
-// Make a generator that counts to 5
+// A generator that counts to 5
 const counter = count(5);
-// Use iterval to loop over counter with 1000ms delay
+// Use interval to loop over counter with 1000ms delay
 for await (const v of interval(counter, 1000)) {
-  // Counts from 0...4, with a delay of 1s between each
+  // Counts from 0...4, with a delay between each
   console.log(v);
 }
 ```
@@ -173,7 +256,7 @@ const v = await counterInterval.next().value;
 // Execution continues after interval period...
 ```
 
-## With generators
+<!-- ## With generators
 
 [Generators](../../data/generator/) can looped over with [`forEach`](https://clinth.github.io/ixfx/modules/Flow.html#forEach)
 
@@ -206,5 +289,5 @@ for (const i of count(5)) {
 
 Which to use? the ixfx `forEach` is concise and readable. It has the advantage of not needing to declare a parameter, unlike `for ... of`. Converting to an array avoids having to declare a variable too, but it's not possible to use infinite generators (such as [pingPong](../../data/generator/#ping-pong)).
 
-[`forEachAsync`](https://clinth.github.io/ixfx/modules/Flow.html#forEachAsync) can be used if you want to iterate using an asynchronous callback. See the next section for an example.
+[`forEachAsync`](https://clinth.github.io/ixfx/modules/Flow.html#forEachAsync) can be used if you want to iterate using an asynchronous callback. See the next section for an example. -->
 

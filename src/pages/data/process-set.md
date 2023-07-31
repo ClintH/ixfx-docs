@@ -5,14 +5,28 @@ layout: ../../layouts/MainLayout.astro
 
 This pattern shows how to process a list of items with a timed delay.
 
-Use a [Queue](../collections/queue/) or [Stack](../collections/stack/) data structure depending on how you want items to be prioritised. The example below uses a stack, meaning that most recent additions get processed first.
+# Known list
+
+This pattern shows how to process a list of items which are known in advance.
+
+```js
+const items = [ 'apple','orange','pear' ];
+for await (const item of interval(iterms, { fixedInterval: }))
+```
+
+# Ad-hoc list
+
+This pattern shows how to process items that are being added to a queue or stack on an ad-hoc basis. Eg, being added as a result of a user clicking something.
+
+Use a [Queue](../collections/queue/) or [Stack](../collections/stack/) data structure depending on how you want items to be prioritised. The example below uses a stack, meaning that most recent additions get processed first. We use ...
+
 
 ```js
 import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
 import { Stacks } from "https://unpkg.com/ixfx/dist/collections.js"
 
 // Eg: limit stack to 10 items
-let toProcess = Stacks.stack({capacity: 10});
+let toProcess = Stacks.stack({ capacity: 10 });
 
 // Set up continuously, and a function to handle items
 const processor = continuously(() => {
@@ -46,3 +60,5 @@ process(`some item`);
 ```
 
 * [Online demo](https://clinth.github.io/ixfx-demos/flow/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/flow/list-async))
+
+# 
