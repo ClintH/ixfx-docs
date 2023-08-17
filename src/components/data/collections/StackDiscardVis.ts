@@ -3,7 +3,7 @@ import {importEl} from '../../../loader.js';
 import {fruit} from '../../../exampleData.js';
 import {ArrayVisElement} from './ArrayVisElement.js';
 
-let stack = Stacks.stack();
+let stack = Stacks.immutable();
 const peekEl = document.getElementById(`peekDiscard`);
 const discardEl = document.getElementById(`selDiscard`) as HTMLSelectElement;
 
@@ -21,7 +21,7 @@ const updateVis = () => {
 }
 const add = () => {
   const discard = discardEl.value;
-  stack = Stacks.stack({capacity: 3, discardPolicy: discard as DiscardPolicy}, ...stack.data);
+  stack = Stacks.immutable({capacity: 3, discardPolicy: discard as DiscardPolicy}, ...stack.data);
   stack = stack.push(fruit());
   updateVis();
 }

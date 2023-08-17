@@ -19,7 +19,7 @@ The ixfx suite of trackers are meant for streams of data. In their simplest usag
 
 ## Numbers
 
-[`numberTracker`](https://clinth.github.io/ixfx/functions/Data.numberTracker.html) keeps track of the minimum, maximum and average of a stream of numbers, without storing them.
+[`numberTracker`](https://clinth.github.io/ixfx/functions/Data.numberTracker-1.html) keeps track of the minimum, maximum and average of a stream of numbers, without storing them.
 
 ```js
 // repl-pad
@@ -40,12 +40,12 @@ t.total
 An example usage might be to track the range of a sensor over time.
 
 See also:
-* [`numberTracker` API docs](https://clinth.github.io/ixfx/functions/Data.numberTracker.html) for more
+* [`numberTracker` API docs](https://clinth.github.io/ixfx/functions/Data.numberTracker-1.html) for more
 * The [pointer scale demo](https://clinth.github.io/ixfx-demos/pointer/scale/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/pointer/scale)) uses `numberTracker` and `pointsTracker`.
 
 ## Intervals
 
-[`intervalTracker`](https://clinth.github.io/ixfx/functions/Data.intervalTracker.html) tracks time intervals.
+[`intervalTracker`](https://clinth.github.io/ixfx/functions/Data.intervalTracker-1.html) tracks time intervals.
 
 This is useful when you're interested in the period or frequency of events rather than event data itself.
 
@@ -79,7 +79,7 @@ document.addEventListener(`click`, evt => {
 ```
 
 See also:
-* [`intervalTracker` API docs](https://clinth.github.io/ixfx/functions/Data.intervalTracker.html)
+* [`intervalTracker` API docs](https://clinth.github.io/ixfx/functions/Data.intervalTracker-1.html)
 * [typer demo](https://clinth.github.io/ixfx-demos/io/keyboard/typer/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/io/keyboard/typer)) uses `intervalTracker` to work with typing speed
 
 ## Point
@@ -88,7 +88,7 @@ Tracking an _x, y_ [Point](../../types/geometry/point/) over time is common for 
 
 <demo-element title="Point tracking playground" src="/playgrounds/data/point-tracker/" />
 
-[`pointTracker`](https://clinth.github.io/ixfx/functions/Data.pointTracker.html) keeps track of a single point, returning an instance of [PointTracker](https://clinth.github.io/ixfx/classes/Data.PointTracker.html).
+[`pointTracker`](https://clinth.github.io/ixfx/functions/Data.pointTracker-1.html) keeps track of a single point, returning an instance of [PointTracker](https://clinth.github.io/ixfx/classes/Data.PointTracker.html).
 
 First initialise:
 

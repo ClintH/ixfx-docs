@@ -3,7 +3,7 @@ import {importEl} from '../../../loader.js';
 import {fruit} from '../../../exampleData.js';
 import {ArrayVisElement} from './ArrayVisElement.js';
 
-let queue = Queues.queue();
+let queue = Queues.immutable();
 const peekEl = document.getElementById(`peekDiscard`);
 const discardEl = document.getElementById(`selDiscard`) as HTMLSelectElement;
 
@@ -24,7 +24,7 @@ const updateVis = () => {
 
 const enqueue = () => {
   const discard = discardEl.value;
-  queue = Queues.queue({capacity: 3, discardPolicy: discard as DiscardPolicy}, ...queue.data);
+  queue = Queues.immutable({capacity: 3, discardPolicy: discard as DiscardPolicy}, ...queue.data);
   queue = queue.enqueue(fruit());
   updateVis();
 }

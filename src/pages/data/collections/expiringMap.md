@@ -7,7 +7,7 @@ setup: |
 
 <div class="tip">
 <ul>
-<li>API Reference <a href="https://clinth.github.io/ixfx/classes/Collections.ExpiringMap.html">ExpiringMap class</a></li>
+<li>API Reference <a href="https://clinth.github.io/ixfx/classes/Collections.Maps.ExpiringMap.html">ExpiringMap class</a></li>
 <li>Parent <a href="https://clinth.github.io/ixfx/modules/Collections.html">Collections module</a></li>
 </div>
 
@@ -50,7 +50,7 @@ map.addEventListener(`expired`, evt => {
 
 ## Automatically removing
 
-When creating the map, use the two `autoDelete...` [options](https://clinth.github.io/ixfx/types/Collections.ExpiringMapOpts.html). `autoDeletePolicy` can be 'get', 'set' or 'either'.
+When creating the map, use the two `autoDelete`... [options](https://clinth.github.io/ixfx/types/Collections.Maps.ExpiringMapOpts.html). `autoDeletePolicy` can be 'get', 'set' or 'either'.
 
 In the below example, items that aren't accessed for over one second are removed:
 

@@ -37,7 +37,7 @@ setup: |
 <div class="tip">
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Random.html">Random module</a></li>
-<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHt3ZWlnaHRlZH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L3JhbmRvbS5qcyc7CnNldEludGVydmFsKCgpPT4gewogIHBvc3RNZXNzYWdlKHdlaWdodGVkKGBxdWFkSW5gKSkKfSwxMDApOw==">Value Plotter</a>: useful for seeing output values</li>
+<li><a href="https://fn-vis.pages.dev/1/#H4sIAARX3mQAAzWMQQ6CMBAAv7LhQpsYileN3jn4AjGhsaVU7bZ2FyUh/F1NZE5zmTkXPqSYGWZ4W+8GtgYW6HMMUA7MiXZKjZjurrrGoPzUT8p4YpU1mhiqG5X7Fslyg2zzSz+EkIcjzC0CpEh8skTaWbG+RfcctWmwk/LbLZttXf8E/hSXD2v+IIiQAAAA">fn-vis</a>: useful for seeing output values</li>
 </ul>
 </div>
 
@@ -56,7 +56,7 @@ The plot below shows `Math.random`, with the horizontal axis shows values from 0
 ### Weighted distribution
 
 <div class="tip">
-<a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHt3ZWlnaHRlZH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L3JhbmRvbS5qcyc7CnNldEludGVydmFsKCgpPT4gewogIHBvc3RNZXNzYWdlKHdlaWdodGVkKGBxdWFkSW5gKSkKfSwxMDApOw==">Try out some of these examples in the plotter</a>
+<a href="https://fn-vis.pages.dev/1/#H4sIAARX3mQAAzWMQQ6CMBAAv7LhQpsYileN3jn4AjGhsaVU7bZ2FyUh/F1NZE5zmTkXPqSYGWZ4W+8GtgYW6HMMUA7MiXZKjZjurrrGoPzUT8p4YpU1mhiqG5X7Fslyg2zzSz+EkIcjzC0CpEh8skTaWbG+RfcctWmwk/LbLZttXf8E/hSXD2v+IIiQAAAA">Try out some of these examples in the plotter</a>
 </div><p></p>
 
 To make some numbers more likely than others, you may want some form of _weighted distribution_. 
@@ -98,7 +98,7 @@ list[weightedInteger(list.length)];
 ### Gaussian distribution
 
 <div class="tip">
-<a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHtnYXVzc2lhbn0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L3JhbmRvbS5qcyc7CnNldEludGVydmFsKCgpPT4gewogIHBvc3RNZXNzYWdlKGdhdXNzaWFuKCkpCn0sMTAwKTs=">Try out some of these examples in the plotter</a>
+<a href="https://fn-vis.pages.dev/1/#H4sIAPRW3mQAA1WPzQrCMBCEX2XZiy1Eo9eK3j34BLaHYNMabX7obqUQ8u6mooJ72hm+GZhLROtbjRWGwTMmEdEp+9MCjTNs1IBVTGJBCaucaTVxZtaYGvEWi91kwtjgR4YIvZqIjHKQoBu9hdWNOVAl5eTCo99cvZVm7mbZGmI5Ktd6u7nTal870nxyrMenGoqiPBwh1g4geOKzJlK9Lr7dRVlmPonddrs88DnMI/5GNS8ZCjbg5gAAAA==">Try out some of these examples in the plotter</a>
 </div><p></p>
 
 Gaussian distribution has a 'bell curve' shape, centred around the middle. In other words, you'd expect to get more random values around 0.5 than 0 or 1. ixfx's [`Random.gaussian`](https://clinth.github.io/ixfx/modules/Random.html#gaussian) provides this.

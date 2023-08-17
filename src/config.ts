@@ -33,6 +33,8 @@ export const SIDEBAR =
     {text: `Jitter`, link: `modulation/jitter/`},
     {text: `Interpolate`, link: `modulation/interpolate/`},
     {text: `Oscillator`, link: `modulation/oscillator/`},
+    {text: `Spring`, link: `modulation/spring/`},
+
 
     {text: `Generation`, header: true},
     {text: `Random`, link: `gen/random/`},

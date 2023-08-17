@@ -84,3 +84,16 @@ const resetThrottled = throttle(reset, 200);
 // as often as you like. `reset` will only be invoked every 200ms
 resetThrottled();
 ```
+
+
+## Run once
+
+[`runOnce`](https://clinth.github.io/ixfx/functions/Flow.runOnce.html) wraps the provided function, allowing it to execute only once.
+
+```js
+const init = runOnce(() => {
+   // do something we only want to happen once
+});
+init(); // will run the code once
+init(); // won't do anything
+```

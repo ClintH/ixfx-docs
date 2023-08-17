@@ -66,7 +66,7 @@ const someArray = [10, 20, 30];
 Arrays.average(someArray);
 ```
 
-If you have a set of numbers to average not already in an array, [`Numbers.average`] is effectively the same as `Arrays.average`, but takes in a spread set of parameters:
+If you have a set of numbers to average not already in an array, [`Numbers.average`](https://clinth.github.io/ixfx/functions/Numbers.average.html) is effectively the same as `Arrays.average`, but takes in a spread set of parameters:
 
 ```js
 // repl-pad

@@ -3,7 +3,7 @@ import {importEl} from '../../../loader.js';
 import {fruit} from '../../../exampleData.js';
 import {ArrayVisElement} from './ArrayVisElement.js';
 
-let stack = Stacks.stack();
+let stack = Stacks.immutable();
 const peekEl = document.getElementById(`peek`);
 
 const vis = importEl(

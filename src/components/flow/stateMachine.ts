@@ -1,11 +1,11 @@
 /* eslint-disable */
 import {log} from 'ixfx/lib/dom';
-import {select, button} from 'ixfx/lib/forms';
-import {StateMachine, MachineDescription, Options as StateMachineOpts, StateChangeEvent, StopEvent} from 'ixfx/lib/statemachine';
+import * as Forms from 'ixfx/lib/forms';
+import * as StateMachine from 'ixfx/lib/statemachine';
 
 const logger = log(`#dataStream`, {capacity: 8, timestamp: false});
 
-let currentSm:StateMachine|undefined;
+let currentSm:StateMachine.WithEvents<any>|undefined;
 const demoMachines = {
   morningRoutine: {
     description: { 
@@ -55,11 +55,11 @@ txtDescr.addEventListener(`input`, () => {
 });
 const currentState = document.getElementById(`currentState`);
 //const isMachineDone = document.getElementById(`isMachineDone`);
-const selInitialStates = select(`#selDescrInitial`);
-const selPossibleNext = select(`#selPossibleNext`, undefined, { placeholderOpt: `-- Auto --`, autoSelectAfterChoice:0 });
+const selInitialStates = Forms.select(`#selDescrInitial`);
+const selPossibleNext = Forms.select(`#selPossibleNext`, undefined, { placeholderOpt: `-- Auto --`, autoSelectAfterChoice:0 });
 
 // Demo machine SELECT
-const selDemoMachines = select(`#selDemoMachines`, (newVal:string) => {
+const selDemoMachines = Forms.select(`#selDemoMachines`, (newVal:string) => {
   // Machine selected. Set JSON text and initial state options
   let md = demoMachines[newVal];
   txtDescr.innerText = JSON.stringify(md.description, undefined, 2);
@@ -79,7 +79,7 @@ const parseDesc = (txt):[boolean, string] => {
   }
 }
 
-const btnSetDescr = button(`#btnSetDescr`, () => {
+const btnSetDescr = Forms.button(`#btnSetDescr`, () => {
   try {
     let txt = txtDescr.innerText;
     const description = JSON.parse(txt);
@@ -99,13 +99,11 @@ const btnSetDescr = button(`#btnSetDescr`, () => {
 });
 
 
-const update = (sm:StateMachine|undefined) => {
+const update = (sm:StateMachine.WithEvents<any>|undefined) => {
   if (sm === undefined) {
     btnChangeState.disabled = true;
     selPossibleNext.disabled = true;
-  
     currentState.innerText = `(invalid JSON)`;
-    //isMachineDone.innerHTML = `Not loaded`;
     selPossibleNext.setOpts([]);
     return;
   }
@@ -114,25 +112,26 @@ const update = (sm:StateMachine|undefined) => {
   //isMachineDone.innerHTML = sm.isDone ? `Machine complete` : `Transition(s) possible`;
 
   // Update list of possible next state(s)
-  selPossibleNext.setOpts(sm.states.filter(state => sm.isValid(state)[0]));
+  selPossibleNext.setOpts(sm.statesPossible); //.filter(state => sm.isValid(state)[0]));
 
   btnChangeState.disabled = sm.isDone;
   selPossibleNext.disabled = sm.isDone;
 }
 
-const create = (initial:string, description:MachineDescription):StateMachine => {
-  let opts:StateMachineOpts = {
-    debug: false
+const create = (initial:string, description:StateMachine.Transitions) => {
+  let opts:StateMachine.StateMachineWithEventsOpts<typeof description> = {
+    debug: false,
+    initial
   };
-  let sm = new StateMachine(initial, description, opts);
+  let sm = new StateMachine.WithEvents(description, opts);
   
   // State machine has changed state
-  sm.addEventListener(`change`, (evt:StateChangeEvent) => {
+  sm.addEventListener(`change`, (evt) => {
     logger.log(`${evt.priorState} -> ${evt.newState}`);
     update(sm);
   });
   
-  sm.addEventListener(`stop`, (ev:StopEvent) => {
+  sm.addEventListener(`stop`, (ev) => {
     logger.log(`Done: ${ev.state}`);
   })
   return sm;

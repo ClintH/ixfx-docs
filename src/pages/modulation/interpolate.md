@@ -13,6 +13,7 @@ setup: |
 <div class="tip">
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Data.html">Data module</a></li>
+<li>Demo: <a href="https://clinth.github.io/ixfx-demos/geometry/point-interpolate/">Points.interpolate</a>, <a href="https://glitch.com/edit/#!/ixfx-interpolate-basics">Glitch demo</a>
 </ul>
 </div>
 
@@ -85,3 +86,5 @@ const loop = () => {
 }
 loop();
 ```
+
+[See this pattern on Glitch](https://glitch.com/edit/#!/ixfx-interpolate-basics)

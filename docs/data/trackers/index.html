@@ -57,7 +57,7 @@
 
 		<title>Trackers - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2d85b21d10.js" astro-script="/data/trackers/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.e65a597010.js" astro-script="/data/trackers/script-0"></script>
 <script type="module" hoist="true" astro-script="/data/trackers/script-1">import '/src/components/ReplPad';</script>
 <script type="module" astro-script="/data/trackers/script-2">import "../../client-shim.ef70acef.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/data/trackers/script-3">import setup from '../../idle.79a119d3.js';
@@ -160,6 +160,18 @@ setup("Z1jHIiQ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
 									Delay
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/retrying/" aria-current="false" class="astro-TIHETVVV">
+									Retrying
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/flow/" aria-current="false" class="astro-TIHETVVV">
+									Flow
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/monitoring/" aria-current="false" class="astro-TIHETVVV">
+									Monitoring
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -190,6 +202,10 @@ setup("Z1jHIiQ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
 									Oscillator
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/spring/" aria-current="false" class="astro-TIHETVVV">
+									Spring
 								</a>
 							</li>
 					</ul>
@@ -301,7 +317,7 @@ setup("Z1jHIiQ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Data.html">Data module</a></li>
 <li>Related: <a href="../frequency/">FrequencyMutable</a>: tracks 'seen' values</li>
-</ul></div><p>The ixfx suite of trackers are meant for streams of data. In their simplest usage, they can keep track of the range of data. In more advanced usage, they are helpful in comparing some start value to a current value.</p><h2 id="numbers">Numbers</h2><p><a href="https://clinth.github.io/ixfx/functions/Data.numberTracker.html"><code>numberTracker</code></a> keeps track of the minimum, maximum and average of a stream of numbers, without storing them.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+</ul></div><p>The ixfx suite of trackers are meant for streams of data. In their simplest usage, they can keep track of the range of data. In more advanced usage, they are helpful in comparing some start value to a current value.</p><h2 id="numbers">Numbers</h2><p><a href="https://clinth.github.io/ixfx/functions/Data.numberTracker-1.html"><code>numberTracker</code></a> keeps track of the minimum, maximum and average of a stream of numbers, without storing them.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> numberTracker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Initialise</span>
@@ -314,9 +330,9 @@ setup("Z1jHIiQ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 t<span class="token punctuation">.</span>avg
 t<span class="token punctuation">.</span>min
 t<span class="token punctuation">.</span>total</code></pre><p>An example usage might be to track the range of a sensor over time.</p><p>See also:</p><ul>
-<li><a href="https://clinth.github.io/ixfx/functions/Data.numberTracker.html"><code>numberTracker</code> API docs</a> for more</li>
+<li><a href="https://clinth.github.io/ixfx/functions/Data.numberTracker-1.html"><code>numberTracker</code> API docs</a> for more</li>
 <li>The <a href="https://clinth.github.io/ixfx-demos/pointer/scale/">pointer scale demo</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/pointer/scale">source</a>) uses <code>numberTracker</code> and <code>pointsTracker</code>.</li>
-</ul><h2 id="intervals">Intervals</h2><p><a href="https://clinth.github.io/ixfx/functions/Data.intervalTracker.html"><code>intervalTracker</code></a> tracks time intervals.</p><p>This is useful when you're interested in the period or frequency of events rather than event data itself.</p><p>Once initialised, call <code>mark</code> on the returned object to capture the elapsed time.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> intervalTracker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
+</ul><h2 id="intervals">Intervals</h2><p><a href="https://clinth.github.io/ixfx/functions/Data.intervalTracker-1.html"><code>intervalTracker</code></a> tracks time intervals.</p><p>This is useful when you're interested in the period or frequency of events rather than event data itself.</p><p>Once initialised, call <code>mark</code> on the returned object to capture the elapsed time.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> intervalTracker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Initialise</span>
 <span class="token keyword">const</span> t <span class="token operator">=</span> <span class="token function">intervalTracker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
@@ -334,7 +350,7 @@ document<span class="token punctuation">.</span><span class="token function">add
   clickInterval<span class="token punctuation">.</span><span class="token function">mark</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Average interval: </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>clickInterval<span class="token punctuation">.</span>avg<span class="token interpolation-punctuation punctuation">}</span></span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>See also:</p><ul>
-<li><a href="https://clinth.github.io/ixfx/functions/Data.intervalTracker.html"><code>intervalTracker</code> API docs</a></li>
+<li><a href="https://clinth.github.io/ixfx/functions/Data.intervalTracker-1.html"><code>intervalTracker</code> API docs</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/io/keyboard/typer/">typer demo</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/io/keyboard/typer">source</a>) uses <code>intervalTracker</code> to work with typing speed</li>
 </ul><h2 id="point">Point</h2><p>Tracking an <em>x, y</em> <a href="../../types/geometry/point/">Point</a> over time is common for working with gestures - be it touch gestures on a screen, or movements of limbs in space.</p><demo-element><template shadowroot="open"><style>
   :host {
@@ -640,7 +656,7 @@ document<span class="token punctuation">.</span><span class="token function">add
 
         <iframe src="https://clinth.github.io/ixfx-demos/playgrounds/data/point-tracker/"><!--lit-node 7--></iframe>
       </div>
-		<!--/lit-part--></template></demo-element><p><a href="https://clinth.github.io/ixfx/functions/Data.pointTracker.html"><code>pointTracker</code></a> keeps track of a single point, returning an instance of <a href="https://clinth.github.io/ixfx/classes/Data.PointTracker.html">PointTracker</a>.</p><p>First initialise:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> pointTracker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
+		<!--/lit-part--></template></demo-element><p><a href="https://clinth.github.io/ixfx/functions/Data.pointTracker-1.html"><code>pointTracker</code></a> keeps track of a single point, returning an instance of <a href="https://clinth.github.io/ixfx/classes/Data.PointTracker.html">PointTracker</a>.</p><p>First initialise:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> pointTracker <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> t <span class="token operator">=</span> <span class="token function">pointTracker</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Or alternatively, keep track of only the last 10 samples:</span>

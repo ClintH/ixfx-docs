@@ -57,7 +57,7 @@
 
 		<title>Stack - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2ca81b2c.js" astro-script="/data/collections/stack/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.a645a588.js" astro-script="/data/collections/stack/script-0"></script>
 <script type="module" hoist="true" astro-script="/data/collections/stack/script-1">import '/src/components/data/collections/ArrayVisElement';
 import '/src/components/data/collections/StackDiscardVis';</script>
 <script type="module" hoist="true" astro-script="/data/collections/stack/script-2">import '/src/components/data/collections/ArrayVisElement';
@@ -162,6 +162,18 @@ setup("Z2lX9JN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
 									Delay
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/retrying/" aria-current="false" class="astro-TIHETVVV">
+									Retrying
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/flow/" aria-current="false" class="astro-TIHETVVV">
+									Flow
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/monitoring/" aria-current="false" class="astro-TIHETVVV">
+									Monitoring
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -192,6 +204,10 @@ setup("Z2lX9JN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
 									Oscillator
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/spring/" aria-current="false" class="astro-TIHETVVV">
+									Spring
 								</a>
 							</li>
 					</ul>
@@ -307,7 +323,7 @@ setup("Z2lX9JN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =
 </div><div id="vis"></div><h2 id="basics">Basics</h2><p><code>push</code> and <code>pop</code> are the main means of interacting with a stack.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>Stacks<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/collections.js"</span>
 
 <span class="token comment">// Initialise</span>
-<span class="token keyword">let</span> s <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> s <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">immutable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Items are pushed in order from start, so `c`</span>
 <span class="token comment">// is on the "top" of the stack now.</span>
@@ -334,7 +350,7 @@ s<span class="token punctuation">.</span>length<span class="token punctuation">;
 <span class="token comment">// Returns the underlying array</span>
 <span class="token comment">// used by the stack. Be careful not to</span>
 <span class="token comment">// modify or it may break the stack semantics</span>
-s<span class="token punctuation">.</span>data<span class="token punctuation">;</span></code></pre><h2 id="capacity-limiting">Capacity limiting</h2><p>When creating the stack, it's possible to set a capacity limit. This can be useful to avoid a <em>backlog</em> of data. For example, if you're processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don't really care about older things any longer.</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> q <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">stack</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">discardPolicy</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">newer</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The <code>capacity</code> naturally sets the total number of items the stack will store. The <code>discardPolicy</code> determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is <em>pushed</em>.</p><p>Values for <code>discardPolicy</code> are:</p><ul>
+s<span class="token punctuation">.</span>data<span class="token punctuation">;</span></code></pre><h2 id="capacity-limiting">Capacity limiting</h2><p>When creating the stack, it's possible to set a capacity limit. This can be useful to avoid a <em>backlog</em> of data. For example, if you're processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don't really care about older things any longer.</p><pre class="language-js"><code class="language-js"><span class="token keyword">let</span> q <span class="token operator">=</span> Stacks<span class="token punctuation">.</span><span class="token function">immutable</span><span class="token punctuation">(</span><span class="token punctuation">{</span><span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">discardPolicy</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">newer</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The <code>capacity</code> naturally sets the total number of items the stack will store. The <code>discardPolicy</code> determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is <em>pushed</em>.</p><p>Values for <code>discardPolicy</code> are:</p><ul>
 <li><code>older</code>: Removes existing items from the bottom of the stack to make room for additions. Ie. the oldest items are thrown away</li>
 <li><code>newer</code>: Removes existing items from the top of the stack to make room for additions. Ie. the newest items are thrown away</li>
 <li><code>additions</code>: Does not change the existing items, but rather throws away items that are being <em>pushed</em>.</li>

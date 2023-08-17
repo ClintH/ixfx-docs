@@ -57,7 +57,7 @@
 
 		<title>Interpolation - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2d85b21d.js" astro-script="/modulation/interpolate/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.e65a5970.js" astro-script="/modulation/interpolate/script-0"></script>
 <script type="module" hoist="true" astro-script="/modulation/interpolate/script-1">import '/src/components/ReplPad';</script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/interpolate/script-2">import setup from '../../idle.79a119d3.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
@@ -159,6 +159,18 @@ setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
 									Delay
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/retrying/" aria-current="false" class="astro-TIHETVVV">
+									Retrying
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/flow/" aria-current="false" class="astro-TIHETVVV">
+									Flow
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/monitoring/" aria-current="false" class="astro-TIHETVVV">
+									Monitoring
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -189,6 +201,10 @@ setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
 									Oscillator
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/spring/" aria-current="false" class="astro-TIHETVVV">
+									Spring
 								</a>
 							</li>
 					</ul>
@@ -299,7 +315,8 @@ setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 		<div class="tip">
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Data.html">Data module</a></li>
-</ul>
+<li>Demo: <a href="https://clinth.github.io/ixfx-demos/geometry/point-interpolate/">Points.interpolate</a>, <a href="https://glitch.com/edit/#!/ixfx-interpolate-basics">Glitch demo</a>
+</li></ul>
 </div><p>Interpolation (also known as <em>lerping</em>) allows the blending between two values. Where it really shines is when it is used over time to progressively reach some target value.</p><p>A simple implementation looks like this:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Interpolate from a->b by amount (0..1)</span>
 <span class="token keyword">const</span> <span class="token function-variable function">interpolate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">amount<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>amount<span class="token punctuation">)</span> <span class="token operator">*</span> a <span class="token operator">+</span> amount <span class="token operator">*</span> b<span class="token punctuation">;</span></code></pre><p>In ixfx it's found in the Data module as <a href="https://clinth.github.io/ixfx/functions/Data.interpolate.html"><code>interpolate</code></a>.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> interpolate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/data.js"</span><span class="token punctuation">;</span>
@@ -332,7 +349,7 @@ setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
   <span class="token comment">// Loop</span>
   window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a href="https://glitch.com/edit/#!/ixfx-interpolate-basics">See this pattern on Glitch</a></p>
 	</section>
 	<nav class="block sm:hidden astro-AMOJLK4X">
 		

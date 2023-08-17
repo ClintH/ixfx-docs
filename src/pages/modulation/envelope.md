@@ -11,15 +11,13 @@ setup: |
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html">adsr function</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
-<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgYWRzciwgZGVmYXVsdEFkc3JPcHRzIH0gZnJvbSAiaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L21vZHVsYXRpb24uanMiCmltcG9ydCB7IGNvbnRpbnVvdXNseSB9IGZyb20gImh0dHBzOi8vdW5wa2cuY29tL2l4ZngvZGlzdC9mbG93LmpzIgpjb25zdCBvcHRzID0gewogIC4uLmRlZmF1bHRBZHNyT3B0cygpLAogIGF0dGFja0R1cmF0aW9uOiAxMDAwLAogIGRlY2F5RHVyYXRpb246IDIwMCwKICBzdXN0YWluRHVyYXRpb246IDEwMAp9Owpjb25zdCBlbnYgPSBhZHNyKG9wdHMpOwplbnYudHJpZ2dlcigpOwpjb250aW51b3VzbHkoKCkgPT4gewogIHBvc3RNZXNzYWdlKGVudi52YWx1ZSk7CiAgaWYgKGVudi5pc0RvbmUpIHJldHVybiBmYWxzZTsKfSkuc3RhcnQoKTs=">Value Plotter</a>: useful for seeing output values</li>
+<li><a href="https://fn-vis.pages.dev/1/#H4sIANFW3mQAA11SS27cMAy9CqGVDbj2tEsXKVA0XRRFJgeIZ6GMaUeJTAkiNUjg+O6R7MlXCwEk34+CbmY1uR5Vq7x1opZqVqSnt7pShowYbVU7L1WGsmoTp0eWhPmmlkO1Frl9SAgzeRcEZtA9hwp6HHS08jsV114YFhiCm6BTdyKe26aJ5B/G+uimxjwOj01vWJrkEq0W46i+50511NHREQsgndA6j0kqDRkuYO4IoK7rLz5FWeWBFtHHh8sYVrEWvu92u3XQ41E/vfd/nNscWbShT4SOlp85QdPAn4BaMKcATT1IMOOIAYx8yJcy5c2LL1HLpJFa9ZlT5HrV/I/ogfXkraFxe5xXKkQSY6F3hB0xyj8SDCdti6KEi1/b6ptvds3qaRgxKQOYAYp9nG4x1Ib3el+cSnh+XkGGL5NiufFhbb2nghTp76u/4dW8goBnxEZJZQwEg7a8uS358o7lCpn1iHn7LUzecyk3Wj4q/a9P/+3wAoPI1m6BAgAA">fn-vis</a>: useful for seeing output values</li>
 </ul>
 </div>
 
 The notion of an _envelope_ is borrowed from [sound synthesis](https://en.wikipedia.org/wiki/Envelope_(music)). They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.
 
 Envelopes have some similarity with [easing functions](../easing/), as they describe a shape over time.
-
-[Online modulation demos](https://clinth.github.io/ixfx-demos/modulation/)
 
 ## Anatomy of an envelope
 
@@ -45,7 +43,7 @@ The playground uses the settings from the envelope editor above. You can _trigge
 
 ## Usage
 
-Docs: [Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html), [AdsrOpts](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrOpts), [AdsrTimingOpts](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrTimingOpts)
+Docs: [Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html), [AdsrOpts](https://clinth.github.io/ixfx/types/Modulation.AdsrOpts.html), [AdsrTimingOpts](https://clinth.github.io/ixfx/types/Modulation.AdsrTimingOpts.html)
 
 
 Initialise an envelope with a few timing settings:
@@ -123,11 +121,11 @@ env.addEventListener(`complete`, () => {
 })
 ```
 
-See a [basic envelope in the value plotter](https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgYWRzciwgZGVmYXVsdEFkc3JPcHRzIH0gZnJvbSAiaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L21vZHVsYXRpb24uanMiCmltcG9ydCB7IGNvbnRpbnVvdXNseSB9IGZyb20gImh0dHBzOi8vdW5wa2cuY29tL2l4ZngvZGlzdC9mbG93LmpzIgpjb25zdCBvcHRzID0gewogIC4uLmRlZmF1bHRBZHNyT3B0cygpLAogIGF0dGFja0R1cmF0aW9uOiAxMDAwLAogIGRlY2F5RHVyYXRpb246IDIwMCwKICBzdXN0YWluRHVyYXRpb246IDEwMAp9Owpjb25zdCBlbnYgPSBhZHNyKG9wdHMpOwplbnYudHJpZ2dlcigpOwpjb250aW51b3VzbHkoKCkgPT4gewogIHBvc3RNZXNzYWdlKGVudi52YWx1ZSk7CiAgaWYgKGVudi5pc0RvbmUpIHJldHVybiBmYWxzZTsKfSkuc3RhcnQoKTs=).
+See a [basic envelope in the value plotter](https://fn-vis.pages.dev/1/#H4sIADxW3mQAA11SS27cMAy9CqGVDbj2tEsXKVA0XRRFJgeIZ6GMaUeJTAkiNUjg+O6R7MlXCwEk34+CbmY1uR5Vq7x1opZqVqSnt7pShowYbVU7L1WGsmoTp0eWhPmmlkO1Frl9SAgzeRcEZtA9hwp6HHS08jsV114YFhiCm6BTdyKe26aJ5B/G+uimxjwOj01vWJrkEq0W46i+50511NHREQsgndA6j0kqDRkuYO4IoK7rLz5FWeWBFtHHh8sYVrEWvu92u3XQ41E/vfd/nNscWbShT4SOlp85QdPAn4BaMKcATT1IMOOIAYx8yJcy5c2LL1HLpJFa9ZlT5HrV/I/ogfXkraFxe5xXKkQSY6F3hB0xyj8SDCdti6KEi1/b6ptvds3qaRgxKQOYAYp9nG4x1Ib3el+cSnh+XkGGL5NiufFhbb2nghTp76u/4dW8goBnxEZJZQwEg7a8uS358o7lCpn1iHn7LUzecyk3Wj4q/a9P/+3wAoPI1m6BAgAA).
 
 ### Envelope options
 
-Envelope options are documented [here](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrOpts) and the [timing options here](https://clinth.github.io/ixfx/modules/Modulation.html#AdsrTimingOpts).
+Envelope options are documented [here](https://clinth.github.io/ixfx/types/Modulation.AdsrOpts.html) and the [timing options here](https://clinth.github.io/ixfx/types/Modulation.AdsrTimingOpts.html).
 
 There are three 'bend' options for setting a stage curve, `attackBend, decayBend` and `releaseBend`. Bend values run from -1 to 1. A value of `0` means there is no bend (ie. straight line), `-1` pulls curve down, and `1` pushes it outward. 
 

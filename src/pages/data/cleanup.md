@@ -152,15 +152,16 @@ const sub1 = sample(list, 0.5);
 // Yields: [2, 4, 6, 8, 10]
 ```
 
-Or if a whole number is provided, it will return data of very _x_ steps:
+Or if a whole number is provided, it will return data of every _x_ steps:
 
 ```js
 // repl-pad#2
-
 // Get every third
 const sub2 = sample(list, 3);
 // Yields: [3, 6, 9]
 ```
+
+See also: [Generators.Sync module](https://clinth.github.io/ixfx/modules/Generators.Sync.html) contains various functions for processing a stream of data from a generator.
 
 ## Objects
 
@@ -201,3 +202,9 @@ if (typeof v === `string`) {
   // variable is a string
 }
 ```
+
+## More functions
+
+* [`Numbers.isApproximately`](https://clinth.github.io/ixfx/functions/Numbers.isApproximately.html) - is this number roughly close to this other number?
+* [`Numbers.isValid`](https://clinth.github.io/ixfx/functions/Numbers.isValid.html) - is this number a proper number?
+* [`Numbers.quantiseEvery`](https://clinth.github.io/ixfx/functions/Numbers.quantiseEvery.html) - rounds a value by step size

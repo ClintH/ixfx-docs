@@ -57,7 +57,7 @@
 
 		<title>Jitter - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.c2f9aac7.js" astro-script="/modulation/jitter/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.d8e5990e.js" astro-script="/modulation/jitter/script-0"></script>
 <script type="module" hoist="true" astro-script="/modulation/jitter/script-1">import '/src/components/ReplPad';
   import '/src/loader';
   import '/src/components/DensityPlotElement';
@@ -71,7 +71,7 @@
   importEl(
   `plot3`, 
   `density-plot-element`, {
-    fn: "jitter(0.5, 0.2)",
+    fn: "jitter({ relative: 0.2})(0.5)",
     scaleMin: 0,
     scaleMax: 1,
     editable: true
@@ -79,7 +79,7 @@
   importEl(
     `plot4`, 
     `density-plot-element`, {
-      fn: "jitter(0.5, 0.2, {type:`abs`}, gaussian)",
+      fn: "jitter({ absolute: 0.2, source: gaussian })(0.5)",
       scaleMin: 0,
       scaleMax: 1,
       editable: true
@@ -184,6 +184,18 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
 									Delay
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/retrying/" aria-current="false" class="astro-TIHETVVV">
+									Retrying
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/flow/" aria-current="false" class="astro-TIHETVVV">
+									Flow
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/monitoring/" aria-current="false" class="astro-TIHETVVV">
+									Monitoring
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -214,6 +226,10 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
 									Oscillator
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/spring/" aria-current="false" class="astro-TIHETVVV">
+									Spring
 								</a>
 							</li>
 					</ul>
@@ -324,10 +340,10 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 		<div class="tip">
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/functions/Modulation.jitter.html">jitter function</a>, <a href="https://clinth.github.io/ixfx/modules/Modulation.html">Modulation module</a></li>
-<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHsgaml0dGVyIH0gZnJvbSAnaHR0cHM6Ly91bnBrZy5jb20vaXhmeC9kaXN0L21vZHVsYXRpb24uanMnOwpjb25zdCB2YWx1ZSA9IDAuNTsKY29uc3Qgaml0dGVyQW10ID0gMC4xOwpzZXRJbnRlcnZhbCgoKT0+IHsKICBwb3N0TWVzc2FnZShqaXR0ZXIodmFsdWUsIGppdHRlckFtdCkpCn0sMTAwKTsKICAgIA==">Value Plotter</a>: useful for seeing output values</li>
+<li><a href="https://fn-vis.pages.dev/1/#H4sIADVU3mQAA42RQW/CMAyF/4qVC2WEBq5F7DhpB6TdVw5RayCQJl1tKqSq/31OGUy77RAp+eL3/Cx/DqqJNapCtT6yGvWggm2eb61ccOysV8Uw6lRKqhBNjcRSs1TjXk+PhPdS4Zo2dgzD2TFjN8Khiw3MTswtFcZcQ3s55lVsjLsdbqZ2xEY8r96yiyE/02xThodF5W3TaqDKevyPUW3Z/liUwSMDu+pCsIWVkCoGYjHBrwTy9RPdg74FwfdrNpQBYGqOdQHcXVEn0mFK2WOR5GUY52JByO9BNL31WTaH7StMYmPgo5OxKiRYrvM81QOkSL202Vk+5eRCNuVbLF5SquQG0/c0b9ZrUWpY//JH0Ky/s3TaSLxDInsURcKjSFar+UbJHv/sdf8NJX3U8OkBAAA=">fn-vis</a>: useful for seeing output values</li>
 </ul>
 </div><p><em>Jitter</em> is the random modulation of a value. It is usually <em>bipolar</em>, meaning that it might shift a value upwards or downwards.</p><p>On a <a href="../../data/normalising/">normalised</a> scale of 0..1 scale, let's say we want to apply jitter of 10% to a value of 0.5. If the jitter was to be absolute, that yields a potential new value of 0.4 - 0.6. An algorithm for this is:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>clamp<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/bundle.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> clamp <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/bundle.js'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">jitter</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">value<span class="token punctuation">,</span> jitter</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment">// Double jitter in order to +- and apply random</span>
@@ -337,20 +353,23 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 <span class="token punctuation">}</span>
 <span class="token comment">// Jitter a value of 50% by 10%</span>
 <span class="token comment">// Yields a range of 0.4-0.6</span>
-<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Another option is to jitter by a relative amount, with respect to the input value. In that case, jittering 0.5 by 10% yields a range of 0.45 - 0.55, because 10% of 0.5 is 0.05. Thus for a given jitter amount, a larger input value will jitter more wildly than a smaller value, creating a sense of instability.</p><p>ixfx provides both of these approaches with <a href="https://clinth.github.io/ixfx/modules/Modulation.html#jitter"><code>jitter</code></a>.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>jitter<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
-
-<span class="token comment">// jitter(value:number, jitterAmt:number, opts?:JitterOpts, rand?:()=>number)</span>
+<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Another option is to jitter by a relative amount, with respect to the input value. In that case, jittering 0.5 by 10% yields a range of 0.45 - 0.55, because 10% of 0.5 is 0.05. Thus for a given jitter amount, a larger input value will jitter more wildly than a smaller value, creating a sense of instability.</p><p>ixfx provides both of these approaches with <a href="https://clinth.github.io/ixfx/functions/Modulation.jitter.html"><code>jitter</code></a>. It returns a function to jitter values.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> jitter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Absolute jitter 0.5 by 10%</span>
-<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number 0.4-0.6</span>
+<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">absolute</span><span class="token operator">:</span> <span class="token number">0.1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number 0.4-0.6</span>
 
 <span class="token comment">// Relative jitter 0.5 by 10%</span>
-<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">rel</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number 0.45-0.55</span></code></pre><p>Try adjusting the value-to-jitter and jitter amount:</p><div id="plot3"></div><p>By default <code>jitter</code> uses <code>Math.random</code>, but you could just as well plug in a <a href="https://clinth.github.io/ixfx/modules/Random.html#weighted"><code>weighted</code></a>, or <a href="https://clinth.github.io/ixfx/modules/Random.html#gaussian"><code>gaussian</code></a> random number generator.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span>jitter<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span>gaussian<span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/random.js'</span><span class="token punctuation">;</span>
+<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">relative</span><span class="token operator">:</span> <span class="token number">0.1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// number 0.45-0.55</span></code></pre><p>Remember that <code>jitter</code> returns a function (which is why there's the double parenthesis in the example above). This is so the same jitter options can easily be reapplied to changing values.</p><pre class="language-js"><code class="language-js"><span class="token comment">// One-time steup</span>
+<span class="token keyword">const</span> jitterFn <span class="token operator">=</span> <span class="token function">jitter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">absolute</span><span class="token operator">:</span> <span class="token number">0.1</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Re-use the function when you like</span>
+<span class="token function">jitterFn</span><span class="token punctuation">(</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Jitter 100 by an absolute 10%;</span>
+<span class="token function">jitterFn</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Jitter 50 by an absolute 10%</span></code></pre><p>Try adjusting the value-to-jitter and jitter amount:</p><div id="plot3"></div><p>By default <code>jitter</code> uses <code>Math.random</code>, but you could just as well plug in a <a href="https://clinth.github.io/ixfx/modules/Random.html#weighted"><code>weighted</code></a>, or <a href="https://clinth.github.io/ixfx/modules/Random.html#gaussian"><code>gaussian</code></a> random number generator.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> jitter <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/modulation.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> gaussian <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/random.js'</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Note we pass in as a function, so no () after gaussian</span>
-<span class="token function">jitter</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token punctuation">{</span><span class="token literal-property property">type</span><span class="token operator">:</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">abs</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">}</span><span class="token punctuation">,</span> gaussian<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>In the plot below, notice how jitter is more likely to be close to the original value, instead of being evenly distributed across the whole specified jitter range. This is a more organic outcome.</p><div id="plot4"></div>
+<span class="token keyword">const</span> jitterFn <span class="token operator">=</span> <span class="token function">jitter</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">absolute</span><span class="token operator">:</span><span class="token number">0.2</span><span class="token punctuation">,</span> <span class="token literal-property property">source</span><span class="token operator">:</span> gaussian <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>In the plot below, notice how jitter is more likely to be close to the original value, instead of being evenly distributed across the whole specified jitter range. A more organic outcome?</p><div id="plot4"></div>
 	</section>
 	<nav class="block sm:hidden astro-AMOJLK4X">
 		

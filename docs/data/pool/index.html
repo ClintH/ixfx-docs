@@ -158,6 +158,18 @@ setup("M3eiy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
 									Delay
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/retrying/" aria-current="false" class="astro-TIHETVVV">
+									Retrying
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/flow/" aria-current="false" class="astro-TIHETVVV">
+									Flow
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/monitoring/" aria-current="false" class="astro-TIHETVVV">
+									Monitoring
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -188,6 +200,10 @@ setup("M3eiy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
 									Oscillator
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/spring/" aria-current="false" class="astro-TIHETVVV">
+									Spring
 								</a>
 							</li>
 					</ul>
@@ -299,7 +315,7 @@ setup("M3eiy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html">Data.Pool class</a></li>
 <li>Parent <a href="https://clinth.github.io/ixfx/modules/Data.html">Data module</a></li>
-</ul></div><p>The <a href="https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html">Pool</a> class does the housekeeping of managing a limited set of resources which are shared by 'users'. All resources in the Pool are meant to be the same.</p><p>An example is an audio sketch driven by TensorFlow. We might want to allocate a sound oscillator per detected human body. A naive implementation would be to make an oscillator for each detected body. However, because poses tend to appear/disappear somewhat unpredictably it's a lot of extra work to maintain the binding between pose and oscillator.</p><p>Instead, we might use the <a href="https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html">Pool</a> to allocate oscillators to poses. This will allow us to limit resources and clean up automatically if they haven't been used for a while.</p><p>Resources can be added manually with <code>addResource()</code>, or automatically by providing a <code>generate()</code> function in the Pool options. They can then be accessed via a <em>user key</em>. This is meant to associated with a single 'user' of a resource. For example, if we are associating oscillators with TensorFlow poses, the user key might be the id of the pose.</p><h2 id="in-action-manual-resources">In action: manual resources</h2><p>The Pool is created, and resources added:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Pool <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
+</ul></div><p>The <a href="https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html">Pool</a> class does the housekeeping of managing a limited set of resources which are shared by 'users'. All resources in the Pool are meant to be the same kind of object.</p><p>An example is an audio sketch driven by TensorFlow. We might want to allocate a sound oscillator per detected human body. A naive implementation would be to make an oscillator for each detected body. However, because poses appear/disappear unpredictably, it's a lot of extra work to maintain the binding between pose and oscillator.</p><p>Instead, we might use the <a href="https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html">Pool</a> to allocate oscillators to poses. This will allow us to limit resources and clean up automatically if they haven't been used for a while.</p><p>Resources can be added manually with <code>addResource()</code>, or automatically by providing a <code>generate()</code> function in the Pool options. They can then be accessed via a <em>user key</em>. This is meant to associated with a single 'user' of a resource. For example, if we are associating oscillators with TensorFlow poses, the 'user key' might be the id of the pose.</p><h2 id="in-action-manual-resources">In action: manual resources</h2><p>The Pool is created, and resources added:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Pool <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
 <span class="token keyword">const</span> pool <span class="token operator">=</span> Pool<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token literal-property property">capacity</span><span class="token operator">:</span> oscillators<span class="token punctuation">.</span>length<span class="token punctuation">,</span>
   <span class="token comment">// Remove 'users' if they haven't been seen after one second</span>
@@ -312,14 +328,17 @@ setup("M3eiy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 <span class="token comment">// Add a bunch of pre-made oscillators as resources</span>
 <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> osc <span class="token keyword">of</span> oscillators<span class="token punctuation">)</span> <span class="token punctuation">{</span>
   pool<span class="token punctuation">.</span><span class="token function">addResource</span><span class="token punctuation">(</span>osc<span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span></code></pre><p>To access a resource value, call <code>useValue()</code> with a <em>userKey</em>.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">onData</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">poses</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span></code></pre><p>To access a resource value, call <code>useValue()</code> with a <em>userKey</em>. In this case, we have a function <code>onData</code> that is called when there is a set of poses to process.</p><p>What we want to do is find the oscillator previously associated with that particular pose. If there hasn't been an allocation for that pose, we want to pick a free one or reclaim an existing one. It's all that book-keeping that Pool handles for you via <code>useValue</code>.</p><pre class="language-js"><code class="language-js"><span class="token comment">// New poses come in</span>
+<span class="token keyword">const</span> <span class="token function-variable function">onData</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">poses</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// For each pose</span>
   <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">const</span> pose <span class="token keyword">of</span> poses<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token comment">// Get an oscillator for it</span>
     <span class="token keyword">const</span> osc <span class="token operator">=</span> pool<span class="token punctuation">.</span><span class="token function">useValue</span><span class="token punctuation">(</span>pose<span class="token punctuation">.</span>id<span class="token punctuation">)</span><span class="token punctuation">;</span>
 
     <span class="token comment">// Do something with the resource...</span>
     osc<span class="token punctuation">.</span>filterCutoff <span class="token operator">=</span> <span class="token operator">...</span>
   <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>The Pool will automatically select an unused oscillator instance for each pose, keyed from the pose id. If a given pose id hasn't been sighted for one second, the oscillator it was assigned to is freed. If there are more poses than there are oscillators, it will re-assign the oscillator from the pose that hasn't been updated for the longest period.</p><h2 id="in-action-automatically-generating-resources">In action: automatically generating resources</h2><p>In this example, we will generate Pool resources on-demand. The Pool will create them (with the <code>generate()</code> function we provide) and automatically free them when they are unused.</p><p>First we create the Pool, providing <em>generate</em> and <em>free</em> functions which are responsible for creating and destroying resources. Here HTML elements are the resources pooled.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Pool <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span></code></pre><h2 id="in-action-automatically-generating-resources">In action: automatically generating resources</h2><p>In this example, we will generate Pool resources on-demand. The Pool will create them (with the <code>generate()</code> function we provide) and automatically free them when they are unused.</p><p>First we create the Pool, providing <em>generate</em> and <em>free</em> functions which are responsible for creating and destroying resources. Here HTML elements are the resources being managed.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Pool <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
 
 <span class="token keyword">const</span> pool <span class="token operator">=</span> Pool<span class="token punctuation">.</span><span class="token function">create</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
   <span class="token literal-property property">capacity</span><span class="token operator">:</span> <span class="token number">10</span><span class="token punctuation">,</span>
@@ -331,6 +350,7 @@ setup("M3eiy", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
     <span class="token keyword">const</span> el <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">DIV</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     el<span class="token punctuation">.</span>classList<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">pool-item</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
     document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">items</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token operator">?.</span><span class="token function">append</span><span class="token punctuation">(</span>el<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token comment">// Whatever is returned is stored and yielded via `useValue` on-demand</span>
     <span class="token keyword">return</span> el<span class="token punctuation">;</span>
   <span class="token punctuation">}</span><span class="token punctuation">,</span> 
   <span class="token comment">/**

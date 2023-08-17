@@ -9,7 +9,7 @@ setup: |
 <div class="tip">
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Modulation.Easings.html">Easings module</a></li>
-<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/modulation/plot/index.html#aW1wb3J0IHtFYXNpbmdzfSBmcm9tICJodHRwczovL3VucGtnLmNvbS9peGZ4L2Rpc3QvbW9kdWxhdGlvbi5qcyI7CmNvbnN0IHN0ZXBzID0gMTAwOwpjb25zdCBlID0gRWFzaW5ncy50aWNrKGBlbGFzdGljSW5gLCBzdGVwcyk7CnBvc3RNZXNzYWdlKG51bGwpOyAvLyBjbGVhciBwbG90CmZvciAobGV0IGk9MDtpPHN0ZXBzO2krKykgewogIHBvc3RNZXNzYWdlKGUuY29tcHV0ZSgpKTsKfQ==">Value Plotter</a>: useful for seeing output values</li>
+<li><a href="https://fn-vis.pages.dev/1/#H4sIANJT3mQAA1WQsU7EMAyGX+VXphaVpiwMRcfGwMDESCtdufpKIHGixq1OqvruJCeBdJttff5+yx+bcn4k1apgvai92hQP7r+vlGEjZrCq3fYqo1G1aWekKIm5V3tfXZs87hNhXPCzYMPLEA1PETvOs3fo1JdIiK3WC4efqT55p83lfNGjiaKTd7GDGM/1d+zUU8cda50dBMPwK83wTHCGF6GOT56jgHD4i6nFOCqOn2TtscJjc/fQNE159USSVxaa18EWRYnDM7aOAUuCNQkonxKStSgzDaTcd+IRiV9SFBB8lDeKcZioWLNzr5D0uQJUetjNA/tfXucbdFIBAAA=">fn-vis</a>: useful for seeing output values</li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Online modulation demos</a></li>
 </ul>
 </div>
@@ -89,6 +89,8 @@ for await (const v of Flow.interval(range, 100)) {
 }
 ```
 
+* [Try it out with fn-vis](https://fn-vis.pages.dev/1/#H4sIAABU3mQAA1WQsU7EMAyGX8XK1KLSlIWhp2NjYGBiJJUuXH0lkDhR7VYnVX13kpNAYrT1+fut/31TIY6oepV8FLU3myIb/uZGOXLirFf9tjcFZdXnmxFZMnOv9qG5DWU9ZMKFFGeBDZ4tO5oYdrjMMYBRnyKJe60XSt9Te45Bu+vlqkfHorN38VZcpPaLjToYMqR1cSA4grjiDJEQgqNF0NA5EgsgHH9jWnEBq9MHen9q4LG7e+i6rr55GOWFBOfV+qqq4fgEmyEAjwJrFmB5JWVrVRcaIOe+IY2Q+SVHAaTI8orMdsJqLc69gayvDyqX9a+84Qc1a72VTgEAAA==)
+
 ### Tick-based
 Example: a `sineOut` easing that takes 100 ticks to complete:
 
@@ -116,7 +118,7 @@ Once you have this value, it can be applied as necessary. For example, positioni
 el.style.transform = `translate(${e.compute() * width}px, 0px)`;
 ```
 
-See the source of the demos below for more ideas.
+See the source of the demos below for more ideas, or [try it out on fn-vis](https://fn-vis.pages.dev/1/#H4sIAB5U3mQAA1WRQU/DMAyF/8pTTq1U1u3aadw47MAJbnTSQuu1YakTNe6YVPW/kwaB4Gj7vc/P8tusBteSqpS3TtRSzIr18FsXyrARo62q5qVYpUFV0dNSkKh5UMupSMXaPkWFGbwbBTOedDDcBSy4jG5ArXoRH6qynNhfu03jhtLcL/eyNUHKyJ2sFuN48xFqta+55rLEq74SdsV2u4WY5hogDp2D9KObuh6UViTlkWPXBDQ6UAHHlAz4NNai197TN5B008fJEMc9wTDTCK9jXndBIDmy0HjTFolkLbU1N46DgHD4uWizkrPzO1l7LrCL4fKU948/y3IcHjHXDFgS3KKb1pP9JJTlqxqIcV6IW0T9RGvDuyDPFILuKLutzCXh872KT/n3pNMX560UxrYBAAA=)
 
 ## It's a function
 

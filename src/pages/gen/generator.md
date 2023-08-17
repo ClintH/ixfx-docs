@@ -182,6 +182,17 @@ range.next().value;
 
 If you just want to simply count from 0 to some number, consider using `count` instead.
 
+[`Numbers.linearSpace`](https://clinth.github.io/ixfx/functions/Numbers.linearSpace.html) generates a set number of steps between a start and end number.
+
+```js
+// repl-pad
+import { linearSpace } from "https://unpkg.com/ixfx/dist/numbers.js"
+// linearSpace(start, end, steps);
+// Break up 1..5 in six steps
+const values = [...linearSpace(1, 5, 6)];
+// Yields: [ 1, 1.8, 2.6, 3.4, 4.2, 5 ]
+```
+## Percentages 
 To constrain the range to the percentage scale (0-1), use `numericPercent`:
 
 ```js

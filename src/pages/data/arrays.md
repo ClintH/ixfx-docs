@@ -65,7 +65,7 @@ const last = someArray.at(-1);
 const first = someArray.at(0);
 ```
 
-ixfx has some functions for randomly choosing items or indexes from an array: [`randomElement`](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#randomElement) returns a random element from an array, [`randomIndex`](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#randomIndex) returns a random index.
+ixfx has some functions for randomly choosing items or indexes from an array: [`randomElement`](https://clinth.github.io/ixfx/functions/Collections.Arrays.randomElement.html) returns a random element from an array, [`randomIndex`](https://clinth.github.io/ixfx/functions/Collections.Arrays.randomIndex.html) returns a random index.
 
 ```js
 // repl-pad
@@ -78,14 +78,15 @@ randomElement([`apples`, `oranges`, `pears`]);
 randomIndex([`apples`, `oranges`, `pears`]);
 ```
 
-[`weightedInteger`](https://clinth.github.io/ixfx/modules/Random.html#weightedInteger) can be used for skewing the distributing of random elements, eg to favour picking elements at the end of the array over elements at the beginning.
+[`weightedInteger`](https://clinth.github.io/ixfx/functions/Random.weightedInteger.html) can be used for skewing the distributing of random elements, eg. to favour picking elements at the end of the array over elements at the beginning.
 
 ```js
 import {weightedInteger} from 'https://unpkg.com/ixfx/dist/random.js';
 const a = [`apples`, `oranges`, `melons`, `bananas`];
-// eg: weightedInteger(maxValue, easingName)
-// generate a random index weighted using the quadIn easing.
-a[weightedInteger(a.length), `quadIn`];
+// Define a function to produce the random numbers we want
+const rand = () => weightedInteger({ max: a.length, easing: `quadIn` });
+// Use function to access an item in array
+a[rand()];
 ```
 
 
@@ -147,6 +148,7 @@ if (firstPurpleFruit === undefined) {
 }
 ```
 
+
 ## Ordering
 
 ```js
@@ -155,11 +157,11 @@ someArray.sort();     // Simple sort
 someArray.reverse();  // Reverse order
 ```
 
-[`shuffle`](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#shuffle) randomises the ordering of an array.
+ixfx's [`shuffle`](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#shuffle) randomises the ordering of an array.
 
 ```js
 // repl-pad#1
-import {shuffle} from 'https://unpkg.com/ixfx/dist/arrays.js';
+import { shuffle } from 'https://unpkg.com/ixfx/dist/arrays.js';
 const a = [`apples`, `oranges`, `melons`, `bananas`];
 
 // Yields a randomly ordered version, eg: [`melons`,`apples`,`bananas`,`oranges`];
@@ -198,7 +200,21 @@ const filtered = data.filter(d => d > 2); // Return true if value is greater tha
 // [3, 3]
 ```
 
-Remove a random element from an array with [`randomPluck`](https://clinth.github.io/ixfx/modules/Collections.Arrays.html#randomPluck). It doesn't modify the array, but returns the randomly selected item and a new array without it.
+[`until`](https://clinth.github.io/ixfx/functions/Collections.Arrays.until.html) returns all items in an array until the provided predicate returns false.
+
+```js
+// repl-pad
+import { until } from "https://unpkg.com/ixfx/dist/arrays.js"
+
+// Callback gets current value, and needs to return:
+// [true/false, accmulated value]
+// In this case, we return [true,0] if v === 3
+const v = Arrays.until([1,2,3,4,5], v => [v === 3, 0]);
+
+```
+
+Remove a random element from an array with [`randomPluck`](https://clinth.github.io/ixfx/functions/Collections.Arrays.randomPluck.html). It doesn't modify the array, but returns the randomly selected item and a new array without it.
+
 
 ```js
 // repl-pad
@@ -212,7 +228,7 @@ r.array; // A copy of the array with the random value removed
 
 ## Grouping
 
-`groupBy` allows you to group an array by some generated key.
+[`groupBy`](https://clinth.github.io/ixfx/functions/Collections.Arrays.groupBy.html) allows you to group an array by some generated key.
 
 ```js
 // repl-pad
@@ -308,3 +324,18 @@ weight([1,1,1,1,1,1], Easings.gaussian());
 // Yields:
 // [0.02, 0.244, 0.85, 0.85, 0.244, 0.02]
 ```
+
+## More functions
+
+* [`additionalValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.additionalValues.html) - yield all values not contained in a base array
+* [`contains`](https://clinth.github.io/ixfx/functions/Collections.Arrays.contains.html) - returns _true_ if array contains all provided items
+* [`filterAB`](https://clinth.github.io/ixfx/functions/Collections.Arrays.filterAB.html) - filters an array with a predicate, returning everything that passes in one array and everything that does not in another.
+* [`valuesEqual`](https://clinth.github.io/ixfx/functions/Collections.Arrays.valuesEqual.html) - returns _true_ if all values in array are identical
+* [`compareValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.compareValues.html) - for array _x_ and _y_, identify items common in both, or exclusively in _x_ or _y_
+* [`compareValuesEqual`](https://clinth.github.io/ixfx/functions/Collections.Arrays.compareValuesEqual.html) - returns _true_ if both arrays contain the same set of items, regardless of position.
+* [`containsDuplicateValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.containsDuplicateValues.html) - returns _true_ if any duplicates are found in source array.
+* [`intersection`](https://clinth.github.io/ixfx/functions/Collections.Arrays.intersection.html) - return values contained in both _x_ and _y_ arrays
+* [`filterBetween`](https://clinth.github.io/ixfx/functions/Collections.Arrays.filterBetween.html) - return elements of array that match predicate _and_ are within a given start and end index
+* [`without`](https://clinth.github.io/ixfx/functions/Collections.Arrays.without.html) - return an array without a given value
+* [`chunks`](https://clinth.github.io/ixfx/functions/Collections.Arrays.chunks.html) - break up an array into chunks of a given size
+* [`unique`](https://clinth.github.io/ixfx/functions/Collections.Arrays.unique.html) - combines values of arrays, only keeping unique values

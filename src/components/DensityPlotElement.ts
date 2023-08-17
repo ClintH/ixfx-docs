@@ -34,7 +34,7 @@ export class DensityPlotElement extends LitElement {
         flex-direction: column;
         margin-bottom: 0.5em;
       }
-      .controls input {
+      input {
         font-family: var(--font-mono);
       }
       #parseMsg {
@@ -133,7 +133,7 @@ export class DensityPlotElement extends LitElement {
   }
 
   private computeValues(count: number): readonly number[] {
-    const r = repeat<number>(count, () => {
+    const r = [...repeat<number>(count, () => {
       try {
         const v = this.func.fn();
         this.showWarning(``);
@@ -142,7 +142,7 @@ export class DensityPlotElement extends LitElement {
         this.showWarning(ex);
         return 0;
       }
-    });
+    })];
 
     if (this.scaleMax === undefined || this.scaleMin === undefined)
       return Normalise.array(r);
@@ -231,7 +231,7 @@ export class DensityPlotElement extends LitElement {
     <div id="container" class=${classMap(this.classes)}>
     ${this.editable ? html`
       <div class="toolbar">
-        <input @input=${this.debounceFn} id="txtFn" type="text" value=${this.fn}>
+        <input @input=${this.debounceFn} id="txtFn" size="50" type="text" value=${this.fn}>
       </div>` : ``}
       <div id="parseMsg"></div>
       <div class="plotContainer">

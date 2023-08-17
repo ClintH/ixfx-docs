@@ -49,7 +49,7 @@ import '/src/components/data/freqWeighted';
 
 ## Usage
 
-[`frequencyMutable`](https://clinth.github.io/ixfx/functions/Data.frequencyMutable.html) creates a new instance. The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
+[`frequencyMutable`](https://clinth.github.io/ixfx/functions/Data.frequencyMutable-1.html) creates a new instance. The provided frequency histogram is _mutable_, meaning that the object reference stays the same while the data inside is permitted to change.
 
 
 ### Adding and clearing

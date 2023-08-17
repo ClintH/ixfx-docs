@@ -114,7 +114,6 @@ n(11);
 
 ### Scale
 
-
 In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/functions/Data.scale.html) keeps no record of the current minimum or maximum, but normalises based on the provided range. Use this when you know what the range will be.
 
 A basic scale function looks like this:
@@ -134,7 +133,7 @@ scale(50, 0, 100, 0, 1);
 
 The ixfx scale function optionally allows the scaling to be _eased_ (for non-linear scaling), and if `outMin`/`outMax` are not specified, a 0..1 range is presumed.
 
-It's function signature looks like this:
+Its function signature looks like this:
 
 ```js
 scale(v:number, 
@@ -178,6 +177,20 @@ scale(11, 0, 10); // 1.1
 
 // Clamp solves that:
 clamp(scale(11, 0, 10)); // 1
+
+// Alternatively, use scaleClamped:
+// scaleClamped(value, inMin, inMax, outMin, outMax, easing)
+scaleClamped(11, 0, 10, 0, 1);
+```
+
+To have a reusable scaling function with the settings built-in, use `scaleFn`:
+
+```js
+import { scaleFn } from 'https://unpkg.com/ixfx/dist/data.js'
+//  Signature: scaleFn(inMin?, inMax?, outMin?, outMax?, easingFn?)
+const scaler = scaleFn(10,100);
+
+scaler(20); // Scale
 ```
 
 If the input range is a percentage, [`scalePercentages`](https://clinth.github.io/ixfx/functions/Data.scalePercentages.html) adapts to a new output percentage range. While `scale` can be used for this, it's useful because it sanity-checks values to make sure everything stays within the percentage range.
@@ -187,6 +200,15 @@ If the input range is a percentage, [`scalePercentages`](https://clinth.github.i
 import { scalePercentages } from 'https://unpkg.com/ixfx/dist/data.js'
 // Scale 0.5 to be on a 0.0-0.10 range
 scalePercentages(0.5, 0, 0.10) // 0.05 (5%)
+```
+
+Rather different, but closely named is [`scalePercentage`](https://clinth.github.io/ixfx/functions/Data.scalePercent.html). It maps an _input_ percentage to some output range.
+
+```js
+// repl-pad
+import { scalePercent } from 'https://unpkg.com/ixfx/dist/data.js'
+// Scales 50% to the range of 10-20
+scalePercent(0.5, 10, 20); // 15
 ```
 
 ## Geometry

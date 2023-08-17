@@ -33,7 +33,7 @@ export class GridOffsetElement extends LitElement {
   offsets() {
     const el = this.shadowRoot.getElementById(`offsetsGrid`) as GridEditor;
     const selected = el.selectedCell;
-
+    console.log(selected);
     const offsets = Grids.offsetCardinals(this.grid, selected, this.distance, this.wrapStyle as Grids.BoundsLogic);
     el.cellRenderer = (cell, rect, ctx) => {
       const kv = Object.entries(offsets).find(t => Grids.cellEquals(t[1], cell));

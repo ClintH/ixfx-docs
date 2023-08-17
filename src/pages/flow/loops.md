@@ -166,14 +166,20 @@ Note the use of _for await_ is important here. Use `break` when you want to exit
 
 ## Repeat
 
-[`repeat`](https://clinth.github.io/ixfx/modules/Flow.html#repeat) runs a function a certain number of times, accumulating the results into an array.
+[`repeat`](https://clinth.github.io/ixfx/modules/Flow.html#repeat) runs a function a certain number of times, yielding the results one-by-one.
 
 ```js
 // repl-pad
 import { repeat } from "https://unpkg.com/ixfx/dist/flow.js"
 
 // Five random numbers in an array
-const results = repeat(5, () => Math.random());
+const results = [...repeat(5, Math.random)];
+
+// Or in a for-of loop:
+for (const result of repeat(5, Math.random)) {
+  // result is a random number
+}
+// Exits after 5 numbers
 ```
 
 If you don't care about the return value of the function, consider using [`count`](../../data/generator/#count).
@@ -205,7 +211,7 @@ IntervalOpts: {
     minimum?: Interval;
     signal?: AbortSignal;
 }
-interval<V>(produce, opts?:IntervalOpts): AsyncGenerator<V>
+interval<V>(produce, opts?:IntervalOpts|number): AsyncGenerator<V>
 ```
 
 This example prints a new random number every second
@@ -213,7 +219,7 @@ This example prints a new random number every second
 ```js
 import { interval } from "https://unpkg.com/ixfx/dist/flow.js"
 
-const randomGenerator = interval(() => Math.random, 1000);
+const randomGenerator = interval(Math.random, { fixed: 1000 } );
 for await (const r of randomGenerator) {
   // Prints a new random number every second
   console.log(r);
@@ -222,12 +228,19 @@ for await (const r of randomGenerator) {
 console.log(`Done.`); 
 ```
 
-Iterate through items in a list, one item per minute
+If you don't want to specify options other than the loop speed in milliseconds, a number can be provided as the second option:
+```js
+// These lines are the same
+interval(Math.random, { fixed: 1000 } );
+interval(Math.random, 1000 );
+```
+
+Iterate through items in a list, with a delay of one minute before each item
 ```js
 const opts = { fixed: { mins: 1 }, delay: 'before' };
 const list = [ 'thom', 'jonny', 'colin', 'ed', 'phil' ];
 for await (const i of interval(list, opts)) {
-  // do something with i
+  // do something with i (code first runs after 1min wait)
 }
 ```
 

@@ -158,6 +158,18 @@ setup("1tCAJW", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
 									Delay
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/retrying/" aria-current="false" class="astro-TIHETVVV">
+									Retrying
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/flow/" aria-current="false" class="astro-TIHETVVV">
+									Flow
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/monitoring/" aria-current="false" class="astro-TIHETVVV">
+									Monitoring
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -188,6 +200,10 @@ setup("1tCAJW", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
 									Oscillator
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/spring/" aria-current="false" class="astro-TIHETVVV">
+									Spring
 								</a>
 							</li>
 					</ul>
@@ -297,7 +313,7 @@ setup("1tCAJW", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 			</nav>
 		<div class="tip">
 <ul>
-<li>API Reference <a href="https://clinth.github.io/ixfx/classes/Collections.ExpiringMap.html">ExpiringMap class</a></li>
+<li>API Reference <a href="https://clinth.github.io/ixfx/classes/Collections.Maps.ExpiringMap.html">ExpiringMap class</a></li>
 <li>Parent <a href="https://clinth.github.io/ixfx/modules/Collections.html">Collections module</a></li>
 </ul></div><p>The ixfx <a href="https://clinth.github.io/ixfx/classes/Collections.ExpiringMap.html"><code>ExpiringMap</code></a> is a variant of the in-built Map. It can:</p><ul>
 <li>Set a capacity limit of the map, deleting entries when the capacity is reached</li>
@@ -311,7 +327,7 @@ map<span class="token punctuation">.</span><span class="token function">get</spa
 map<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">fruit</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Yields: true (because key existed)</span></code></pre><p>To update the get/set time for an entry without actually updating it, use <code>touch</code>:</p><pre class="language-js"><code class="language-js">map<span class="token punctuation">.</span><span class="token function">touch</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">fruit</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The map has <em>expired</em>, <em>removed</em> and <em>newKey</em> events which are useful for taking action based on data coming and going. <em>expired</em> fires when an item is automatically removed, <em>remove</em> fires when an item is manually or automatically removed, and <em>newKey</em> fires when something is set with a key that does not currently exist.</p><pre class="language-js"><code class="language-js">map<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">expired</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token parameter">evt</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> <span class="token punctuation">{</span> key<span class="token punctuation">,</span> value <span class="token punctuation">}</span> <span class="token operator">=</span> evt<span class="token punctuation">;</span>
   console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">Key </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>key<span class="token interpolation-punctuation punctuation">}</span></span><span class="token string"> removed.</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre><h2 id="automatically-removing">Automatically removing</h2><p>When creating the map, use the two <code>autoDelete...</code> <a href="https://clinth.github.io/ixfx/types/Collections.ExpiringMapOpts.html">options</a>. <code>autoDeletePolicy</code> can be 'get', 'set' or 'either'.</p><p>In the below example, items that aren't accessed for over one second are removed:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> map <span class="token operator">=</span> Maps<span class="token punctuation">.</span><span class="token function">expiringMap</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span></code></pre><h2 id="automatically-removing">Automatically removing</h2><p>When creating the map, use the two <code>autoDelete</code>... <a href="https://clinth.github.io/ixfx/types/Collections.Maps.ExpiringMapOpts.html">options</a>. <code>autoDeletePolicy</code> can be 'get', 'set' or 'either'.</p><p>In the below example, items that aren't accessed for over one second are removed:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> map <span class="token operator">=</span> Maps<span class="token punctuation">.</span><span class="token function">expiringMap</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
  <span class="token literal-property property">autoDeleteElapsed</span><span class="token operator">:</span> <span class="token number">1000</span><span class="token punctuation">,</span>
  <span class="token literal-property property">autoDeletePolicy</span><span class="token operator">:</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">get</span><span class="token template-punctuation string">`</span></span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>Using a policy of 'set' instead will remove items which are not updated (via <code>map.set(key, value)</code>) past the interval. 'either' will remove items if the interval of get or set exceeds the interval.</p><h2 id="capacity-limiting">Capacity limiting</h2><p>When creating the map, specify <code>capacity</code> and <code>evictPolicy</code> <a href="https://clinth.github.io/ixfx/types/Collections.ExpiringMapOpts.html">options</a>. <code>capacity</code> is the total number of items the map can store. <code>evictPolicy</code> can be 'none', meaning that an error is thrown if the capacity is reached. This is the default. It can also be 'oldestGet', removing the entry that hasn't been accessed the longest, or 'oldestSet', deleting the entry which has't been updated the longest.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> map <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">ExpiringMap</span><span class="token punctuation">(</span><span class="token punctuation">{</span>

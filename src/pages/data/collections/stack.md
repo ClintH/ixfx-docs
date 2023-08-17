@@ -33,7 +33,7 @@ import '/src/components/data/collections/StackVis';
 import {Stacks} from "https://unpkg.com/ixfx/collections.js"
 
 // Initialise
-let s = Stacks.stack();
+let s = Stacks.immutable();
 
 // Items are pushed in order from start, so `c`
 // is on the "top" of the stack now.
@@ -84,7 +84,7 @@ s.data;
 When creating the stack, it's possible to set a capacity limit. This can be useful to avoid a _backlog_ of data. For example, if you're processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don't really care about older things any longer.
 
 ```js
-let q = Stacks.stack({capacity: 5, discardPolicy: `newer`});
+let q = Stacks.immutable({capacity: 5, discardPolicy: `newer`});
 ```
 
 The `capacity` naturally sets the total number of items the stack will store. The `discardPolicy` determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is _pushed_.

@@ -33,7 +33,7 @@ import '/src/components/data/collections/QueueVis';
 import {Queues} from "https://unpkg.com/ixfx/dist/collections.js"
 
 // Initialise
-let q = Queues.queue();
+let q = Queues.immutable();
 
 // Items are pushed in order from start, so `c`
 // is at the "back", while `a` is at the "front".
@@ -84,7 +84,7 @@ q.data;
 When creating the queue, it's possible to set a capacity limit. This can be useful to avoid a _backlog_ of data. For example, if you're processing a queue of pressure-sensor data, if a burst of new data comes in you would rather process the freshest data first, you don't really care about older things any longer.
 
 ```js
-let q = Queues.queue({capacity: 5, discardPolicy: `newer`});
+let q = Queues.immutable({capacity: 5, discardPolicy: `newer`});
 ```
 
 The `capacity` naturally sets the total number of items the queue will store. The `discardPolicy` determines how the size is maintained when the capacity limit is hit. This logic runs whenever something is _enqueued_.

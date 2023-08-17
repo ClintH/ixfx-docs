@@ -3,7 +3,7 @@ import {importEl} from '../../../loader.js';
 import {fruit} from '../../../exampleData.js';
 import {ArrayVisElement} from './ArrayVisElement.js';
 
-let queue = Queues.queue();
+let queue = Queues.immutable();
 const peekEl = document.getElementById(`peek`);
 
 const vis = importEl(

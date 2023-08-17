@@ -11,13 +11,13 @@ setup: |
 <li>Parent <a href="https://clinth.github.io/ixfx/modules/Data.html">Data module</a></li>
 </div>
 
-The [Pool](https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html) class does the housekeeping of managing a limited set of resources which are shared by 'users'. All resources in the Pool are meant to be the same.
+The [Pool](https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html) class does the housekeeping of managing a limited set of resources which are shared by 'users'. All resources in the Pool are meant to be the same kind of object.
 
-An example is an audio sketch driven by TensorFlow. We might want to allocate a sound oscillator per detected human body. A naive implementation would be to make an oscillator for each detected body. However, because poses tend to appear/disappear somewhat unpredictably it's a lot of extra work to maintain the binding between pose and oscillator.
+An example is an audio sketch driven by TensorFlow. We might want to allocate a sound oscillator per detected human body. A naive implementation would be to make an oscillator for each detected body. However, because poses appear/disappear unpredictably, it's a lot of extra work to maintain the binding between pose and oscillator.
 
 Instead, we might use the [Pool](https://clinth.github.io/ixfx/classes/Data.Pool.Pool.html) to allocate oscillators to poses. This will allow us to limit resources and clean up automatically if they haven't been used for a while.
 
-Resources can be added manually with `addResource()`, or automatically by providing a `generate()` function in the Pool options. They can then be accessed via a _user key_. This is meant to associated with a single 'user' of a resource. For example, if we are associating oscillators with TensorFlow poses, the user key might be the id of the pose.
+Resources can be added manually with `addResource()`, or automatically by providing a `generate()` function in the Pool options. They can then be accessed via a _user key_. This is meant to associated with a single 'user' of a resource. For example, if we are associating oscillators with TensorFlow poses, the 'user key' might be the id of the pose.
 
 ## In action: manual resources
 
@@ -40,11 +40,16 @@ for (const osc of oscillators) {
 }
 ```
 
-To access a resource value, call `useValue()` with a _userKey_.
+To access a resource value, call `useValue()` with a _userKey_. In this case, we have a function `onData` that is called when there is a set of poses to process.
+
+What we want to do is find the oscillator previously associated with that particular pose. If there hasn't been an allocation for that pose, we want to pick a free one or reclaim an existing one. It's all that book-keeping that Pool handles for you via `useValue`.
 
 ```js
+// New poses come in
 const onData = (poses) => {
+  // For each pose
   for (const pose of poses) {
+    // Get an oscillator for it
     const osc = pool.useValue(pose.id);
 
     // Do something with the resource...
@@ -53,13 +58,11 @@ const onData = (poses) => {
 }
 ```
 
-The Pool will automatically select an unused oscillator instance for each pose, keyed from the pose id. If a given pose id hasn't been sighted for one second, the oscillator it was assigned to is freed. If there are more poses than there are oscillators, it will re-assign the oscillator from the pose that hasn't been updated for the longest period.
-
 ## In action: automatically generating resources
 
 In this example, we will generate Pool resources on-demand. The Pool will create them (with the `generate()` function we provide) and automatically free them when they are unused.
 
-First we create the Pool, providing _generate_ and _free_ functions which are responsible for creating and destroying resources. Here HTML elements are the resources pooled.
+First we create the Pool, providing _generate_ and _free_ functions which are responsible for creating and destroying resources. Here HTML elements are the resources being managed.
 
 ```js
 import { Pool } from 'https://unpkg.com/ixfx/dist/data.js';
@@ -74,6 +77,7 @@ const pool = Pool.create({
     const el = document.createElement(`DIV`);
     el.classList.add(`pool-item`);
     document.getElementById(`items`)?.append(el);
+    // Whatever is returned is stored and yielded via `useValue` on-demand
     return el;
   }, 
   /**

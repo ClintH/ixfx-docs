@@ -5,7 +5,11 @@ setup: |
   import Layout from '../../../layouts/MainLayout.astro';
 ---
 
-[API Docs](https://clinth.github.io/ixfx/modules/Collections.Maps.html)
+<div class="tip">
+<ul>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Collections.Maps.html">Collections.Maps module</a></li>
+<li>Parent <a href="https://clinth.github.io/ixfx/modules/Collections.html">Collections module</a></li>
+</div>
 
 Javascript has an in-built [Map](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map) object which is used for tracking key-value pairs. In other words, it maps a given _key_ to a given _value_. The basic operations of a map are `set()`,`get()`, `delete()` and `has()`.
 
@@ -191,6 +195,8 @@ For example, if we are processing multi-touch input, each pointer event has a `p
 import { Maps } from "https://unpkg.com/ixfx/dist/collections.js"
 // Set up
 const trackers = Maps.getOrGenerate(new Map(), key => {
+  // This runs whenever there is a new key stored,
+  // adding the returned value to the map
   return new MagicalPointerTracker(key);
 })
 
@@ -203,7 +209,7 @@ document.addEventListener(`pointermove`, async evt => {
 
 Note the use of `await`. This means that we can use asynchronous functions to generate new values on demand. Alternatively, use [`getOrGenerateSync`](https://clinth.github.io/ixfx/functions/Collections.Maps.getOrGenerateSync.html) which has the same signature, but doesn't need `await` when accessing.
 
-### Adding
+## Adding
 
 By default, adding a key-value pair to a map will overwrite an existing entry with same key. Sometimes this 'last write wins' logic is not wanted, and instead we want to throw away values if they would overwrite something older. [`Maps.addKeepingExisting`](https://clinth.github.io/ixfx/functions/Collections.Maps.addKeepingExisting.html) to the rescue.
 
@@ -216,11 +222,11 @@ const keyFn = v => v.name;
 const values = [
   { name: `Sally`, colour: `red` },
   { name: `Bob`, colour: `pink` },
-  { name: `Sally`, colour: `green` }
+  { name: `Sally`, colour: `green` } /* this one will get ignored */
 ]
 const map = new Map();
 
-// Add
+// Add values
 Maps.addKeepingExisting(map, keyFn, ...values);
 map.get(`Sally`).colour; // `red`
 ```
@@ -247,7 +253,7 @@ const altered = Maps.mapToArray(map, (key, person) => {
 // ]
 ```
 
-[`Maps.toObject`] converts a map to a plain object, this is useful for turning into a JSON string representation.
+[`Maps.toObject`](https://clinth.github.io/ixfx/functions/Collections.Maps.toObject.html) converts a map to a plain object, this is useful for turning into a JSON string representation.
 
 Given the same example map from above:
 
@@ -260,7 +266,7 @@ const objects = Maps.toObject(map);
 // }
 ```
 
-Use [`Maps.fromObject`] to convert back from a plain object.
+Use [`Maps.fromObject`](https://clinth.github.io/ixfx/functions/Collections.Maps.fromObject.html) to convert back from a plain object.
 
 _Mapping_ over a collection of values is common when dealing with arrays. It allows you to transform each element of an array, returning a new array with the transformed values. There is no in built `map()` for Maps, but you can use ixfx's [`Maps.transformMap`](https://clinth.github.io/ixfx/functions/Collections.Maps.transformMap.html) for a similar outcome.
 
@@ -300,8 +306,10 @@ const map = Maps.zipKeyValue(keys, values);
 map.get(`b`); // Yields: `bee`
 ```
 
-## Merging
+## More functions
 
-Got multiple maps that need to be merged? It's straightforward to copy the key-value pairs of one map over the top of another. But if you want to more artfully merge values, it starts becoming complicated
-
-[`Maps.mergeByKey`](https://clinth.github.io/ixfx/functions/Collections.Maps.mergeByKey.html) attempts to help with that, allowing you to define how the values of overlapping keys are combined.
+* [`find`](https://clinth.github.io/ixfx/functions/Collections.Maps.find.html) - Finds first value that matches value
+* [`firstEntryByIterableValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.firstEntryByIterableValue.html) - Finds first entry that matches value
+* [`immutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.immutable.html) - immutable map implementation
+* [`mergeByKey`](https://clinth.github.io/ixfx/functions/Collections.Maps.mergeByKey.html) - merge two maps, with a reconcile function to merge values that use same key
+* [`zipKeyValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.zipKeyValue.html) - combine an array of keys and an array of values into an object

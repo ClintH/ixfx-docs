@@ -57,7 +57,7 @@
 
 		<title>Averaging - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.2d85b21d9.js" astro-script="/data/averaging/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.e65a59709.js" astro-script="/data/averaging/script-0"></script>
 <script type="module" hoist="true" astro-script="/data/averaging/script-1">import '/src/components/ReplPad';</script>
 <script type="module" astro-script="/data/averaging/script-2">import "../../client-shim.ef70acef.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/data/averaging/script-3">import setup from '../../idle.79a119d3.js';
@@ -160,6 +160,18 @@ setup("gV5UN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 								<a href="/ixfx-docs/flow/delay/" aria-current="false" class="astro-TIHETVVV">
 									Delay
 								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/retrying/" aria-current="false" class="astro-TIHETVVV">
+									Retrying
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/flow/" aria-current="false" class="astro-TIHETVVV">
+									Flow
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/flow/monitoring/" aria-current="false" class="astro-TIHETVVV">
+									Monitoring
+								</a>
 							</li>
 					</ul>
 				</div>
@@ -190,6 +202,10 @@ setup("gV5UN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 							</li><li class="nav-link astro-TIHETVVV">
 								<a href="/ixfx-docs/modulation/oscillator/" aria-current="false" class="astro-TIHETVVV">
 									Oscillator
+								</a>
+							</li><li class="nav-link astro-TIHETVVV">
+								<a href="/ixfx-docs/modulation/spring/" aria-current="false" class="astro-TIHETVVV">
+									Spring
 								</a>
 							</li>
 					</ul>
@@ -625,7 +641,7 @@ Arrays<span class="token punctuation">.</span><span class="token function">avera
 
 <span class="token comment">// Or use the spread operator for arrays:</span>
 <span class="token keyword">const</span> someArray <span class="token operator">=</span> <span class="token punctuation">[</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
-Arrays<span class="token punctuation">.</span><span class="token function">average</span><span class="token punctuation">(</span>someArray<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>If you have a set of numbers to average not already in an array, [<code>Numbers.average</code>] is effectively the same as <code>Arrays.average</code>, but takes in a spread set of parameters:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+Arrays<span class="token punctuation">.</span><span class="token function">average</span><span class="token punctuation">(</span>someArray<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>If you have a set of numbers to average not already in an array, <a href="https://clinth.github.io/ixfx/functions/Numbers.average.html"><code>Numbers.average</code></a> is effectively the same as <code>Arrays.average</code>, but takes in a spread set of parameters:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
 <span class="token keyword">import</span> <span class="token operator">*</span> <span class="token keyword">as</span> Numbers <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/numbers.js'</span><span class="token punctuation">;</span>
 
 Numbers<span class="token punctuation">.</span><span class="token function">average</span><span class="token punctuation">(</span><span class="token number">10</span><span class="token punctuation">,</span> <span class="token number">20</span><span class="token punctuation">,</span> <span class="token number">30</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
