@@ -229,7 +229,6 @@ See also:
 * [`pointsTracker` API docs](https://clinth.github.io/ixfx/functions/Data.pointsTracker.html) for more on the tracker, including sorting points by when they were recently updated.
 * The [pointer scale demo](https://clinth.github.io/ixfx-demos/pointer/scale/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/pointer/scale)) uses `numberTracker` and `pointsTracker`.
 
-
 ## Trackers in general
 
 All the trackers can take some options. Eg, creating a `numberTracker` with a string id of `someTracker`, have it automatically reset every 10 samples, and to store these values:
