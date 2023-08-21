@@ -77,7 +77,7 @@ class DemoElement extends LitElement {
         <div class="titleBar">
           <div>${title}</div>
           <div class="toolbar">
-            <a class="icon icon-external-link" title="Edit code" target="_blank" href="${editUrl}">Edit</a> 
+            <a class="icon icon-external-link" title="View source" target="_blank" href="${editUrl}">Source</a> 
             <a class="icon icon-external-link" title="Open demo in new window" target="_blank" href="${demoUrl}">Open</a> 
           </div>
         </div>

@@ -6,7 +6,7 @@ setup: |
   import ModuleList from './ModuleList.astro';
 ---
 
-1. [Get the latest package](https://github.com/ClintH/ixfx/packages/)
+1. [Get the latest code](https://github.com/ClintH/ixfx/archive/refs/heads/main.zip)
 
 2. Download and unzip. Grab the files from the `dist` folder and put them into a folder called `ixfx` in a directory containing your sketches.
 
@@ -27,4 +27,4 @@ import { Timers } from "./ixfx/bundle.js"
 Timers.continuously(...);
 ```
 
-This is how the ixfx demos are organised, you can see this in action [on the repository](https://github.com/clinth/ixfx-demos/).
+This is how the ixfx demos are organised, you can see this in action [in the repository](https://github.com/clinth/ixfx-demos/).

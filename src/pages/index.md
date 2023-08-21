@@ -4,107 +4,34 @@ description: Docs intro
 layout: ../layouts/MainLayout.astro
 ---
 
-ixfx is a tookit for programming interactivity. The major modules are:
+ixfx is a collection of functions for programming _interactivity_.
 
-<div class="wrappedBoxContainer mini">
-  <div>
-    <h1>Flow</h1>
-    <h2>Controlling how & when code runs</h2>
-    <ul class="list">
-      <li><a href="./flow/stateMachine/">state machine</a></li>
-      <li><a href="./flow/loops/">loops and intervals</a></li>
-      <li><a href="./flow/delay/#timeout">timeouts</a></li>
-      <li><a href="./flow/flow/#debounce">debounce</a></li>
-      <li><a href="./flow/flow/#throttle">throttling</a></li>
-    </ul>
-  </div>
-  <div>
-    <h1>Modulation</h1>
-    <h2>Influencing & shaping values</h2>
-
-[ADSR envelope](./modulation/envelope/),
-[oscillators](./modulation/oscillator/),
-[easing functions](./modulation/easing/), [interpolate](./modulation/interpolate/), [forces](./modulation/forces/).
-
-</div>
-
-<div>
-  <h1>Generation</h1>
-  <h2>Producing values</h2>
-
-[randomisation & jitter](./gen/random/), [generators](./gen/generator/)
-
-</div>
-<div>
-    <h1>Data</h1>
-    <h2>Cleaning & organising data</h2>
-
-[averaging](./data/averaging/),
-[cleaning](./data/cleanup/),[normalising](./data/normalising/),
-[frequency counting](./data/frequency/), [tracking](./data/trackers/)
-
-[arrays](./data/arrays/), [stack](./data/collections/stack/), [maps](./data/collections/map/) and
-[queue](./data/collections/queue/) collections
-
-[pool](./data/pool/), [expiring map](./data/collections/expiringMap/)
-
-</div>
-<div>
-    <h1>Types</h1>
-    <h2>Geometry</h2>
-
-[Cartesian & polar coordinates](./types/geometry/units/),
-[points](./types/geometry/point/), [vectors](./types/geometry/vector/), [lines](./types/geometry/line/),
-[arcs](./types/geometry/arc/), [circles](./types/geometry/circle/),
-[rectangle](./types/geometry/rect/) and [grid layouts](./types/geometry/grid/).
-
-<h2>Colour</h2>
-
-[interpolating, scales and variations](./types/colour/)
-
-</div>
-
-<div>
-  <h1>Input/Output</h1>
-  <h2>Interfacing with the world</h2>
-
-[Espruino Puck.js](./io/espruino-puck/), [Espruino Pico](./io/espruino-pico/)
-
-</div>
-</div>
+It helps you to focus more on the design work rather than the plumbing work.
 
 ## Get started
 
-Choose your starting point:
+Explore what ixfx offers via the sidebar. There are lots of interactive illustrations and look out for the <code style="color: var(--yellow)">// repl-pad</code> link in code samples which opens an instant editor.
 
-- [Download and tinker with the provided demos](https://github.com/clinth/ixfx-demos/)
-- [import ixfx into your own sketch](./importing)
-- Use a starter kit:
-  [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js%3A15%3A0),
-  Codepen, StackBlitz
-- Edit demos online:
-  [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos),
-  [Glitch](https://glitch.com/edit/#!/ixfx-demos)
+Once you've done that and are ready to tinker, choose your starting point:
 
-See the sidebar to the left (or the drop-down menu if you're on mobile) and
-start exploring.
+- [Play with provided demos](https://clinth.github.io/ixfx-demos/) and [tinker with the code](https://github.com/clinth/ixfx-demos/). (Or use an online editor:
+  [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos), [StackBlitz](https://stackblitz.com/github/clinth/ixfx-demos/))
+- [Import ixfx into your own sketch](./importing/)
+- Use a barebones starter:
+  [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js)
 
-- [Source code on Github](https://github.com/ClintH/ixfx)
-- [Try demos online](https://clinth.github.io/ixfx-demos/)
-  ([source on GitHub](https://github.com/clinth/ixfx-demos/))
-- [Browse API documentation](https://clinth.github.io/ixfx/)
+
 
 ## Why ixfx?
 
 There are many 'front-end' frameworks, but these are typically meant for regular
 GUIs or document-based apps. They usually have idiosyncratic ways of structuring
-code, custom syntax, and elaborate build processes. Great though if you're doing
-that kind of thing often.
+code, custom syntax, and elaborate build processes.
 
 There are also several 'creative coding' sandboxes. These are better suited than
 front-end frameworks for experimentation in interactivity, but again tend to be
 their own little ecosystem removed from the web platform. They favour
-Canvas-based visuals, and seem largely ignorant of the wider web platform or
+canvas-based visuals, and seem largely ignorant of the wider web platform or
 modern coding practices.
 
 In both cases one spends a lot of time learning the particular framework and its
@@ -119,7 +46,7 @@ Some design principles of ixfx are:
   can be applied elsewhere
 - Good type definitions and documentation for improved editor experience (in VS
   Code at least)
-- Plain, immutable data over rich objects
+- Plain, immutable data over complicated objects
 - Favour functional approaches over OOP
 
 ## This documentation
@@ -133,3 +60,6 @@ code.
 
 Embedded demos are also scattered around. In their toolbars, you can open the
 demo source on Github or view in a separate tab.
+
+- [Source code on Github](https://github.com/ClintH/ixfx)
+- [Browse API documentation](https://clinth.github.io/ixfx/)

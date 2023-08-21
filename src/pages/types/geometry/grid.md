@@ -2,8 +2,8 @@
 title: Grid
 layout: ../../../layouts/MainLayout.astro
 setup: |
+  import { DemoElement } from '/src/components/DemoElement.ts';
   import GridVisitorElement from '/src/components/geometry/GridVisitorElement';
-  import GridColourElement from '/src/components/geometry/GridColourElement';
   import GridOffsetElement from '/src/components/geometry/GridOffsetElement';
 ---
 
@@ -165,7 +165,7 @@ const cellAbove = offsets.n // eg. get cell `distance` to the north of `origin`
 
 Grid and cells don't store data. You can't stuff things into it as you would a spreadsheet cell. It is a _virtualised_ data structure in that it gives the appearance of traversing a structure, but it is only created on-demand.
 
-To link a cell to your own data, use its coordinates as a key.
+To link a cell to your own data, use its coordinates as a key into a collection like a Map
 
 Lets say you want to associate colour with each cell:
 
@@ -176,17 +176,19 @@ Lets say you want to associate colour with each cell:
 // eg: {x:10, y:5} => "10-5"
 const key = (cell) => `${cell.x}-${cell.y}`;
 
-// 2. We can create some data...
+// 2. Create a map to store data
 const store = new Map();
 
+// 3. Some test data...
 const someData = { colour: `red` }
 const someMoreData = { color: `pink`};
 
-// 3. Data can be associated using the map:
-data.set(key({x: 0, y: 0}), someData);
+// 4. Data can be associated using the map:
+data.set(key({ x: 0, y: 0 }), someData);
 
-// 4. And then retrieved from the basis of a cell:
-const cellData = data.get(key({x:0, y:0}));
+// 4. And then retrieved from the basis of a cell
+//    coordinate. Let's say we want the data for cell 0,0:
+const cellData = data.get(key({ x: 0, y: 0 }));
 // cellData.colour, etc
 ```
 
@@ -202,15 +204,17 @@ const shape = { rows: 10, cols: 10 };
 const colours = [`bisque`, `cadetblue`,`cornflowerblue`, `coral`]
 
 for (let cell of Grids.cells(shape)) {
-  store.set(key(cell), {colour: Arrays.randomElement(colours), funk: Math.random()});
+  store.set(key(cell), {
+    colour: Arrays.randomElement(colours), 
+    karma: Math.random()});
 }
 
 // Fetch data associated with a given cell:
 const val = store.get(key({x:5, y:5}));
-// {colour: '...', funk: 0.235}
+// {colour: '...', karma: 0.235}
 ```
 
-<grid-colour-element client:load />
+<demo-element title="Associating data with cells" src="/geometry/grid-data/" />
 
 ## Mapping to pixels
 
@@ -229,7 +233,7 @@ const ctx = document.getElementById(`myCanvas`).getContext(`2d`);
 const shape = { rows: 100, cols: 100, size: 5 };
 
 for (const cell of Grids.cells(shape)) {
-  let rect = Grids.rectangleForCell(cell, shape);
+  let rect = Grids.rectangleForCell(shape, cell);
   ctx.strokeRect(rect.x, rect.y, rect.width, rect.height);
 }
 ```
@@ -239,17 +243,17 @@ To get the visual bounds for a given:
 ```js
 const shape = { rows: 100, cols: 100, size: 5 };
 
-// rectangleForCell(cell:Cell, grid:Grid): Rect
+// rectangleForCell(grid:Grid, cell:Cell): Rect
 // Returns { x, y, width, height } for cell at position 5,5
-const rect = Grids.rectangleForCell({ x: 5, y: 5 }, shape); 
+const rect = Grids.rectangleForCell(shape, { x: 5, y: 5 }); 
 ```
 
 Or to go from coordinate (eg. mouse pointer) to cell:
 
 ```js
 // Convert pointer position to cell coordinate
-// cellAtPoint(point:Point, grid:Grid): Cell
-const cell = Grids.cellAtPoint({evt.offsetX, evt.offsetY}, shape); // Returns {x,y}
+// cellAtPoint(grid:Grid, point:Point): Cell
+const cell = Grids.cellAtPoint(shape, {evt.offsetX, evt.offsetY}); // Returns {x,y}
 ```
 
 ## Demos

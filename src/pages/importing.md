@@ -18,40 +18,203 @@ You'll mostly want to import functions as _modules_:
 import { NameOfModule } from "https://unpkg.com/ixfx/dist/bundle.js"
 ```
 
-The names of predefined modules are given in the list above. All of these can be imported from the main bundle.
+The names of predefined modules are given in the list below. All of these can be imported from the main bundle or invididually. The bundle contains _all_ the modules.
 
 For example, to import _Timers_:
 
 ```js
-import { Timers } from "https://unpkg.com/ixfx/dist/bundle.js"
-Timers.continuously(...);
+import { Flow } from "https://unpkg.com/ixfx/dist/bundle.js"
+Flow.continuously(...);
 ```
 
 Note the module name is capitalised, while the names in the URL are not. Also note that function names are preceded by the module name. One needs to call `Timers.continuously` not `continuously`.
 
+If you don't want to import the whole bundle, but still want to import everything from a module, you can use this syntax:
+
+```js
+import * as Flow from "https://unpkg.com/ixfx/dist/flow.js"
+Flow.continuously(...);
+```
+
+This looks similar to how we started, but the difference is we're only importing the contents of `flow.js` and not all the ixfx code.
+
 ## Functions
 
-Some functions ([listed here](https://clinth.github.io/ixfx/modules.html)) don't live in a module at all. Or other times you just want to import a single function from within a module.
+Most functions are housed within modules.
 
 To import a function: 
 
 ```js
-import { nameOfFunction } from "https://unpkg.com/ixfx/bundle.js
+import { nameOfFunction } from "https://unpkg.com/ixfx/nameOfModule.js"
 ```
 
-For example, to import `clamp`:
-
-```js
-import { clamp } from "https://unpkg.com/ixfx/dist/bundle.js"
-```
-
-You can also import functions from within a module:
+For example, to import `continuously` from the Flow module:
 
 ```js
 import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
-continuously(...)
+continuously(...);
 ```
 
-Note here the URL is using the module file _flow.js_, rather than _bundle.js_, and now we can call `continuously` without prefixing with a module name.
+Note how we specify which function to import and it doesn't have the 'Flow' prefix when we imported from the bundle.
+
 
 Browsing the [API documentation](https://clinth.github.io/ixfx/modules.html) is a good way of figuring out where to import from, if you're confused.
+
+## Module overview
+
+This overview of available modules gives some examples of importing from unpkg.com, and each header is a link to the API docs, where there is a full list of available functions, classes, types and sub-modules.
+
+### [Data](https://clinth.github.io/ixfx/modules/Data.html)
+
+Sub-modules: Correlate, Normalise, Pool
+
+Eg. function
+```js
+import { clamp } from  "https://unpkg.com/ixfx/dist/data.js"
+```
+
+Eg. sub-module
+```js
+import { Normalise } from  "https://unpkg.com/ixfx/dist/data.js"
+Normalise.array([ 1, 2, 3 ]);
+```
+
+Eg. class
+```js
+import { IntervalTracker } from  "https://unpkg.com/ixfx/dist/data.js"
+const t = new IntervalTracker();
+```
+
+### [Collections](https://clinth.github.io/ixfx/modules/Collections.html)
+
+Sub-modules: Arrays, Maps, Queues, Sets, Stacks, Trees
+
+Eg. sub-module
+
+```js
+import { Arrays } from  "https://unpkg.com/ixfx/dist/collections.js"
+Arrays.average([ 1, 2, 3 ]);
+```
+
+```js
+import { Queues } from  "https://unpkg.com/ixfx/dist/collections.js"
+let queue = Queues.immutable();
+```
+
+### [Flow](https://clinth.github.io/ixfx/modules/Flow.html)
+
+Sub-modules: Elapsed, StateMachine
+
+Eg. function
+```js
+import { sleep } from  "https://unpkg.com/ixfx/dist/flow.js"
+await sleep(1000);
+```
+
+Eg. sub-module
+```js
+import { Elapsed } from  "https://unpkg.com/ixfx/dist/flow.js"
+let e = Elapsed.since();
+```
+
+### [Generators](https://clinth.github.io/ixfx/modules/Generators.html)
+
+Sub-modules: Async, Sync
+Eg. function
+```js
+import { count } from  "https://unpkg.com/ixfx/dist/generators.js"
+for (const v of count(5, 5)) {
+  ...
+}
+```
+
+Eg. sub-module
+```js
+import { Sync } from  "https://unpkg.com/ixfx/dist/generators.js"
+for (const v of Sync.chunks(source, 10)) {
+
+}
+```
+
+### [Geometry](https://clinth.github.io/ixfx/modules/Geometry.html)
+
+Sub-modules: Arcs, Beziers, Circles, Compound, Convolve2d, Ellipses, Grids, Layouts, Lines, Paths, Points, Polar, QuadTree, Rects, Scaler, Shapes, Spheres, SurfacePoints, Triangles, Vectors, Waypoints
+
+Eg. function
+```js
+import { radianToDegree } from  "https://unpkg.com/ixfx/dist/geometry.js"
+radianToDegree(Math.PI);
+```
+
+Eg. sub-module
+```js
+import { Points } from  "https://unpkg.com/ixfx/dist/geometry.js"
+Points.multiply({x:1,y:2},{x:0.5,y:0.5});
+```
+
+### [Io](https://clinth.github.io/ixfx/modules/Io.html)
+
+Sub-modules: AudioAnalysers, AudioVisualisers, Bluetooth, Camera, Espruino, Serial, VideoFile
+
+Eg. sub-module
+```js
+import { VideoFile } from  "https://unpkg.com/ixfx/dist/io.js"
+VideoFile.start(file);
+```
+
+### [Modulation](https://clinth.github.io/ixfx/modules/Modulation.html)
+
+Sub-modules: Easings, Forces, Oscillators
+
+Eg. function
+```js
+import { jitter } from  "https://unpkg.com/ixfx/dist/modulation.js"
+jitter({relative:0.1})(0.5);
+```
+
+Eg. sub-module
+```js
+import { Oscillators } from  "https://unpkg.com/ixfx/dist/modulation.js"
+const osc = Oscillators.saw(0.1);
+```
+
+### [Numbers](https://clinth.github.io/ixfx/modules/Numbers.html)
+
+Sub-modules: _none_
+
+Eg. function
+```js
+import { average } from  "https://unpkg.com/ixfx/dist/numbers.js"
+average(4, 2, 5);
+```
+
+### [Random](https://clinth.github.io/ixfx/modules/Random.html)
+
+Sub-modules: _none_
+
+Eg. function
+```js
+import { integer } from  "https://unpkg.com/ixfx/dist/random.js"
+integer(10);
+```
+
+### [Text](https://clinth.github.io/ixfx/modules/Text.html)
+
+Sub-modules: _none_
+
+Eg. function
+```js
+import { between } from  "https://unpkg.com/ixfx/dist/text.js"
+between(source, start, end);
+```
+
+### [Visual](https://clinth.github.io/ixfx/modules/Visual.html)
+
+Sub-modules: Colour, Palette, Drawing, ImageDataGrid, Plot, Plot2, SceneGraph, Svg, Video
+
+Eg. sub-module
+```js
+import { Colour } from  "https://unpkg.com/ixfx/dist/visual.js"
+Colour.interpolate(amt, from, to);
+```
+

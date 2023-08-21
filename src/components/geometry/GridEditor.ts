@@ -85,7 +85,6 @@ export class GridEditor extends LitElement {
     const cols = typeof this.cols === `string` ? parseInt(this.cols) : this.cols;
     const size = typeof this.pixelSize === `string` ? parseInt(this.pixelSize) : this.pixelSize;
     return {rows, cols, size};
-
   }
 
   private _sizeInput(e: Event) {
@@ -123,7 +122,7 @@ export class GridEditor extends LitElement {
     ctx.translate(padding, padding);
     ctx.strokeStyle = Colour.getCssVariable(`grid-color`, `whitesmoke`, this);
     for (const cell of Grids.cells(shape)) {
-      let r = Grids.rectangleForCell(cell, shape);
+      let r = Grids.rectangleForCell(shape, cell);
       if (this.cellRenderer !== undefined) this.cellRenderer(cell, r, ctx);
       if (Grids.cellEquals(cell, this.selectedCell)) {
         ctx.fillStyle = selectedColour;
@@ -142,7 +141,7 @@ export class GridEditor extends LitElement {
   }
 
   _cellPointerUp(evt: PointerEvent) {
-    const cell = Grids.cellAtPoint({x: evt.offsetX, y: evt.offsetY}, this.getGrid());
+    const cell = Grids.cellAtPoint(this.getGrid(), {x: evt.offsetX, y: evt.offsetY});
     if (cell === undefined) return;
     this.selectedCell = cell;
     const ev = new CustomEvent(`cellPointerUp`, {bubbles: true, composed: true, detail: cell});
@@ -150,7 +149,7 @@ export class GridEditor extends LitElement {
   }
 
   _cellPointerMove(evt: PointerEvent) {
-    const cell = Grids.cellAtPoint({x: evt.offsetX, y: evt.offsetY}, this.getGrid());
+    const cell = Grids.cellAtPoint(this.getGrid(), {x: evt.offsetX, y: evt.offsetY});
     if (!Grids.cellEquals(cell, this.hoveredCell)) {
       this.hoveredCell = cell;
       this.draw();

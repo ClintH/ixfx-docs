@@ -32,6 +32,7 @@ export class GridVisitorElement extends LitElement {
     const el = this.shadowRoot.getElementById(`grid`) as GridEditor;
 
     el.addEventListener(`cellPointerUp`, (ev: CustomEvent) => {
+      console.log(ev.detail);
       this.lastClicked = ev.detail as Grids.Cell;
       this.stop();
       setTimeout(() => this.start(), 100);
@@ -55,6 +56,7 @@ export class GridVisitorElement extends LitElement {
     const visitOpts = {visited};
     const lastClicked = this.lastClicked;
     let visitor;
+    console.log(`lastClicked`, lastClicked);
     switch (this.visitorKind) {
       case `Depth`:
         visitor = Grids.visitorDepth(grid, lastClicked, visitOpts);
@@ -89,18 +91,23 @@ export class GridVisitorElement extends LitElement {
 
     const run = () => {
       if (this.stopping) return;
-      const v = visitor.next();
-      const cell = v.value;
-      const done = v.done;
-      if (done) {
-        this.updateButtons(false);
-        el.selectedCell = lastClicked;
-        return;
+      try {
+        const v = visitor.next();
+        const cell = v.value;
+        const done = v.done;
+        if (done) {
+          this.updateButtons(false);
+          el.selectedCell = lastClicked;
+          return;
+        }
+        // @ts-ignore
+        el.selectedCell = cell;
+        setTimeout(run, delayMs);
+      } catch (ex) {
+        console.error(ex);
       }
-      // @ts-ignore
-      el.selectedCell = cell;
-      setTimeout(run, delayMs);
     }
+
     setTimeout(run, delayMs);
   }
 
