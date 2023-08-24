@@ -14,12 +14,11 @@ Explore what ixfx offers via the sidebar. There are lots of interactive illustra
 
 Once you've done that and are ready to tinker, choose your starting point:
 
-- [Play with provided demos](https://clinth.github.io/ixfx-demos/) and [tinker with the code](https://github.com/clinth/ixfx-demos/). (Or use an online editor:
-  [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos), [StackBlitz](https://stackblitz.com/github/clinth/ixfx-demos/))
+- [Play with provided demos](https://clinth.github.io/ixfx-demos/) and [browse the code](https://github.com/clinth/ixfx-demos/). (Or use an online editor:
+  [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos-npm), [Glitch](https://glitch.com/edit/#!/ixfx-demos)
 - [Import ixfx into your own sketch](./importing/)
-- Use a barebones starter:
-  [Glitch](https://glitch.com/edit/#!/ixfx-starter-url?path=script.js)
-
+- Use a bare-bones starter:
+  [Glitch](https://glitch.com/edit/#!/ixfx-starter-url)
 
 
 ## Why ixfx?
