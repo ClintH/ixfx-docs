@@ -326,9 +326,9 @@ getting the <a href="http://www.espruino.com/Web+IDE">Espruino IDE</a> connected
 <li><a href="http://www.espruino.com/Quick+Start+Code">Quick start - code</a> - First steps
 programming the Puck</li>
 </ul><h3 id="playgrounds">Playgrounds</h3><ul>
-<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/io/espruino-repl/">repl</a> -
+<li><a href="https://clinth.github.io/ixfx-play/io/espruino-repl/">repl</a> -
 Execute code on the Puck.js. Useful for quick 'one-liners' to test syntax.</li>
-<li><a href="https://clinth.github.io/ixfx-demos/playgrounds/io/espruino-plot/">plot</a> -
+<li><a href="https://clinth.github.io/ixfx-play/io/espruino-plot/">plot</a> -
 Plots numerical data. Useful for seeing patterns and ranges of sensors.</li>
 </ul><h2 id="demos">Demos</h2><p>The prepared demos focus on using the Puck.js as an input or output to extend
 the capabilities of the browser.</p><ul>
@@ -367,7 +367,7 @@ string.</p><pre class="language-js"><code class="language-js">e<span class="toke
  setInterval(() => Bluetooth.println(E.getTemperature()), 1000);
  NRF.on('disconnect',()=>reset());
 </span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>You probably want to test what code to send using the
-<a href="https://clinth.github.io/ixfx-demos/playgrounds/io/espruino-repl/">ixfx Espruino REPL</a>
+<a href="https://clinth.github.io/ixfx-play/io/espruino-repl/">ixfx Espruino REPL</a>
 or the official <a href="https://www.espruino.com/ide/">IDE</a>.</p><p><code>writeScript</code> does not support importing modules or other files via <code>require</code>.
 Rather, upload your code using the official IDE, and then invoke a function
 you've declared using ixfx's <code>writeScript</code> or <code>eval</code>.</p><p>To execute some code and await the result, use

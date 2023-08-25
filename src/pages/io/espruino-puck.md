@@ -28,9 +28,9 @@ does have the possibility for connecting additional components, the
 
 ### Playgrounds
 
-- [repl](https://clinth.github.io/ixfx-demos/playgrounds/io/espruino-repl/) -
+- [repl](https://clinth.github.io/ixfx-play/io/espruino-repl/) -
   Execute code on the Puck.js. Useful for quick 'one-liners' to test syntax.
-- [plot](https://clinth.github.io/ixfx-demos/playgrounds/io/espruino-plot/) -
+- [plot](https://clinth.github.io/ixfx-play/io/espruino-plot/) -
   Plots numerical data. Useful for seeing patterns and ranges of sensors.
 
 ## Demos
@@ -102,7 +102,7 @@ e.writeScript(`
 ```
 
 You probably want to test what code to send using the
-[ixfx Espruino REPL](https://clinth.github.io/ixfx-demos/playgrounds/io/espruino-repl/)
+[ixfx Espruino REPL](https://clinth.github.io/ixfx-play/io/espruino-repl/)
 or the official [IDE](https://www.espruino.com/ide/).
 
 `writeScript` does not support importing modules or other files via `require`.
