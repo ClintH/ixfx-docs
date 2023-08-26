@@ -98,6 +98,8 @@ It's also possible to get additional data about the envelope with `compute`:
 const r = env.compute();  // returns [stage, scaled, raw]
 ```
 
+You can [see an envelope in action on fn-vis](https://fn-vis.pages.dev/1/#H4sIAO9r6mQAA11SS27cMAy9CqGVDbj2tEsXKVA0XRRFJgeIZ6GMaUeJTAkiNUjg+O6R7MlXCwEk34+CbmY1uR5Vq7x1opZqVqSnt7pShowYbVU7L1WGsmoTp0eWhPmmlkO1Frl9SAgzeRcEZtA9hwp6HHS08jsV114YFhiCm6BTdyKe26aJ5B/G+uimxjwOj01vWJrkEq0W46i+50511NHREQsgndA6j0kqDRkuYO4IoK7rLz5FWeWBFtHHh8sYVrEWvu92u3XQ41E/vfd/nNscWbShT4SOlp85QdPAn4BaMKcATT1IMOOIAYx8yJcy5c2LL1HLpJFa9ZlT5HrV/I/ogfXkraFxe5xXKkQSY6F3hB0xyj8SDCdti6KEi1/b6ptvds3qaRgxKQOYAYp9nG4x1Ib3el+cSnh+XkGGL5NiufFhbb2nghTp76u/4dW8goBnxEZJZQwEg7a8uS358o7lCpn1iHn7LUzecyk3Wj4q/a9P/+3wAoPI1m6BAgAA).
+
 Other functions:
 ```js
 // Reset envelope
@@ -120,8 +122,6 @@ env.addEventListener(`complete`, () => {
   console.log(`Done.`);
 })
 ```
-
-See a [basic envelope in the value plotter](https://fn-vis.pages.dev/1/#H4sIADxW3mQAA11SS27cMAy9CqGVDbj2tEsXKVA0XRRFJgeIZ6GMaUeJTAkiNUjg+O6R7MlXCwEk34+CbmY1uR5Vq7x1opZqVqSnt7pShowYbVU7L1WGsmoTp0eWhPmmlkO1Frl9SAgzeRcEZtA9hwp6HHS08jsV114YFhiCm6BTdyKe26aJ5B/G+uimxjwOj01vWJrkEq0W46i+50511NHREQsgndA6j0kqDRkuYO4IoK7rLz5FWeWBFtHHh8sYVrEWvu92u3XQ41E/vfd/nNscWbShT4SOlp85QdPAn4BaMKcATT1IMOOIAYx8yJcy5c2LL1HLpJFa9ZlT5HrV/I/ogfXkraFxe5xXKkQSY6F3hB0xyj8SDCdti6KEi1/b6ptvds3qaRgxKQOYAYp9nG4x1Ib3el+cSnh+XkGGL5NiufFhbb2nghTp76u/4dW8goBnxEZJZQwEg7a8uS358o7lCpn1iHn7LUzecyk3Wj4q/a9P/+3wAoPI1m6BAgAA).
 
 ### Envelope options
 
