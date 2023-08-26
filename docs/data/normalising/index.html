@@ -57,7 +57,7 @@
 
 		<title>Normalising - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4dc6eb7c8.js" astro-script="/data/normalising/script-0"></script>
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.1881b91b8.js" astro-script="/data/normalising/script-0"></script>
 <script type="module" hoist="true" astro-script="/data/normalising/script-1">import '/src/components/ReplPad';</script>
 <script type="module" data-astro-component-hydration astro-script="/data/normalising/script-2">import setup from '../../idle.cf066c8c.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
@@ -67,9 +67,9 @@ setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/data/normalising/script-3">import setup from '../../media.4019acd1.js';
-setup("2pAkWt", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+setup("2qVkSI", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"arrays","text":"Arrays"},{"depth":2,"slug":"individual-values","text":"Individual values"},{"depth":3,"slug":"stream","text":"Stream"},{"depth":3,"slug":"scale","text":"Scale"},{"depth":2,"slug":"geometry","text":"Geometry"}],"class":"astro-XPZS3NBI"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"arrays","text":"Arrays"},{"depth":2,"slug":"individual-values","text":"Individual values"},{"depth":3,"slug":"stream","text":"Stream"},{"depth":3,"slug":"scale","text":"Scale"},{"depth":2,"slug":"geometry","text":"Geometry"},{"depth":2,"slug":"bipolar-values","text":"Bipolar values"}],"class":"astro-XPZS3NBI"}, children);
 
 });
 </script>
@@ -81,9 +81,9 @@ setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/data/normalising/script-5">import setup from '../../media.4019acd1.js';
-setup("2pAkWt", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+setup("2qVkSI", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"arrays","text":"Arrays"},{"depth":2,"slug":"individual-values","text":"Individual values"},{"depth":3,"slug":"stream","text":"Stream"},{"depth":3,"slug":"scale","text":"Scale"},{"depth":2,"slug":"geometry","text":"Geometry"}],"class":"astro-AMOJLK4X"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"arrays","text":"Arrays"},{"depth":2,"slug":"individual-values","text":"Individual values"},{"depth":3,"slug":"stream","text":"Stream"},{"depth":3,"slug":"scale","text":"Scale"},{"depth":2,"slug":"geometry","text":"Geometry"},{"depth":2,"slug":"bipolar-values","text":"Bipolar values"}],"class":"astro-AMOJLK4X"}, children);
 
 });
 </script>
@@ -310,7 +310,7 @@ setup("2pAkWt", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 	<section class="main-section astro-AMOJLK4X">
 		<h1 class="content-title astro-AMOJLK4X" id="overview">Normalising</h1>
 		<nav class="block sm:hidden astro-AMOJLK4X">
-				<astro-root uid="2pAkWt"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-3"><a href="#scale">Scale</a></li><li class="header-link depth-2"><a href="#geometry">Geometry</a></li></ul></astro-root>
+				<astro-root uid="2qVkSI"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-3"><a href="#scale">Scale</a></li><li class="header-link depth-2"><a href="#geometry">Geometry</a></li><li class="header-link depth-2"><a href="#bipolar-values">Bipolar values</a></li></ul></astro-root>
 			</nav>
 		<p>Data coming in from events, sensors etc. can have radically different scales or units. Rather than having to juggle these differences throughout your code, a strategy is to try to <em>normalise</em> it as soon as you can, getting it on a relative percentage scale of 0..1 (0% .. 100%).</p><p>Normalisation allows values to be compared more readily: 0.5 (ie. 50%) can represent half volume level, or half of the screen width. That's easier to manage than having to work with the equivalent absolute values of -12dB and 800, and much less of your code has to change if different scaling is needed later on.</p><p>It's easy to apply modulation factors and eventually to map the relative value to some absolute value in the output domain. For example:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Normalised value</span>
 <span class="token keyword">const</span> v <span class="token operator">=</span> <span class="token number">0.5</span><span class="token punctuation">;</span>
@@ -436,7 +436,36 @@ Normalise<span class="token punctuation">.</span><span class="token function">ar
 <span class="token keyword">const</span> pt <span class="token operator">=</span> <span class="token punctuation">{</span> <span class="token literal-property property">x</span><span class="token operator">:</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token literal-property property">y</span><span class="token operator">:</span><span class="token number">1</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
 
 <span class="token comment">// Now it's in absolute screen coordinates</span>
-<span class="token keyword">const</span> screenPt <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>pt<span class="token punctuation">,</span> bounds<span class="token punctuation">.</span>width<span class="token punctuation">,</span> bounds<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+<span class="token keyword">const</span> screenPt <span class="token operator">=</span> Points<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span>pt<span class="token punctuation">,</span> bounds<span class="token punctuation">.</span>width<span class="token punctuation">,</span> bounds<span class="token punctuation">.</span>height<span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><h2 id="bipolar-values">Bipolar values</h2><p>The scalar range of 0..1 works for a lot of cases, but sometimes the bipolar scale of -1..1 is more meaningful. In this range, 0 represents neutral. Since we're still nominally using a percentage scaling - but now -100% to 100% - math operations are simple.</p><p>An obvious use case is panning of audio in the stereo field:</p><pre class="language-js"><code class="language-js">pan <span class="token operator">=</span>  <span class="token number">0</span><span class="token punctuation">;</span> <span class="token comment">// Center</span>
+pan <span class="token operator">=</span> <span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// Far left</span>
+pan <span class="token operator">=</span>  <span class="token number">1</span><span class="token punctuation">;</span> <span class="token comment">// Far right</span></code></pre><p>As with scalars, there are few things we'd like to be able to do with them - especially to help us avoid being out-of-range.</p><p>ixfx has the <a href="https://clinth.github.io/ixfx/modules/Data.Bipolar.html">Data.Bipolar</a> for this.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> Bipolar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
+
+<span class="token comment">// Clamp an input value to -1..1 range</span>
+Bipolar<span class="token punctuation">.</span><span class="token function">clamp</span><span class="token punctuation">(</span><span class="token number">1.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 1</span>
+
+<span class="token comment">// Scale an input value on a specified range to -1..1</span>
+Bipolar<span class="token punctuation">.</span><span class="token function">scale</span><span class="token punctuation">(</span><span class="token number">50</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 0</span>
+
+<span class="token comment">// Nudge the bipolar value by 0.1 toward zero</span>
+Bipolar<span class="token punctuation">.</span><span class="token function">towardZero</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// -0.9</span>
+Bipolar<span class="token punctuation">.</span><span class="token function">towardZero</span><span class="token punctuation">(</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// 0.9</span></code></pre><p>If you're working with bipolar values a lot, there's also <a href="https://clinth.github.io/ixfx/modules/Data.Bipolar.immutable.html">Data.Bipolar.immutable</a>. It returns an immutable wrapper around a value, giving hanging the same functions described earlier off it.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Bipolar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
+<span class="token comment">// If you don't provide an initial value, 0 is used</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> Bipolar<span class="token punctuation">.</span><span class="token function">immutable</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { value: 0}</span>
+b <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+b<span class="token punctuation">.</span>value<span class="token punctuation">;</span> <span class="token comment">// 0.1</span>
+
+b <span class="token operator">=</span> Bipolar<span class="token punctuation">.</span><span class="token function">immutable</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+b <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">add</span><span class="token punctuation">(</span><span class="token operator">-</span><span class="token number">0.5</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// { value: 0.5 }</span>
+b <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">multiply</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// { value: 0.05 }</span>
+b <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">inverse</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>        <span class="token comment">// { value: -0.05 }</span>
+b <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">towardZero</span><span class="token punctuation">(</span><span class="token number">0.01</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { value: -0.04 }</span>
+
+<span class="token comment">// Interpolate to a value of 1 by 0.1</span>
+b <span class="token operator">=</span> b<span class="token punctuation">.</span><span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>The wrapper converts to a number when needed:</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Bipolar <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">'https://unpkg.com/ixfx/dist/data.js'</span><span class="token punctuation">;</span>
+<span class="token keyword">let</span> b <span class="token operator">=</span> Bipolar<span class="token punctuation">.</span><span class="token function">immutable</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// { value: 1 }</span>
+<span class="token keyword">const</span> x <span class="token operator">=</span> b <span class="token operator">+</span> <span class="token number">10</span><span class="token punctuation">;</span> <span class="token comment">// x = 11</span></code></pre>
 	</section>
 	<nav class="block sm:hidden astro-AMOJLK4X">
 		
@@ -457,7 +486,7 @@ Normalise<span class="token punctuation">.</span><span class="token function">ar
 			<aside id="grid-right" class="grid-sidebar astro-VOYEGVQR" title="Table of Contents">
 				<nav class="sidebar-nav astro-XPZS3NBI" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-XPZS3NBI">
-		<astro-root uid="2pAkWt"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-3"><a href="#scale">Scale</a></li><li class="header-link depth-2"><a href="#geometry">Geometry</a></li></ul></astro-root>
+		<astro-root uid="2qVkSI"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#arrays">Arrays</a></li><li class="header-link depth-2"><a href="#individual-values">Individual values</a></li><li class="header-link depth-3"><a href="#stream">Stream</a></li><li class="header-link depth-3"><a href="#scale">Scale</a></li><li class="header-link depth-2"><a href="#geometry">Geometry</a></li><li class="header-link depth-2"><a href="#bipolar-values">Bipolar values</a></li></ul></astro-root>
 		
 <ul class="astro-WOEIVG5E">
 </ul>

@@ -88,7 +88,7 @@ See also:
 
 Tracking an _x, y_ [Point](../../types/geometry/point/) over time is common for working with gestures - be it touch gestures on a screen, or movements of limbs in space.
 
-<demo-element title="Point tracking playground" src="https://clinth.github.io/ixfx-play/data/point-tracker/index.html" />
+<frame-element title="Point tracking playground" src="https://clinth.github.io/ixfx-play/data/point-tracker/index.html" />
 
 [`pointTracker`](https://clinth.github.io/ixfx/functions/Data.pointTracker-1.html) keeps track of a single point, returning an instance of [PointTracker](https://clinth.github.io/ixfx/classes/Data.PointTracker.html).
 

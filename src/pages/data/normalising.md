@@ -266,3 +266,62 @@ const pt = { x:1, y:1 };
 // Now it's in absolute screen coordinates
 const screenPt = Points.multiply(pt, bounds.width, bounds.height);
 ```
+
+## Bipolar values
+
+The scalar range of 0..1 works for a lot of cases, but sometimes the bipolar scale of -1..1 is more meaningful. In this range, 0 represents neutral. Since we're still nominally using a percentage scaling - but now -100% to 100% - math operations are simple.
+
+An obvious use case is panning of audio in the stereo field:
+
+```js
+pan =  0; // Center
+pan = -1; // Far left
+pan =  1; // Far right
+```
+
+As with scalars, there are few things we'd like to be able to do with them - especially to help us avoid being out-of-range.
+
+ixfx has the [Data.Bipolar](https://clinth.github.io/ixfx/modules/Data.Bipolar.html) for this.
+
+```js
+import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+
+// Clamp an input value to -1..1 range
+Bipolar.clamp(1.1); // 1
+
+// Scale an input value on a specified range to -1..1
+Bipolar.scale(50, 0, 100);  // 0
+
+// Nudge the bipolar value by 0.1 toward zero
+Bipolar.towardZero(-1, 0.1); // -0.9
+Bipolar.towardZero( 1, 0.1); // 0.9
+```
+
+If you're working with bipolar values a lot, there's also [Data.Bipolar.immutable](https://clinth.github.io/ixfx/modules/Data.Bipolar.immutable.html). It returns an immutable wrapper around a value, giving hanging the same functions described earlier off it.
+
+```js
+// repl-pad
+import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+// If you don't provide an initial value, 0 is used
+let b = Bipolar.immutable(); // { value: 0}
+b = b.add(0.1);
+b.value; // 0.1
+
+b = Bipolar.immutable(1);
+b = b.add(-0.5);        // { value: 0.5 }
+b = b.multiply(0.1);    // { value: 0.05 }
+b = b.inverse();        // { value: -0.05 }
+b = b.towardZero(0.01); // { value: -0.04 }
+
+// Interpolate to a value of 1 by 0.1
+b = b.interpolate(0.1, 1);
+```
+
+The wrapper converts to a number when needed:
+
+```js
+// repl-pad
+import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+let b = Bipolar.immutable(1); // { value: 1 }
+const x = b + 10; // x = 11
+````

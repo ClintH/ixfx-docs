@@ -93,6 +93,16 @@ A custom output range can be used as well:
 clamp(30, 50, 100); // 50
 ```
 
+If you are working with bipolar values (-1..1), you can use the [Data.Bipolar](https://clinth.github.io/ixfx/modules/Data.Bipolar.html) module.
+
+```js
+// repl-pad
+import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+Bipolar.clamp(1.1);  // 1
+Bipolar.clamp(0.9);  // 0.9
+Bipolar.clamp(-1.1); // -1
+```
+
 ### Wrap
 
 [`wrapInteger`](https://clinth.github.io/ixfx/functions/Data.wrapInteger.html) wraps an integer (ie. whole) number around a range, by default 0-360 (ie. degrees). These kinds of ranges logically wrap around continuously. Stepping past 359 degrees takes us to back to 0. And stepping -10 from 0 shouldn't yield -10, but 350.
@@ -208,3 +218,4 @@ if (typeof v === `string`) {
 * [`Numbers.isApproximately`](https://clinth.github.io/ixfx/functions/Numbers.isApproximately.html) - is this number roughly close to this other number?
 * [`Numbers.isValid`](https://clinth.github.io/ixfx/functions/Numbers.isValid.html) - is this number a proper number?
 * [`Numbers.quantiseEvery`](https://clinth.github.io/ixfx/functions/Numbers.quantiseEvery.html) - rounds a value by step size
+* Module: [Data.Bipolar](https://clinth.github.io/ixfx/modules/Data.Bipolar.html)
