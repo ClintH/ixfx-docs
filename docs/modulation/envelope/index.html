@@ -58,7 +58,7 @@
 		<title>Envelope - ixfx docs</title>
 		
 	<link rel="stylesheet" href="/ixfx-docs/assets/EnvelopePlay.4f4e2191.css"></link>
-<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.4ca089e92.js" astro-script="/modulation/envelope/script-0"></script>
+<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" src="/ixfx-docs/hoisted.a749e9182.js" astro-script="/modulation/envelope/script-0"></script>
 <script type="module" astro-script="/modulation/envelope/script-1">import "../../client-shim.8cb18301.js";</script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/envelope/script-2">import setup from '../../idle.cf066c8c.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
@@ -318,7 +318,8 @@ setup("k5Wfa", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => 
 <li>API Reference <a href="https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html">adsr function</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
 <li><a href="https://fn-vis.pages.dev/1/#H4sIANFW3mQAA11SS27cMAy9CqGVDbj2tEsXKVA0XRRFJgeIZ6GMaUeJTAkiNUjg+O6R7MlXCwEk34+CbmY1uR5Vq7x1opZqVqSnt7pShowYbVU7L1WGsmoTp0eWhPmmlkO1Frl9SAgzeRcEZtA9hwp6HHS08jsV114YFhiCm6BTdyKe26aJ5B/G+uimxjwOj01vWJrkEq0W46i+50511NHREQsgndA6j0kqDRkuYO4IoK7rLz5FWeWBFtHHh8sYVrEWvu92u3XQ41E/vfd/nNscWbShT4SOlp85QdPAn4BaMKcATT1IMOOIAYx8yJcy5c2LL1HLpJFa9ZlT5HrV/I/ogfXkraFxe5xXKkQSY6F3hB0xyj8SDCdti6KEi1/b6ptvds3qaRgxKQOYAYp9nG4x1Ib3el+cSnh+XkGGL5NiufFhbb2nghTp76u/4dW8goBnxEZJZQwEg7a8uS358o7lCpn1iHn7LUzecyk3Wj4q/a9P/+3wAoPI1m6BAgAA">fn-vis</a>: useful for seeing output values</li>
-</ul>
+<li><a href="https://github.com/ClintH/ixfx-demos/tree/main/modulation/env-starter">Starter skeleton</a> (<a href="https://clinth.github.io/ixfx-demos/modulation/env-starter/">view online</a>)
+</li></ul>
 </div><p>The notion of an <em>envelope</em> is borrowed from <a href="https://en.wikipedia.org/wiki/Envelope_(music)">sound synthesis</a>. They are useful for modulating a value after an initial trigger, with simple means for describing the shape of the modulation.</p><p>Envelopes have some similarity with <a href="../easing/">easing functions</a>, as they describe a shape over time.</p><h2 id="anatomy-of-an-envelope">Anatomy of an envelope</h2><p>The envelope consists of a series of stages, typically <em>attack, decay, sustain</em> and <em>release</em>.</p><ul>
 <li>All stages have an associated <em>level</em> or <em>amplitude</em>. Attack's level is also known as the <em>initial level</em>, and decay's level is also known as the <em>peak level</em>.</li>
 <li>All stages except <em>sustain</em> have a <em>duration</em>, how long they run for in milliseconds.</li>
