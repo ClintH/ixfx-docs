@@ -4,14 +4,14 @@ layout: ../../layouts/MainLayout.astro
 setup: |
   import EnvelopePlay from './EnvelopePlay.astro';
   import { DemoElement } from '../../components/DemoElement.ts';
-
+  import { FrameElement } from '../../components/FrameElement.ts';
 ---
 
 <div class="tip">
 <ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html">adsr function</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
-<li><a href="https://fn-vis.pages.dev/1/#H4sIANFW3mQAA11SS27cMAy9CqGVDbj2tEsXKVA0XRRFJgeIZ6GMaUeJTAkiNUjg+O6R7MlXCwEk34+CbmY1uR5Vq7x1opZqVqSnt7pShowYbVU7L1WGsmoTp0eWhPmmlkO1Frl9SAgzeRcEZtA9hwp6HHS08jsV114YFhiCm6BTdyKe26aJ5B/G+uimxjwOj01vWJrkEq0W46i+50511NHREQsgndA6j0kqDRkuYO4IoK7rLz5FWeWBFtHHh8sYVrEWvu92u3XQ41E/vfd/nNscWbShT4SOlp85QdPAn4BaMKcATT1IMOOIAYx8yJcy5c2LL1HLpJFa9ZlT5HrV/I/ogfXkraFxe5xXKkQSY6F3hB0xyj8SDCdti6KEi1/b6ptvds3qaRgxKQOYAYp9nG4x1Ib3el+cSnh+XkGGL5NiufFhbb2nghTp76u/4dW8goBnxEZJZQwEg7a8uS358o7lCpn1iHn7LUzecyk3Wj4q/a9P/+3wAoPI1m6BAgAA">fn-vis</a>: useful for seeing output values</li>
+<li><a href="https://fn-vis.pages.dev/1/#H4sIAEYo9mQAA12SzU6FMBCFX2XSFSQIV5cYTYy6MMb4AHIXzWXAapk2ncFoCO9uC/fHKwuSmTnnzNemb5MaXIuqVt46UXMxKdLDsS6UISNGW1VPc5GkrOroaZElai7UvC2WIrW3UWEG74LABI/0hdZ5ZJihC26ARr2LeK6raiT/2Zc7N1Tmu/uuWsNSxeTRajGOyg9uVEMN7RyxAO5zXn0aMtzA1BBAWZbHDWWLnR6t3LUcooyzvEgSLaJ3nw9jWGJruNxsNsugxZ3+OfWv9m0eWbShM0ND83ViqSq4D6gFEw9oakGC6XsMYOQPaaQ7UemIk/3Dz2NabJV7d5bqJf0Z0QPrwVtD/XphByuMJMZC6wgbYpQnEgxf2mZZDje363WsBGl/So/DEWMygOkgIZSGH6I9X8WwiE4IEPcfsMHwsqmAgHvFaonlGAg6bXmNntPPO5YXZNY9LnuWzelQc77a0qfiozp7ZNtfP20aDnYCAAA=">fn-vis</a>: envelope example</li>
 <li><a href="https://github.com/ClintH/ixfx-demos/tree/main/modulation/env-starter">Starter skeleton</a> (<a href="https://clinth.github.io/ixfx-demos/modulation/env-starter/">view online</a>)
 </ul>
 </div>
@@ -50,17 +50,17 @@ Docs: [Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html), [Ad
 Initialise an envelope with a few timing settings:
 
 ```js
-import { adsr, defaultAdsrOpts } from "https://unpkg.com/ixfx/dist/modulation.js"
+import { Envelopes } from "https://unpkg.com/ixfx/dist/modulation.js"
 
 // It's a good idea to use the defaultAdsrOpts(),
 // and then override what you want.
 const opts = {
-  ...defaultAdsrOpts(),
+  ...Envelopes.defaultAdsrOpts(),
   attackDuration: 1000,
   decayDuration: 200,
   sustainDuration: 100
 };
-const env = adsr(opts);
+const env = Envelopes.adsr(opts);
 ```
 
 _Triggering_ an envelope kicks it off, letting it run through its stages:
@@ -99,7 +99,7 @@ It's also possible to get additional data about the envelope with `compute`:
 const r = env.compute();  // returns [stage, scaled, raw]
 ```
 
-You can [see an envelope in action on fn-vis](https://fn-vis.pages.dev/1/#H4sIAO9r6mQAA11SS27cMAy9CqGVDbj2tEsXKVA0XRRFJgeIZ6GMaUeJTAkiNUjg+O6R7MlXCwEk34+CbmY1uR5Vq7x1opZqVqSnt7pShowYbVU7L1WGsmoTp0eWhPmmlkO1Frl9SAgzeRcEZtA9hwp6HHS08jsV114YFhiCm6BTdyKe26aJ5B/G+uimxjwOj01vWJrkEq0W46i+50511NHREQsgndA6j0kqDRkuYO4IoK7rLz5FWeWBFtHHh8sYVrEWvu92u3XQ41E/vfd/nNscWbShT4SOlp85QdPAn4BaMKcATT1IMOOIAYx8yJcy5c2LL1HLpJFa9ZlT5HrV/I/ogfXkraFxe5xXKkQSY6F3hB0xyj8SDCdti6KEi1/b6ptvds3qaRgxKQOYAYp9nG4x1Ib3el+cSnh+XkGGL5NiufFhbb2nghTp76u/4dW8goBnxEZJZQwEg7a8uS358o7lCpn1iHn7LUzecyk3Wj4q/a9P/+3wAoPI1m6BAgAA).
+You can [see an envelope in action on fn-vis](https://fn-vis.pages.dev/1/#H4sIAEYo9mQAA12SzU6FMBCFX2XSFSQIV5cYTYy6MMb4AHIXzWXAapk2ncFoCO9uC/fHKwuSmTnnzNemb5MaXIuqVt46UXMxKdLDsS6UISNGW1VPc5GkrOroaZElai7UvC2WIrW3UWEG74LABI/0hdZ5ZJihC26ARr2LeK6raiT/2Zc7N1Tmu/uuWsNSxeTRajGOyg9uVEMN7RyxAO5zXn0aMtzA1BBAWZbHDWWLnR6t3LUcooyzvEgSLaJ3nw9jWGJruNxsNsugxZ3+OfWv9m0eWbShM0ND83ViqSq4D6gFEw9oakGC6XsMYOQPaaQ7UemIk/3Dz2NabJV7d5bqJf0Z0QPrwVtD/XphByuMJMZC6wgbYpQnEgxf2mZZDje363WsBGl/So/DEWMygOkgIZSGH6I9X8WwiE4IEPcfsMHwsqmAgHvFaonlGAg6bXmNntPPO5YXZNY9LnuWzelQc77a0qfiozp7ZNtfP20aDnYCAAA=).
 
 Other functions:
 ```js
@@ -166,13 +166,13 @@ const opts = {
 Here is a pattern to request the envelope value over time. After setting up the envelope, we use a loop to read the value at a given period.
 
 ```js
-import { adsr, defaultAdsrOpts } from "https://unpkg.com/ixfx/dist/modulation.js"
+import { Envelopes } from "https://unpkg.com/ixfx/dist/modulation.js"
 import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
 
 // Initialise
 const settings = Object.freeze({
-  env: adsr({
-    ...defaultAdsrOpts()
+  env: Envelopes.adsr({
+    ...Envelopes.defaultAdsrOpts()
   },
   sampleRateMs: 100
 });
@@ -212,12 +212,10 @@ document.getElementById(`someButton`).addEventListener(`click`, retrigger);
 ```
 
 
-## Demos
-
 In the demo below, `pointerdown` or `keydown` events triggers and holds the envelope. On the left side you see a typical binary on/off response, on the right you see a gradual effect of the envelope.
 
 Releasing the pointer or key calls the envelope's `release` function.
 
 This envelope has `retrigger` disabled, so pressing again while it's decaying will continue the envelope at that level, rather than resetting to zero (default behaviour).
 
-<demo-element title="Retrigger disabled" src="/modulation/env-decay/" />
+<frame-element title="Retrigger disabled" src="https://clinth.github.io/ixfx-play/modulation/envelopes/decay/" />
