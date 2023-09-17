@@ -242,8 +242,8 @@ In the above example, `sm2` will never be _done_, because it's always possible f
 <li><a href="https://glitch.com/edit/#!/ixix-state-machines-driver?path=index.html%3A1%3A0">Glitch example</a></li>
 </ul></div>
 
-When using state machines, it's common to have a big `switch` statement (or lots of `if`s) to alter behaviour depending on the current state. Very often, these behaviours in turn trigger a state change. Since this is such a common pattern, the 
-[`StateMachine.driver`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.driver.html) makes this a little simpler.
+When using state machines, it's common to have a big `switch` statement (or lots of `if`s) to alter behaviour depending on the current state. These behaviours in turn might trigger a state change. Since this is such a common pattern, the 
+[`StateMachine.driver`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.driver.html) is provided.
 
 With it, you set up _state handlers_ for different states and guiding the machine to subsequent states. 
 
@@ -257,7 +257,9 @@ const handlers = [{
 }]
 ```
 
-It could alternatively be an array of functions, which return the same kind of object. When the handler is run, it executes these functions to determine what to do. Functions defined under `then` don't have to return a value - they could just be things you want to run when the state machine is in that state.
+Note: The use of `if` and `then` for the handlers shouldn't be mistaken for regular Javascript `if .. else` control structures.
+
+The `then` field can be an array of functions, all of which return the same kind of object. When the handler is run, it executes these functions to determine what to do. Functions defined under `then` don't have to return a value - they could just be things you want to run when the state machine is in that state.
 
 ```js
 const handlers = [{
@@ -271,15 +273,21 @@ const handlers = [{
 }];
 ```
 
-Once we have the state machine and the handlers, the driver can be initialised:
+Once we have the state machine and the handlers, the driver can be initialised. This would likely happen once when your sketch is initialised.
+
 ```js
 // Set up driver (note the use of await for both lines)
 const driver = await StateMachine.driver(states, handlers);
-
-// To take action based on the current state, call .run():
-await driver.run();
 ```
 
+And then, perhaps in a timing-based loop, call `run()`, which will execute a state handler for the current state.
+
+```js
+// Call .run every second
+setInterval(async () => {
+  await driver.run();
+}, 1000);
+```
 
 Here's a complete example:
 
@@ -313,10 +321,12 @@ const handlers = [
     ]
   }
 ];
+
 // Set up driver
 const driver = await StateMachine.driver(states, handlers);
 
-// To take action based on the current state, call .run():
+// To take action based on the current state, call .run()
+// (usually this be called in a loop)
 await driver.run();
 
 // Check current state
@@ -347,7 +357,7 @@ With this in mind, we can re-write the earlier example, assigning random scores 
 
 In practice you might want to weight the random values so one choice is more or less likely than another. See [Random](../gen/random.md) for more on that.
 
-Each handler also has an optional `resultChoice` field, which can be 'first', 'highest', 'lowest' or 'random'. By default, 'highest' is used, picking the highest scoring result. We could just as well use `resultChoice: 'random'` to evenly pick between choices.
+Each handler also has an optional `resultChoice` field, which can be 'first', 'highest', 'lowest' or 'random'. By default, 'highest' is used, picking the highest scoring result. In our example, we might use `resultChoice: 'random'` to evenly pick between choices. With that enabled, we no longer need scores.
 
 ```js
 ...
@@ -355,6 +365,8 @@ Each handler also has an optional `resultChoice` field, which can be 'first', 'h
     if: 'waking',
     resultChoice: 'random',
     then: [
+      // Because of resultChoice 'random', the driver
+      // will randomly pick one of these options when in the 'waking' state
       { next: 'resting' },
       { next: 'sleeping' }
     ]
@@ -362,7 +374,8 @@ Each handler also has an optional `resultChoice` field, which can be 'first', 'h
 ...
 ```
 
-When calling `driver.run()`, a result is returned with some status information.
+When calling `driver.run()`, a result is returned with some status information, if that's needed:
+
 ```js
 const result = await driver.run();
 result.value;   // state at the end of .run()

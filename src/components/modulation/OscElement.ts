@@ -1,8 +1,8 @@
 import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {elStyles} from '../styles.js';
-import {Colour, Palette, Plot} from 'ixfx/lib/visual';
-import {debounce, ModTimer, continuously, frequencyTimer, Continuously} from 'ixfx/lib/flow';
+import {Colour, Palette, PlotOld as Plot} from 'ixfx/lib/visual';
+import {debounce, ModulationTimer, continuously, frequencyTimer, Continuously} from 'ixfx/lib/flow';
 import {Oscillators} from 'ixfx/lib/modulation';
 
 export const tagName = 'oscillator-element';
@@ -74,7 +74,7 @@ export class OscElement extends LitElement {
   }, 1000);
 
   runningWave: Continuously | undefined;
-  timer: ModTimer | undefined;
+  timer: ModulationTimer | undefined;
 
   constructor() {
     super();

@@ -269,13 +269,13 @@ const screenPt = Points.multiply(pt, bounds.width, bounds.height);
 
 ## Bipolar values
 
-The scalar range of 0..1 works for a lot of cases, but sometimes the bipolar scale of -1..1 is more meaningful. In this range, 0 represents neutral. Since we're still nominally using a percentage scaling - but now -100% to 100% - math operations are simple.
+The scalar range of 0..1 works for most cases, but sometimes the bipolar scale of -1..1 is more meaningful. In this range, 0 represents neutral. It's still a percentage scaling, but now -100% to 100%, rather than 0 to 100%.
 
 An obvious use case is panning of audio in the stereo field:
 
 ```js
-pan =  0; // Center
 pan = -1; // Far left
+pan =  0; // Center
 pan =  1; // Far right
 ```
 
@@ -284,30 +284,72 @@ As with scalars, there are few things we'd like to be able to do with them - esp
 ixfx has the [Data.Bipolar](https://clinth.github.io/ixfx/modules/Data.Bipolar.html) for this.
 
 ```js
+// repl-pad
 import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
 
 // Clamp an input value to -1..1 range
 Bipolar.clamp(1.1); // 1
 
 // Scale an input value on a specified range to -1..1
-Bipolar.scale(50, 0, 100);  // 0
-
-// Nudge the bipolar value by 0.1 toward zero
-Bipolar.towardZero(-1, 0.1); // -0.9
-Bipolar.towardZero( 1, 0.1); // 0.9
+// In this case, 50 is the value to scale, and 0..100 is the expected range
+Bipolar.scale(50, 0, 100);  // 0, because it's in the middle of the 0..100 range
 ```
 
-If you're working with bipolar values a lot, there's also [Data.Bipolar.immutable](https://clinth.github.io/ixfx/modules/Data.Bipolar.immutable.html). It returns an immutable wrapper around a value, giving hanging the same functions described earlier off it.
+[`toScalar`](https://clinth.github.io/ixfx/functions/Data.Bipolar.toScalar.html) and [`fromScalar`](https://clinth.github.io/ixfx/functions/Data.Bipolar.fromScalar.html) are used for converting between bipolar -1..1 and scalar 0..1.
 
 ```js
 // repl-pad
 import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+
+Bipolar.fromScalar(0);   // -1;
+Bipolar.fromScalar(0.5); // 0;
+Bipolar.fromScalar(1);   // 1;
+
+// Convert bipolar value into scalar 0..1 scale
+Bipolar.toScalar(-1); // 0
+Bipolar.toScalar(0);  // 0.5
+Bipolar.toScalar(1);  // 1
+```
+
+A common need is to nudge a bipolar value toward its neutral value of zero. We may not care if it's currently above or below zero, we just want to draw it down to zero. [`towardZero`](https://clinth.github.io/ixfx/functions/Data.Bipolar.towardZero.html) helps.
+
+```js
+// repl-pad
+import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+
+// Syntax:
+// towardZero(bipolarValue, amountToNudgeBy);
+
+// Nudge -1 toward zero by 0.1
+Bipolar.towardZero(-1, 0.1); // -0.9
+
+// Nudge 1 toward zero by 0.1
+Bipolar.towardZero( 1, 0.1); // 0.9
+```
+
+If you're working with bipolar values a lot, there's also [Data.Bipolar.immutable](https://clinth.github.io/ixfx/modules/Data.Bipolar.immutable.html). It returns an immutable wrapper around a value, hanging the same functions off it.
+
+```js
+// repl-pad
+import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+
 // If you don't provide an initial value, 0 is used
 let b = Bipolar.immutable(); // { value: 0}
-b = b.add(0.1);
-b.value; // 0.1
 
+// Add 0.1 to the bipolar value
+b = b.add(0.1);
+
+// Get the value as a number with value property
+b.value; // 0.1
+```js
+
+```js
+// repl-pad
+import { Bipolar } from 'https://unpkg.com/ixfx/dist/data.js';
+
+// Initialise a bipolar value with a default of 1
 b = Bipolar.immutable(1);
+
 b = b.add(-0.5);        // { value: 0.5 }
 b = b.multiply(0.1);    // { value: 0.05 }
 b = b.inverse();        // { value: -0.05 }

@@ -210,7 +210,7 @@ between(source, start, end);
 
 ### [Visual](https://clinth.github.io/ixfx/modules/Visual.html)
 
-Sub-modules: Colour, Palette, Drawing, ImageDataGrid, Plot, Plot2, SceneGraph, Svg, Video
+Sub-modules: Colour, Palette, Drawing, ImageDataGrid, SceneGraph, Svg, Video
 
 Eg. sub-module
 ```js

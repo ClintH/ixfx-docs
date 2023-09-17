@@ -1,7 +1,7 @@
 /* eslint-disable */
 import * as Envelopes from 'ixfx/lib/modulation';
 import {Forms, resolveEl, log} from 'ixfx/lib/dom';
-import {Colour, Plot, Palette} from 'ixfx/lib/visual';
+import {Colour, PlotOld as Plot, Palette} from 'ixfx/lib/visual';
 import {fromEvent, debounceTime} from 'rxjs';
 import {map} from 'rxjs/operators';
 import {LogElement} from '../LogElement.js';

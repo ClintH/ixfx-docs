@@ -3,7 +3,7 @@ import {LitElement, html, css} from 'lit';
 import {property} from 'lit/decorators.js';
 import {classMap} from 'lit/directives/class-map.js';
 
-import {Colour, Drawing, Plot} from 'ixfx/lib/visual';
+import {Colour, Drawing, PlotOld as Plot} from 'ixfx/lib/visual';
 import {Generators} from 'ixfx';
 import {Flow} from 'ixfx';
 import {elStyles} from './styles.js';
