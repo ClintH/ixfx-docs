@@ -58,12 +58,9 @@ Or otherwise, using ixfx's [`Arrays.average`](https://clinth.github.io/ixfx/func
 ```js
 // repl-pad
 import { Arrays } from 'https://unpkg.com/ixfx/dist/collections.js';
-// Pass in numbers as a set of parameters:
-Arrays.average([10, 20, 30]);
 
-// Or use the spread operator for arrays:
-const someArray = [10, 20, 30];
-Arrays.average(someArray);
+// Pass in an array:
+Arrays.average([10, 20, 30]);
 ```
 
 If you have a set of numbers to average not already in an array, [`Numbers.average`](https://clinth.github.io/ixfx/functions/Numbers.average.html) is effectively the same as `Arrays.average`, but takes in a spread set of parameters:
@@ -130,13 +127,13 @@ t.avg
 
 These trackers are not great at adapting to temporal changes because by default they track the global average of stream (or at least, the data seen thus far). Typically we'd want to only consider the average of _recent_ data, which is where [moving averages](#moving-average) are better.
 
-It is however possible to set some options on the tracker to automatically reset itself after _n_ samples, or to reset it yourself.
+It is, however, possible to set some options on the tracker to automatically reset itself after _n_ samples, or to reset it yourself.
 
 ### Moving average
 
-The moving averaging technique (called the _moving_ or _sliding window_) keeps track of the last _n_ values for the purposes of averaging. This way we only record a small chunk of recent data rather than attempt to store everything.
+The moving averaging technique (AKA _moving_ or _sliding window_) keeps track of the last _n_ values for the purposes of averaging. This way we only record a small chunk of recent data rather than attempt to store everything.
 
-When using moving averaging, a key tuning parameter is the size of the 'window', how many items to keep track of. A larger window size will smooth noise at the expense of being less responsive to change. A smaller window size will more noisy but more accurately track the current data.
+When using moving averaging, a key tuning parameter is the size of the 'window': how many items to keep track of. A larger window size will smooth noise at the expense of being less responsive to change. A smaller window size will more noisy but more accurately track the current data.
 
 This tuning also needs to be done with respect to speed at which data is added. There's a big difference to a window size of 5 items if you're adding 100 items per millisecond versus one item per minute.
 
