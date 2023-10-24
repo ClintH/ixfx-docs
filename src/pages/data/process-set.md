@@ -7,11 +7,13 @@ This pattern shows how to process a list of items with a timed delay.
 
 # Known list
 
-This pattern shows how to process a list of items which are known in advance.
+This pattern shows how to process a list of items known in advance.
 
 ```js
-const items = [ 'apple','orange','pear' ];
-for await (const item of interval(iterms, { fixedInterval: }))
+const items = [ 'apple', 'orange', 'pear' ];
+for await (const item of interval(items, { fixed: 1000 })) {
+  // Process an item every one second...
+}
 ```
 
 # Ad-hoc list
@@ -60,5 +62,3 @@ process(`some item`);
 ```
 
 * [Online demo](https://clinth.github.io/ixfx-demos/flow/) ([source](https://github.com/ClintH/ixfx-demos/tree/main/flow/list-async))
-
-# 
