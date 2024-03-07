@@ -13,7 +13,7 @@ layout: ../../layouts/MainLayout.astro
 
 ## Springs
 
-Somewhere between the ixfx [forces](../modulation/forces/) and [oscillators](../oscillator/) are springs.
+Somewhere between the ixfx [forces](../forces/) and [oscillators](../oscillator/) are springs.
 
 <demo-element style="height:40vh" title="Spring oscillator" src="/modulation/oscillator-spring/" />
 

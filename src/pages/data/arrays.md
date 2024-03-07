@@ -15,27 +15,25 @@ layout: ../../layouts/MainLayout.astro
 
 ## Enumerating
 
-JS's `forEach` can be used to enumerate over items in an array:
+JS's `for of` can be used to enumerate over items in an array:
 
 ```js
-someArray.forEach(v => {
-  // do something with v...
-});
-
-// You can also get the index of an 
-// array element you enumerate
-someArray.forEach((v,index) => {
-  // do something with v/index...
-});
+for (const value of someArray) {
+  // Do something with value 
+}
 ```
 
-Another 'classic' approach you'll see is a `for` loop:
+Another classic approach you'll see is a `for` loop. This is only useful if you're concerned with the indexes of the items. Most of the time we aren't, which is why the style above is preferred. 
+
 ```js
+// Classic 'for' loop
 for (let i=0;i<someArray.length;i++) {
   const item = someArray[i]; // access by index
   console.log(`${i}. ${someArray[i]}`);
 }
 ```
+
+Another benefit of the `for of` loop is that it can enumerate over different kinds of objects, not just arrays. Most usefully: [Generators](../../gen/generator/)
 
 ## Accessing items
 
@@ -51,7 +49,6 @@ const second = someArray[1];
 const last = someArray[someArray.length-1];
 
 const first = someArray[0];
-
 ```
 
 It also works to use `at`, which has the benefit of being able to work backwards:
@@ -89,6 +86,20 @@ const rand = () => weightedInteger({ max: a.length, easing: `quadIn` });
 a[rand()];
 ```
 
+### Cycle
+
+[`cycle`](https://clinth.github.io/ixfx/functions/Collections.Arrays.cycle.html) allows traversing an array with function calls. It's useful because the returned function wraps up both the source array and the position. Other parts of your code just need to know to invoke a function and get back a value.
+
+```js
+import { cycle } from 'https://unpkg.com/ixfx/dist/arrays.js';
+const c = cycle([`apples`,`oranges`,`pears`]);
+c.current; // 'apples'
+c.next(); // `oranges`
+c.next(); // `pears`
+c.next(); // `apples'
+c.select(1); // 'oranges'
+c.select(`pears`); // 'pears'
+```
 
 ## Finding
 
@@ -175,8 +186,8 @@ Once shuffled, you can then iterate over the array as normal:
 const c = [1,2,3,4,5,6,7,8,9,10];
 
 // Prints items from array in random order
-for (const i of shuffle(c)) {
-  console.log(i);
+for (const value of shuffle(c)) {
+  console.log(value);
 }
 ```
 
@@ -200,6 +211,15 @@ const filtered = data.filter(d => d > 2); // Return true if value is greater tha
 // [3, 3]
 ```
 
+ixfx has [`filterAB`](https://clinth.github.io/ixfx/functions/Collections.Arrays.filterAB.html) which captures items on either side of the filter function.
+```js
+import { filterAB } from "https://unpkg.com/ixfx/dist/arrays.js";
+const data = [1,2,3,1,2,3]
+const [matching,nonMatching] = filterAB(data, d => d > 2);
+// matching: [ 3, 3]
+// nonMatching: [ 1, 2, 1, 2]
+```
+
 [`until`](https://clinth.github.io/ixfx/functions/Collections.Arrays.until.html) returns all items in an array until the provided predicate returns false.
 
 ```js
@@ -207,7 +227,7 @@ const filtered = data.filter(d => d > 2); // Return true if value is greater tha
 import { until } from "https://unpkg.com/ixfx/dist/arrays.js"
 
 // Callback gets current value, and needs to return:
-// [true/false, accmulated value]
+// [true/false, accumulated value]
 // In this case, we return [true,0] if v === 3
 const v = Arrays.until([1,2,3,4,5], v => [v === 3, 0]);
 
@@ -263,17 +283,23 @@ This will yield:
 
 If you have an array of numbers, ixfx has some functions for common needs.
 
+Overview: 
+* average, min, max, total or minMaxAvg to calculate all
+* averageWeighted
+* dotProduct
+* weight
+  
 ### Ranges
 
 ```js
 // repl-pad
-import { max,min,avg } from "https://unpkg.com/ixfx/dist/arrays.js"
+import { max,min,average, minMaxAvg } from "https://unpkg.com/ixfx/dist/arrays.js"
 
 const data = [1,2,3];
 // Compute max, min, avg:
 max(...data); // 3
 min(...data); // 1
-avg(...data); //
+average(...data); //
 
 // Or compute them all at once:
 minMaxAvg(...data);
@@ -285,7 +311,6 @@ minMaxAvg(...data);
 ```js
 // repl-pad
 import { average } from "https://unpkg.com/ixfx/dist/arrays.js"
-
 
 // Compute an average of all provided values
 average(1, 1.4, 0.9, 0.1);  // 0.85
@@ -327,15 +352,35 @@ weight([1,1,1,1,1,1], Easings.gaussian());
 
 ## More functions
 
-* [`additionalValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.additionalValues.html) - yield all values not contained in a base array
-* [`contains`](https://clinth.github.io/ixfx/functions/Collections.Arrays.contains.html) - returns _true_ if array contains all provided items
-* [`filterAB`](https://clinth.github.io/ixfx/functions/Collections.Arrays.filterAB.html) - filters an array with a predicate, returning everything that passes in one array and everything that does not in another.
-* [`valuesEqual`](https://clinth.github.io/ixfx/functions/Collections.Arrays.valuesEqual.html) - returns _true_ if all values in array are identical
+Comparing arrays
 * [`compareValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.compareValues.html) - for array _x_ and _y_, identify items common in both, or exclusively in _x_ or _y_
 * [`compareValuesEqual`](https://clinth.github.io/ixfx/functions/Collections.Arrays.compareValuesEqual.html) - returns _true_ if both arrays contain the same set of items, regardless of position.
-* [`containsDuplicateValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.containsDuplicateValues.html) - returns _true_ if any duplicates are found in source array.
+* [`additionalValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.additionalValues.html) - yield all values not contained in a base array
 * [`intersection`](https://clinth.github.io/ixfx/functions/Collections.Arrays.intersection.html) - return values contained in both _x_ and _y_ arrays
-* [`filterBetween`](https://clinth.github.io/ixfx/functions/Collections.Arrays.filterBetween.html) - return elements of array that match predicate _and_ are within a given start and end index
-* [`without`](https://clinth.github.io/ixfx/functions/Collections.Arrays.without.html) - return an array without a given value
-* [`chunks`](https://clinth.github.io/ixfx/functions/Collections.Arrays.chunks.html) - break up an array into chunks of a given size
 * [`unique`](https://clinth.github.io/ixfx/functions/Collections.Arrays.unique.html) - combines values of arrays, only keeping unique values
+  
+Randomisation
+* [`randomIndex`](https://clinth.github.io/ixfx/functions/Collections.Arrays.randomIndex.html) - random index
+* [`randomElement`](https://clinth.github.io/ixfx/functions/Collections.Arrays.randomElement.html) - random value
+* [`randomPluck`](https://clinth.github.io/ixfx/functions/Collections.Arrays.randomPluck.html) - remove random value
+* [`shuffle`](https://clinth.github.io/ixfx/functions/Collections.Arrays.shuffle.html) - randomise order
+
+Finding/accessing
+* [`contains`](https://clinth.github.io/ixfx/functions/Collections.Arrays.contains.html) - returns _true_ if array contains all provided items
+* [`containsDuplicateValues`](https://clinth.github.io/ixfx/functions/Collections.Arrays.containsDuplicateValues.html) - returns _true_ if any duplicate _values_ are found in source array.
+* [`containsDuplicateInstances`](https://clinth.github.io/ixfx/functions/Collections.Arrays.containsDuplicateInstances.html) - returns _true_ if any duplicate _instances_ are found in source array.
+* [`cycle`](https://clinth.github.io/ixfx/functions/Collections.Arrays.cycle.html) - cycle through contents
+* [`filterBetween`](https://clinth.github.io/ixfx/functions/Collections.Arrays.filterBetween.html) - return elements of array that match predicate _and_ are within a given start and end index
+* [`sample`](https://clinth.github.io/ixfx/functions/Collections.Arrays.sample.html) - sub-sample an array
+* [`valuesEqual`](https://clinth.github.io/ixfx/functions/Collections.Arrays.valuesEqual.html) - returns _true_ if all values in array are identical
+* [`filterAB`](https://clinth.github.io/ixfx/functions/Collections.Arrays.filterAB.html) - filters an array with a predicate, returning everything that passes in one array and everything that does not in another.
+
+
+Changing the shape of an array
+* [`ensureLength`](https://clinth.github.io/ixfx/functions/Collections.Arrays.ensureLength.html) - Pad out or truncate an array so it matches a target length
+* [`chunks`](https://clinth.github.io/ixfx/functions/Collections.Arrays.chunks.html) - break up an array into chunks of a given size
+* [`groupBy`](https://clinth.github.io/ixfx/functions/Collections.Arrays.groupBy.html) - Groups data by a function
+* [`interleave`](https://clinth.github.io/ixfx/functions/Collections.Arrays.interleave.html) - combines the values of several arrays by interleaving values
+* [`remove`](https://clinth.github.io/ixfx/functions/Collections.Arrays.remove.html) - remove an element by index
+* [`without`](https://clinth.github.io/ixfx/functions/Collections.Arrays.without.html) - return an array without a given value
+* [`zip`](https://clinth.github.io/ixfx/functions/Collections.Arrays.zip.html) - combine elements of arrays based on their index

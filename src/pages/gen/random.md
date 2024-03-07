@@ -41,19 +41,24 @@ setup: |
 </ul>
 </div>
 
+Javascript's go-to source of randomness is [`Math.random()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random) which returns a random number equal or above 0 and less than 1. This is perfect for uniform distribution on a percentage scale.
 
-## Random number generation
+We sometimes want the values on a different scale. Ixfx has a few helper functions for this common need:
+```js
+// repl-pad
+import { integer, float } from 'https://unpkg.com/ixfx/dist/random.js';
+integer(10); // Random integer value 0..<10
+float(100); // Random floating point number 0..<100 
+```
 
-JavaScript's go-to way of generating a random number is `Math.random`. It returns a number between 0-1 with a roughly even distribution.
+## Weighted distributions
 
-The plot below shows `Math.random`, with the horizontal axis shows values from 0 on the left to 1 on the right. Note how the plot mostly fills out evenly along the horizontal axis.
+Another issue with `Math.random` is it's roughly even distribution. You can see this below, the horizontal axis shows values from 0 on the left to 1 on the right. Note how the plot mostly fills out evenly along the horizontal axis.
 
 <!-- 
 <density-plot-element id="plot1" view="linear" client:visible fn="weightedInteger(10);" /> -->
 
 <div id="plot1"></div>
-
-### Weighted distribution
 
 <div class="tip">
 <a href="https://fn-vis.pages.dev/1/#H4sIAARX3mQAAzWMQQ6CMBAAv7LhQpsYileN3jn4AjGhsaVU7bZ2FyUh/F1NZE5zmTkXPqSYGWZ4W+8GtgYW6HMMUA7MiXZKjZjurrrGoPzUT8p4YpU1mhiqG5X7Fslyg2zzSz+EkIcjzC0CpEh8skTaWbG+RfcctWmwk/LbLZttXf8E/hSXD2v+IIiQAAAA">Try out some of these examples in the plotter</a>
@@ -69,7 +74,7 @@ When using the _quadIn_ easing (the default), note how the density of random val
 
 ```js
 // repl-pad
-import {weighted} from 'https://unpkg.com/ixfx/dist/random.js';
+import { weighted } from 'https://unpkg.com/ixfx/dist/random.js';
 // Yields 0-1 (inclusive) random number
 weighted(`quadIn`);
 weighted(`quadOut`);
@@ -81,7 +86,7 @@ A range is provided to the function, with the return value always below the maxi
 
 ```js
 // repl-pad
-import {weightedInteger} from 'https://unpkg.com/ixfx/dist/random.js';
+import { weightedInteger } from 'https://unpkg.com/ixfx/dist/random.js';
 weightedInteger(10);      // 0-9
 weightedInteger(10, 20);  // 10-19
 weightedInteger(100, `quadIn`);       // 0-99, specifying the easing function
@@ -95,7 +100,7 @@ const list = [`mango`, `kiwi`, `grape`];
 list[weightedInteger(list.length)];
 ```
 
-### Gaussian distribution
+### Gaussian
 
 <div class="tip">
 <a href="https://fn-vis.pages.dev/1/#H4sIAPRW3mQAA1WPzQrCMBCEX2XZiy1Eo9eK3j34BLaHYNMabX7obqUQ8u6mooJ72hm+GZhLROtbjRWGwTMmEdEp+9MCjTNs1IBVTGJBCaucaTVxZtaYGvEWi91kwtjgR4YIvZqIjHKQoBu9hdWNOVAl5eTCo99cvZVm7mbZGmI5Ktd6u7nTal870nxyrMenGoqiPBwh1g4geOKzJlK9Lr7dRVlmPonddrs88DnMI/5GNS8ZCjbg5gAAAA==">Try out some of these examples in the plotter</a>
@@ -107,7 +112,7 @@ Gaussian distribution has a 'bell curve' shape, centred around the middle. In ot
 
 ```js
 // repl-pad#2
-import {gaussian} from 'https://unpkg.com/ixfx/dist/random.js';
+import { gaussian } from 'https://unpkg.com/ixfx/dist/random.js';
 
 // Yields a random number between 0..1
 gaussian();
@@ -123,3 +128,36 @@ gaussian(0.1);
 gaussian(6);
 ```
 
+### More random
+
+```js
+// repl-pad
+import { minutesMs, secondsMs } from 'https://unpkg.com/ixfx/dist/random.js';
+// minutesMs and secondsMs compute random millisecond values
+minutesMs(5); // Random timeout of up to 5 minutes
+secondsMs(5); // Random timeout of up to 5 seconds
+```
+
+With arrays
+
+```js
+// repl-pad
+import { arrayElement, arrayIndex, integerUniqueGen } from 'https://unpkg.com/ixfx/dist/random.js';
+
+const v = [`blue`, `red`, `orange`];
+
+arrayElement(v); // Returns a random value
+arrayIndex(v); // Random array index
+
+// Produce unique set of random integers 0..<10
+const values = [...integerUniqueGen(10)];
+```
+
+Other values:
+```js
+// repl-pad
+import { hue, string } from 'https://unpkg.com/ixfx/dist/random.js';
+
+hue(); // Compute random hue value 0...359
+string(10); // Random string 10 letters long
+```

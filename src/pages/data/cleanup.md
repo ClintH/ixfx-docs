@@ -215,7 +215,14 @@ if (typeof v === `string`) {
 
 ## More functions
 
+* [`Numbers.average`](https://clinth.github.io/ixfx/functions/Numbers.average.html) - return the average of a set of numbers
+* [`Numbers.filter`](https://clinth.github.io/ixfx/functions/Numbers.filter.html) - for an input set of values, only yields those which are numbers
 * [`Numbers.isApproximately`](https://clinth.github.io/ixfx/functions/Numbers.isApproximately.html) - is this number roughly close to this other number?
 * [`Numbers.isValid`](https://clinth.github.io/ixfx/functions/Numbers.isValid.html) - is this number a proper number?
+* [`Numbers.max`](https://clinth.github.io/ixfx/functions/Numbers.max.html)/[`Numbers.min`](https://clinth.github.io/ixfx/functions/Numbers.min.html) - returns max/min from a set, ignoring things that aren't numbers
 * [`Numbers.quantiseEvery`](https://clinth.github.io/ixfx/functions/Numbers.quantiseEvery.html) - rounds a value by step size
+* [`Numbers.round`](https://clinth.github.io/ixfx/functions/Numbers.round.html) - round a number to specified decimal places
+* [`Numbers.total`](https://clinth.github.io/ixfx/functions/Numbers.total.html) - add up a set of values, ignoring those which aren't numbers
+
+See also:
 * Module: [Data.Bipolar](https://clinth.github.io/ixfx/modules/Data.Bipolar.html)

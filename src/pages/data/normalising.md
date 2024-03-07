@@ -116,7 +116,9 @@ n(11);
 
 In contrast to `stream`, [`scale`](https://clinth.github.io/ixfx/functions/Data.scale.html) keeps no record of the current minimum or maximum, but normalises based on the provided range. Use this when you know what the range will be.
 
-A basic scale function looks like this:
+For example, say you have a value of 105, that lies on a scale of 0..1024. What is the proportional value of 105? We want to _scale_ from an input range of 0...1024 to an output range of 0..1.
+
+A basic scale function (included in ixfx) looks like this:
 
 ```js
 // repl-pad
@@ -124,11 +126,8 @@ const scale = (v, inMin, inMax, outMin, outMax) => {
   return (v - inMin) / (inMax - inMin) * (outMax - outMin) + outMin;
 };
 
-// Example, scale the value of 50, with an 
-// input range of 0..100 and
-// output range of 0..1:
-scale(50, 0, 100, 0, 1);
-// Yields: 0.5
+scale(105, 0, 1024, 0, 1);
+// Yields: 0.102
 ```
 
 The ixfx scale function optionally allows the scaling to be _eased_ (for non-linear scaling), and if `outMin`/`outMax` are not specified, a 0..1 range is presumed.
@@ -141,7 +140,7 @@ scale(v:number,
       outMin?:number, outMax?:number, easing?:EasingFn):number
 ```
 
-In action it looks like this:
+This is how it looks in action:
 
 ```js
 // repl-pad#1
@@ -170,7 +169,7 @@ If the input value is outside of the specified input range, the output value wil
 
 ```js
 // repl-pad
-import { scale, clamp } from 'https://unpkg.com/ixfx/dist/data.js'
+import { scale, clamp, scaleClamped } from 'https://unpkg.com/ixfx/dist/data.js'
 // 11 is beyond input range of 0-10, so we get
 // an output beyond expected range of 0..1:
 scale(11, 0, 10); // 1.1
@@ -183,31 +182,34 @@ clamp(scale(11, 0, 10)); // 1
 scaleClamped(11, 0, 10, 0, 1);
 ```
 
-To have a reusable scaling function with the settings built-in, use `scaleFn`:
+To have a reusable scaling function with the settings 'baked in', use `scaler`. 
 
 ```js
-import { scaleFn } from 'https://unpkg.com/ixfx/dist/data.js'
-//  Signature: scaleFn(inMin?, inMax?, outMin?, outMax?, easingFn?)
-const scaler = scaleFn(10,100);
+// repl-pad
+import { scaler } from 'https://unpkg.com/ixfx/dist/data.js'
+//  Signature: scaler(inMin?, inMax?, outMin?, outMax?, easingFn?)
+//  ie: returns a function that scales a value with 
+//  the input range of 10..100 and default output range of 0..1
+const s = scaler(10,100);
 
-scaler(20); // Scale
+s(20); // Reusable scale function with values baked-in
 ```
 
-If the input range is a percentage, [`scalePercentages`](https://clinth.github.io/ixfx/functions/Data.scalePercentages.html) adapts to a new output percentage range. While `scale` can be used for this, it's useful because it sanity-checks values to make sure everything stays within the percentage range.
+If the input range is a percentage, [`scalePercentages`](https://clinth.github.io/ixfx/functions/Data.scalePercentages.html) adapts to a new output percentage range. While `scale` can be used for this, `scalePercentage` will throw errors if values are outside of legit percentage ranges, helping you to catch errors.
 
 ```js
 // repl-pad
 import { scalePercentages } from 'https://unpkg.com/ixfx/dist/data.js'
-// Scale 0.5 to be on a 0.0-0.10 range
+// Scale 0.5 to be on a 0.0->0.10 range
 scalePercentages(0.5, 0, 0.10) // 0.05 (5%)
 ```
 
-Rather different, but closely named is [`scalePercentage`](https://clinth.github.io/ixfx/functions/Data.scalePercent.html). It maps an _input_ percentage to some output range.
+Very similarly named is [`scalePercentage`](https://clinth.github.io/ixfx/functions/Data.scalePercent.html). It also works with an input percentage range, but it has no restrictions on output range.
 
 ```js
 // repl-pad
 import { scalePercent } from 'https://unpkg.com/ixfx/dist/data.js'
-// Scales 50% to the range of 10-20
+// Scales 50% to the range of 10->20
 scalePercent(0.5, 10, 20); // 15
 ```
 
@@ -248,28 +250,27 @@ const pt = { x:500, 300 };
 const normalised = Points.normaliseByRect(pt, cameraBounds);
 ```
 
-[`Points.clamp`](https://clinth.github.io/ixfx/functions/Geometry.Points.clamp.html) will clamp both _x_ and _y_: 
+[`Points.clamp`](https://clinth.github.io/ixfx/functions/Geometry.Points.clamp.html) will clamp both _x_ and _y_, so our earlier example could be simplified to:
 
 ```js
 const normalised = Points.clamp(Points.normaliseByRect(pt, cameraBounds));
 ```
 
-If you have a normalised point, at some point you may need to map it to some coordinate space. Eg to the viewport. [`Points.multiply`](https://clinth.github.io/ixfx/functions/Geometry.Points.multiply.html) can be used for this:
+If you have a normalised point, you will likely need to map it to an absolute space at some point, for example to the dimensions of the viewport. [`Points.multiply`](https://clinth.github.io/ixfx/functions/Geometry.Points.multiply.html) can be used for this:
 
 ```js
 import { Point } from 'https://unpkg.com/ixfx/dist/geometry.js';
-const bounds = { height: window.innerHeight, width: window.innerWidth };
 
 // 1,1 is normalised, meaning {x:100%, y:100%}
 const pt = { x:1, y:1 };
 
-// Now it's in absolute screen coordinates
-const screenPt = Points.multiply(pt, bounds.width, bounds.height);
+// Now we have it in absolute viewport coordinates
+const screenPt = Points.multiply(pt, window.innerWidth, window.innerHeight);
 ```
 
 ## Bipolar values
 
-The scalar range of 0..1 works for most cases, but sometimes the bipolar scale of -1..1 is more meaningful. In this range, 0 represents neutral. It's still a percentage scaling, but now -100% to 100%, rather than 0 to 100%.
+The scalar range of 0..1 works for most cases, but sometimes the bipolar scale of -1..1 makes more sense. In this range, 0 represents neutral. It's still a percentage scaling, but now -100% to 100%, rather than 0 to 100%.
 
 An obvious use case is panning of audio in the stereo field:
 
@@ -341,7 +342,7 @@ b = b.add(0.1);
 
 // Get the value as a number with value property
 b.value; // 0.1
-```js
+```
 
 ```js
 // repl-pad

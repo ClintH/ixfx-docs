@@ -62,7 +62,7 @@ jitter(0.5, 0.1);
 
 Another option is to jitter by a relative amount, with respect to the input value. In that case, jittering 0.5 by 10% yields a range of 0.45 - 0.55, because 10% of 0.5 is 0.05. Thus for a given jitter amount, a larger input value will jitter more wildly than a smaller value, creating a sense of instability.
 
-ixfx provides both of these approaches with [`jitter`](https://clinth.github.io/ixfx/functions/Modulation.jitter.html). It returns a function to jitter values.
+ixfx provides both of these approaches with [`jitter`](https://clinth.github.io/ixfx/functions/Modulation.jitter.html). 
 
 ```js
 // repl-pad
@@ -75,22 +75,22 @@ jitter({ absolute: 0.1 })(0.1); // number 0.4-0.6
 jitter({ relative: 0.1 })(0.5); // number 0.45-0.55
 ```
 
-Remember that `jitter` returns a function (which is why there's the double parenthesis in the example above). This is so the same jitter options can easily be reapplied to changing values.
+Remember that `jitter` returns a function (which is why there's the double parenthesis in the example above). This is so the same jitter options can be reused without scattering them all over the place.
 
 ```js
-// One-time steup
+// One-time setup
 const jitterFn = jitter({ absolute: 0.1 });
 
 // Re-use the function when you like
 jitterFn(100); // Jitter 100 by an absolute 10%;
-jitterFn(50); // Jitter 50 by an absolute 10%
+jitterFn(50);  // Jitter 50 by an absolute 10%
 ```
 
 Try adjusting the value-to-jitter and jitter amount:
 
 <div id="plot3"></div>
 
-By default `jitter` uses `Math.random`, but you could just as well plug in a [`weighted`](https://clinth.github.io/ixfx/modules/Random.html#weighted), or [`gaussian`](https://clinth.github.io/ixfx/modules/Random.html#gaussian) random number generator.
+By default `jitter` uses `Math.random`, but you could just as well plug in a [`weighted`](https://clinth.github.io/ixfx/functions/Random.weighted.html), or [`gaussian`](https://clinth.github.io/ixfx/functions/Random.gaussian.html) random number generator.
 
 ```js
 import { jitter } from 'https://unpkg.com/ixfx/dist/modulation.js';

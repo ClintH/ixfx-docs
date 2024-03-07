@@ -306,10 +306,89 @@ const map = Maps.zipKeyValue(keys, values);
 map.get(`b`); // Yields: `bee`
 ```
 
-## More functions
+## Expiring Map
 
-* [`find`](https://clinth.github.io/ixfx/functions/Collections.Maps.find.html) - Finds first value that matches value
+The [`ExpiringMap`](https://clinth.github.io/ixfx/classes/Collections.Maps.ExpiringMap.html) is a class where values expire after some period. This is useful for caches or cases where there's not a good logic for when to remove things.
+
+```js
+const map = new ExpiringMap();
+map.set(`fruit`, `apple`);
+
+// Delete all entries set more than 100ms ago
+map.deleteWithElapsed(100, `set`);
+
+// Delete all entries that have not been accessed for more than 100ms
+map.deleteWithElapsed(100, `get`);
+
+// Get the time since the key 'fruit' was last accessed
+map.elapsedGet(`fruit`);
+
+// Get the time since the key `fruit` was last set
+map.elapsedSet(`fruit`);
+```
+
+When creating the map, you can opt to have it automatically delete items:
+```js
+// Delete any entry not accessed for over one second
+const map = new ExpiringMap({
+  autoDeleteElapsed: 1000,
+  autoDeletePolicy: `get`
+});
+```
+
+See the API docs for more on the options.
+
+There are also some events to listen for automatic expiry: 'expired', 'removed' and 'newKey'.
+```js
+map.addEventListener(`expired`, event => {
+  const { key, value } = event;
+});
+```
+
+## More functions for working with maps
+
+Finding
+* [`find`](https://clinth.github.io/ixfx/functions/Collections.Maps.find.html) - Finds first value that matches a predicate
 * [`firstEntryByIterableValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.firstEntryByIterableValue.html) - Finds first entry that matches value
-* [`immutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.immutable.html) - immutable map implementation
+* [`firstEntryByIterablePredicate`](https://clinth.github.io/ixfx/functions/Collections.Maps.firstEntryByIterableValue.html) - Finds first entry that matches predicate (same as `find`)
+* [`getClosestIntegerKey`](https://clinth.github.io/ixfx/functions/Collections.Maps.getClosestIntegerKey.html) - assumes all keys are integers, gets the closest present key
+* [`getFromKeys`](https://clinth.github.io/ixfx/functions/Collections.Maps.getFromKeys.html) - given a set of keys, returns the value for the first one that is present
+* [`hasAnyValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.hasAnyValue.html) - returns true if value is in the map
+* [`hasAnyKeyValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.hasKeyValue.html)- returns true if value is present under key
+
+Iterating
+* [`filter`](https://clinth.github.io/ixfx/functions/Collections.Maps.filter.html) - iterate over values where predicate returns true
+* [`sortByValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.sortByValue.html) - returns values, sorted
+* [`sortByValueProperty`](https://clinth.github.io/ixfx/functions/Collections.Maps.sortByValueProperty.html) - returns entries, sorted by a chosen property
+
+Adding values
+* [`addKeepExisting`](https://clinth.github.io/ixfx/functions/Collections.Maps.addKeepingExisting.html)
+* [`addObject`](https://clinth.github.io/ixfx/functions/Collections.Maps.addObject.html)
+* [`getOrGenerate`](https://clinth.github.io/ixfx/functions/Collections.Maps.getOrGenerate-1.html) - get by key or create & add new item
 * [`mergeByKey`](https://clinth.github.io/ixfx/functions/Collections.Maps.mergeByKey.html) - merge two maps, with a reconcile function to merge values that use same key
+  
+Removing/changing values
+* [`deleteByValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.deleteByValue.html) - remove by value rather than key
+* [`transformMap`](https://clinth.github.io/ixfx/functions/Collections.Maps.transformMap.html) - for each entry, runs it through a function and into a new map
+
+Creating maps
+* [`fromIterable`](https://clinth.github.io/ixfx/functions/Collections.Maps.fromIterable.html)
+* [`fromObject`](https://clinth.github.io/ixfx/functions/Collections.Maps.fromObject.html)
+* [`immutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.immutable.html) - creates an immutable map
+* [`mutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.mutable.html) - creates a mutable map
 * [`zipKeyValue`](https://clinth.github.io/ixfx/functions/Collections.Maps.zipKeyValue.html) - combine an array of keys and an array of values into an object
+
+Multiple values per key maps
+* [`mapOfSimpleMutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.mapOfSimpleMutable-1.html) - map that can store many values per key, less functions than the others below
+* [`ofArrayMutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.ofArrayMutable.html) - Uses an array to store values
+* [`ofCircularMutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.ofCircularMutable.html) - Uses a circular array of limited capacity
+* [`ofSetMutable`](https://clinth.github.io/ixfx/functions/Collections.Maps.ofSetMutable.html) - Uses a set to store unique values
+  
+Converting maps
+* [`mapToArray`](https://clinth.github.io/ixfx/functions/Collections.Maps.mapToArray.html)
+* [`mapToObjectTransform`](https://clinth.github.io/ixfx/functions/Collections.Maps.mapToObjectTransform.html)
+* [`toObject`](https://clinth.github.io/ixfx/functions/Collections.Maps.toObject.html)
+
+
+
+

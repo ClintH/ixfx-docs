@@ -67,9 +67,9 @@ setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/interpolate/script-3">import setup from '../../media.0d830f0d.js';
-setup("14s7iJ", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
+setup("26RJB4", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"reaching-a-target","text":"Reaching a target"}],"class":"astro-XPZS3NBI"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"interpolator","text":"Interpolator"}],"class":"astro-XPZS3NBI"}, children);
 
 });
 </script>
@@ -81,9 +81,9 @@ setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
 });
 </script>
 <script type="module" data-astro-component-hydration astro-script="/modulation/interpolate/script-5">import setup from '../../media.0d830f0d.js';
-setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
+setup("26RJB4", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
   const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"reaching-a-target","text":"Reaching a target"}],"class":"astro-AMOJLK4X"}, children);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"interpolator","text":"Interpolator"}],"class":"astro-AMOJLK4X"}, children);
 
 });
 </script>
@@ -310,46 +310,55 @@ setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 	<section class="main-section astro-AMOJLK4X">
 		<h1 class="content-title astro-AMOJLK4X" id="overview">Interpolation</h1>
 		<nav class="block sm:hidden astro-AMOJLK4X">
-				<astro-root uid="14s7iJ"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#reaching-a-target">Reaching a target</a></li></ul></astro-root>
+				<astro-root uid="26RJB4"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#interpolator">Interpolator</a></li></ul></astro-root>
 			</nav>
 		<div class="tip">
 <ul>
-<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Data.html">Data module</a></li>
+<li>API Reference <a href="https://clinth.github.io/ixfx/functions/Data.interpolate.html">Interpolate function</a></li>
 <li>Demo: <a href="https://clinth.github.io/ixfx-demos/geometry/point-interpolate/">Points.interpolate</a>, <a href="https://glitch.com/edit/#!/ixfx-interpolate-basics">Glitch demo</a>
 </li></ul>
 </div><p>Interpolation (also known as <em>lerping</em>) allows the blending between two values. Where it really shines is when it is used over time to progressively reach some target value.</p><p>A simple implementation looks like this:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Interpolate from a->b by amount (0..1)</span>
-<span class="token keyword">const</span> <span class="token function-variable function">interpolate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">amount<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>amount<span class="token punctuation">)</span> <span class="token operator">*</span> a <span class="token operator">+</span> amount <span class="token operator">*</span> b<span class="token punctuation">;</span></code></pre><p>In ixfx it's found in the Data module as <a href="https://clinth.github.io/ixfx/functions/Data.interpolate.html"><code>interpolate</code></a>.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
+<span class="token keyword">const</span> <span class="token function-variable function">interpolate</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">amount<span class="token punctuation">,</span> a<span class="token punctuation">,</span> b</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">(</span><span class="token number">1</span><span class="token operator">-</span>amount<span class="token punctuation">)</span> <span class="token operator">*</span> a <span class="token operator">+</span> amount <span class="token operator">*</span> b<span class="token punctuation">;</span></code></pre><p>In ixfx it's found in the <a href="https://clinth.github.io/ixfx/modules/Data.html">Data</a> module as <a href="https://clinth.github.io/ixfx/functions/Data.interpolate.html"><code>interpolate</code></a>.</p><pre class="language-js"><code class="language-js"><span class="token comment">// repl-pad</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> interpolate <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/data.js"</span><span class="token punctuation">;</span>
 <span class="token comment">// Returns the value 50% between 200 and 400 (ie. 300)</span>
-<span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>ixfx has custom interpolation for <a href="../../types/geometry/line/#interpolation">Lines</a>, <a href="../../types/geometry/point/#interpolation">Points</a> and <a href="../../types/colour/#interpolation">Colour</a></p><h2 id="reaching-a-target">Reaching a target</h2><p>As mentioned in the introduction, interpolation is very often applied in an animation loop, slowly nudging a value to some target value. We adjust the interpolation 'amount' value to set how quickly the target should be reached.</p><p>The basic pattern can look like the following. Here we defined a property <em>saturation</em> that we want to interpolate from 0 to 1 over time, with interpolation amount of 0.01.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
-  <span class="token literal-property property">saturation</span><span class="token operator">:</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">target</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">current</span><span class="token operator">:</span> <span class="token number">0</span><span class="token punctuation">,</span>
-    <span class="token literal-property property">amount</span><span class="token operator">:</span> <span class="token number">0.01</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>We make a helper function that interpolates any value of this shape - <code>{ target:number, current: number }</code>, and returns it:</p><pre class="language-js"><code class="language-js"><span class="token comment">/**
- * Interpolates the given value.
- * @param {{ target:number,current:number,amount:number }} v
- * @param {number} [amount]
- */</span>
-<span class="token keyword">const</span> <span class="token function-variable function">interpolateValue</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token parameter">v<span class="token punctuation">,</span> amount <span class="token operator">=</span> <span class="token number">0.01</span></span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token keyword">return</span> <span class="token punctuation">{</span>
-    <span class="token literal-property property">target</span><span class="token operator">:</span> v<span class="token punctuation">.</span>target<span class="token punctuation">,</span>
-    <span class="token comment">// If v.amount doesn't exist use the amount given as an</span>
-    <span class="token comment">// argument, or default to 0.01</span>
-    <span class="token literal-property property">current</span><span class="token operator">:</span> <span class="token function">interpolate</span><span class="token punctuation">(</span>v<span class="token punctuation">.</span>amount <span class="token operator">??</span> amount<span class="token punctuation">,</span> v<span class="token punctuation">.</span>current<span class="token punctuation">,</span> v<span class="token punctuation">.</span>target<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-<span class="token punctuation">}</span></code></pre><p>Now we are ready to use this function in a loop. At the moment we're only interpolating <code>saturation</code>, but we have a reusable function that could interpolate several properties independently.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> <span class="token function-variable function">loop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment">// Update state with interpolated saturation</span>
-  state <span class="token operator">=</span> <span class="token punctuation">{</span>
-    <span class="token operator">...</span>state<span class="token punctuation">,</span>
-    <span class="token literal-property property">saturation</span><span class="token operator">:</span> <span class="token function">interpolateValue</span><span class="token punctuation">(</span>state<span class="token punctuation">.</span>saturation<span class="token punctuation">)</span>
-  <span class="token punctuation">}</span>
-  
-  <span class="token comment">// Loop</span>
+<span class="token function">interpolate</span><span class="token punctuation">(</span><span class="token number">0.5</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">,</span> <span class="token number">400</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>ixfx has custom interpolation for <a href="../../types/geometry/line/#interpolation">Lines</a>, <a href="../../types/geometry/point/#interpolation">Points</a> and <a href="../../types/colour/#interpolation">Colour</a></p><h2 id="interpolator">Interpolator</h2><p>As mentioned in the introduction, interpolation is very often applied in an animation loop, slowly nudging a value to some target value. We adjust the interpolation 'amount' value to set how quickly the target should be reached.</p><p>Using the <code>interpolate</code> function alone, we'd have to keep track of current value, target value and the amount to interpolate by.</p><p>To simplify, there are two  <em>interpolators</em> - <a href="https://clinth.github.io/ixfx/functions/Data.interpolatorStepped.html"><code>interpolatorStepped</code></a> and <a href="https://clinth.github.io/ixfx/functions/Data.interpolatorInterval.html"><code>interpolatorInterval</code></a> - which help by wrapping all this up. They keep track of interpolation progress and return a function which simply yields the current value.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Step from 0->1 in increments of 0.10</span>
+<span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token function">interpolatorStepped</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// First time will be 0</span>
+<span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Second time will be 0.1</span>
+<span class="token operator">...</span>etc
+<span class="token function">value</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> <span class="token comment">// Last time ought to be 1</span></code></pre><p>Like <code>interpolate</code> you can use custom start and points:</p><pre class="language-js"><code class="language-js"><span class="token comment">// Step from 100->200 in increments of 0.10</span>
+<span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token function">interpolateStepped</span><span class="token punctuation">(</span><span class="token number">0.1</span><span class="token punctuation">,</span> <span class="token number">100</span><span class="token punctuation">,</span> <span class="token number">200</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>When interpolation has completed, the function will just keep returning the final value.</p><p>The stepped version increments each time it is called. This means that the rate by which you call it determines how quickly
+the range completes.</p><p>Alternatively, use <a href="https://clinth.github.io/ixfx/functions/Data.interpolatorInterval.html"><code>interpolatorInterval</code></a>. Rather than an amount to increment by, the first parameter is the time to progress through the range.</p><pre class="language-js"><code class="language-js"><span class="token comment">// Step from 0->1 over one minute</span>
+<span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token function">interpolatorInterval</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">mins</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// Step from 125->678 over 1000 milliseconds.</span>
+<span class="token keyword">const</span> value <span class="token operator">=</span> <span class="token function">interpolatorInterval</span><span class="token punctuation">(</span><span class="token number">1000</span><span class="token punctuation">,</span> <span class="token number">125</span><span class="token punctuation">,</span> <span class="token number">678</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p>In practice, this is how an interpolator might be used:</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> state <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Start saturation with an interval of 1ms,</span>
+  <span class="token comment">// meaning the value will be 100%</span>
+  <span class="token literal-property property">saturation</span><span class="token operator">:</span> <span class="token function">interpolatorInterval</span><span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">useState</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// Set background based on interpolated saturation value</span>
+  document<span class="token punctuation">.</span>body<span class="token punctuation">.</span>backgroundColor <span class="token operator">=</span> <span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">hsl(200, </span><span class="token interpolation"><span class="token interpolation-punctuation punctuation">${</span>Math<span class="token punctuation">.</span><span class="token function">floor</span><span class="token punctuation">(</span>state<span class="token punctuation">.</span><span class="token function">saturation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">*</span><span class="token number">100</span><span class="token punctuation">)</span><span class="token interpolation-punctuation punctuation">}</span></span><span class="token string">, 50%)</span><span class="token template-punctuation string">`</span></span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> <span class="token function-variable function">loop</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token function">useState</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
   window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>loop<span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token punctuation">}</span>
-<span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a href="https://glitch.com/edit/#!/ixfx-interpolate-basics">See this pattern on Glitch</a></p>
+
+<span class="token keyword">const</span> <span class="token function-variable function">setup</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+  <span class="token comment">// When we click, restart interpolation from 0..1</span>
+  document<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">click</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
+    state <span class="token operator">=</span> <span class="token punctuation">{</span>
+      <span class="token operator">...</span>state<span class="token punctuation">,</span>
+      <span class="token literal-property property">saturation</span><span class="token operator">:</span> <span class="token function">interpolatorInterval</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token literal-property property">secs</span><span class="token operator">:</span> <span class="token number">20</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token function">loop</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token function">setup</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><p><a href="https://glitch.com/edit/#!/ixfx-interpolate-basics">See this pattern on Glitch</a></p>
 	</section>
 	<nav class="block sm:hidden astro-AMOJLK4X">
 		
@@ -370,7 +379,7 @@ setup("14s7iJ", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 			<aside id="grid-right" class="grid-sidebar astro-VOYEGVQR" title="Table of Contents">
 				<nav class="sidebar-nav astro-XPZS3NBI" aria-labelledby="grid-right">
 	<div class="sidebar-nav-inner astro-XPZS3NBI">
-		<astro-root uid="14s7iJ"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#reaching-a-target">Reaching a target</a></li></ul></astro-root>
+		<astro-root uid="26RJB4"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li><li class="header-link depth-2"><a href="#interpolator">Interpolator</a></li></ul></astro-root>
 		
 <ul class="astro-WOEIVG5E">
 </ul>

@@ -100,7 +100,7 @@ const iterInterval = setInterval(() => {
 }, 60*1000); // 60 seconds 
 ```
 
-ixfx's [interval](../../flow/loops/#interval) makes iterating with delay easy.
+Tip: ixfx's [interval](../../flow/loops/#interval) makes iterating with delay easy.
 
 Iterables can be converted into an array:
 
@@ -111,24 +111,29 @@ const asArray = Array.from(iterable);
 const asArray =[...iterable];
 ```
 
-What's interesting about iterables is that they aren't an actual collection or set of things, but rather return values on-demand. This means it's possible to have an iterable that never ends.
+What's interesting about iterables is that they aren't an actual collection or set of things, but rather _generate_ values on-demand. This means it's possible to have an iterable that never ends.
 
 ## Count
 
-[`count`](https://clinth.github.io/ixfx/modules/Generators.html#count) yields a series of integers, counting by one: `0 1 2 3 ... `
+[`count`](https://clinth.github.io/ixfx/functions/Generators.count.html) yields a series of integers, counting by one: `0 1 2 3 ... `
 
 As the examples show, `count` can be a useful way of running a chunk of code _x_ number of times. It might be more readable and robust than a typical `do`/`while` or `for` loop because there's only one thing you need to express: the amount of times to loop.
 
 
 ```js
 // repl-pad
-import {count} from "https://unpkg.com/ixfx/dist/generators.js"
+import { count } from "https://unpkg.com/ixfx/dist/generators.js"
 
 // count(amount:number, offset:number = 0);
-// Yields the array: [0,1,2,3,4]
+// Yields the array: [ 0, 1, 2, 3, 4 ]
 const a = [...count(5)];
+```
 
-for (let i of count(5)) {
+Or the more common style for using generators is to loop over them:
+```js
+// repl-pad
+import { count } from "https://unpkg.com/ixfx/dist/generators.js"
+for (const i of count(5)) {
   // Loop runs five times, with i being 0, 1, 2, 3 and then 4
   console.log(i);
 }
@@ -149,7 +154,7 @@ import {forEach} from "https://unpkg.com/ixfx/dist/flow.js"
 If an offset is supplied, it is added to the result:
 
 ```js
-// Yields [1,2,3,4,5]
+// Yields [ 1, 2, 3, 4, 5 ]
 const a = [...count(5,1)];
 ```
 
@@ -159,7 +164,7 @@ For more complicated counting, consider [`numericRange`](#numeric-range), which 
 
 ## Numeric range
 
-[numericRange](https://clinth.github.io/ixfx/modules/Generators.html#numericRange) yields a series of numbers from `start` to `end`, with a specified `interval`. Unlike [`count`](#count), it can increment by and return fractional values.
+[`numericRange`](https://clinth.github.io/ixfx/functions/Generators.numericRange.html) yields a series of numbers from `start` to `end`, with a specified `interval`. Unlike [`count`](#count), it can increment by and return fractional values.
 
 ```js
 import {numericRange} from "https://unpkg.com/ixfx/dist/generators.js"
@@ -220,10 +225,10 @@ const angle = Math.PI*2*r.next().value;
 
 ## Ping pong
 
-[`pingPong`](https://clinth.github.io/ixfx/modules/Generators.html#pingPong) is like a repeating `numericRange` but it counts up and back down again when looping, rather than resetting to the start.
+[`pingPong`](https://clinth.github.io/ixfx/functions/Generators.pingPong.html) is like a repeating `numericRange` but it counts up and back down again when looping, rather than resetting to the start.
 
 ```js
-import {pingPong} from "https://unpkg.com/ixfx/dist/generators.js"
+import { pingPong } from "https://unpkg.com/ixfx/dist/generators.js"
 
 // pingPong(interval, start, end, offset)
 
@@ -234,10 +239,10 @@ for (const v of pingPong(10, 0, 100)) {
 }
 ```
 
-[`pingPongPercent`](https://clinth.github.io/ixfx/modules/Generators.html#pingPongPercent) is a variation of `pingPong`, but it locks everything to a scale of 0-1.
+[`pingPongPercent`](https://clinth.github.io/ixfx/functions/Generators.pingPongPercent.html) is a variation of `pingPong`, but it locks everything to a scale of 0-1.
 
 ```js
-import {pingPongPercent} from "https://unpkg.com/ixfx/dist/generators.js"
+import { pingPongPercent } from "https://unpkg.com/ixfx/dist/generators.js"
 
 for (const v of pingPongPercent(0.01)) {
   // Up and down from 0->1 by 1%
@@ -248,3 +253,47 @@ for (const v of pingPongPercent(0.01)) {
 const pp = pingPongPercent(0.1, 0.2, 0.8);
 const v = pp.next().value;
 ```
+
+## Generator helper functions
+
+In the [Sync](https://clinth.github.io/ixfx/modules/Generators.Sync.html) and [Async](https://clinth.github.io/ixfx/modules/Generators.Async.html) sub-modules, there are a bunch of functions for working with generators or iterables.
+
+For example:
+```js
+import { Async, Sync } from "https://unpkg.com/ixfx/dist/generators.js"
+
+for await (const v of Async.chunk(iterable, 5)) {
+  // v is array of length 5, contains chunks of `iterable`
+}
+```
+
+Here is a brief overview of available functions in these modules:
+
+* chunks: grab chunks of an iterable
+* concat: return the combined results from one or more iterables
+* dropWhile: ignore values that do not meet a predicate (opposite of `filter`)
+* equals: returns _true_ if values in two iterables are the same
+* every: returns _true_ if every value in iterable matches a predicate
+* fill: returns a replacement value for every value of the iterable
+* filter: returns items that match the predicate (opposite of `dropWhile``
+* forEach: run a function for each value
+* fromArray: creates an async generator from an array source
+* fromIterable: creates an async generator from an iterable/generator
+* map: returns value passed through a transform function
+* max/min: returns largest/smallest value seen
+* range: returns range of value seen
+* reduce: reduce values of iterable into one
+* slice: returns a section of an iterable
+* some: returns _true_ and exits when a predicate function matches
+* takeWhile: returns items for which predicate returns true
+* toArray: copies contents of iterable to an array
+* unique: only yields items not yet seen
+* zip: combines the items from several iterables at same position
+
+Only in Sync module
+* chunksOverlapping: like `chunks`, but start of a chunk is the same element as last of the previous chunk
+* find: returns the first value that matches a predicate. While `some` returns a boolean.
+* first/last: returns first/last value from an iterable
+* flatten: unnests values which are arrays
+* uniqueByValue: only yields unique values
+* yieldNumber: returns the numeric value from a generator

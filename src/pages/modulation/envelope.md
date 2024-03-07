@@ -9,7 +9,7 @@ setup: |
 
 <div class="tip">
 <ul>
-<li>API Reference <a href="https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html">adsr function</a></li>
+<li>API Reference <a href="https://clinth.github.io/ixfx/interfaces/Modulation.Envelopes.Adsr.html">Adsr type</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/modulation/">Demos</a></li>
 <li><a href="https://fn-vis.pages.dev/1/#H4sIAEYo9mQAA12SzU6FMBCFX2XSFSQIV5cYTYy6MMb4AHIXzWXAapk2ncFoCO9uC/fHKwuSmTnnzNemb5MaXIuqVt46UXMxKdLDsS6UISNGW1VPc5GkrOroaZElai7UvC2WIrW3UWEG74LABI/0hdZ5ZJihC26ARr2LeK6raiT/2Zc7N1Tmu/uuWsNSxeTRajGOyg9uVEMN7RyxAO5zXn0aMtzA1BBAWZbHDWWLnR6t3LUcooyzvEgSLaJ3nw9jWGJruNxsNsugxZ3+OfWv9m0eWbShM0ND83ViqSq4D6gFEw9oakGC6XsMYOQPaaQ7UemIk/3Dz2NabJV7d5bqJf0Z0QPrwVtD/XphByuMJMZC6wgbYpQnEgxf2mZZDje363WsBGl/So/DEWMygOkgIZSGH6I9X8WwiE4IEPcfsMHwsqmAgHvFaonlGAg6bXmNntPPO5YXZNY9LnuWzelQc77a0qfiozp7ZNtfP20aDnYCAAA=">fn-vis</a>: envelope example</li>
 <li><a href="https://github.com/ClintH/ixfx-demos/tree/main/modulation/env-starter">Starter skeleton</a> (<a href="https://clinth.github.io/ixfx-demos/modulation/env-starter/">view online</a>)
@@ -44,8 +44,7 @@ The playground uses the settings from the envelope editor above. You can _trigge
 
 ## Usage
 
-Docs: [Adsr](https://clinth.github.io/ixfx/interfaces/Modulation.Adsr.html), [AdsrOpts](https://clinth.github.io/ixfx/types/Modulation.AdsrOpts.html), [AdsrTimingOpts](https://clinth.github.io/ixfx/types/Modulation.AdsrTimingOpts.html)
-
+Docs: [Adsr Type](https://clinth.github.io/ixfx/interfaces/Modulation.Envelopes.Adsr.html)
 
 Initialise an envelope with a few timing settings:
 
@@ -63,40 +62,32 @@ const opts = {
 const env = Envelopes.adsr(opts);
 ```
 
-_Triggering_ an envelope kicks it off, letting it run through its stages:
+In basic usage, you first _trigger_ the envelope, and then read its value over time, probably from some kind of loop.
 
 ```js
 env.trigger();
+setInterval(() => {
+  console.log(env.value); // 0..1
+});
 ```
 
-To have an envelope to run through attack, decay and then hold at the sustain stage, pass 'true':
+You can 'trigger-and-hold', making the envelope stay at the sustain stage until 'release' is called:
 
 ```js
-// Trigger and hold at sustain
+// Trigger and hold at 'sustain' stage
 env.trigger(true);
-```
-
-And at some point call `release` to continue on to the release stage:
-
-```js
-// Release a held envelope
+// ...at some point later, allow it to continue to 'release' stage.
 env.release();
 ```
 
-After triggering, you need to request the value of the envelope:
+Fetching the `value` property gives you the value of the envelope at that point in time. You can get additional data with `compute`:
 
 ```js
-// Value of envelope
-const scaled = env.value;
-```
-
-But this is just the value at the time you request it. Since envelopes are tied to time, you'll want to sample the value over time.
-
-It's also possible to get additional data about the envelope with `compute`:
-
-```js
-// Get current stage (as a string), scaled value, and raw value (0 -> 1 progress within a stage)
-const r = env.compute();  // returns [stage, scaled, raw]
+// Gets:
+// name of current stage (as a string), 
+// scaled value (same as calling .value)
+// and raw value (0 -> 1 progress *within* a stage)
+const [stage, scaled, raw] = env.compute();
 ```
 
 You can [see an envelope in action on fn-vis](https://fn-vis.pages.dev/1/#H4sIAEYo9mQAA12SzU6FMBCFX2XSFSQIV5cYTYy6MMb4AHIXzWXAapk2ncFoCO9uC/fHKwuSmTnnzNemb5MaXIuqVt46UXMxKdLDsS6UISNGW1VPc5GkrOroaZElai7UvC2WIrW3UWEG74LABI/0hdZ5ZJihC26ARr2LeK6raiT/2Zc7N1Tmu/uuWsNSxeTRajGOyg9uVEMN7RyxAO5zXn0aMtzA1BBAWZbHDWWLnR6t3LUcooyzvEgSLaJ3nw9jWGJruNxsNsugxZ3+OfWv9m0eWbShM0ND83ViqSq4D6gFEw9oakGC6XsMYOQPaaQ7UemIk/3Dz2NabJV7d5bqJf0Z0QPrwVtD/XphByuMJMZC6wgbYpQnEgxf2mZZDje363WsBGl/So/DEWMygOkgIZSGH6I9X8WwiE4IEPcfsMHwsqmAgHvFaonlGAg6bXmNntPPO5YXZNY9LnuWzelQc77a0qfiozp7ZNtfP20aDnYCAAA=).
@@ -126,7 +117,7 @@ env.addEventListener(`complete`, () => {
 
 ### Envelope options
 
-Envelope options are documented [here](https://clinth.github.io/ixfx/types/Modulation.AdsrOpts.html) and the [timing options here](https://clinth.github.io/ixfx/types/Modulation.AdsrTimingOpts.html).
+Envelope options are documented [here](https://clinth.github.io/ixfx/types/Modulation.Envelopes.AdsrOpts.html) and the [timing options here](https://clinth.github.io/ixfx/types/Modulation.Envelopes.AdsrTimingOpts.html).
 
 There are three 'bend' options for setting a stage curve, `attackBend, decayBend` and `releaseBend`. Bend values run from -1 to 1. A value of `0` means there is no bend (ie. straight line), `-1` pulls curve down, and `1` pushes it outward. 
 
