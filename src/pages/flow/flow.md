@@ -42,7 +42,7 @@ Note in the demo that lots of events (ie. movement) produce no debounced result 
 
 ## Throttle
 
-[`throttle`](https://clinth.github.io/ixfx/modules/Flow.html#throttle) reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.
+[`throttle`](https://clinth.github.io/ixfx/functions/Flow.throttle.html) reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.
 
 This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with _throttle_ and an appropriate `intervalMs`, you might avoid this.
 

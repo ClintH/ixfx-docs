@@ -1,11 +1,11 @@
 /* eslint-disable */
-import {LitElement, html, css} from 'lit';
-import {property} from 'lit/decorators.js';
-import {Circles, Arcs, Lines, Points, Polar, Vectors, radianToDegree} from 'ixfx/lib/geometry';
-import {themeChangeObservable, DragDrop} from 'ixfx/lib/dom';
-import {Palette} from 'ixfx/lib/visual';
+import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
+import { Circles, Arcs, Lines, Points, Polar, Vectors, radianToDegree } from 'ixfx/lib/geometry';
+import { Rx, DragDrop } from 'ixfx/lib/dom';
+import { Palette } from 'ixfx/lib/visual';
 import * as Svg from 'ixfx/lib/svg';
-import {elStyles} from '../styles.js';
+import { elStyles } from '../styles.js';
 
 export const tagName = `vector-element`;
 
@@ -49,11 +49,11 @@ export class VectorElement extends LitElement {
     this.palette.setElementBase(this);
     this.width = 300;
     this.height = 300;
-    this.origin = {x: 150, y: 150};
-    this.pointA = {x: 150, y: 100};
-    this.pointB = {x: 200, y: 200}
+    this.origin = { x: 150, y: 150 };
+    this.pointA = { x: 150, y: 100 };
+    this.pointB = { x: 200, y: 200 }
 
-    themeChangeObservable().subscribe(records => {
+    Rx.themeChange().on(records => {
       this.updated();
     });
   }
@@ -62,7 +62,7 @@ export class VectorElement extends LitElement {
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`)
     );
-    return {width: svg.width, height: svg.height};
+    return { width: svg.width, height: svg.height };
   }
 
   titledPoint(svg: Svg.SvgHelper, id: string, pt: Points.Point, title: string, hidden = false) {
@@ -70,9 +70,9 @@ export class VectorElement extends LitElement {
     const poleColour = this.palette.get(`fgDim`, `black`);
     const radius = hidden ? 10 : 5;
     const elem = svg.circle(
-      {radius, ...pt},
-      {fillStyle: hidden ? `transparent` : poleColour, strokeStyle: `none`},
-      `#${id}`
+      { radius, ...pt },
+      { fillStyle: hidden ? `transparent` : poleColour, strokeStyle: `none` },
+      `#${ id }`
     );
 
     // Ideally a layout function to determine text pos
@@ -82,8 +82,8 @@ export class VectorElement extends LitElement {
     svg.text(
       title,
       Points.sum(pt, 5, 20),
-      {fillStyle: poleColour, userSelect: false, strokeStyle: `none`},
-      `#${id}-label`
+      { fillStyle: poleColour, userSelect: false, strokeStyle: `none` },
+      `#${ id }-label`
     );
 
     return elem;
@@ -93,7 +93,7 @@ export class VectorElement extends LitElement {
     this.pointA = a;
     this.pointB = b;
 
-    const line = {a: a, b: b};
+    const line = { a: a, b: b };
     const vectorPolar = Vectors.fromLinePolar(line);
     const vectorCartesian = Vectors.fromLineCartesian(line);
 
@@ -123,18 +123,18 @@ export class VectorElement extends LitElement {
       strokeStyle: poleColour, strokeWidth: 4
     }, `#line-a-b`);
 
-    const pointB = this.titledPoint(svg, `point-b`, b, `B ${Points.toString(b, 0)}`, true);
-    const pointA = this.titledPoint(svg, `point-a`, a, `A ${Points.toString(a, 0)}`);
+    const pointB = this.titledPoint(svg, `point-b`, b, `B ${ Points.toString(b, 0) }`, true);
+    const pointA = this.titledPoint(svg, `point-a`, a, `A ${ Points.toString(a, 0) }`);
 
     // Line to y-axis
-    const lineToY = {a: {x: b.x, y: a.y}, b: b}
-    svg.line(lineToY, {strokeDash: `4`, strokeWidth: 2, strokeStyle: poleColour}, `#line-to-y`);
+    const lineToY = { a: { x: b.x, y: a.y }, b: b }
+    svg.line(lineToY, { strokeDash: `4`, strokeWidth: 2, strokeStyle: poleColour }, `#line-to-y`);
 
     // Line to x-axis
-    const lineToX = {a: {x: b.x, y: a.y}, b: a}
-    svg.line(lineToX, {strokeDash: `4`, strokeWidth: 2, strokeStyle: poleColour}, `#line-to-x`);
+    const lineToX = { a: { x: b.x, y: a.y }, b: a }
+    svg.line(lineToX, { strokeDash: `4`, strokeWidth: 2, strokeStyle: poleColour }, `#line-to-x`);
 
-    return {pointB, pointA, edge};
+    return { pointB, pointA, edge };
   }
 
   renderSvg() {
@@ -152,7 +152,7 @@ export class VectorElement extends LitElement {
     const w = svg.width;
     const h = svg.height;
 
-    Svg.Elements.grid(svg.parent, origin, 25, w, h, {strokeWidth: 2, opacity: 0.3});
+    Svg.Elements.grid(svg.parent, origin, 25, w, h, { strokeWidth: 2, opacity: 0.3 });
 
     // Pole axis
     const triangleMarker = {
@@ -171,7 +171,7 @@ export class VectorElement extends LitElement {
       strokeStyle: poleColour,
       opacity: 0.3
     });
-    svg.text(`X`, {x: w - arrowPadding, y: origin.y + 20}, {strokeStyle: `none`, fillStyle: poleColour});
+    svg.text(`X`, { x: w - arrowPadding, y: origin.y + 20 }, { strokeStyle: `none`, fillStyle: poleColour });
 
     // Y axis
     const poleAxisLineY = Lines.fromNumbers(origin.x, arrowPadding, origin.x, h - arrowPadding);
@@ -183,9 +183,9 @@ export class VectorElement extends LitElement {
       strokeStyle: poleColour,
       opacity: 0.3
     });
-    svg.text(`Y`, {x: origin.x + 15, y: arrowPadding + 5}, {strokeStyle: `none`, fillStyle: poleColour});
+    svg.text(`Y`, { x: origin.x + 15, y: arrowPadding + 5 }, { strokeStyle: `none`, fillStyle: poleColour });
 
-    const {pointA, pointB} = this.updatePoints(svg);
+    const { pointA, pointB } = this.updatePoints(svg);
 
     this.dragDisposePtA = DragDrop.draggable(pointB, {
       abort(reason, state) {
@@ -200,7 +200,7 @@ export class VectorElement extends LitElement {
         return true;
       },
       start() {
-        return {allow: true, token: me.pointB}
+        return { allow: true, token: me.pointB }
       },
       success() {
 
@@ -217,7 +217,7 @@ export class VectorElement extends LitElement {
         return true;
       },
       start() {
-        return {allow: true, token: me.pointA}
+        return { allow: true, token: me.pointA }
       },
     })
     // A point
@@ -279,7 +279,7 @@ export class VectorElement extends LitElement {
   render() {
     return html`
       <div id="container">
-      <svg style="font-size: 1em" viewBox="0 0 ${this.width} ${this.height}" width=${this.width} height=${this.height}> </svg>
+      <svg style="font-size: 1em" viewBox="0 0 ${ this.width } ${ this.height }" width=${ this.width } height=${ this.height }> </svg>
         </div>
           `;
   }

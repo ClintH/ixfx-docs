@@ -14,14 +14,14 @@ Explore what ixfx offers via the sidebar. There are lots of interactive illustra
 
 Once you've done that and are ready to tinker, choose your starting point:
 
-Start with demos and examples
-- [Try](https://clinth.github.io/ixfx-demos/) 
-- [Browse on Github](https://github.com/clinth/ixfx-demos/)
-- Edit on [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos-npm) or [Glitch](https://glitch.com/edit/#!/ixfx-demos)
+Start with demos and examples:
+- [Try demos online](https://clinth.github.io/ixfx-demos/) 
+- [View the code for demo sketches on Github](https://github.com/clinth/ixfx-demos/)
+- [Edit demos on Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos-npm) or [Glitch](https://glitch.com/edit/#!/ixfx-demos)
 
-Start with an empty skeleton
-- Edit on [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-starter)  [Glitch](https://glitch.com/edit/#!/ixfx-starter-url)
-- [Browse on Github](https://github.com/ClintH/ixfx-starter)
+Start with a starter sketch:
+- [Edit with a sketch on Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-starter) or [Glitch](https://glitch.com/edit/#!/ixfx-starter-url)
+- [View code for the starter on Github](https://github.com/ClintH/ixfx-starter)
 - [Read more on importing ixfx into your own sketch](./importing/)
 
 ## Why ixfx?
@@ -49,7 +49,7 @@ Some design principles of ixfx are:
 - Good type definitions and documentation for improved editor experience (in VS
   Code at least)
 - Plain, immutable data over complicated objects
-- Favour functional approaches over OOP
+- Favour functional approaches over OOP, and try to stick to web programming conventions
 
 ## This documentation
 

@@ -1,11 +1,11 @@
 /* eslint-disable */
-import {LitElement, html, css} from 'lit';
-import {property} from 'lit/decorators.js';
-import {Arcs, Lines, Points, Polar, radianToDegree} from 'ixfx/lib/geometry';
-import {themeChangeObservable} from 'ixfx/lib/dom';
-import {Palette} from 'ixfx/lib/visual';
+import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
+import { Arcs, Lines, Points, Polar, radianToDegree } from 'ixfx/lib/geometry';
+import { Rx } from 'ixfx/lib/dom';
+import { Palette } from 'ixfx/lib/visual';
 import * as Svg from 'ixfx/lib/svg';
-import {elStyles} from '../styles.js';
+import { elStyles } from '../styles.js';
 
 export const tagName = `polar-coords-element`;
 
@@ -46,7 +46,7 @@ export class PolarCoordsElement extends LitElement {
     this.width = 500;
     this.height = 300;
 
-    themeChangeObservable().subscribe(records => {
+    Rx.themeChange().on(records => {
       this.updated();
     });
   }
@@ -65,28 +65,28 @@ export class PolarCoordsElement extends LitElement {
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`)
     );
-    return {width: svg.width, height: svg.height};
+    return { width: svg.width, height: svg.height };
   }
 
   renderSvg() {
     const poleColour = this.palette.get(`fgDim`, `black`);
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`}
+      { fillStyle: `transparent` }
     );
 
     svg.clear();
     const w = svg.width;
     const h = svg.height;
     const minWh = Math.min(w / 2, h / 2);
-    const center = {x: w / 2, y: h / 2};
+    const center = { x: w / 2, y: h / 2 };
 
     Svg.Elements.grid(svg.parent, center, 25, w, h);
 
     // Pole
     const axisYOffset = 25;
-    svg.circle({radius: 3, ...center}, {fillStyle: poleColour, strokeStyle: `none`})
-    svg.text('Origin', Points.sum(center, 2, axisYOffset), {fillStyle: poleColour, strokeStyle: `none`});
+    svg.circle({ radius: 3, ...center }, { fillStyle: poleColour, strokeStyle: `none` })
+    svg.text('Origin', Points.sum(center, 2, axisYOffset), { fillStyle: poleColour, strokeStyle: `none` });
 
     // Pole axis
     const triangleMarker = {
@@ -95,8 +95,8 @@ export class PolarCoordsElement extends LitElement {
     }
 
     const poleAxisLine = Lines.fromNumbers(center.x, center.y, center.x + minWh - 10, center.y);
-    svg.line(poleAxisLine, {fillStyle: `none`, markerEnd: triangleMarker, strokeWidth: 3, strokeStyle: poleColour});
-    svg.text(`A`, {x: center.x + minWh - 35, y: center.y + 20}, {strokeStyle: `none`, fillStyle: poleColour});
+    svg.line(poleAxisLine, { fillStyle: `none`, markerEnd: triangleMarker, strokeWidth: 3, strokeStyle: poleColour });
+    svg.text(`A`, { x: center.x + minWh - 35, y: center.y + 20 }, { strokeStyle: `none`, fillStyle: poleColour });
   }
 
   async updated() {
@@ -111,7 +111,7 @@ export class PolarCoordsElement extends LitElement {
     const svg = Svg.makeHelper(this.shadowRoot.querySelector(`svg`));
     const w = svg.width;
     const h = svg.height;
-    const center = {x: w / 2, y: h / 2};
+    const center = { x: w / 2, y: h / 2 };
 
     const ptr = {
       x: ev.offsetX,
@@ -128,7 +128,7 @@ export class PolarCoordsElement extends LitElement {
     const lineToCursorDistance = Lines.length(lineToCursor);
 
     // Draw point at cursor
-    svg.circle({radius: 5, ...ptr}, {
+    svg.circle({ radius: 5, ...ptr }, {
       fillStyle: targetColour,
       strokeStyle: `none`
     }, `#targetCircle`);
@@ -162,13 +162,13 @@ export class PolarCoordsElement extends LitElement {
       anchor: `middle`
     }
 
-    svg.text(`(${Math.round(lineToCursorDistance)}, ${Math.floor(polarAngleDeg)}°)`, {x: ptr.x, y: ptr.y + 40}, labelStyle, `#coordLabel`);
+    svg.text(`(${ Math.round(lineToCursorDistance) }, ${ Math.floor(polarAngleDeg) }°)`, { x: ptr.x, y: ptr.y + 40 }, labelStyle, `#coordLabel`);
   }
 
   render() {
     return html`
 			<div id="container">
-        <svg @pointermove="${this._pointerMove}" style="font-size: 1em" viewBox="0 0 ${this.width} ${this.height}" width=${this.width} height=${this.height}></svg>
+        <svg @pointermove="${ this._pointerMove }" style="font-size: 1em" viewBox="0 0 ${ this.width } ${ this.height }" width=${ this.width } height=${ this.height }></svg>
 			</div>
 		`;
   }

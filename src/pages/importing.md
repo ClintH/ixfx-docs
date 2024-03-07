@@ -64,6 +64,29 @@ Browsing the [API documentation](https://clinth.github.io/ixfx/modules.html) is 
 
 This overview of available modules gives some examples of importing from unpkg.com, and each header is a link to the API docs, where there is a full list of available functions, classes, types and sub-modules.
 
+### [Arrays](https://clinth.github.io/ixfx/modules/Collections.Arrays.html)
+
+Eg. function
+```js
+import { filterAB } from  "https://unpkg.com/ixfx/dist/arrays.js"
+```
+
+### [Collections](https://clinth.github.io/ixfx/modules/Collections.html)
+
+Sub-modules: Arrays, Iterables, Maps, Queues, Sets, Stacks, Trees
+
+Eg. sub-module
+
+```js
+import { Arrays } from  "https://unpkg.com/ixfx/dist/collections.js"
+Arrays.average([ 1, 2, 3 ]);
+```
+
+```js
+import { Queues } from  "https://unpkg.com/ixfx/dist/collections.js"
+let queue = Queues.immutable();
+```
+
 ### [Data](https://clinth.github.io/ixfx/modules/Data.html)
 
 Sub-modules: Correlate, Normalise, Pool
@@ -85,20 +108,33 @@ import { IntervalTracker } from  "https://unpkg.com/ixfx/dist/data.js"
 const t = new IntervalTracker();
 ```
 
-### [Collections](https://clinth.github.io/ixfx/modules/Collections.html)
+### [Dom](https://clinth.github.io/ixfx/modules/Dom.html)
 
-Sub-modules: Arrays, Maps, Queues, Sets, Stacks, Trees
+Sub-modules: DataTable, DragDrop, Forms, Rx, Variables
 
-Eg. sub-module
-
+Eg. function
 ```js
-import { Arrays } from  "https://unpkg.com/ixfx/dist/collections.js"
-Arrays.average([ 1, 2, 3 ]);
+import { setText } from  "https://unpkg.com/ixfx/dist/dom.js"
 ```
 
+Eg. sub-module
 ```js
-import { Queues } from  "https://unpkg.com/ixfx/dist/collections.js"
-let queue = Queues.immutable();
+import { Forms } from  "https://unpkg.com/ixfx/dist/data.js"
+Forms.button(`#myButton`, () => { console.log(`clicked`) });
+```
+
+### [Events](https://clinth.github.io/ixfx/modules/Events.html)
+
+
+Eg. function
+```js
+import { eventRace } from  "https://unpkg.com/ixfx/dist/events.js"
+```
+
+Eg. class
+```js
+import { SimpleEventEmitter } from  "https://unpkg.com/ixfx/dist/events.js"
+class MyClass extends SimpleEventEmitter { ... }
 ```
 
 ### [Flow](https://clinth.github.io/ixfx/modules/Flow.html)
@@ -117,9 +153,16 @@ import { Elapsed } from  "https://unpkg.com/ixfx/dist/flow.js"
 let e = Elapsed.since();
 ```
 
+Eg. class
+```js
+import { TaskQueue } from  "https://unpkg.com/ixfx/dist/flow.js"
+const t = new TaskQueue();
+```
+
 ### [Generators](https://clinth.github.io/ixfx/modules/Generators.html)
 
-Sub-modules: Async, Sync
+Sub-modules: Async, Chain, Sync
+
 Eg. function
 ```js
 import { count } from  "https://unpkg.com/ixfx/dist/generators.js"
@@ -138,7 +181,7 @@ for (const v of Sync.chunks(source, 10)) {
 
 ### [Geometry](https://clinth.github.io/ixfx/modules/Geometry.html)
 
-Sub-modules: Arcs, Beziers, Circles, Compound, Convolve2d, Ellipses, Grids, Layouts, Lines, Paths, Points, Polar, QuadTree, Rects, Scaler, Shapes, Spheres, SurfacePoints, Triangles, Vectors, Waypoints
+Sub-modules: Arcs, Beziers, Circles, Compound, Convolve2d, CurveSimplification, Ellipses, Grids, Layouts, Lines, Paths, Points, Polar, QuadTree, Rects, Scaler, Shapes, Spheres, SurfacePoints, Triangles, Vectors, Waypoints
 
 Eg. function
 ```js
@@ -150,6 +193,16 @@ Eg. sub-module
 ```js
 import { Points } from  "https://unpkg.com/ixfx/dist/geometry.js"
 Points.multiply({x:1,y:2},{x:0.5,y:0.5});
+```
+
+### [Immutable](https://clinth.github.io/ixfx/modules/Immutable.html)
+
+Sub-modules: _none_
+
+Eg. function
+```js
+import { compareData } from  "https://unpkg.com/ixfx/dist/immutable.js"
+compareData(a, b);
 ```
 
 ### [Io](https://clinth.github.io/ixfx/modules/Io.html)
@@ -198,6 +251,16 @@ import { integer } from  "https://unpkg.com/ixfx/dist/random.js"
 integer(10);
 ```
 
+### [Rx](https://clinth.github.io/ixfx/modules/Rx.html)
+
+Sub-modules: Dom
+
+Eg. function
+```js
+import { fromArray } from  "https://unpkg.com/ixfx/dist/rx.js"
+fromArray([ 1, 2, 3 ]);
+```
+
 ### [Text](https://clinth.github.io/ixfx/modules/Text.html)
 
 Sub-modules: _none_
@@ -208,9 +271,19 @@ import { between } from  "https://unpkg.com/ixfx/dist/text.js"
 between(source, start, end);
 ```
 
+### [Util](https://clinth.github.io/ixfx/modules/Util.html)
+
+Sub-modules: _none_
+
+Eg. function
+```js
+import { isMap } from  "https://unpkg.com/ixfx/dist/util.js"
+isMap(o);
+```
+
 ### [Visual](https://clinth.github.io/ixfx/modules/Visual.html)
 
-Sub-modules: Colour, Palette, Drawing, ImageDataGrid, SceneGraph, Svg, Video
+Sub-modules: BipolarView, Colour, Drawing, ImageDataGrid, Palette, Plot2, SceneGraph, Svg, Video
 
 Eg. sub-module
 ```js

@@ -57,31 +57,31 @@
 
 		<title>Flow control - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" astro-script="/flow/flow/script-0">import "../../client-shim.8cb18301.js";</script>
-<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-1">import setup from '../../idle.cf066c8c.js';
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" astro-script="/flow/flow/script-0">import "../../client-shim.a8276547.js";</script>
+<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-1">import setup from '../../idle.1e368d9f.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.d7ee5070.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.fca59054.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-MOSAUK67"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-2">import setup from '../../media.4019acd1.js';
+<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-2">import setup from '../../media.0d830f0d.js';
 setup("Z2j7mWc", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"debounce","text":"Debounce"},{"depth":2,"slug":"throttle","text":"Throttle"},{"depth":2,"slug":"run-once","text":"Run once"}],"class":"astro-XPZS3NBI"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-3">import setup from '../../visible.6e568c09.js';
+<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-3">import setup from '../../visible.08ab059e.js';
 setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.da026e82.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.48d19909.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-WOEIVG5E"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-4">import setup from '../../media.4019acd1.js';
+<script type="module" data-astro-component-hydration astro-script="/flow/flow/script-4">import setup from '../../media.0d830f0d.js';
 setup("Z2j7mWc", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"headers":[{"depth":2,"slug":"debounce","text":"Debounce"},{"depth":2,"slug":"throttle","text":"Throttle"},{"depth":2,"slug":"run-once","text":"Run once"}],"class":"astro-AMOJLK4X"}, children);
 
 });
@@ -629,7 +629,7 @@ window<span class="token punctuation">.</span><span class="token function">addEv
 
         <iframe src="https://clinth.github.io/ixfx-demos/flow/debounce/"><!--lit-node 7--></iframe>
       </div>
-		<!--/lit-part--></template></demo-element><p>Note in the demo that lots of events (ie. movement) produce no debounced result until the events stop. If you want to have a continual stream of events, albeit at a slower rate, consider <a href="#throttle">throttle</a>.</p><h2 id="throttle">Throttle</h2><p><a href="https://clinth.github.io/ixfx/modules/Flow.html#throttle"><code>throttle</code></a> reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.</p><p>This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with <em>throttle</em> and an appropriate <code>intervalMs</code>, you might avoid this.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> throttle <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
+		<!--/lit-part--></template></demo-element><p>Note in the demo that lots of events (ie. movement) produce no debounced result until the events stop. If you want to have a continual stream of events, albeit at a slower rate, consider <a href="#throttle">throttle</a>.</p><h2 id="throttle">Throttle</h2><p><a href="https://clinth.github.io/ixfx/functions/Flow.throttle.html"><code>throttle</code></a> reduces a fast interval of function calls to a maximum rate. It allows you to ignore an event if it happened too soon after the previous event.</p><p>This is useful when processing event or stream data (eg user input, camera or audio feeds). In some scenarios the events come in to your code faster than you can process them. This results in a choked computer (laggy, unresponsive) and a backlogged response. But with <em>throttle</em> and an appropriate <code>intervalMs</code>, you might avoid this.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> throttle <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 <span class="token comment">// Signature:</span>
 <span class="token comment">// throttle(</span>
 <span class="token comment">//  callback:(elapsedMs?:number, ...args:unknown[])=> void, </span>

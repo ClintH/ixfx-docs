@@ -4,7 +4,10 @@ layout: ../../layouts/MainLayout.astro
 setup: |
   import { DemoElement } from '../../components/DemoElement.ts';
 ---
-  
+
+<script type="module" hoist>
+import '/src/components/ReplPad';
+</script>
 <div class="tip"><ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Flow.html">Flow module</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
@@ -44,15 +47,15 @@ setInterval(() => {
 
 // OR:
 const f = () => {
-  // Reschedule 'f' in 1 second
-  // This means it will loop 
+  // Reschedule itself to run again 
+  // in 1 second, creating a loop
   setTimeout(f, 1000);
 }
 // Initial schedule 'f' in one second
 setTimeout(f, 1000);
 ```
 
-Or perhaps we want to run a loop really fast but not saturate the CPU:
+Or perhaps we want to run a loop really fast, `requestAnimationFrame` is meant for animation loops:
 
 ```js
 const draw = () => {
@@ -63,50 +66,43 @@ window.requestAnimationFrame(draw); // Schedule
 ```
 
 This might just be fine, however:
-* You have to keep track of additional timer ids
-* More plumbing required to adjust loop as it runs
+* If you want to start/stop you have to keep track of the id of the timer
+* More plumbing required to adjust loop speed as it runs
 * Not particularly readable
 
 ixfx has two functions to help with timed loops:
 * [continuously](#continuously): Useful for a 'main loop', can be controlled
 * [delayLoop](#delayed-loop): A 'for' loop with some delay between iterations
-  
+
 ### Continuously
 
-[`continuously`](https://clinth.github.io/ixfx/modules/Flow.continuously.html) is a controllable loop.
+[`continuously`](https://clinth.github.io/ixfx/functions/Flow.continuously-1.html) is a controllable loop. It can be started, stopped and reset, with timing changed dynamically. As it runs, it keeps track of how many times it has looped, which can be useful for example to do something over time. It also allows the callback function to stop the loop.
+
+By default, it runs at animation speed, useful for updating a canvas:
 
 ```js
 import { continuously } from "https://unpkg.com/ixfx/dist/flow.js"
 
 continuously(() => {
-  // do something at animation loop speed
+  // Do something at animation loop speed
 }).start();
 ```
 
-If you don't want the loop to run as fast as possible, provide the number of milliseconds between loops:
+If you don't want the loop to run as fast as possible, provide an [`Interval`](https://clinth.github.io/ixfx/types/Flow.Interval.html) or a number denoting milliseconds:
 
 ```js
-const fetchData = async () => {
-  try {
-    const r = await fetch(`someurl`);
-    this.state = {
-      ...state,
-      response: await r.json()
-    }
-  } catch (ex) {
-    console.error(ex);
-  }
-};
+const fetchData = () => { // Do something };
+
 // Runs every minute
 continuously(fetchData, { mins: 1 }).start();
 ```
 
-In action:
+Examples of `continuously` in action:
 * [Poll data from an API](https://github.com/ClintH/ixfx-demos/tree/main/flow/fetch-poll)
 * [Animate a gradient](https://github.com/ClintH/ixfx-demos/tree/main/dom/gradient-rotate)
 * [Process a list of things](https://github.com/ClintH/ixfx-demos/tree/main/flow/list-async)
 
-### Control
+#### Control
 
 Note the use of `start` to start the loop. This allows you setup the loop once, and trigger it from different places. If `start` is called while already running, the timer is reset. `cancel` stops a loop that is scheduled to run.
 
@@ -152,7 +148,7 @@ const jobLoop = continuously(job, 1000, { onStartCalled }).start();
 
 ### Delayed loop
 
-If you don't need to adjust the loop or control it from other parts of your code, [`delayLoop`](https://clinth.github.io/ixfx/modules/Flow.delayLoop.html) might be what you need. It is an async generator which runs indefinitely and has a simple syntax:
+If you don't need to adjust the loop or control it from other parts of your code, [`delayLoop`](https://clinth.github.io/ixfx/functions/Flow.delayLoop.html) might be what you need. It is an async generator which runs indefinitely and has a simple syntax:
 
 ```js
 import { delayLoop } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -160,13 +156,30 @@ for await (const o of delayLoop(1000)) {
   // Do something every second
   // Warning: loops forever
 }
+// Execution won't continue here until the loop is exited
 ```
 
 Note the use of _for await_ is important here. Use `break` when you want to exit the loop.
 
+Using `for await` means that code won't continue running until the loop finishes. If you want some code running in a delay loop whilst also continuing execution, you can use this (somewhat awkward) technique:
+
+```js
+// repl-pad
+import { delayLoop } from "https://unpkg.com/ixfx/dist/flow.js"
+setTimeout(async () => {
+  for await (const o of delayLoop(1000)) {
+    console.log(`!`);
+  }
+});
+// Execution continues while looped code runs in parallel
+console.log(`Hello`);
+```
+
+`delayLoop` does not gather the results of the looped code. If that's what you need, consider [`repeat`](#repeat) or [`interval`](#interval).
+
 ## Repeat
 
-[`repeat`](https://clinth.github.io/ixfx/modules/Flow.html#repeat) runs a function a certain number of times, yielding the results one-by-one.
+[`repeat`](https://clinth.github.io/ixfx/functions/Flow.repeat.html) runs a function a certain number of times, yielding the results one-by-one.
 
 ```js
 // repl-pad
@@ -177,14 +190,14 @@ const results = [...repeat(5, Math.random)];
 
 // Or in a for-of loop:
 for (const result of repeat(5, Math.random)) {
-  // result is a random number
+  console.log(result);
 }
 // Exits after 5 numbers
 ```
 
-If you don't care about the return value of the function, consider using [`count`](../../data/generator/#count).
+If you don't care about the return value of the function, consider using the [`count`](../../gen/generator/#count) generator.
 
-If a function is provided instead of a number, repeat will continue until the function returns _false_.
+If a function is provided instead of a number, `repeat` will continue until the function returns _false_.
 
 ```js
 // repl-pad
@@ -200,26 +213,13 @@ const results = repeat(
 
 [`interval`](https://clinth.github.io/ixfx/functions/Flow.interval-1.html) calls and yields the result of an synchronous or asynchronous function/generator at a given interval. It is an asynchronous generator, note the `for await` rather than `for`.
 
-The type signature looks like:
-
-```typescript
-AsyncPromiseOrGenerator<V>: (() => V | Promise<V>) | Generator<V> | AsyncGenerator<V>
-
-IntervalOpts: {
-    delay?: "before" | "after";
-    fixed?: Interval;
-    minimum?: Interval;
-    signal?: AbortSignal;
-}
-interval<V>(produce, opts?:IntervalOpts|number): AsyncGenerator<V>
-```
-
 This example prints a new random number every second
 
 ```js
 import { interval } from "https://unpkg.com/ixfx/dist/flow.js"
-
+// Call Math.random at a fixed interval of 1000ms
 const randomGenerator = interval(Math.random, { fixed: 1000 } );
+
 for await (const r of randomGenerator) {
   // Prints a new random number every second
   console.log(r);
@@ -228,14 +228,31 @@ for await (const r of randomGenerator) {
 console.log(`Done.`); 
 ```
 
-If you don't want to specify options other than the loop speed in milliseconds, a number can be provided as the second option:
+When calling `interval`, the first parameter is the code to run, or generator to use. In the above example it's a simple function call.
+
+The second parameter are the options:
+
+```typescript
+IntervalOpts: {
+  delay?: "before" | "after"; // Should delay be before or after inner code is run?
+  fixed?: Interval;     // Use a fixed delay between iterations
+  minimum?: Interval;   // Enforce a minimum time between iterations
+  signal?: AbortSignal; // Signal to stop interval looping
+}
+```
+
+In the earlier example, we used `fixed`, meaning there is a fixed delay. `minimum` is useful if the code being run can take varying time to run. This allows iterations to be spaced out more evenly.
+
+If want to use `interval` in a simple way, instead of passing in an object of options you can use a number, which is taken to be the fixed millisecond delay.
+
 ```js
 // These lines are the same
 interval(Math.random, { fixed: 1000 } );
 interval(Math.random, 1000 );
 ```
 
-Iterate through items in a list, with a delay of one minute before each item
+Example: Iterate through items in a list, with a delay of one minute before each item
+
 ```js
 const opts = { fixed: { mins: 1 }, delay: 'before' };
 const list = [ 'thom', 'jonny', 'colin', 'ed', 'phil' ];
@@ -244,15 +261,15 @@ for await (const i of interval(list, opts)) {
 }
 ```
 
-You can step through a generator's return values using `interval`:
-
+Example: Using a generator
 ```js
 import { count } from "https://unpkg.com/ixfx/dist/generators.js";
 import { interval } from "https://unpkg.com/ixfx/dist/flow.js";
 
 // A generator that counts to 5
 const counter = count(5);
-// Use interval to loop over counter with 1000ms delay
+
+// Loop over counter with 1000ms delay
 for await (const v of interval(counter, 1000)) {
   // Counts from 0...4, with a delay between each
   console.log(v);

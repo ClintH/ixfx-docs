@@ -57,30 +57,30 @@
 
 		<title>Retrying - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-0">import setup from '../../idle.cf066c8c.js';
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-0">import setup from '../../idle.1e368d9f.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.d7ee5070.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.fca59054.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-MOSAUK67"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-1">import setup from '../../media.4019acd1.js';
+<script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-1">import setup from '../../media.0d830f0d.js';
 setup("ZIUcmN", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"headers":[],"class":"astro-XPZS3NBI"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-2">import setup from '../../visible.6e568c09.js';
+<script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-2">import setup from '../../visible.08ab059e.js';
 setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.da026e82.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.48d19909.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-WOEIVG5E"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-3">import setup from '../../media.4019acd1.js';
+<script type="module" data-astro-component-hydration astro-script="/flow/retrying/script-3">import setup from '../../media.0d830f0d.js';
 setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"headers":[],"class":"astro-AMOJLK4X"}, children);
 
 });
@@ -313,7 +313,7 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 		<div class="tip"><ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Flow.html">Flow module</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
-</ul></div><p>When a function may succeed after some attempts, you might need a <em>retry</em> logic - keep trying the function until it succeeds, or after a certain number of attempts. You want some kind of waiting period between each attempt, eg to wait for a network connection.</p><p>This can be achieved using <a href="https://clinth.github.io/ixfx/functions/Flow.retry.html"><code>retry</code></a>.</p><p>In the example, we will try up to five times to run the async function <code>doSomething</code>, starting with 1 second delay if it fails. This time gets longer and longer with each attempt.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> retry <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
+</ul></div><p>When a function may succeed after some attempts, you might need a <em>retry</em> logic - keep trying the function until it succeeds, or after a certain number of attempts. You want some kind of waiting period between each attempt, eg to wait for a network connection.</p><p>This can be achieved using <a href="https://clinth.github.io/ixfx/functions/Flow.retryFunction.html"><code>retryFunction</code></a>.</p><p>In the example, we will try up to five times to run the async function <code>doSomething</code>, starting with 1 second delay if it fails. This time gets longer and longer with each attempt.</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> retry <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 
 <span class="token keyword">const</span> <span class="token function-variable function">doSomething</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
   <span class="token comment">// If this function throws an error or returns undefined,</span>
@@ -322,23 +322,12 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
   <span class="token comment">// for it to succeed it has to return a value</span>
 <span class="token punctuation">}</span>
 
-<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">retry</span><span class="token punctuation">(</span>doSomething<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">count</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">startMs</span><span class="token operator">:</span> <span class="token number">1000</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">retryFunction</span><span class="token punctuation">(</span>doSomething<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">limitAttempts</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">startAt</span><span class="token operator">:</span> <span class="token number">1000</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
 <span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>success<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment">// Yay</span>
+  <span class="token comment">// Yay result.value will contain the result of `doSomething`</span>
 <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
   <span class="token comment">// result.message tells why it failed</span>
-<span class="token punctuation">}</span></code></pre><p>It's also possible to return a value from the function:</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> retry <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
-
-<span class="token keyword">const</span> <span class="token function-variable function">loadData</span> <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">{</span>
-  <span class="token comment">// ...Try to load data</span>
-  <span class="token keyword">return</span> data<span class="token punctuation">;</span> <span class="token comment">// success!</span>
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> result <span class="token operator">=</span> <span class="token keyword">await</span> <span class="token function">retry</span><span class="token punctuation">(</span>loadData<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">count</span><span class="token operator">:</span> <span class="token number">5</span><span class="token punctuation">,</span> <span class="token literal-property property">startMs</span><span class="token operator">:</span> <span class="token number">1000</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
-<span class="token keyword">if</span> <span class="token punctuation">(</span>result<span class="token punctuation">.</span>success<span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token comment">// Yay</span>
-  data<span class="token punctuation">.</span>value<span class="token punctuation">;</span> <span class="token comment">// contains result of `loadData`</span>
-<span class="token punctuation">}</span> </code></pre><p>See also:</p><ul>
+<span class="token punctuation">}</span></code></pre><p>See also:</p><ul>
 <li><a href="https://clinth.github.io/ixfx/functions/Flow.waitFor.html"><code>waitFor</code></a>: call a function and be notified if it doesn't finish within a certain time</li>
 </ul>
 	</section>

@@ -17,7 +17,7 @@ setup: |
 
 Easing functions help to give a *dynamic* to transition. In [Cartesian](../../types/geometry/units/#cartesian) terms, they give a _y_ value for _x_ (where x is 0 .. 1). Or in temporal terms, you can think of them as giving a value at time _t_ (where _t_ is 0 .. 1).
 
-Normally, a way of getting from 0 to 1 would be count upwards by some fixed amount. And if that's all you need, ixfx's [count](../../data/generator/#count) and [numericRange](../../data/generator/#numeric-range) functions might do the job.
+Normally, a way of getting from 0 to 1 would be count upwards by some fixed amount. And if that's all you need, ixfx's [count](../../gen/generator/#count) and [numericRange](../../gen/generator/#numeric-range) functions might do the job.
 
 For example, count by 0.1 from 0 to 1:
 
@@ -37,7 +37,9 @@ Jump to the [Defined Easings](#defined-easings) to see a list of pre-defined eas
 
 ## Usage
 
-Easings can be driven by time or _ticks_, created by [Easings.time](https://clinth.github.io/ixfx/modules/Modulation.Easings.html#time) or [Easings.tick](https://clinth.github.io/ixfx/modules/Modulation.Easings.html#tick), respectively. Each of these returns an [Easings.Easing](https://clinth.github.io/ixfx/modules/Modulation.Easings.html#Easing):
+Easings can be driven by time or _ticks_, created by [`Easings.time`](https://clinth.github.io/ixfx/functions/Modulation.Easings.time.html) or [`Easings.tick`](https://clinth.github.io/ixfx/functions/Modulation.Easings.tick.html), respectively. 
+
+Each of these returns an [`Easings.Easing`](https://clinth.github.io/ixfx/types/Modulation.Easings.Easing.html), which has this type:
 
 ```typescript
 type Easing = {
@@ -53,12 +55,12 @@ type Easing = {
 
 ### Time-based
 
-Example: `sineIn` easing that takes one second to complete:
+Example: 'sineIn' easing that takes one second to complete:
 
 ```js
 import { Easings } from "https://unpkg.com/ixfx/dist/modulation.js";
 
-// Set up
+// Initialise
 const e = Easings.time(`sineIn`, 1000);
 
 // Returns value at this point in time.
@@ -70,7 +72,7 @@ const v = e.compute();
 if (e.isDone) ...
 ```
 
-Time starts being counted from when the easing is initialised (ie. calling `Easings.time()`). For this reason, you likely want to initialise just-in-time. Calling `reset()` can also be useful for resetting the timer.
+Time starts being counted from when the easing is initialised (ie. calling `Easings.time()`). For this reason, you likely want to initialise just before it's needed, or values you will lose part of the range. Calling `reset()` can also be useful for resetting the timer.
 
 You'll probably call `compute()` inside an existing draw/update loop that is running. If you don't have a loop already, here is a snippet that returns an easing over time:
 

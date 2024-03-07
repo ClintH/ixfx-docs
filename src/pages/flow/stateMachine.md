@@ -12,7 +12,7 @@ import '/src/components/ReplPad';
 </script>
 
 <div class="tip"><ul>
-<li>API Reference <a href="ttps://clinth.github.io/ixfx/modules/Flow.StateMachine.html">StateMachine</a></li>
+<li>API Reference <a href="https://clinth.github.io/ixfx/modules/Flow.StateMachine.html">StateMachine</a></li>
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
 <li>Starter: <a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter">GitHub</a>, <a href="https://glitch.com/edit/#!/ixfx-starter-statemachine">Glitch</a>
 </ul></div>
@@ -80,7 +80,7 @@ Try out some state machines in this playground.
 
 <div class="tip"><ul>
 <li>API Reference <a href="https://clinth.github.io/ixfx/modules/Flow.StateMachine.html">StateMachine</a></li>
-<li><a href="https://clinth.github.io/ixfx/modules/Flow.html">Online demos</a></li>
+<li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demos</a></li>
 <li>Starter: <a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/statemachine-starter">GitHub</a>, <a href="https://glitch.com/edit/#!/ixfx-starter-statemachine">Glitch</a>
 </ul></div>
 
@@ -213,23 +213,23 @@ sm.addEventListener(`stop`, (evt) => {
 
 ## Simple machines
 
-[`StateMachine.fromList`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.fromList.html) creates a machine that steps through a series of states and then terminates.
+[`StateMachine.fromList`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.fromList.html) creates transitions that steps through a series of states and then terminates.
 
 ```js
 // repl-pad#3
 import { StateMachine } from "https://unpkg.com/ixfx/dist/flow.js"
 // Machine that can go: init -> one -> two -> three -> [end]
-const sm1 = StateMachine.fromList(`init`, `one`, `two`, `three`);
+const sm1 = StateMachine.init(StateMachine.fromList(`init`, `one`, `two`, `three`));
 ```
 
 Once in the 'three' state, will be considered _done_, since there is no possible transition from there.
 
-[`StateMachine.bidirectionalFromList`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.bidirectionalFromList.html) is the same idea, but allow back-and-forth between states.
+[`StateMachine.fromListBidirectional`](https://clinth.github.io/ixfx/functions/Flow.StateMachine.fromListBidirectional.html) is the same idea, but allow back-and-forth between states.
 
 ```js
 // repl-pad#3
 // Machine that can go: init <-> one <-> two <-> three
-const sm2 = StateMachine.bidirectionalFromList(`init`,`one`, `two`, `three`);
+const sm2 = StateMachine.init(StateMachine.fromListBidirectional(`init`,`one`, `two`, `three`));
 ```
 
 In the above example, `sm2` will never be _done_, because it's always possible for it to transition to some state.
@@ -303,12 +303,12 @@ const states = {
 
 const handlers = [
   { 
-    // State is 'sleeping'
+    // If we're in the 'sleeping' state, move to next state
     if: 'sleeping',
     then: { next: true }
   },
   { 
-    // State is 'waking'
+    // If we're in the 'waking' state, randomly either go to 'resting' or 'sleeping' state
     if: 'waking',
     then: [
       () => {
@@ -324,11 +324,17 @@ const handlers = [
 
 // Set up driver
 const driver = await StateMachine.driver(states, handlers);
+```
 
-// To take action based on the current state, call .run()
-// (usually this be called in a loop)
-await driver.run();
+Once you have the state machine and driver set up, you need to call .run() whenever you want the driver to do its thing. This might be called for example in a loop based on a timer.
+```js
+driver.run();
+```
 
+If you use asynchronous event handlers, call `await driver.run()` instead.
+
+Some other things to do with the driver:
+```js
 // Check current state
 driver.getValue(); // eg. 'resting'
 
@@ -355,7 +361,7 @@ With this in mind, we can re-write the earlier example, assigning random scores 
 ...
 ```
 
-In practice you might want to weight the random values so one choice is more or less likely than another. See [Random](../gen/random.md) for more on that.
+In practice you might want to weight the random values so one choice is more or less likely than another. See [Random](../../gen/random/) for more on that.
 
 Each handler also has an optional `resultChoice` field, which can be 'first', 'highest', 'lowest' or 'random'. By default, 'highest' is used, picking the highest scoring result. In our example, we might use `resultChoice: 'random'` to evenly pick between choices. With that enabled, we no longer need scores.
 

@@ -1,6 +1,6 @@
 
-import {fromText} from '@clinth/repl-pad/dist/link.js';
-import {untilMatch} from 'ixfx/lib/text';
+import { fromText } from '@clinth/repl-pad/dist/link.js';
+import { afterMatch, beforeMatch } from 'ixfx/lib/text';
 
 type Block = {
   el: HTMLElement
@@ -59,7 +59,7 @@ export const preBlocks = (): void => {
       // repl-pad#1
       if (withoutMarker.startsWith(`#`)) {
         // Get group id, eg '1'
-        group = untilMatch(withoutMarker, ' ', 1);
+        group = afterMatch(withoutMarker, '#', { fallback: `1` });
       }
     }
 
@@ -71,9 +71,6 @@ export const preBlocks = (): void => {
       src: (el as HTMLElement).innerText.substring(firstLine.length)
     };
     blocks.push(b);
-
-    // console.log(`Block:`);
-    // console.log(b);
   }
 
   // Aggregate groups
@@ -82,7 +79,7 @@ export const preBlocks = (): void => {
     if (b.group.length > 0) {
       let group = groups.get(b.group);
       if (group === undefined) {
-        group = {blocks: [], name: b.group, src: ``, uri: ``}
+        group = { blocks: [], name: b.group, src: ``, uri: `` }
         groups.set(b.group, group);
       }
       group.blocks.push(b);
@@ -106,7 +103,7 @@ export const preBlocks = (): void => {
       b.uri = fromText(b.src.trim(), baseUri);
     }
 
-    b.markerEl.innerHTML = `<a style="color: var(--yellow)">//</span> <a title="Open in repl-pad" style="font-weight:bold; color: var(--yellow)" href="${b.uri}">repl-pad</a>`;
+    b.markerEl.innerHTML = `<a style="color: var(--yellow)">//</span> <a title="Open in repl-pad" style="font-weight:bold; color: var(--yellow)" href="${ b.uri }">repl-pad</a>`;
   }
 }
 

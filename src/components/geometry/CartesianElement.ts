@@ -1,11 +1,11 @@
 /* eslint-disable */
-import {LitElement, html, css} from 'lit';
-import {property} from 'lit/decorators.js';
-import {Circles, Arcs, Lines, Points, Polar, radianToDegree} from 'ixfx/lib/geometry';
-import {themeChangeObservable} from 'ixfx/lib/dom';
-import {Palette} from 'ixfx/lib/visual';
+import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
+import { Circles, Arcs, Lines, Points, Polar, radianToDegree } from 'ixfx/lib/geometry';
+import { Rx } from 'ixfx/lib/dom';
+import { Palette } from 'ixfx/lib/visual';
 import * as Svg from 'ixfx/lib/svg';
-import {elStyles} from '../styles.js';
+import { elStyles } from '../styles.js';
 
 export const tagName = `cartesian-element`;
 
@@ -40,9 +40,9 @@ export class CartesianElement extends LitElement {
     this.palette.setElementBase(this);
     this.width = 500;
     this.height = 300;
-    this.origin = {x: 10, y: 10};
+    this.origin = { x: 10, y: 10 };
 
-    themeChangeObservable().subscribe(records => {
+    Rx.themeChange().on(records => {
       this.updated();
     });
   }
@@ -51,7 +51,7 @@ export class CartesianElement extends LitElement {
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`)
     );
-    return {width: svg.width, height: svg.height};
+    return { width: svg.width, height: svg.height };
   }
 
   renderSvg() {
@@ -66,11 +66,11 @@ export class CartesianElement extends LitElement {
     const w = svg.width;
     const h = svg.height - 40;
 
-    Svg.Elements.grid(svg.parent, origin, 25, w, h, {strokeWidth: 2});
+    Svg.Elements.grid(svg.parent, origin, 25, w, h, { strokeWidth: 2 });
 
     // Pole
-    svg.circle({radius: 5, ...origin}, {fillStyle: poleColour, strokeStyle: `none`})
-    svg.text('Origin', Points.sum(origin, 5, 20), {fillStyle: poleColour, strokeStyle: `none`});
+    svg.circle({ radius: 5, ...origin }, { fillStyle: poleColour, strokeStyle: `none` })
+    svg.text('Origin', Points.sum(origin, 5, 20), { fillStyle: poleColour, strokeStyle: `none` });
 
     // Pole axis
     const triangleMarker = {
@@ -85,7 +85,7 @@ export class CartesianElement extends LitElement {
       strokeWidth: 3,
       strokeStyle: poleColour
     });
-    svg.text(`X`, {x: origin.x + w - 45, y: origin.y + labelOffset}, {strokeStyle: `none`, fillStyle: poleColour});
+    svg.text(`X`, { x: origin.x + w - 45, y: origin.y + labelOffset }, { strokeStyle: `none`, fillStyle: poleColour });
 
     const poleAxisLineY = Lines.fromNumbers(origin.x, origin.y, origin.x, h);
     svg.line(poleAxisLineY, {
@@ -93,7 +93,7 @@ export class CartesianElement extends LitElement {
       strokeWidth: 3,
       strokeStyle: poleColour
     });
-    svg.text(`Y`, {x: origin.x + 10, y: origin.y + h - labelOffset - 10}, {strokeStyle: `none`, fillStyle: poleColour});
+    svg.text(`Y`, { x: origin.x + 10, y: origin.y + h - labelOffset - 10 }, { strokeStyle: `none`, fillStyle: poleColour });
 
   }
 
@@ -128,7 +128,7 @@ export class CartesianElement extends LitElement {
     const lineToCursorDistance = Lines.length(lineToCursor);
 
     // Draw point at cursor
-    svg.circle({radius: 5, ...ptr}, {
+    svg.circle({ radius: 5, ...ptr }, {
       fillStyle: targetColour,
       strokeStyle: `none`
     }, `#targetCircle`);
@@ -139,8 +139,8 @@ export class CartesianElement extends LitElement {
       fillStyle: targetColour,
       anchor: `middle`
     }
-    svg.text(`(${Math.round(ptr.x - origin.x)}, ${Math.round(ptr.y - origin.y)})`,
-      {x: ptr.x, y: ptr.y + 40},
+    svg.text(`(${ Math.round(ptr.x - origin.x) }, ${ Math.round(ptr.y - origin.y) })`,
+      { x: ptr.x, y: ptr.y + 40 },
       labelStyle,
       `#coordLabel`);
   }
@@ -148,7 +148,7 @@ export class CartesianElement extends LitElement {
   render() {
     return html`
       <div id="container">
-      <svg @pointermove="${this._pointerMove}" style="font-size: 1em" viewBox="0 0 ${this.width} ${this.height}" width=${this.width} height=${this.height}> </svg>
+      <svg @pointermove="${ this._pointerMove }" style="font-size: 1em" viewBox="0 0 ${ this.width } ${ this.height }" width=${ this.width } height=${ this.height }> </svg>
         </div>
           `;
   }

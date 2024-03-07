@@ -28,21 +28,21 @@ const t = window.setTimeout(doSomething, 60*1000);
 const t = window.setTimeout(doSomething, intervalToMs({ mins: 1 }))
 ```
 
-If you want to trigger the same timeout at different points in your code, it soon gets messy  detecting and cancelling the existing timeout and scheduling a new one.
+If you want to trigger the same timeout at different points in your code, it soon gets messy detecting and cancelling the existing timeout and scheduling a new one.
 
-ixfx's `timeout` makes this a bit simpler. Once setup, calling `start()` resets the timeout if it's already started. To cancel a started timeout, use `cancel()`, or `isDone` to check whether the timeout has been executed.
+ixfx's [`timeout`](https://clinth.github.io/ixfx/functions/Flow.timeout-1.html) makes this a bit simpler. Once setup, calling `start()` resets the timeout if it's already started. To cancel a started timeout, use `cancel()`, or `isDone` to check whether the timeout has been executed.
 
 ```js
 import { timeout } from "https://unpkg.com/ixfx/dist/flow.js"
 
 // Set up once
-const fadeOut = timeout((elapsedMs, args) => {
-  // do something
-}, 30*1000);
+const fadeOut = timeout(() => {
+  // do something after 30secs
+}, { secs: 30 });
 
 // Trigger if there's a button press.
 // Multiple calls to .start() simply reset timeout 
-document.getElementById(`btnStart`).addEventListener(`click`, fadeOut.start());
+document.getElementById(`btnStart`).addEventListener(`click`, () => fadeOut.start());
 ```
 
 When calling `start`, you can override its default delay:
@@ -59,76 +59,42 @@ timeout(elapsedMs => console.log(`Timeout after ${elapsedMs}`), { secs: 30 }).st
 
 ## Delay
 
-To run a function after a delay, you can use [timeout](#timeout), or the asynchronous [`delay`](https://clinth.github.io/ixfx/functions/Flow.delay.html).
-
-The signature looks like this:
-```typescript
-DelayOpts: Interval & {
-    delay: "before" | "after" | "both";
-    signal?: AbortSignal;
-}
-delay(callback, options?:DelayOpts);
-```
+If you don't need to manage a timeout, the asynchronous [`delay`](https://clinth.github.io/ixfx/functions/Flow.delay.html) might be preferred. Unlike the in-built `setTimeout`, it optionally allows you to pause execution until the delay elapses
 
 Some examples:
 ```js
-const someFn = () => {
-  // do something
-}
+const someFn = () => { // do something }
 
-// Run 'someFn' after 100 milliseconds
+// Stop for 100ms, call 'someFn' and then continue
+await delay(someFn, 100);
+// Execution continues here after 100ms + time for 'someFn' to run
+```
+
+If the call is not `await`ed, execution continues:
+```js
+// Schedule 'someFn' after 100ms
 delay(someFn, 100);
+// ...but execution continues here immediately
+```
 
-// Run the anonymous function after 1 minute
-delay(() => { console.log(`hello`) }, { mins: 1 });
-
-// Run 'someFn' after 10 seconds, pausing afterwards
+By default the delay period is before running the supplied function, but it can also be after:
+```js
+// Runs 'someFn' immediately
 await delay(someFn, { delay: "after", secs: 10 });
+// ...but execution does not continue here until 10 seconds later
 ```
 
-If the call to `delay` is not _await_-ed, execution continues immediately, with the provided function running after the specified delay.
+Or both:
 
 ```js
-import { delay } from "https://unpkg.com/ixfx/dist/flow.js"
-
-console.log(`Hello`);
-delay(async () => console.log(`There`), 1000);
-console.log(`!`);
-// Prints:
-// Hello
-// !
-// There [after one second]
-```
-
-Alternatively, you can stop and wait for it to run:
-
-```js
-console.log(`Hello`);
-await delay(async () => console.log(`There`), 1000 );
-console.log(`!`);
-// Prints:
-// Hello
-// There [after one second]
-// !
-```
-
-The delay can be before the function is run, after or both.
-```js
-delay( () => /* some code */, { mins: 10, delay: "both" } ); // "before" | "after" | "both"
+// Waits 10seconds, and then runs `someFn`
+await delay(someFn, { delay: "both", secs: 10 });
+// ...and waits a further 10secs before continuing here
 ```
 
 ## Sleep
 
 Using JS's _await_ feature, you can essentially pause execution of your code using [`sleep`](https://clinth.github.io/ixfx/functions/Flow.sleep.html).
-
-The function signature is:
-```typescript
-SleepOpts<V>: Interval & {
-    signal?: AbortSignal;
-    value?: V;
-}
-sleep(opts:SleepOpts);
-```
 
 ```js
 import { sleep } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -154,7 +120,7 @@ something();
 Compared to [delay](#delay), `sleep` doesn't run a function and provide a value. It just sleeps.
 
 
-## Intervals
+## Interval type
 
 Most of the ixfx functions that take millisecond arguments also allow you to provided an [`Interval`](https://clinth.github.io/ixfx/types/Flow.Interval.html). This can make for more readable code.
 
@@ -185,7 +151,7 @@ delay( () => ..., 1000);
 delay( () => ..., { millis: 1000 });
 ```
 
-Any of the time units can be combined to define an interval, with a cumulative effect. [`intervalToMs`](https://clinth.github.io/ixfx/Flow.intervalToMs.html) allows you to convert to milliseconds, useful for combining with vanilla JS functions.
+Any of the time units can be combined to define an interval, with a cumulative effect. [`intervalToMs`](https://clinth.github.io/ixfx/functions/Flow.intervalToMs.html) allows you to convert to milliseconds, useful for combining with vanilla JS functions.
 
 ```js
 import { intervalToMs } from "https://unpkg.com/ixfx/dist/flow.js"

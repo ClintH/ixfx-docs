@@ -57,31 +57,31 @@
 
 		<title>Process a set of items - ixfx docs</title>
 		
-	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" data-astro-component-hydration astro-script="/data/process-set/script-0">import setup from '../../idle.cf066c8c.js';
+	<link rel="stylesheet" href="/ixfx-docs/assets/MainLayout.46c7210e.css"></link><style astro-style="true">astro-root, astro-fragment { display: contents; }</style><script type="module" data-astro-component-hydration astro-script="/data/process-set/script-0">import setup from '../../idle.1e368d9f.js';
 setup("Z12Vj7s", {name:"SidebarToggle",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.d7ee5070.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../SidebarToggle.fca59054.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-MOSAUK67"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/data/process-set/script-1">import setup from '../../media.4019acd1.js';
+<script type="module" data-astro-component-hydration astro-script="/data/process-set/script-1">import setup from '../../media.0d830f0d.js';
 setup("ZIUcmN", {name:"TableOfContents",value: "(min-width: 50em)"}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":1,"slug":"known-list","text":"Known list"},{"depth":1,"slug":"ad-hoc-list","text":"Ad-hoc list"},{"depth":1,"slug":"","text":""}],"class":"astro-XPZS3NBI"}, children);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":1,"slug":"known-list","text":"Known list"},{"depth":1,"slug":"ad-hoc-list","text":"Ad-hoc list"}],"class":"astro-XPZS3NBI"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/data/process-set/script-2">import setup from '../../visible.6e568c09.js';
+<script type="module" data-astro-component-hydration astro-script="/data/process-set/script-2">import setup from '../../visible.08ab059e.js';
 setup("1Gmxo9", {name:"ThemeToggleButton",value: true}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.da026e82.js"), import("../../client.c8b3fae7.js")]);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../ThemeToggleButton.48d19909.js"), import("../../client.dcc0a456.js")]);
   return (el, children) => hydrate(el)(Component, {"class":"astro-WOEIVG5E"}, children);
 
 });
 </script>
-<script type="module" data-astro-component-hydration astro-script="/data/process-set/script-3">import setup from '../../media.4019acd1.js';
+<script type="module" data-astro-component-hydration astro-script="/data/process-set/script-3">import setup from '../../media.0d830f0d.js';
 setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () => {
-  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.8febe64b.js"), import("../../client.c8b3fae7.js")]);
-  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":1,"slug":"known-list","text":"Known list"},{"depth":1,"slug":"ad-hoc-list","text":"Ad-hoc list"},{"depth":1,"slug":"","text":""}],"class":"astro-AMOJLK4X"}, children);
+  const [{ default: Component }, { default: hydrate }] = await Promise.all([import("../../TableOfContents.ede6c4ed.js"), import("../../client.dcc0a456.js")]);
+  return (el, children) => hydrate(el)(Component, {"headers":[{"depth":1,"slug":"known-list","text":"Known list"},{"depth":1,"slug":"ad-hoc-list","text":"Ad-hoc list"}],"class":"astro-AMOJLK4X"}, children);
 
 });
 </script>
@@ -310,8 +310,10 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 		<nav class="block sm:hidden astro-AMOJLK4X">
 				<astro-root uid="ZIUcmN"><h2 class="heading">On this page</h2><ul><li class="header-link depth-2"><a href="#overview">Overview</a></li></ul></astro-root>
 			</nav>
-		<p>This pattern shows how to process a list of items with a timed delay.</p><h1 id="known-list">Known list</h1><p>This pattern shows how to process a list of items which are known in advance.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'apple'</span><span class="token punctuation">,</span><span class="token string">'orange'</span><span class="token punctuation">,</span><span class="token string">'pear'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
-<span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> <span class="token function">interval</span><span class="token punctuation">(</span>iterms<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">fixedInterval</span><span class="token operator">:</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span></code></pre><h1 id="ad-hoc-list">Ad-hoc list</h1><p>This pattern shows how to process items that are being added to a queue or stack on an ad-hoc basis. Eg, being added as a result of a user clicking something.</p><p>Use a <a href="../collections/queue/">Queue</a> or <a href="../collections/stack/">Stack</a> data structure depending on how you want items to be prioritised. The example below uses a stack, meaning that most recent additions get processed first. We use ...</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
+		<p>This pattern shows how to process a list of items with a timed delay.</p><h1 id="known-list">Known list</h1><p>This pattern shows how to process a list of items known in advance.</p><pre class="language-js"><code class="language-js"><span class="token keyword">const</span> items <span class="token operator">=</span> <span class="token punctuation">[</span> <span class="token string">'apple'</span><span class="token punctuation">,</span> <span class="token string">'orange'</span><span class="token punctuation">,</span> <span class="token string">'pear'</span> <span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token keyword">await</span> <span class="token punctuation">(</span><span class="token keyword">const</span> item <span class="token keyword">of</span> <span class="token function">interval</span><span class="token punctuation">(</span>items<span class="token punctuation">,</span> <span class="token punctuation">{</span> <span class="token literal-property property">fixed</span><span class="token operator">:</span> <span class="token number">1000</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+  <span class="token comment">// Process an item every one second...</span>
+<span class="token punctuation">}</span></code></pre><h1 id="ad-hoc-list">Ad-hoc list</h1><p>This pattern shows how to process items that are being added to a queue or stack on an ad-hoc basis. Eg, being added as a result of a user clicking something.</p><p>Use a <a href="../collections/queue/">Queue</a> or <a href="../collections/stack/">Stack</a> data structure depending on how you want items to be prioritised. The example below uses a stack, meaning that most recent additions get processed first. We use ...</p><pre class="language-js"><code class="language-js"><span class="token keyword">import</span> <span class="token punctuation">{</span> continuously <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/flow.js"</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> Stacks <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">"https://unpkg.com/ixfx/dist/collections.js"</span>
 
 <span class="token comment">// Eg: limit stack to 10 items</span>
@@ -347,7 +349,7 @@ setup("ZIUcmN", {name:"TableOfContents",value: "(max-width: 50em)"}, async () =>
 <span class="token comment">// Somewhere else in our code, we can add and start running</span>
 <span class="token function">process</span><span class="token punctuation">(</span><span class="token template-string"><span class="token template-punctuation string">`</span><span class="token string">some item</span><span class="token template-punctuation string">`</span></span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre><ul>
 <li><a href="https://clinth.github.io/ixfx-demos/flow/">Online demo</a> (<a href="https://github.com/ClintH/ixfx-demos/tree/main/flow/list-async">source</a>)</li>
-</ul><h1 id=""></h1>
+</ul>
 	</section>
 	<nav class="block sm:hidden astro-AMOJLK4X">
 		

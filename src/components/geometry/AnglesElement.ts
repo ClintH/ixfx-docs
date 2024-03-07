@@ -1,10 +1,10 @@
 /* eslint-disable */
-import {LitElement, html, css} from 'lit';
-import {property} from 'lit/decorators.js';
-import {Circles, Lines, radianToDegree} from 'ixfx/lib/geometry';
-import {themeChangeObservable} from 'ixfx/lib/dom';
-import {Svg, Palette} from 'ixfx/lib/visual';
-import {elStyles} from '../styles.js';
+import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
+import { Circles, Lines, radianToDegree } from 'ixfx/lib/geometry';
+import { Rx } from 'ixfx/lib/dom';
+import { Svg, Palette } from 'ixfx/lib/visual';
+import { elStyles } from '../styles.js';
 
 export const tagName = `angles-element`;
 
@@ -46,7 +46,7 @@ export class AnglesElement extends LitElement {
     this.width = 400;
     this.height = 400;
 
-    themeChangeObservable().subscribe(records => {
+    Rx.themeChange().on(records => {
       this.updated();
     });
   }
@@ -65,7 +65,7 @@ export class AnglesElement extends LitElement {
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`)
     );
-    return {width: svg.width, height: svg.height};
+    return { width: svg.width, height: svg.height };
   }
 
   lastCircle: Circles.CirclePositioned | undefined;
@@ -73,7 +73,7 @@ export class AnglesElement extends LitElement {
   renderSvg() {
     const svg = Svg.makeHelper(
       this.shadowRoot.querySelector(`svg`),
-      {fillStyle: `transparent`}
+      { fillStyle: `transparent` }
     );
 
     svg.clear();
@@ -81,7 +81,7 @@ export class AnglesElement extends LitElement {
     const h = svg.height;
 
     let radius = svg.height * 0.30;
-    let center = {x: w / 2, y: h / 2};
+    let center = { x: w / 2, y: h / 2 };
     const traceStyle = {
       strokeStyle: this.palette.get(`axis-color`, `orange`),
       strokeWidth: 3
@@ -93,7 +93,7 @@ export class AnglesElement extends LitElement {
       align: `hanging`
     };
 
-    let c: Circles.CirclePositioned = {radius: radius, ...center};
+    let c: Circles.CirclePositioned = { radius: radius, ...center };
     this.lastCircle = c;
     svg.circle(c, traceStyle);
 
@@ -103,18 +103,18 @@ export class AnglesElement extends LitElement {
     // let vert = Lines.fromNumbers(center.x, 0, center.x, h);
     // svg.line(vert, traceStyle);
 
-    const labelC = {...c, radius: radius + 20};
+    const labelC = { ...c, radius: radius + 20 };
 
     const addRadian = (rad: number, label?: string, opts: Svg.TextDrawingOpts = labelStyle) => {
       if (label === undefined) label = rad.toString();
       const pt = Circles.point(labelC, rad);
-      svg.text(label, {x: pt.x, y: pt.y}, opts);
+      svg.text(label, { x: pt.x, y: pt.y }, opts);
     }
 
-    addRadian(0, `0`, {...labelStyle, anchor: `start`, align: `middle`});
-    addRadian(Math.PI, `Math.PI`, {...labelStyle, align: `middle`, anchor: `end`});
-    addRadian(Math.PI / 2, `Math.PI/2`, {...labelStyle, align: `text-bottom`});
-    addRadian(3 * Math.PI / 2, `3*Math.PI/2`, {...labelStyle, align: `hanging`});
+    addRadian(0, `0`, { ...labelStyle, anchor: `start`, align: `middle` });
+    addRadian(Math.PI, `Math.PI`, { ...labelStyle, align: `middle`, anchor: `end` });
+    addRadian(Math.PI / 2, `Math.PI/2`, { ...labelStyle, align: `text-bottom` });
+    addRadian(3 * Math.PI / 2, `3*Math.PI/2`, { ...labelStyle, align: `hanging` });
   }
 
   async updated() {
@@ -138,7 +138,7 @@ export class AnglesElement extends LitElement {
     const intersections = Circles.intersectionLine(c, lineExtended);
     if (intersections.length !== 1) return;
 
-    const inter = intersections[0];
+    const inter = intersections[ 0 ];
 
     // Draw ray to intersection point
     const ray = Lines.extendFromA(Lines.fromPoints(c, inter), 10);
@@ -171,7 +171,7 @@ export class AnglesElement extends LitElement {
     else if (rad == 1.75) radStr = `7π/4`;
     else if (rad == 1.92) radStr = `23π/12`;
     else if (rad == 0) radStr = `0 or 2π`;
-    else radStr = `${rad.toFixed(2)}π`;
+    else radStr = `${ rad.toFixed(2) }π`;
 
     // Compute degrees
     let deg = radianToDegree(lineRad);
@@ -186,14 +186,14 @@ export class AnglesElement extends LitElement {
       fillStyle: this.palette.get(`fgDim`, `black`),
       anchor: `middle`
     }
-    svg.text(`Radians: ${radStr}`, {x: c.x, y: c.y}, labelStyle, `#radiansLabel`);
-    svg.text(`Degrees: ${degStr}`, {x: c.x, y: c.y + 20}, labelStyle, `#degreesLabel`);
+    svg.text(`Radians: ${ radStr }`, { x: c.x, y: c.y }, labelStyle, `#radiansLabel`);
+    svg.text(`Degrees: ${ degStr }`, { x: c.x, y: c.y + 20 }, labelStyle, `#degreesLabel`);
   }
 
   render() {
     return html`
 			<div id="container">
-        <svg @pointermove="${this._pointerMove}" style="font-size: 1em" viewBox="0 0 ${this.width} ${this.height}" width=${this.width} height=${this.height}></svg>
+        <svg @pointermove="${ this._pointerMove }" style="font-size: 1em" viewBox="0 0 ${ this.width } ${ this.height }" width=${ this.width } height=${ this.height }></svg>
 			</div>
 		`;
   }

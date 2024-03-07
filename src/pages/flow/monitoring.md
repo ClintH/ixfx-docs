@@ -15,36 +15,66 @@ import '/src/components/ReplPad';
 
 The [`Elapsed`](https://clinth.github.io/ixfx/modules/Flow.Elapsed.html) module has a few functions for tracking passage of time.
 
+An overview:
+* Elapsed.since(): time from a start point
+* Elapsed.interval(): time from start point, and between each subsequent call
+* Elapsed.once(): one-time measurement from a start point
+  
 ## Elapsed
 
-`since` yields how much time (in milliseconds) has passed since first invoked.
+### Since
+`since` yields how much time (in milliseconds) has passed since first invoked. This is the fixed reference point all later invocations are compared to.
 
 ```js
 // repl-pad
 import { Elapsed } from "https://unpkg.com/ixfx/dist/flow.js"
 
-// Start monitoring elapsed time
+// A. Start monitoring elapsed time
 const elapsed = Elapsed.since();
 
 // ...some time later ...
 
-elapsed(); // Get current elapsed time
+elapsed(); // B. Elapsed time since (A)
 // ...some time later ...
-elapsed(); // New elapsed time
+elapsed(); // C. Elapsed time since (A)
 ```
 
-Each call to `elapsed()` reports the current time, it will continually change. An alternative is to use `Elapsed.once()`. This fixes the time when the callback function is first run.
+Each call to `elapsed()` reports the current time, it will continually change. 
+
+### Interval
+
+`Elapsed.interval` reports the time from the first initialisation and each subsequent call. Unlike `since`, there is a not a fixed reference point. It is always comparing to either the initial time or when the callback was last run.
 
 ```js
 // repl-pad
 import { Elapsed } from "https://unpkg.com/ixfx/dist/flow.js"
 
+// A. Start monitoring elapsed time
+const elapsed = Elapsed.interval();
+
+// ...some time later ...
+
+elapsed(); // B. Elapsed time since (A)
+// ...some time later ...
+elapsed(); // C. Elapsed time since (B)
+```
+
+### Once
+
+`Elapsed.once` fixes both the start point and a second reference time. After initialisation, it records the time at which the first call happens. This is then given as the value for all future calls.
+
+```js
+// repl-pad
+import { Elapsed } from "https://unpkg.com/ixfx/dist/flow.js"
+
+// A. Start monitoring elapsed time
 const elapsed = Elapsed.once();
 // ...some time later...
-elapsed(); // Current time. Timer is fixed at this point
+elapsed(); // B. Time since (A). Since it is the first call, we now fix the second reference.
 // ...some time later...
-elapsed(); // Will be same value as before
-```
+elapsed(); // C. Will be same value as earlier (B-A)
+elapsed(); // D. As above, forever
+ ```
 
 ## Human-friendly elapsed time
 
