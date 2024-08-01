@@ -14,13 +14,10 @@ import '/src/components/ReplPad';
 </ul></div>
 
 Overview:
-* [continuously](#continuously): Useful for a 'main loop', can be controlled
-* [delayLoop](#delayed-loop): A 'for' loop with some delay between iterations
-* [interval](#interval): Calls an async function or generator with some delay, returning results as they happen
-
-Without delays:
-* [repeat](#repeat): Execute a function _x_ times, collecting results
-
+* [continuously](#continuously): Useful for a 'main loop', can be controlled. Typically for loops that run forever, like an animation loop. It's an object.
+* [delayLoop](#delayed-loop): A 'for' loop with some delay between iterations. It's a generator.
+* [interval](#interval): Calls an async function or generator with some delay, returning results as they happen. It's a generator.
+* [repeat](#repeat): Execute a function a given number of times, collecting results. It's a generator.
 
 ## Running code in a timed loop
 
@@ -112,39 +109,14 @@ const jobLoop = continuously(job, 1000);
 ...
 jobLoop.start();  // Starts loop, or resets it if already pending
 jobLoop.cancel(); // Cancels a scheduled loop
+jobLoop.interval = { secs: 5 }; // Change loop speed
 ```
 
-It's possible to check the status of a loop:
-```js
-jobLoop.isDone;    // True if loop has stopped
-jobLoop.elapsedMs; // How long since last start()
-jobLoop.ticks;     // How many iterations of loop
-```
+It's possible to check the status of a `continuously` instance with its `runState` property. It returns a string, one of:
+* "idle": not yet started, or has been stopped.
+* "scheduled": started, waiting to run the callback.
+* "running": currently executing the callback.
 
-The function that runs is given the number of loops and elapsed time as parameters. If the callback returns _false_, this will cause the loop to end. If _true_ or _undefined_ is returned, loop will continue to run.
-
-```js
-const job = (ticks, elapsedMs) => { 
-  // End loop after 100 iterations  
-  if (ticks > 100) return false; 
-}
-const jobLoop = continuously(job, 1000).start();
-```
-
-A callback can be provided to handle when `start` is called. This allows you to intercept the call and decide whether the loop should continue, cancel, reset or dispose (meaning it can't be used any longer). 'reset' is the default behaviour, if there's no `onStartCalled` function.
-
-```js
-const job = () => { ... }
-const onStartCalled = (ticks, elapsedMs) => {
-  // If we've been running for a minute, don't allow waiting period to be reset
-  if (elapsedMs < 60*1000) return 'continue';
-  // Could also return:
-  // 'cancel': stop loop, but allow it to potentially start again
-  // 'dispose': stop loop and prevent it from starting again
-  // 'reset': cancel existing scheduled run and start from full interval
-}
-const jobLoop = continuously(job, 1000, { onStartCalled }).start();
-```
 
 ### Delayed loop
 
@@ -179,8 +151,7 @@ console.log(`Hello`);
 
 ## Repeat
 
-[`repeat`](https://clinth.github.io/ixfx/functions/Flow.repeat.html) runs a function a certain number of times, yielding the results one-by-one.
-
+[`repeat`](https://clinth.github.io/ixfx/functions/Flow.repeat.html) runs a function a certain number of times, yielding the results one-by-one. 
 ```js
 // repl-pad
 import { repeat } from "https://unpkg.com/ixfx/dist/flow.js"
@@ -195,19 +166,22 @@ for (const result of repeat(5, Math.random)) {
 // Exits after 5 numbers
 ```
 
-If you don't care about the return value of the function, consider using the [`count`](../../gen/generator/#count) generator.
-
-If a function is provided instead of a number, `repeat` will continue until the function returns _false_.
-
+There's also an async version if the function being repeated needs to be _awaited_:
 ```js
-// repl-pad
-import { repeat } from "https://unpkg.com/ixfx/dist/flow.js"
+import { repeatAwait, sleep } from "https://unpkg.com/ixfx/dist/flow.js"
 
-// Keep repeating until 10 values have been generated
-const results = repeat(
-  (repeats, valuesProduced) => valuesProduced < 10,
-  () => Math.random());
+// Some function that doesn't return until 1 second 
+async function task() {
+  await sleep(1000);
+  return Math.random();
+}
+
+for await (const result of repeat(5, task)) {
+  console.log(result);
+}
 ```
+
+If you just want to run a function several times without caring about its return value, consider using [`count`](../../gen/generator/#count) instead.
 
 ## Interval
 
@@ -241,14 +215,14 @@ IntervalOpts: {
 }
 ```
 
-In the earlier example, we used `fixed`, meaning there is a fixed delay. `minimum` is useful if the code being run can take varying time to run. This allows iterations to be spaced out more evenly.
+In the earlier example, we used the `fixed` parameter. This gives a constant delay between each execution of the function. If the function being called can take more or less time, the overall waiting time between executions could thus be quite different. As an alternative, use the `minimum` field. This will subtract the time taken to execute the function, meaning a more regular pacing between executions.
 
-If want to use `interval` in a simple way, instead of passing in an object of options you can use a number, which is taken to be the fixed millisecond delay.
+`interval` can also be invoked more simply by just passing a number, which represents the fixed milliseconds.
 
 ```js
 // These lines are the same
-interval(Math.random, { fixed: 1000 } );
 interval(Math.random, 1000 );
+interval(Math.random, { fixed: 1000 } );
 ```
 
 Example: Iterate through items in a list, with a delay of one minute before each item
@@ -272,6 +246,7 @@ const counter = count(5);
 // Loop over counter with 1000ms delay
 for await (const v of interval(counter, 1000)) {
   // Counts from 0...4, with a delay between each
+  // (although using ixfx's 'repeat' function would be the better way to do this)
   console.log(v);
 }
 ```
@@ -285,39 +260,3 @@ const counterInterval = interval(counter, 1000);
 const v = await counterInterval.next().value;
 // Execution continues after interval period...
 ```
-
-<!-- ## With generators
-
-[Generators](../../data/generator/) can looped over with [`forEach`](https://clinth.github.io/ixfx/modules/Flow.html#forEach)
-
-```js
-import { count } from "https://unpkg.com/ixfx/dist/generators.js"
-import { forEach } from "https://unpkg.com/ixfx/dist/flow.js"
-
-forEach(count(5), () => {
-  // This will run five times
-})
-```
-
-If you know the generator is finite, an alternative is to convert to an array, and utilise JS's inbuilt `forEach`:
-
-```js
-import { count } from "https://unpkg.com/ixfx/dist/generators.js"
-[...count(5)].forEach( () => {
-  // This will run five times
-});
-```
-
-Or naturally, using a `for ... of`:
-
-```js
-import { count } from "https://unpkg.com/ixfx/dist/generators.js"
-for (const i of count(5)) {
-  // This will run five times.
-}
-```
-
-Which to use? the ixfx `forEach` is concise and readable. It has the advantage of not needing to declare a parameter, unlike `for ... of`. Converting to an array avoids having to declare a variable too, but it's not possible to use infinite generators (such as [pingPong](../../data/generator/#ping-pong)).
-
-[`forEachAsync`](https://clinth.github.io/ixfx/modules/Flow.html#forEachAsync) can be used if you want to iterate using an asynchronous callback. See the next section for an example. -->
-

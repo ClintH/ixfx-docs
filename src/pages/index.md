@@ -14,15 +14,32 @@ Explore what ixfx offers via the sidebar. There are lots of interactive illustra
 
 Once you've done that and are ready to tinker, choose your starting point:
 
-Start with demos and examples:
-- [Try demos online](https://clinth.github.io/ixfx-demos/) 
-- [View the code for demo sketches on Github](https://github.com/clinth/ixfx-demos/)
-- [Edit demos on Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos-npm) or [Glitch](https://glitch.com/edit/#!/ixfx-demos)
+### 1. Start with demos and examples
 
-Start with a starter sketch:
-- [Edit with a sketch on Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-starter) or [Glitch](https://glitch.com/edit/#!/ixfx-starter-url)
-- [View code for the starter on Github](https://github.com/ClintH/ixfx-starter)
-- [Read more on importing ixfx into your own sketch](./importing/)
+There is a large set of demo sketches utilising ixfx functions in the [ixfx-demos](https://clinth.github.io/ixfx-demos/) repository. These are a great way to get started and are meant as useful building-blocks. It's recommended you get them running on your local machine and edit the code there.
+
+* [Try them out](https://github.com/clinth/ixfx-demos/)
+* [Getting demos running on your local machine](https://github.com/ClintH/ixfx-demos/blob/main/_readmes/running-local.md)
+
+You can also use an online editing and hosting environment
+- [Gitpod](https://gitpod.io/#https://github.com/ClintH/ixfx-demos-npm): A rich editing experience, hosting and integration with a local editor if you want
+- [Glitch.com](https://glitch.com/edit/#!/ixfx-demos): A simple but cheery editor
+
+### 2. Start with a starter sketch
+
+Our 'starter' sketches don't do anything out-of-the-box. They are lightweight, quick ways of starting a sketch using ixfx.
+
+We offer two flavours, simple starters which are just client-side code, and advanced starters which come bundled with a Node.js server so you can use Websockets and Typescript.
+
+Simple starter sketches
+- [Glitch.com](https://glitch.com/edit/#!/ixfx-starter-url) editor
+- [Gitpod.io](https://gitpod.io/#https://github.com/ClintH/ixfx-starter-url) editor
+
+Advanced starter sketches
+- [Gitpod.io](https://gitpod.io/#https://github.com/ClintH/ixfx-starter) editor
+- [Glitch.com](https://glitch.com/edit/#!/ixfx-starter-node) editor
+  
+Or read more on [importing ixfx into your own sketch](./importing/).
 
 ## Why ixfx?
 

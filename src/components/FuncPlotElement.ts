@@ -1,12 +1,12 @@
 /* eslint-disable */
-import {LitElement, html, css} from 'lit';
-import {property} from 'lit/decorators.js';
-import {classMap} from 'lit/directives/class-map.js';
+import { LitElement, html, css } from 'lit';
+import { property } from 'lit/decorators.js';
+import { classMap } from 'lit/directives/class-map.js';
 
-import {Colour, Drawing, PlotOld as Plot} from 'ixfx/lib/visual';
-import {Generators} from 'ixfx';
-import {Flow} from 'ixfx';
-import {elStyles} from './styles.js';
+import { Colour, Drawing, PlotOld as Plot } from 'ixfx/lib/visual';
+import { Numbers } from 'ixfx';
+import { Flow } from 'ixfx';
+import { elStyles } from './styles.js';
 
 export const tagName = `func-plot-element`;
 
@@ -54,19 +54,19 @@ export class FuncPlotElement extends LitElement {
   @property()
   declare classes;
 
-  @property({type: String})
+  @property({ type: String })
   declare fn: string;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   declare animatedDraw;
 
-  @property({type: Boolean})
+  @property({ type: Boolean })
   declare editable;
 
-  @property({attribute: true, type: Boolean})
+  @property({ attribute: true, type: Boolean })
   declare collapsed;
 
-  @property({type: Number})
+  @property({ type: Number })
   declare xResolution;
 
   plotter: Plot.Plotter | undefined;
@@ -77,7 +77,7 @@ export class FuncPlotElement extends LitElement {
     this.animatedDraw = false;
     this.xResolution = 0.05;
     this.collapsed = false;
-    this.classes = {withBottom: true};
+    this.classes = { withBottom: true };
     this.editable = false;
     this.setFunctionByString(`(x) => x - 1`);
   }
@@ -97,7 +97,7 @@ export class FuncPlotElement extends LitElement {
 
   setFunctionByString(text: string) {
     try {
-      const fn = new Function(`x`, `return ${text}`);
+      const fn = new Function(`x`, `return ${ text }`);
       this.func = {
         text,
         fn
@@ -144,16 +144,16 @@ export class FuncPlotElement extends LitElement {
         defaultSeriesVariable: `accent`,
         y: {
           ...Plot.defaultAxis(`y`),
-          scaleRange: [-.3, 1.3],
-          labelRange: [0, 1],
+          scaleRange: [ -.3, 1.3 ],
+          labelRange: [ 0, 1 ],
           colour: Colour.getCssVariable(`fg`, `gray`)
         },
         x: {
           ...Plot.defaultAxis(`x`),
           showLine: true,
-          scaleRange: [0, 1 / this.xResolution]
+          scaleRange: [ 0, 1 / this.xResolution ]
         },
-        plotSize: {width: 100, height: 100}
+        plotSize: { width: 100, height: 100 }
       };
 
       this.plotter = p = Plot.plot(plotParentEl, opts);
@@ -161,7 +161,8 @@ export class FuncPlotElement extends LitElement {
       p.clear();
     }
 
-    const range = Generators.numericPercent(this.xResolution);
+
+    const range = Numbers.numericPercent(this.xResolution);
 
     if (animatedDraw) {
       for await (const v of Flow.interval(range, 100)) {
@@ -185,7 +186,7 @@ export class FuncPlotElement extends LitElement {
 
   demoOpacity() {
     if (this.collapsed) return;
-    const range = Generators.numericPercent(0.01);
+    const range = Numbers.numericPercent(0.01);
 
     this.demoInit((bounds, ctx): boolean => {
 
@@ -194,7 +195,7 @@ export class FuncPlotElement extends LitElement {
       if (!rangeNext.done) v = this.getValue(rangeNext.value);
 
       v = Math.floor(v * 100);
-      ctx.fillStyle = `hsla(200,80%,50%,${v}%)`;
+      ctx.fillStyle = `hsla(200,80%,50%,${ v }%)`;
       ctx.fillRect(0, 0, bounds.width, bounds.height);
       return !rangeNext.done;
     })
@@ -204,7 +205,7 @@ export class FuncPlotElement extends LitElement {
     if (this.collapsed) return;
     const totalLoops = 100;
 
-    const range = Generators.numericPercent(1 / totalLoops);
+    const range = Numbers.numericPercent(1 / totalLoops);
     let x = 0;
     this.demoInit((bounds, ctx, loops): boolean => {
       const xPerLoop = Math.floor(bounds.width / totalLoops);
@@ -224,7 +225,7 @@ export class FuncPlotElement extends LitElement {
   demoSize() {
     if (this.collapsed) return;
 
-    const range = Generators.numericPercent(0.01);
+    const range = Numbers.numericPercent(0.01);
     const fillStyle = Colour.getCssVariable(`yellow`, `yellow`);
 
     this.demoInit((bounds, ctx): boolean => {
@@ -242,9 +243,9 @@ export class FuncPlotElement extends LitElement {
       }
       v = Math.floor(v * maxSize);
 
-      ctx.font = `${v}px serif`;
+      ctx.font = `${ v }px serif`;
       ctx.fillStyle = fillStyle;
-      Drawing.textBlockAligned(ctx, [`RELAX`], {bounds: b, horiz: `center`, vert: `center`})
+      Drawing.textBlockAligned(ctx, [ `RELAX` ], { bounds: b, horiz: `center`, vert: `center` })
       return !rangeNext.done;
     })
   }
@@ -253,7 +254,7 @@ export class FuncPlotElement extends LitElement {
     if (this.collapsed) return;
 
     const fillStyle = Colour.getCssVariable(`yellow`, `yellow`);
-    const range = Generators.numericPercent(0.01);
+    const range = Numbers.numericPercent(0.01);
     const size = 10;
 
     this.demoInit((bounds, ctx): boolean => {
@@ -274,7 +275,7 @@ export class FuncPlotElement extends LitElement {
     })
   }
 
-  private demoInit(cb: (bounds: {width: number, height: number}, ctx: CanvasRenderingContext2D, loops: number) => boolean, clear = true) {
+  private demoInit(cb: (bounds: { width: number, height: number }, ctx: CanvasRenderingContext2D, loops: number) => boolean, clear = true) {
     if (this.collapsed) return;
     const el = this.shadowRoot.querySelector(`#demoCanvas`) as HTMLCanvasElement;
 
@@ -285,7 +286,7 @@ export class FuncPlotElement extends LitElement {
     const parent = el.parentElement;
     const parentBounds = parent.getBoundingClientRect();
     const margin = 0;
-    const bounds = {width: parentBounds.width - margin - margin, height: parentBounds.height - margin - margin};
+    const bounds = { width: parentBounds.width - margin - margin, height: parentBounds.height - margin - margin };
     el.height = parent.clientHeight;
     el.width = parent.clientWidth;
     let loops = 0;
@@ -334,7 +335,7 @@ export class FuncPlotElement extends LitElement {
     return html`
     <div class="controls">
       <label for="txtFunc">Function</label>
-      <input @input="${this.fnEdit}" id="txtFunc" type="text" value="${fn.text}">
+      <input @input="${ this.fnEdit }" id="txtFunc" type="text" value="${ fn.text }">
     </div>
     <div id="parseMsg" style="display:none">
       Some warning
@@ -345,20 +346,20 @@ export class FuncPlotElement extends LitElement {
   render() {
     if (this.collapsed) {
       return html`
-      <canvas @click="${this.playPlot}" @pointerenter="${this.playPlot}" id="plot"></canvas>
+      <canvas @click="${ this.playPlot }" @pointerenter="${ this.playPlot }" id="plot"></canvas>
       `;
     } else {
       return html`
-      <div id="container" class=${classMap(this.classes)}>
+      <div id="container" class=${ classMap(this.classes) }>
         <div class="plotContainer">
-          ${this.renderEditable()}
-          <canvas @click="${this.playPlot}" @pointerenter="${this.playPlot}" id="plot"></canvas>
+          ${ this.renderEditable() }
+          <canvas @click="${ this.playPlot }" @pointerenter="${ this.playPlot }" id="plot"></canvas>
         </div>
         <div class="vertical mini toolbar">
-          <button @click="${this.demoMove}">Move</button>
-          <button @click="${this.demoOpacity}">Opacity</button>
-          <button @click="${this.demoSize}">Size</button>
-          <button @click="${this.demoHue}">Hue</button>
+          <button @click="${ this.demoMove }">Move</button>
+          <button @click="${ this.demoOpacity }">Opacity</button>
+          <button @click="${ this.demoSize }">Size</button>
+          <button @click="${ this.demoHue }">Hue</button>
         </div>
         <div id="demo"><canvas id="demoCanvas"></div>
       </div> 

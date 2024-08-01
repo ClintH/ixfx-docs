@@ -32,3 +32,8 @@ const json = await fetcher();
 What is useful about this pattern is that when you need the data (ie. `await fetcher()`) you can be ignorant to when or how the data is fetched. 
 
 Note that execution blocks until data is fetched, so there may be cases where polling might be more appropriate.
+
+`updateOutdated` has a third parameter determining what happens if the provided function throws an error.
+* "fast": Invocation will happen immediately on next attempt, without waiting.
+* "slow": Next invocation will wait `interval` before being attempted
+* "backoff": Attempts will get slower and slower until next success. Interval is multipled by 1.2 each time.
